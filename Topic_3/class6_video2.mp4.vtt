@@ -1,0 +1,362 @@
+WEBVTT
+
+00:00:01.070 --> 00:00:07.070
+Hi, this is Dr. Jelena Trajkovic from the CECS Department, Cal State Long Beach. Let's move forward.
+
+00:00:07.070 --> 00:00:12.070
+We have a couple of more properties that we are going to cover in this video.
+
+00:00:12.070 --> 00:00:32.180
+And the first of one is called implement. What that means is that for each element in a set of elements,
+
+00:00:32.180 --> 00:00:35.060
+each variable in set of variables,
+
+00:00:35.060 --> 00:00:39.820
+that has to exist an element that is its complement,
+
+00:00:39.820 --> 00:00:42.340
+so a complement or a not,
+
+00:00:42.340 --> 00:00:47.340
+such that a or a complement is equal to one.
+
+00:00:51.400 --> 00:00:56.400
+So what we can do with this is it kind of doesn't make
+
+00:00:58.640 --> 00:01:00.960
+that much sense to draw a circuit,
+
+00:01:00.960 --> 00:01:04.080
+but I will still do it anyways.
+
+00:01:05.120 --> 00:01:13.360
+This is going to be super funny circuit because you'll have A and then we are going to make
+
+00:01:13.360 --> 00:01:23.780
+A complement which is A0 and when that goes into OR gate you're going to get 1.
+
+00:01:23.780 --> 00:01:32.520
+And that actually will be equivalent to just having a wire that carry value of 1.
+
+00:01:32.520 --> 00:01:34.640
+I'm going to put quotation marks
+
+00:01:34.640 --> 00:01:37.600
+just to make sure that it's a value of one.
+
+00:01:41.400 --> 00:01:44.280
+Yeah, I'm going to draw a true table.
+
+00:01:44.280 --> 00:01:47.000
+So it is time for you to pause here
+
+00:01:47.000 --> 00:01:51.160
+and try to draw it by yourself if you want to.
+
+00:01:51.160 --> 00:01:55.010
+And then I'll unpause.
+
+00:01:55.010 --> 00:02:00.990
+We have A, that is input.
+
+00:02:00.990 --> 00:02:03.230
+And because A is a single variable,
+
+00:02:03.230 --> 00:02:06.310
+we have only zero and one.
+
+00:02:06.310 --> 00:02:10.690
+we have two different values in two different rows.
+
+00:02:10.690 --> 00:02:15.210
+In order to be able to compute a or a prime,
+
+00:02:15.210 --> 00:02:17.250
+we need to figure out what is a prime
+
+00:02:18.530 --> 00:02:20.650
+and it's opposite of what a is.
+
+00:02:21.650 --> 00:02:26.650
+And then a or a prime is here.
+
+00:02:27.550 --> 00:02:31.490
+Zero or one is one, one or zero is one.
+
+00:02:32.470 --> 00:02:34.790
+When you have a function that is
+
+00:02:34.790 --> 00:02:41.990
+across all the possible inputs, that function is equal to one which basically proves the
+
+00:02:41.990 --> 00:02:49.830
+complement property of Boolean algebra. Another property that we are going to cover today
+
+00:02:49.830 --> 00:03:10.460
+is that in Boolean logic there exists an identity element. So the property is called
+
+00:03:10.460 --> 00:03:33.700
+identity. And if you have A, and this is identity for AND operand, if you have A, A and 1 is going
+
+00:03:33.700 --> 00:03:41.880
+to be A. So in terms of circuits, which are funny circuits, I never did this with circuits
+
+00:03:41.880 --> 00:03:44.820
+for absolutely each of them.
+
+00:03:44.820 --> 00:03:49.280
+This is value 1
+
+00:03:49.280 --> 00:03:52.330
+to get circuit.
+
+00:03:52.330 --> 00:04:02.460
+Now it's time for you to pause and make a through table for yourself.
+
+00:04:02.460 --> 00:04:04.820
+So this one is
+
+00:04:04.820 --> 00:04:09.180
+input, A has two possible values.
+
+00:04:09.180 --> 00:04:11.700
+And I'm going to write
+
+00:04:11.700 --> 00:04:13.340
+input 1
+
+00:04:13.340 --> 00:04:17.400
+even that input, though that input is not going to change but I just wanted
+
+00:04:17.400 --> 00:04:20.320
+you to have a little bit better visual of this.
+
+00:04:20.320 --> 00:04:22.400
+So A and one,
+
+00:04:23.720 --> 00:04:28.720
+zero and one is zero, one and one and one is one.
+
+00:04:29.000 --> 00:04:34.000
+And you can see that this column is equal to this column
+
+00:04:35.640 --> 00:04:40.640
+and that proves the equivalence of left and right side
+
+00:04:41.720 --> 00:04:45.770
+of this equation.
+
+00:04:45.770 --> 00:04:51.720
+and basically prove their identity law.
+
+00:04:51.720 --> 00:04:55.000
+I have a question for you, and that is,
+
+00:04:55.000 --> 00:05:01.890
+what is going to happen, well, in this case?
+
+00:05:06.020 --> 00:05:13.730
+So in this case, we can make another truth table for this.
+
+00:05:13.730 --> 00:05:25.770
+A, zero, or zero is zero, one or zero is one.
+
+00:05:28.430 --> 00:05:35.120
+The output is going to be equal to A.
+
+00:05:35.120 --> 00:05:55.540
+So for OR operator, for AND operator, 1 is identity element, for OR operator 0 is identity
+
+00:05:55.540 --> 00:06:06.060
+element because it doesn't change the value of A when the corresponding operation is being
+
+00:06:06.060 --> 00:06:07.060
+applied.
+
+00:06:07.060 --> 00:06:13.500
+Let's do for a first example of how to use what we learned so far.
+
+00:06:13.500 --> 00:06:19.220
+So we have distributive property, complement property, and identity property.
+
+00:06:19.220 --> 00:06:40.220
+Let's see how we use this to simplify an expression.
+
+00:06:40.220 --> 00:06:47.780
+So we will start with the first one where we have d complement and I'm going to use
+
+00:06:47.780 --> 00:06:51.460
+lots of parentheses, just to make things clear,
+
+00:06:51.460 --> 00:06:56.460
+E plus F, oops, it's not plus, it's E or F,
+
+00:06:57.420 --> 00:07:00.460
+D or D prime,
+
+00:07:01.900 --> 00:07:08.500
+and we try to figure out what can we first,
+
+00:07:10.180 --> 00:07:14.140
+what can we first look into?
+
+00:07:14.140 --> 00:07:16.420
+Okay, so you see that this is a complement,
+
+00:07:16.420 --> 00:07:19.060
+this D prime, this is a complement of D.
+
+00:07:19.380 --> 00:07:24.380
+And let's go back, variable and the same variable prime,
+
+00:07:25.940 --> 00:07:27.740
+that is a compliment.
+
+00:07:27.740 --> 00:07:36.630
+So this is a compliment property.
+
+00:07:36.630 --> 00:07:40.670
+So the expression becomes D prime
+
+00:07:40.670 --> 00:07:45.670
+and E or F and one.
+
+00:07:47.390 --> 00:07:56.120
+But we know about one that this one is identity element.
+
+00:07:56.120 --> 00:07:59.620
+So that one is going to disappear
+
+00:07:59.620 --> 00:08:01.260
+because it's not going to change value
+
+00:08:01.260 --> 00:08:03.340
+of anything that we have here.
+
+00:08:03.340 --> 00:08:08.340
+So we have D prime and E.
+
+00:08:09.980 --> 00:08:11.940
+Well, we could write F or E,
+
+00:08:11.940 --> 00:08:14.460
+but let's do it E or F.
+
+00:08:15.580 --> 00:08:21.470
+And now we can use distributive law
+
+00:08:21.470 --> 00:08:23.950
+and, well, distributive property
+
+00:08:23.950 --> 00:08:28.370
+and get the following D prime
+
+00:08:28.970 --> 00:08:47.140
+and E or D prime and so in the beginning in the first we would have not gate or gate not gate
+
+00:08:48.340 --> 00:08:56.740
+and or gate and then we will have one and gate here or one eight gate and gate here if we restrict
+
+00:08:56.740 --> 00:09:04.580
+ourselves to two input gates. So if you count my yellow lines it's one, two, three, four, five, six,
+
+00:09:06.500 --> 00:09:13.300
+two AND gates and four other gates. And here we have two, sorry, two NOT gates and six,
+
+00:09:16.020 --> 00:09:25.220
+let's go back, two NOT gates and total of four other AND or OR gates. If you look at the
+
+00:09:25.220 --> 00:09:36.470
+equation that we got below so we have one NOT gate oh okay I'm lying we can we
+
+00:09:36.470 --> 00:09:44.390
+can use up this NOT D at the beginning in the first so total I'm sorry to be
+
+00:09:44.390 --> 00:10:01.100
+compute using is we have one a knot and two or and two and gates that is for top
+
+00:10:01.100 --> 00:10:13.000
+and then for the bottom I'm going to take another color we have one a knot then
+
+00:10:13.000 --> 00:10:30.580
+and we have two AND and one ORGATE.
+
+00:10:30.700 --> 00:10:33.540
+It is not super huge saving,
+
+00:10:33.540 --> 00:10:38.460
+but it is saving still in terms of design.
+
+00:10:39.660 --> 00:10:51.040
+We have another example that we are going to look into.
+
+00:10:51.040 --> 00:10:56.040
+So we have a function where W equals to X prime Z
+
+00:10:56.040 --> 00:11:11.000
+to x prime z or sorry x prime z prime or x prime z. Now we are going to use, let's
+
+00:11:11.000 --> 00:11:18.020
+see where it is, we are going to use distributive law. We are going to use it
+
+00:11:18.020 --> 00:11:24.420
+this way around. So we have a little bit longer or more lengthy side and we are
+
+00:11:24.420 --> 00:11:33.380
+going to go towards the more simple side kind of combine. So what is common in
+
+00:11:33.380 --> 00:11:40.660
+this expression? In this expression x prime is common and that one is going to
+
+00:11:40.660 --> 00:11:57.230
+be and to z or z prime or z. So we use distributive law here. Obviously I'm
+
+00:11:57.230 --> 00:12:04.510
+I'm used to using words law rather than property for distributive property, mind me.
+
+00:12:04.510 --> 00:12:07.470
+So we have x prime.
+
+00:12:07.470 --> 00:12:19.860
+So z prime or z, well that is a complement, property that the complement exists.
+
+00:12:19.860 --> 00:12:37.440
+And z prime or z equals to 1 and 1 is identity element so we get x prime.
+
+00:12:37.440 --> 00:12:48.240
+if we look at analysis of the circuit. This circuit would have NOT gate for X,
+
+00:12:48.240 --> 00:13:07.660
+NOT gate from Z, total of two NOT gates, one OR gate, one, two, two AND gates.
+
+00:13:07.660 --> 00:13:25.980
+where on the right hand side we have one not gate. Bingo! We got really much more
+
+00:13:25.980 --> 00:13:36.040
+simple circuit by using the properties. And to emphasize once again, because we
+
+00:13:36.040 --> 00:13:43.380
+used properties of Boolean algebra and mathematical theory that has been proven,
+
+00:13:43.380 --> 00:13:50.700
+And we know that these two things are equivalent to each other, these two things on the left
+
+00:13:50.700 --> 00:13:55.500
+and right side of equation are equivalent to each other, and this is equivalent to each
+
+00:13:55.500 --> 00:13:56.500
+other.
+
+00:13:56.500 --> 00:14:05.380
+So we know by construction that this expression here is equivalent to this expression here,
+
+00:14:05.380 --> 00:14:08.260
+even though they don't look the same.
+
+00:14:08.260 --> 00:14:09.260
+Thanks for watching.
+
+00:14:09.260 --> 00:14:10.500
+Let's keep going in the next video.
+

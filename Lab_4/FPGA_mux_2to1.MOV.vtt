@@ -1,0 +1,74 @@
+WEBVTT
+
+00:00:01.360 --> 00:00:06.240
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach.
+
+00:00:06.560 --> 00:00:10.440
+Let's look at the functioning of 221 max on
+
+00:00:11.160 --> 00:00:16.780
+the FPGA board. First and foremost, let's look once again over setup.
+
+00:00:17.200 --> 00:00:22.200
+So the USB cable is connected to the USB on your computer and
+
+00:00:22.640 --> 00:00:28.400
+the little mini cable is connected to your FPGA board. Just be very careful not to force it in as
+
+00:00:28.400 --> 00:00:36.360
+there is a right side and wrong side of this cable to go inside the slot and the
+
+00:00:36.360 --> 00:00:46.520
+power is switched on. After programming the device using the XDC file we mapped
+
+00:00:46.520 --> 00:01:07.820
+input 1 to L16 and if input IN0 to J15 and leftmost switch which is V10 is
+
+00:01:07.820 --> 00:01:09.940
+is actually going to be select signal.
+
+00:01:12.140 --> 00:01:17.140
+LED, which is connected to T15,
+
+00:01:19.060 --> 00:01:21.540
+is going to be on or off,
+
+00:01:21.540 --> 00:01:23.520
+depending on what is on input.
+
+00:01:23.520 --> 00:01:28.520
+So here, we start by having everything in zero position.
+
+00:01:29.740 --> 00:01:33.540
+So both our IN0 and IN1 are zero,
+
+00:01:33.540 --> 00:01:36.340
+and my select signal is zero as well.
+
+00:01:36.340 --> 00:01:45.860
+If we flip IN1, we will see that the LED will show 1, because we are selecting this input
+
+00:01:45.860 --> 00:01:48.780
+and this input has 1.
+
+00:01:48.780 --> 00:01:52.860
+How about selecting input 1?
+
+00:01:52.860 --> 00:01:56.180
+Input 1 is 0, our output is 0 as well.
+
+00:01:56.180 --> 00:02:00.700
+If we flip the switch, the output is going to change to 1.
+
+00:02:00.700 --> 00:02:04.940
+If we change this value, nothing is going to change.
+
+00:02:04.940 --> 00:02:08.580
+And we can play like that and test all the possible inputs
+
+00:02:08.580 --> 00:02:13.580
+and outputs of FPGA implementation of two to one max.
+
+00:02:15.300 --> 00:02:18.900
+Congratulations, you made your first FPGA design.
+

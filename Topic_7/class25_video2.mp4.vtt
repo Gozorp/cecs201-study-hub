@@ -1,0 +1,191 @@
+WEBVTT
+
+00:00:01.230 --> 00:00:06.030
+Hi, this is Dr. Jelena Trajkovic from the CECS Department at Cal State Long Beach.
+
+00:00:06.030 --> 00:00:13.870
+So FSM is a model of computation. However, FSM has lots of practical applications and we defined
+
+00:00:16.430 --> 00:00:23.550
+all kinds of sets and functions that are needed to describe an FSM. So if we make
+
+00:00:23.550 --> 00:00:41.550
+very concrete sets for iOS if we define functions for f and h and define what is our initial
+
+00:00:41.550 --> 00:00:48.710
+state we define FSM and as for now we don't know how it works but we will see that soon.
+
+00:00:48.710 --> 00:00:56.350
+It is much easier to all understand the FSM once they are represented in a graphical form.
+
+00:00:56.350 --> 00:01:14.880
+So to represent them graphically, we are going to use something that is called state transition
+
+00:01:14.880 --> 00:01:28.590
+diagram.
+
+00:01:28.590 --> 00:01:33.150
+To introduce the graphical representation and state transition diagram, we are going
+
+00:01:33.150 --> 00:01:40.540
+to work on more type of FSM.
+
+00:01:40.540 --> 00:01:50.540
+And quickly to remind you, that is the FSM that has an output function such that state
+
+00:01:50.540 --> 00:01:53.540
+basically output depends only on state.
+
+00:01:53.540 --> 00:02:01.140
+So each state is going to be mapped into a set of outputs or one output particular.
+
+00:02:01.140 --> 00:02:16.300
+So only on state.
+
+00:02:16.300 --> 00:02:21.100
+We are going to have only one input.
+
+00:02:21.100 --> 00:02:34.020
+our set of inputs is going to have input IN and this is going to be a variable. So let's go and
+
+00:02:34.020 --> 00:02:41.700
+start drawing an FSM and then we are after that going to explain how does it work and so on and
+
+00:02:41.700 --> 00:02:50.900
+so forth. So without defining things in a formal way I'm going to start drawing and each circle
+
+00:02:50.900 --> 00:02:57.380
+is going to represent one state. My state first that I'm going to describe is going to be called
+
+00:02:57.380 --> 00:03:09.380
+state zero as zero and because output will depend on state only inside of this state we can say okay
+
+00:03:09.380 --> 00:03:19.700
+so we are going to have outputs our outputs are going to be one bit that can be either zero or
+
+00:03:19.700 --> 00:03:27.460
+one. So for state zero we are going to say okay when we are in state zero FSM is going to produce
+
+00:03:27.460 --> 00:03:40.030
+a binary value of one. If we have, if we add an arc that kind of comes from nowhere and goes into S
+
+00:03:40.030 --> 00:03:46.990
+as a zero, this particular edge, actually that's why I call it edge,
+
+00:03:46.990 --> 00:04:06.140
+is a graphical representation that S is zero is initial state. You might find somewhere
+
+00:04:06.140 --> 00:04:14.980
+that initial state is represented, I probably should do a better work on this, using a double
+
+00:04:14.980 --> 00:04:22.980
+circle and S is zero. If it's easy to put output inside a state, we put it inside a
+
+00:04:22.980 --> 00:04:28.240
+state. However, if we were to have, let's say, ten different values that have
+
+00:04:28.240 --> 00:04:36.660
+different outputs, we will be saying, okay, let's say, output zero is equal to
+
+00:04:36.660 --> 00:04:47.240
+zero, output one is equal to one, output three is equal to zero, one, zero, because
+
+00:04:47.240 --> 00:04:52.100
+not all the outputs need to be binary. Some can be true, some can be false, and
+
+00:04:52.100 --> 00:05:00.460
+so and so forth, and we can define basically graphically represent a list of outputs just
+
+00:05:00.460 --> 00:05:15.210
+next to the state. Also, mind you, default output is always a zero. So, what makes sense
+
+00:05:15.210 --> 00:05:22.410
+is to, if you have many outputs, is to actually reduce writing and write only the states
+
+00:05:22.410 --> 00:05:24.230
+that become one in, sorry,
+
+00:05:24.230 --> 00:05:27.170
+only the outputs that become one in that state.
+
+00:05:28.470 --> 00:05:33.270
+So please rewind this and re-listen to it
+
+00:05:33.270 --> 00:05:38.270
+and re-watch it again and take good notes of that.
+
+00:05:38.310 --> 00:05:39.930
+We are going to be simple.
+
+00:05:39.930 --> 00:05:43.050
+Our outputs are not going to be too many,
+
+00:05:43.050 --> 00:05:44.970
+so there is good chance that we will be able
+
+00:05:44.970 --> 00:05:46.610
+to put them all inside.
+
+00:05:47.970 --> 00:05:51.270
+So we are going to have a state machine
+
+00:05:51.270 --> 00:05:54.050
+in which we are going to have two states.
+
+00:05:54.050 --> 00:05:59.500
+One is S0 and the other one is S1.
+
+00:05:59.500 --> 00:06:02.660
+And we'll say, okay, when we are in S0,
+
+00:06:02.660 --> 00:06:05.340
+the FSM is going to produce value,
+
+00:06:05.340 --> 00:06:06.860
+right, output value zero.
+
+00:06:06.860 --> 00:06:11.860
+If we are in S1, the FSM is going to produce value one.
+
+00:06:12.820 --> 00:06:15.720
+So we are going to have one input,
+
+00:06:15.720 --> 00:06:18.880
+which is this input variable, im.
+
+00:06:18.880 --> 00:06:21.820
+And we are going to say, okay,
+
+00:06:21.820 --> 00:06:26.420
+If we have i n, so we can do two things.
+
+00:06:26.420 --> 00:06:31.420
+We can say either on i n prime,
+
+00:06:34.340 --> 00:06:39.340
+or we can say we have input variable i n,
+
+00:06:39.700 --> 00:06:43.380
+but we are going to say, okay, on zero.
+
+00:06:44.620 --> 00:06:49.620
+As state, if the input value is equal to zero,
+
+00:06:49.620 --> 00:06:59.220
+zero is going to stay at net zero. So that is short of it. And I'm going to draw the rest of
+
+00:06:59.220 --> 00:07:17.960
+the diagram. I'm going to analyze it in a little while. I'll do an alternative thing when we are
+
+00:07:17.960 --> 00:07:26.600
+not. So yellow is yellow or blue, annotations next to the edges of the transition graph,
+
+00:07:26.600 --> 00:07:34.080
+basically state and transition diagram is alternative to each other so that
+
+00:07:34.080 --> 00:07:47.310
+means that on 0 we state in 0 on 1 we go to S1. We will do the detailed
+
+00:07:47.310 --> 00:07:52.070
+analysis in the next video. Thanks for watching!
+

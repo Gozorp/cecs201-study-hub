@@ -1,0 +1,176 @@
+WEBVTT
+
+00:00:01.970 --> 00:00:06.690
+Hi, this is Dr. Jelena Trajkovic from the CECS Department at Cal State Long Beach.
+
+00:00:06.690 --> 00:00:19.490
+One thing that we need to notice here is that we looked at the binary numbers in sign magnitude
+
+00:00:19.490 --> 00:00:24.450
+and two's complement representation.
+
+00:00:24.450 --> 00:00:37.620
+And what we did in both of those procedures, we were converting from decimal to binary.
+
+00:00:37.620 --> 00:00:45.460
+So let's go and convert other way around.
+
+00:00:45.460 --> 00:01:15.720
+First we're going to do that, and this below the line is going to be from binary to decimal.
+
+00:01:15.720 --> 00:01:22.940
+So what we need to do in sign magnitude, for example, is we need to start from a number.
+
+00:01:22.940 --> 00:01:36.160
+We are going to do again four bit with example. So first example for four bit would be
+
+00:01:36.900 --> 00:01:38.900
+Let's say 0
+
+00:01:39.700 --> 00:01:47.590
+1 0 0 what we know about sine magnitude is that
+
+00:01:48.310 --> 00:01:50.950
+Most significant bit is going to give us a sign
+
+00:01:51.710 --> 00:01:53.390
+It is 0
+
+00:01:53.390 --> 00:01:55.390
+So the sign is going to be plus
+
+00:01:55.390 --> 00:02:03.790
+The rightmost, or least significant, gets remaining ones, going to give us an absolute
+
+00:02:03.790 --> 00:02:04.790
+value.
+
+00:02:04.790 --> 00:02:14.280
+And this is 1 0 0 to the power of 0 1 2, so this is number plus 4.
+
+00:02:14.280 --> 00:02:23.720
+In case we had an example where we had 1 0 0, the most significant bit is going to be
+
+00:02:23.720 --> 00:02:32.010
+minus an absolute value, it's going to be 4.
+
+00:02:32.010 --> 00:02:49.400
+us look right now in a similar example that we have four so on the right hand side let's start
+
+00:02:49.400 --> 00:03:09.690
+with an example zero zero one one zero in binary this was also binary this is not decimal for the
+
+00:03:09.690 --> 00:03:21.160
+sake of completeness to this and we need to figure out what is the value of this
+
+00:03:21.160 --> 00:03:33.250
+number investment system. So first thing that we are going to do is observe the
+
+00:03:33.250 --> 00:03:43.140
+MSB. When we observe the MSB we will see that MSB is zero. That is going to tell
+
+00:03:43.140 --> 00:03:56.070
+us that the number is positive, so we know that. And if number is positive, we are going
+
+00:03:56.070 --> 00:04:03.830
+to convert the entire number with the same regular procedure that we used in the beginning
+
+00:04:03.830 --> 00:04:20.270
+of the last class sorry in the in the last class so the proceed with regular
+
+00:04:20.270 --> 00:04:30.340
+conversion mind you we have to take all the numbers we don't exclude this
+
+00:04:30.340 --> 00:04:40.960
+leading zero zero zero one one zero and that is two we have one times two to
+
+00:04:40.960 --> 00:04:51.800
+the power of 2 plus 1 times 2 to the power of 1. It is 1 times 4 plus 1 times 2. It is
+
+00:04:51.800 --> 00:04:59.200
+2 to 6. When we combine the information that we learned from number 1 and number 2, we
+
+00:04:59.200 --> 00:05:13.260
+We know that 0, 0, 1, 1, 0 in decimal is going to be plus 6, sorry, 0, 0, 1, 1, 2 in binary
+
+00:05:13.260 --> 00:05:18.360
+is going to be plus 6 in decimal.
+
+00:05:18.360 --> 00:05:27.850
+Now let's move to the moved conflicts part of basically binary to decimal conversion
+
+00:05:27.850 --> 00:05:34.570
+and that is the negative one.
+
+00:05:34.570 --> 00:05:44.640
+So the example that we have is 1, 0, 1, 1, 0.
+
+00:05:44.640 --> 00:05:50.280
+So it's basically the same number as just the beginning one, leading the bit, MSB is
+
+00:05:50.280 --> 00:05:51.280
+1.
+
+00:05:51.280 --> 00:06:02.390
+So first we are going to observe an MSB is going to be 1.
+
+00:06:02.390 --> 00:06:06.030
+So therefore we are going to conclude the number is negative.
+
+00:06:06.030 --> 00:06:23.810
+Now we are going to have to apply a special procedure when the number is negative.
+
+00:06:23.810 --> 00:06:36.530
+In general, let's think about, I'm going to include this part in our explanation.
+
+00:06:36.530 --> 00:06:45.460
+Let's think about value of absolute of A. And you can think about it in regular arithmetic
+
+00:06:45.460 --> 00:06:56.650
+form for decimal numbers. So, what is absolute value of 2? Basically,
+
+00:06:56.650 --> 00:07:04.890
+that number is positive. Or, let's say, absolute value of 5. It's 5 itself, if a is greater
+
+00:07:04.890 --> 00:07:20.780
+than 0. If a is equal to 0, absolute value is 0 itself. But if value is minus 5, absolute
+
+00:07:20.780 --> 00:07:33.000
+value of minus 5 is minus minus 5, which is 5, if the number is less than 0. So with the
+
+00:07:33.000 --> 00:07:42.640
+same logic, when we figure out that this number is negative, we need to find its
+
+00:07:42.640 --> 00:07:51.220
+minus, which actually in this connotation means its 2-th complement. So how do we
+
+00:07:51.220 --> 00:08:16.220
+find 0, 1, 1, 0? So finding 2-th complement is procedure where we flip and add 1. So
+
+00:08:16.220 --> 00:08:54.820
+flipping is first flip 0 1 0 0 1, second part 1 and 1 is 0, 1 and 0 and 0 is 1, 0 and 0 is 0, 1 and 0 is 1, 1
+
+00:08:54.820 --> 00:09:22.580
+and 1, this is 0. And now the third step is find its absolute value. So absolute value of this
+
+00:09:22.580 --> 00:09:33.510
+number is going to be exactly the same as absolute value of this number, which is going to be 2 to
+
+00:09:33.510 --> 00:09:53.600
+to the power of 3, 0, 1, 2, 3, plus 2 to the power of 1, which is 8 plus 2, which is 10.
+
+00:09:53.600 --> 00:09:59.760
+Do not forget, please do not forget, we have two pieces of information here that we need
+
+00:09:59.760 --> 00:10:07.120
+to take care of, and that is the sign and the absolute value.
+
+00:10:07.120 --> 00:10:24.620
+So our final answer here is going to be that 1,0,1,1,0 in binary is equal to minus 10 and
+
+00:10:24.620 --> 00:10:29.460
+that's it.
+
+00:10:29.460 --> 00:10:30.240
+Thanks for watching.
+

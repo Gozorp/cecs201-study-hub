@@ -1,0 +1,254 @@
+WEBVTT
+
+00:00:01.170 --> 00:00:05.170
+Hi, this is Dr. Jelena Trajkovic with CECS Department, Cal State Long Beach.
+
+00:00:05.170 --> 00:00:19.720
+So, we made our first register, and we are going to refer to this register as basic register.
+
+00:00:19.720 --> 00:00:29.720
+We are able to load data into this register on every clock cycle, on every positive edge of clock cycle.
+
+00:00:29.720 --> 00:00:37.720
+Well, that is something that we might want to improve on a little bit.
+
+00:00:37.720 --> 00:00:41.300
+what is happening in this particular register,
+
+00:00:41.300 --> 00:00:55.380
+like I said, basic register,
+
+00:00:55.380 --> 00:01:00.380
+it loads data on every positive clock edge.
+
+00:01:03.520 --> 00:01:08.360
+So we do not have control when we will want to load data
+
+00:01:08.360 --> 00:01:10.840
+and allow data to be loaded.
+
+00:01:10.840 --> 00:01:14.980
+And we actually do not have control of,
+
+00:01:23.910 --> 00:01:26.790
+so in this register, we don't have any control.
+
+00:01:26.790 --> 00:01:31.150
+every time that we occur, the positive edge occurs,
+
+00:01:31.150 --> 00:01:36.150
+and because clock is running and clock exists all the time,
+
+00:01:36.310 --> 00:01:38.830
+every time that there is positive clock edge,
+
+00:01:39.690 --> 00:01:41.110
+we will be saving the date.
+
+00:01:42.590 --> 00:01:45.570
+So we want to add additional layer of control.
+
+00:01:46.510 --> 00:01:50.710
+And we are going to do that using a structure
+
+00:01:50.710 --> 00:01:59.990
+that is called load register.
+
+00:01:59.990 --> 00:02:03.030
+So for load register, we are going to introduce
+
+00:02:03.030 --> 00:02:10.340
+and an additional control signal.
+
+00:02:10.340 --> 00:02:14.160
+When load or LD is equal to one,
+
+00:02:15.140 --> 00:02:23.200
+we allow register update.
+
+00:02:23.200 --> 00:02:36.080
+So content of the register inside of the register
+
+00:02:36.080 --> 00:02:40.340
+is updated only when load is equal to one
+
+00:02:40.340 --> 00:02:47.940
+and when clock has positive edge.
+
+00:02:50.790 --> 00:02:52.470
+If load is equal to zero
+
+00:02:52.470 --> 00:03:09.520
+And there is a positive clock edge, we will keep the previous value.
+
+00:03:09.520 --> 00:03:17.280
+Now if load is equal to 1, but clock is equal to 1, there is negative edge, clock is equal
+
+00:03:17.280 --> 00:03:27.280
+to 0, we are again going to keep the previous value.
+
+00:03:27.280 --> 00:03:36.480
+pause this video and take time to draw again the same structure that we have here. Just make sure
+
+00:03:37.040 --> 00:03:45.760
+that in this area here you allow enough space for additional circuitry because that's what we
+
+00:03:45.760 --> 00:03:51.440
+are going to do. So I'm going to pause now and continue when I have basic register already drawn.
+
+00:03:51.440 --> 00:04:00.180
+after a little bit of work my basic register is done and as I said I left
+
+00:04:00.180 --> 00:04:09.620
+some space in the top portion of the basic register in
+
+00:04:09.620 --> 00:04:16.460
+order to figure out how are we going to make such logic when sometimes we are
+
+00:04:16.460 --> 00:04:28.620
+going to keep the previous data and sometimes we are going to update the data. Luckily we
+
+00:04:28.620 --> 00:04:36.620
+are very, very proficient at using multiplexers. So I have two options here. One is to keep
+
+00:04:36.620 --> 00:04:39.460
+previous data and another one to load new ones.
+
+00:04:39.460 --> 00:04:44.460
+So I need a multiplexer that has two inputs
+
+00:04:49.110 --> 00:04:53.710
+that has two inputs and one control signal.
+
+00:04:53.710 --> 00:04:56.910
+And we said that on load equal to one,
+
+00:04:56.910 --> 00:05:10.760
+we are going to put, we're going to put,
+
+00:05:10.760 --> 00:05:13.940
+so we need multiplexer with two input,
+
+00:05:13.940 --> 00:05:32.940
+2, 2, 1, max. And we have input 1, I1, and input 0, I0. And we need only one select and
+
+00:05:32.940 --> 00:05:48.540
+we have Y as an output. On load equals to 1, we want to put in new data. This is going
+
+00:05:48.540 --> 00:06:07.190
+Now, on load equals to zero, we want to copy the data from the previous, that previously
+
+00:06:07.190 --> 00:06:16.260
+was stored in our, in our foot flop.
+
+00:06:16.260 --> 00:06:33.460
+So to emphasize this I'm going to take highlighter and say okay when when we have
+
+00:06:34.620 --> 00:06:41.100
+Data equal to sorry load equal to zero. We are going to copy the previous
+
+00:06:42.060 --> 00:06:44.060
+the previous
+
+00:06:44.940 --> 00:06:56.880
+Content of register and then on load equal to one load equal to one
+
+00:06:56.880 --> 00:07:11.980
+the input is going to be external input. And, basically, all the maxis are going to work the
+
+00:07:11.980 --> 00:07:22.250
+same way and all the maxis are going to have the same control and I'm
+
+00:07:22.250 --> 00:07:28.970
+totally perplexed of what is happening with mine. So we are going to take the
+
+00:07:28.970 --> 00:07:46.610
+output I'm going to pause and I'm going to draw all other maxes but I'm going
+
+00:07:46.610 --> 00:07:57.260
+to connect them only with you so to fast forward through my drawing and to fast
+
+00:07:57.260 --> 00:08:10.700
+forward through what's happening in my pen I draw all the maxes I didn't write
+
+00:08:10.700 --> 00:08:16.800
+two to one max on each of them one is enough so we are going to connect input
+
+00:08:16.800 --> 00:08:21.760
+one it's important that it's input one because on load equals one we are going
+
+00:08:21.760 --> 00:08:32.780
+to put new data we are going to put data two then we are going to have data one
+
+00:08:32.780 --> 00:08:50.100
+and D of 0 and that is all going to to be to take effect when load is equal to 1.
+
+00:08:50.100 --> 00:09:08.420
+Now with load is equal to 0 the old value is going to be supplied on the
+
+00:09:08.420 --> 00:09:19.800
+input. You literally take the output of the D3 plot and connect to input and be
+
+00:09:19.800 --> 00:09:27.500
+careful you have two different and I should have two different inputs on the
+
+00:09:27.500 --> 00:09:46.860
+max. So how does this work? When load is equal to one we're going to have
+
+00:09:46.860 --> 00:10:00.500
+data forwarded on input one of mux when load is equal to zero we will have the
+
+00:10:00.500 --> 00:10:08.720
+connections that I'm highlighting right now which are which are connections to
+
+00:10:08.720 --> 00:10:20.950
+the output of the flip flop connected to our mux. Any change that is going to
+
+00:10:20.950 --> 00:10:29.390
+happen with this flip-flop is going to happen on positive rising edge. So the
+
+00:10:29.390 --> 00:10:35.310
+question is now on this particular line what is it going to be there on a
+
+00:10:35.310 --> 00:10:43.230
+positive edge. One thing that we didn't do yet is we connected LD signal only for
+
+00:10:43.230 --> 00:10:52.600
+the bit 3 of this d4-flop. Everything needs to happen at the same time with
+
+00:10:52.600 --> 00:10:58.960
+all the bits and everything needs to be simultaneous and all the controls need
+
+00:10:58.960 --> 00:11:11.920
+to be the same so LD is connected to all S bits so all select inputs of to the
+
+00:11:11.920 --> 00:11:37.300
+one max and let's highlight that so load is the same all the maxes and the final
+
+00:11:37.300 --> 00:11:48.630
+touch to this schematic is that I want to highlight and explain what is inside of
+
+00:11:48.630 --> 00:11:57.980
+this register so we always show boundary that is going to help us
+
+00:11:57.980 --> 00:12:05.480
+understand once we use block diagram what is inside and what is outside so
+
+00:12:05.480 --> 00:12:23.240
+let's make block diagram by itself this is 4 bit load register this 4 bit load
+
+00:12:23.240 --> 00:12:38.800
+register is going to have 4 bit data it's going to have control signal which
+
+00:12:38.800 --> 00:12:47.690
+is LD, it is going to have clock, it's going to have a reset and it's going to,
+
+00:12:47.690 --> 00:13:00.780
+sorry, it's even better if I use the proper convention and write everything
+
+00:13:00.780 --> 00:13:27.820
+inside as I should so reset clock ld and then we have q which is the state of the
+
+00:13:27.820 --> 00:13:35.320
+clock and this is the load register thanks for watching
+

@@ -1,0 +1,107 @@
+WEBVTT
+
+00:00:01.040 --> 00:00:08.040
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State University, Long Beach.
+
+00:00:08.040 --> 00:00:18.040
+So, in Lab 3, the first time, we made several modules and several testbenches within a single project.
+
+00:00:18.040 --> 00:00:25.040
+It is important to know that there is something, there is a notion of top module.
+
+00:00:25.040 --> 00:00:28.520
+So first of all, we need to know
+
+00:00:28.520 --> 00:00:30.380
+how to change the top module.
+
+00:00:31.560 --> 00:00:36.560
+When you first created kmap module and kmap underscore tb,
+
+00:00:38.400 --> 00:00:41.240
+both of them had this sign,
+
+00:00:41.240 --> 00:00:46.240
+which is like three little squares arranged in a triangle,
+
+00:00:47.400 --> 00:00:51.120
+and they were bold that showed that this is a top module.
+
+00:00:51.120 --> 00:01:00.120
+We need to change and set the other module and stop module in order to be able to simulate it.
+
+00:01:00.120 --> 00:01:14.120
+So once you have simulated kmap.tv, you added x underscore kmap and x underscore kmap, x underscore kmap underscore tv.
+
+00:01:14.120 --> 00:01:23.240
+So, in order to simulate, we need to change simulation source to be top, so you right-click
+
+00:01:23.240 --> 00:01:26.700
+and select set as top.
+
+00:01:26.700 --> 00:01:34.000
+Also because we want to look at the synthesis, basically not synthesis yet, but we want
+
+00:01:34.000 --> 00:01:40.240
+to look at the schematic of a new module, we are going to set this one as top.
+
+00:01:40.240 --> 00:01:48.040
+So once we run simulation, now this is going to be a simulation file that is going to run.
+
+00:01:48.040 --> 00:02:00.570
+And then once we want to see what is the schematic, we are going to set x underscore k map and
+
+00:02:00.570 --> 00:02:08.550
+then open the schematic here.
+
+00:02:08.550 --> 00:02:14.790
+And this one is going to open the elaborated design and show you the schematic in a similar
+
+00:02:14.790 --> 00:02:20.190
+way. I'm going to cancel this process here in a similar way if you want to go
+
+00:02:20.190 --> 00:02:27.230
+back to the previous module and its corresponding test bench. You right-click,
+
+00:02:27.230 --> 00:02:38.150
+set a stop, and now this is the module that is going to be elaborated in RTL
+
+00:02:38.150 --> 00:02:44.670
+analysis. RTL analysis is going to be performed on it. Later on when we start
+
+00:02:44.670 --> 00:02:50.790
+synthesizing, the module that is going to be synthesized is design source. We're
+
+00:02:50.790 --> 00:02:57.490
+never going to synthesize test benches. So the module that is set on top in
+
+00:02:57.490 --> 00:03:03.550
+design sources is the one that is going to be elaborated, synthesized, and all
+
+00:03:03.550 --> 00:03:11.430
+other steps are going to perform on that. So do not forget to set a good habit and
+
+00:03:11.430 --> 00:03:14.830
+and set both the simulation source
+
+00:03:14.830 --> 00:03:18.390
+and corresponding design source as
+
+00:03:18.390 --> 00:03:22.310
+top module in order to have
+
+00:03:22.310 --> 00:03:27.230
+it properly, to have a tool
+
+00:03:27.230 --> 00:03:30.310
+properly select which
+
+00:03:30.310 --> 00:03:33.510
+of your sub-designs within your design
+
+00:03:33.510 --> 00:03:36.870
+it's going to deal with. Hope this was helpful.
+
+00:03:36.870 --> 00:03:37.550
+Thank you very much.
+

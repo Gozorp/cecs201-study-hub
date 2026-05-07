@@ -1,0 +1,185 @@
+WEBVTT
+
+00:00:01.070 --> 00:00:17.070
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach. Today we start a new chapter, and this new chapter is about combinational, standard combinational data path components.
+
+00:00:17.070 --> 00:00:33.220
+So we are going to start working with maxes. Maxes are short for multiplexer. So a multiplexer is a combinational circuit.
+
+00:00:40.700 --> 00:00:47.580
+Remember, combinational means that there are just gates inside the black box and whatever
+
+00:00:47.580 --> 00:00:53.740
+is on the input is going to influence output by means of propagating through those gates
+
+00:00:54.540 --> 00:01:02.220
+and by the function that those gates are performed. So multiplexer is such a circuit that it has
+
+00:01:02.220 --> 00:01:11.060
+multiple inputs and we are going to separate. We are going to call some inputs multiple data inputs
+
+00:01:11.060 --> 00:01:22.060
+and then it has some control, control is the nature of it, and they are going to be called
+
+00:01:22.060 --> 00:01:38.140
+select. To be precise, in terms of multiplexer, you can have 2 to the power of n, that is
+
+00:01:38.140 --> 00:01:47.660
+not a nice tool, 2 to the power of n different data inputs. This n here is going to be number
+
+00:01:47.660 --> 00:01:55.580
+select inputs. So these are all inputs and they are going to produce one and
+
+00:01:55.580 --> 00:02:07.540
+only one output. We're not going to put output plural here. Usually when we
+
+00:02:07.540 --> 00:02:13.260
+start talking about multiplexers we are going to call them by number of data
+
+00:02:13.260 --> 00:02:28.160
+inputs so basically 2 to the n to 1 max. What is my only question? It is that we
+
+00:02:28.160 --> 00:02:34.720
+have multiple inputs I'm going to do only two because our example is going to
+
+00:02:34.720 --> 00:02:42.600
+be 2 to 1 max. You have 41 max in the book so that's why I'm giving you a
+
+00:02:42.600 --> 00:02:45.640
+a different one in this mini lecture.
+
+00:02:45.640 --> 00:02:48.580
+So we have two inputs.
+
+00:02:48.580 --> 00:02:52.840
+Think about these inputs like multiple train tracks
+
+00:02:52.840 --> 00:02:55.280
+that are coming into the station.
+
+00:02:55.280 --> 00:02:58.920
+And we have fewer train station platforms
+
+00:02:58.920 --> 00:03:00.720
+than we have two train tracks.
+
+00:03:01.640 --> 00:03:03.980
+So suppose that this is a platform,
+
+00:03:05.200 --> 00:03:08.680
+that platform is going to be similar to our output.
+
+00:03:08.680 --> 00:03:16.780
+and then we have these inputs which are going to be our data I'm going to put
+
+00:03:16.780 --> 00:03:23.720
+call them data in so these are those two. We need to have a mechanism to select
+
+00:03:23.720 --> 00:03:36.160
+are we going to pass train from this track to the platform or we will
+
+00:03:36.160 --> 00:03:47.080
+pass train from this train track to the app and we have to have a mechanism to
+
+00:03:47.080 --> 00:03:54.120
+move the decision between those things and that is the function that our
+
+00:03:54.120 --> 00:04:01.520
+control input which is called select is going to perform so multiplexer is
+
+00:04:01.520 --> 00:04:11.120
+nothing else but a selector. So speaking of multiplexer, let's look into this
+
+00:04:11.120 --> 00:04:24.360
+example of 221max. Let's look first into block diagram. Block diagram is
+
+00:04:24.360 --> 00:04:31.080
+kind of black box approach. It's not really, I mean, you don't see how are
+
+00:04:31.080 --> 00:04:36.600
+things done inside, but you have to know what are the functions that are being
+
+00:04:36.600 --> 00:04:45.240
+made inside. So we have input 0 and input 1. It's very very important that you call
+
+00:04:45.240 --> 00:04:55.590
+them with indices 0 and 1 or 0, 1, 2, 3 or so and so forth. And we have one bit
+
+00:04:55.590 --> 00:05:01.090
+that is connected to input 0 and one bit that is connected to input 1. We have
+
+00:05:01.090 --> 00:05:05.470
+this control signal which is going to call select and you're going to call it
+
+00:05:05.470 --> 00:05:15.560
+S0 that is connected to S inputs and then we have output which is Y. So
+
+00:05:15.560 --> 00:05:24.160
+because this is a small circuit I could say okay I have total of all possible
+
+00:05:24.160 --> 00:05:31.080
+inputs are 3, 2 data and 1 control and I'm going to say hey I have S0 and I
+
+00:05:31.080 --> 00:05:36.080
+I have I1 and I2, and I'm going to make truth table
+
+00:05:36.280 --> 00:05:37.440
+in terms of Y.
+
+00:05:38.320 --> 00:05:42.360
+However, when we go beyond two to one multiplexer,
+
+00:05:42.360 --> 00:05:45.860
+that representation is becoming useless.
+
+00:05:45.860 --> 00:05:48.880
+So I'm going to teach you immediately the representation
+
+00:05:48.880 --> 00:05:52.780
+that is good for all the maxis.
+
+00:05:52.780 --> 00:05:55.960
+We are going to put just select signals here
+
+00:05:57.100 --> 00:05:58.960
+on the left-hand side as our inputs.
+
+00:05:58.960 --> 00:06:05.640
+and on the right-hand side you're going to put out. Select signal can have,
+
+00:06:05.640 --> 00:06:15.160
+because it's just one bit, it can have two inputs, sorry, two values of inputs,
+
+00:06:15.160 --> 00:06:23.800
+0 and 1. When select is equal to 0, so I would like highlighter, when select is
+
+00:06:23.800 --> 00:06:36.240
+equal to zero, we are going to connect input zero to Y and our output is going
+
+00:06:36.240 --> 00:06:48.160
+to be our output is going to be I0. Why am I not putting zero or one on the
+
+00:06:48.160 --> 00:06:55.320
+right-hand side, one side of I? I'm not putting it there because I don't know
+
+00:06:55.320 --> 00:07:00.480
+what is connected to I0. So whatever is connected to I0 that is going to be
+
+00:07:00.480 --> 00:07:10.080
+quote-unquote forwarded to Y. If the output, let's go to opposite color, if the
+
+00:07:10.080 --> 00:07:19.600
+control signal, select signal or control input is 1, we are going to
+
+00:07:19.600 --> 00:07:28.080
+forget this purple line and we are going to connect, we are going to connect
+
+00:07:28.080 --> 00:07:44.670
+whatever is in input 1, we are going to connect it to output. And that is how
+
+00:07:44.670 --> 00:07:53.420
+multiplexer works. We will proceed to equations and circuits in the next video.
+
+00:07:53.420 --> 00:07:55.900
+Thank you.
+

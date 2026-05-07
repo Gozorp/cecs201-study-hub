@@ -1,0 +1,176 @@
+WEBVTT
+
+00:00:01.330 --> 00:00:08.570
+Hi, this is Dr. Jelena Trajkovic from CECS Department at Cal State Long Beach. Once we have created
+
+00:00:08.570 --> 00:00:15.850
+a module, we need to test. In order to test, we are going to create testbench file. Testbench
+
+00:00:15.850 --> 00:00:25.930
+is going to provide inputs for stimulus to your file. So to do that, we are going to
+
+00:00:25.930 --> 00:00:31.630
+go to add source you're going to do add or create simulation sources and press
+
+00:00:31.630 --> 00:00:40.090
+next. We will create a file and call it add VEH and then we will append to the
+
+00:00:40.090 --> 00:00:48.170
+name of the module underscore TB. We will finish next and this file is not going
+
+00:00:48.170 --> 00:00:51.830
+to have this sorry this module is not going to have any inputs and outputs and
+
+00:00:51.830 --> 00:00:57.470
+that's why we are going to just press yes here. Once the file is created if
+
+00:00:57.470 --> 00:01:00.190
+If you can see here in simulation sources,
+
+00:01:00.190 --> 00:01:03.030
+the file is being added to the simulation.
+
+00:01:03.030 --> 00:01:06.470
+So let's open the file tool, edit it.
+
+00:01:06.470 --> 00:01:11.470
+Put your class name here and your name below.
+
+00:01:18.790 --> 00:01:22.350
+And then inside the module body,
+
+00:01:22.350 --> 00:01:25.570
+there is a good tip that you can use for it.
+
+00:01:25.570 --> 00:01:30.190
+So you will be testing the module that is specified here.
+
+00:01:30.190 --> 00:01:35.690
+copy the content of the inside of the parentheses
+
+00:01:35.690 --> 00:01:46.500
+of module definition, and then paste it to your test bench.
+
+00:01:46.500 --> 00:01:58.900
+So for each input to the module, we
+
+00:01:58.900 --> 00:02:03.660
+are going to basically create a variable that
+
+00:02:03.660 --> 00:02:06.140
+is of type of register, which is going
+
+00:02:06.140 --> 00:02:11.140
+to contain the stimulus.
+
+00:02:12.760 --> 00:02:22.660
+Instead of commas, we need to separate our entries
+
+00:02:23.200 --> 00:02:24.040
+by the symbol.
+
+00:02:25.600 --> 00:02:37.510
+Also, for each output, we are going to create a virus.
+
+00:02:39.510 --> 00:02:44.460
+Basically, something that the outputs
+
+00:02:44.460 --> 00:02:45.580
+are going to be connected
+
+00:02:45.580 --> 00:02:50.070
+where we can observe the values of the outputs.
+
+00:02:50.070 --> 00:02:55.070
+Again, we have to delimit each of those by semicolon.
+
+00:02:59.490 --> 00:03:06.570
+Now we are going to instantiate the module.
+
+00:03:06.570 --> 00:03:08.130
+To instantiate the module,
+
+00:03:09.010 --> 00:03:14.010
+we will actually go and copy the module definition
+
+00:03:16.270 --> 00:03:19.250
+and paste it here.
+
+00:03:19.250 --> 00:03:23.770
+So our module is going to be called unit after test.
+
+00:03:23.770 --> 00:03:28.770
+So, module name, instance name is going to be UUT,
+
+00:03:29.870 --> 00:03:34.130
+and it's going to be of type add underscore veh.
+
+00:03:34.130 --> 00:03:38.110
+So we are creating one instance for this.
+
+00:03:38.110 --> 00:03:43.110
+So now, for each of the inputs,
+
+00:03:44.530 --> 00:03:47.570
+we will have to, each of the inputs of the module
+
+00:03:47.570 --> 00:03:52.570
+will have to connect to the inputs to the inputs
+
+00:03:53.770 --> 00:04:03.450
+stimulus that is produced in a test bench and also to the output wires.
+
+00:04:03.450 --> 00:04:07.890
+Because we are just starting to learn,
+
+00:04:07.890 --> 00:04:13.930
+we are going to do something different than what the standard would do.
+
+00:04:13.930 --> 00:04:18.650
+All the signals that are specified in a test bench,
+
+00:04:18.650 --> 00:04:23.330
+we are going to rename and we are going to add underscore TV for them.
+
+00:04:23.330 --> 00:04:46.310
+So, if we consider input 0 of our addBehaviouralUnit model here, we need to connect this one to
+
+00:04:46.310 --> 00:04:51.150
+the in zero TV.
+
+00:04:51.150 --> 00:04:56.150
+The syntax is such that in front of the name
+
+00:04:57.350 --> 00:05:02.350
+of the module input, the dot needs to be placed.
+
+00:05:03.190 --> 00:05:06.630
+And in the parentheses, we place the name
+
+00:05:06.630 --> 00:05:11.630
+of the TV signal that needs to be connected.
+
+00:05:11.630 --> 00:05:41.200
+So, we do the same for input 1, for output, and for area.
+
+00:05:41.200 --> 00:05:50.240
+The instantiation of the module unit under test, UUT, is being created.
+
+00:05:50.240 --> 00:06:01.880
+Now we actually need to add the values of the inputs that we want to have.
+
+00:06:01.880 --> 00:06:11.040
+We are going to, I'm sorry, we are going to use this using initial command.
+
+00:06:11.040 --> 00:06:15.560
+And initial has begin and end.
+
+00:06:15.560 --> 00:06:22.500
+So initial means that this is going to be executed only once at the beginning of the
+
+00:06:22.500 --> 00:06:24.300
+task batch.
+
+00:06:24.300 --> 00:06:28.940
+So first we start by initializing the first value of the input.
+

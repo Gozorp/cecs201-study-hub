@@ -1,0 +1,230 @@
+WEBVTT
+
+00:00:01.070 --> 00:00:09.630
+Hi, this is Dr. Jelena Trajkovic, CECLV, CECS Department. Let's keep going. So I was wondering
+
+00:00:09.630 --> 00:00:17.190
+if you had any chance of trying to draw this binary expression in form of using gates by
+
+00:00:17.190 --> 00:00:25.590
+yourself. If not, pause this video and attempt by yourself because the solution is coming.
+
+00:00:25.590 --> 00:00:31.770
+When you're looking at this expression, what you need to say is like, well, okay, what
+
+00:00:31.770 --> 00:00:45.090
+does this mean? And let's write it in a little bit more English-like or language-like way.
+
+00:00:45.090 --> 00:01:20.180
+So that is the same thing as A and not B. So, and needs to happen on A and not B. Basically
+
+00:01:20.180 --> 00:01:29.460
+knot has precedence over A, its priority is higher. So first we need to resolve knot B.
+
+00:01:30.340 --> 00:01:38.660
+Basically first we have to make knot B before we use that to end with A. So we will start by B,
+
+00:01:38.660 --> 00:01:57.440
+B, not gate, and then we will have A and and gate, A and not B. You might be able to see
+
+00:01:57.440 --> 00:02:10.880
+it somewhere as A and not B or A not B. B with a bar over it is also not.
+
+00:02:10.880 --> 00:02:18.500
+We will do a little bit of circuit drawing in class so I would need you to make sure
+
+00:02:18.500 --> 00:02:24.060
+to cover reading material and I am going to post reading material.
+
+00:02:24.060 --> 00:02:29.280
+Basically the basic convention for circuit drawing is something that you will need to
+
+00:02:29.280 --> 00:02:35.580
+read by yourself from the book but I will post that on the beach board.
+
+00:02:35.580 --> 00:02:39.380
+Next topics are Boolean equations.
+
+00:02:39.380 --> 00:02:48.180
+So we have binary logic, we have binary variables and binary operands, right now we are starting
+
+00:02:48.180 --> 00:03:02.120
+to talk about Boolean equations. Boolean algebra and Boolean equations is actually a mathematical
+
+00:03:02.120 --> 00:03:15.300
+concept and it's very interesting to mention that in 1938 Boolean algebra as a construct
+
+00:03:15.300 --> 00:03:20.300
+was applied first time on the design of digital circuits.
+
+00:03:23.870 --> 00:03:28.870
+So we are short of like 80 years after this year.
+
+00:03:31.710 --> 00:03:33.630
+And you need to understand something
+
+00:03:33.630 --> 00:03:36.790
+that when you're trying to make digital circuit,
+
+00:03:36.790 --> 00:03:39.790
+when you're keeping it relatively small,
+
+00:03:39.790 --> 00:03:44.790
+things are, let's call them relatively easy.
+
+00:03:44.790 --> 00:03:56.710
+However, when we move to more complex designs, not just design, but proving that something
+
+00:03:56.710 --> 00:04:04.630
+is functionally correct and proving that something is correct even with respect to timing and
+
+00:04:04.630 --> 00:04:13.630
+we will be talking about timing in a little while, that is a really, really tough thing.
+
+00:04:13.630 --> 00:04:37.490
+So by applying Boolean algebra, by applying Boolean algebra to digital circuits, several
+
+00:04:37.490 --> 00:04:39.250
+things were accomplished.
+
+00:04:39.250 --> 00:04:47.750
+First, that it's easier, it's easier to design.
+
+00:04:47.750 --> 00:05:01.090
+And the second one is that circuits are correct by construction.
+
+00:05:01.090 --> 00:05:04.410
+What does that mean?
+
+00:05:04.410 --> 00:05:11.010
+means that we have a mathematical apparatus which is Boolean algebra to
+
+00:05:11.010 --> 00:05:20.050
+prove the correctness. So when we make circuits using Boolean algebra we know
+
+00:05:20.050 --> 00:05:28.010
+that functionality wise they are correct because we have mathematical laws to
+
+00:05:28.010 --> 00:05:44.800
+back them up. Those two basically consequences are really important to
+
+00:05:44.800 --> 00:05:58.960
+notice because large, extremely large digital circuits are now feasible so you
+
+00:05:58.960 --> 00:06:07.280
+are able to make them and you're able to make them in a timely manner. So let us
+
+00:06:07.280 --> 00:06:17.830
+go and look into... we know about... so binary variables are going to be used to
+
+00:06:17.830 --> 00:06:42.330
+make equations. Binary or Boolean variable is going to be, let's say, z and as in
+
+00:06:42.330 --> 00:06:47.850
+regular mathematical equation, on the right hand side we are going to put a Boolean expression
+
+00:06:47.850 --> 00:06:55.770
+or binary expression and that is going to be let's say p and q. Very similar to this one here.
+
+00:06:56.570 --> 00:07:05.450
+The binary function or binary equation is going to have different values in different
+
+00:07:05.450 --> 00:07:12.650
+moments of time depending on the values of variables p and q and we can plot and we will
+
+00:07:12.650 --> 00:07:23.770
+be plotting in the next part the values of z depending on what are the input values of p and q are.
+
+00:07:26.140 --> 00:07:35.780
+Let us try to make an equation. So this is an example one. If an equation,
+
+00:07:35.780 --> 00:07:43.220
+So eventually we want to design a circuit and because we actually want to design circuit
+
+00:07:43.220 --> 00:07:53.800
+we have to know the functionality. So I'm going to give you specification very often
+
+00:07:53.800 --> 00:07:59.000
+that's going to be actually the text of your problem during your exam. So we are going
+
+00:07:59.000 --> 00:08:06.040
+to have a specification and for this specification we are going to say what are the inputs and
+
+00:08:06.040 --> 00:08:12.040
+And what are the outputs and what the function needs to do in certain cases.
+
+00:08:12.040 --> 00:08:30.220
+So okay, inputs are going to be variable D, that is saying the door is open, variable
+
+00:08:30.220 --> 00:08:57.870
+V, binary or Boolean variable, window is open, variable E, alarm enabled, variable N, time
+
+00:08:57.870 --> 00:09:11.040
+of the day is night. Well, here we are going to define only one output. However, we can
+
+00:09:11.040 --> 00:09:27.750
+have functions that have multiple outputs as well. S is going to be soundy alarm. We
+
+00:09:27.750 --> 00:09:33.550
+need to write an equation for several examples. We are going to give you one right now and
+
+00:09:33.550 --> 00:09:54.610
+the other ones we are going to tackle during the class time. Soundy alarm only if the door
+
+00:09:54.610 --> 00:10:18.140
+is opened and an alarm is enabled. So, okay, we have to know one thing that because inputs
+
+00:10:18.140 --> 00:10:41.750
+are all, they are all part of this Boolean or binary variables, they will have values
+
+00:10:41.750 --> 00:10:50.230
+0 and 1. So door is opened, D is going to be 1. For D0, it's an opposite statement
+
+00:10:50.230 --> 00:10:53.800
+so door is going to be closed.
+
+00:10:53.800 --> 00:10:58.600
+Alarm enable, E is one for an alarm enable,
+
+00:10:58.600 --> 00:11:03.360
+and E is zero for alarm is not enabled.
+
+00:11:04.440 --> 00:11:09.440
+So S, if you want, pause, try by yourself
+
+00:11:09.800 --> 00:11:12.040
+and then continue watching the video.
+
+00:11:12.040 --> 00:11:15.760
+S is sound the alarm, is going to be one.
+
+00:11:15.760 --> 00:11:17.560
+And right now the best thing is
+
+00:11:17.560 --> 00:11:19.240
+to basically reread the problem.
+
+00:11:19.240 --> 00:11:22.240
+Sound the alarm if the door is opened.
+
+00:11:22.240 --> 00:11:24.760
+Okay, so D has to be one.
+
+00:11:25.600 --> 00:11:28.380
+And this is actually giving us very big hint
+
+00:11:28.380 --> 00:11:31.480
+about the operator that we need to use.
+
+00:11:31.480 --> 00:11:36.630
+Alarm is enabled.
+
+00:11:36.630 --> 00:11:38.070
+That's it for now.
+
+00:11:38.070 --> 00:11:42.090
+Let's continue with this in class.
+
+00:11:42.090 --> 00:11:42.930
+Thank you.
+

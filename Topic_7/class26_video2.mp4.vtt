@@ -1,0 +1,134 @@
+WEBVTT
+
+00:00:00.820 --> 00:00:05.820
+Hi, this is Dr. Jelena Trajkovic from the CECS Department at Cal State Long Beach.
+
+00:00:05.820 --> 00:00:12.820
+So we are going to design a Moore FSM and represent it as a state transition diagram
+
+00:00:12.820 --> 00:00:16.820
+that is going to control the holiday light display.
+
+00:00:16.820 --> 00:00:24.820
+And the display is going to use three signals, S and T and U, to control the light bulbs.
+
+00:00:24.820 --> 00:00:30.760
+Each transition from state to state is going to be happening on clock and each
+
+00:00:30.760 --> 00:00:35.480
+time that we have transition on that clock the light display is going to
+
+00:00:35.480 --> 00:00:43.800
+change its state. So now we have to design that we have a sequence that is
+
+00:00:43.800 --> 00:00:54.520
+desired as having 0 0 0 1 0 1 0 1 0 1 1 1 and then we start over again 0 0 0 1
+
+00:00:54.520 --> 00:00:56.560
+one, zero, one, and so on and so forth.
+
+00:00:56.560 --> 00:00:58.980
+So basically kind of we are wrapping around
+
+00:00:58.980 --> 00:00:59.820
+to some extent.
+
+00:01:00.840 --> 00:01:05.020
+So we need to make a FSM.
+
+00:01:05.020 --> 00:01:08.800
+Each state is going to be assigned
+
+00:01:08.800 --> 00:01:12.700
+to one desired combination of these light switches.
+
+00:01:12.700 --> 00:01:15.520
+So first of all, how many states do we have?
+
+00:01:16.720 --> 00:01:17.900
+If you look into,
+
+00:01:18.960 --> 00:01:20.900
+let me change the color.
+
+00:01:20.900 --> 00:01:28.520
+If you look into the desired display order,
+
+00:01:31.260 --> 00:01:36.300
+we see that we have four different possibilities for output,
+
+00:01:36.300 --> 00:01:40.380
+and then we repeat state zero,
+
+00:01:40.380 --> 00:01:43.020
+and then state one, state two, state three.
+
+00:01:43.020 --> 00:01:46.060
+The other thing is how are ST and U mapped?
+
+00:01:46.060 --> 00:01:50.220
+Well, we are going to say that the first leftmost
+
+00:01:50.220 --> 00:01:53.780
+the most significant bit is going to represent S,
+
+00:01:53.780 --> 00:01:57.540
+the second one T, the third one U.
+
+00:01:57.540 --> 00:02:02.540
+So it's STU, STU, and STU.
+
+00:02:06.880 --> 00:02:12.850
+Now let's go and design our state transition diagram.
+
+00:02:12.850 --> 00:02:14.730
+So we have four possibilities.
+
+00:02:14.730 --> 00:02:16.970
+We're going to have four states.
+
+00:02:16.970 --> 00:02:21.370
+And we can easily call them S0, S1, S2, and S3.
+
+00:02:21.370 --> 00:02:31.640
+S0. Again, starting state is not defined for us in the problem, so we can
+
+00:02:31.640 --> 00:02:39.360
+make a decision where what is going to be our starting state. And we are
+
+00:02:39.360 --> 00:02:45.720
+going to go from S0, and S0 is going to have outputs 0, 0, 0. So this is
+
+00:02:45.720 --> 00:02:57.520
+respectively S, T and U value. From that state we're going to go to state S1
+
+00:02:57.520 --> 00:03:09.240
+that has 1 0 1. What are we going to consult for transition? Actually
+
+00:03:09.240 --> 00:03:18.120
+nothing. So this is one kind of corner case where on the clock edge we will be
+
+00:03:18.120 --> 00:03:22.920
+transitioning. So we are not going to ask if there is any variable, if the variable
+
+00:03:22.920 --> 00:03:29.920
+has particular value. We are going to say on the next clock transition, sorry, on
+
+00:03:29.920 --> 00:03:34.720
+next positive edge of the clock, we are going to transition in the next state
+
+00:03:34.720 --> 00:03:41.080
+and state is S1. On the next positive edges of clock we are going to
+
+00:03:41.080 --> 00:03:51.400
+transition to S2 that is going to have 0 1 0 and on the following one we can go
+
+00:03:51.400 --> 00:04:00.680
+to S3 that has 1 1 1. Once we are done with S3 we're going to go and wrap
+
+00:04:00.680 --> 00:04:08.920
+around and start S1 again. We'll do a little bit more complex problems in
+
+00:04:08.920 --> 00:04:16.620
+class and move to state encoding next time. Thanks for watching!
+

@@ -1,0 +1,2354 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CECS 201 — Computer Logic Design I — Video Hub</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  /* ---- Friendly pastel — DARK MODE ---- */
+  :root {
+    /* Deep night backgrounds with subtle warmth */
+    --bg:        #16141d;
+    --bg-soft:   #1c1a26;
+    --bg-card:   #23202e;
+    --bg-card-2: #29263a;
+    --bg-elev:   #322e44;
+
+    /* Soft glowing borders */
+    --line:        rgba(255, 255, 255, 0.07);
+    --line-strong: rgba(255, 255, 255, 0.14);
+
+    /* Warm off-white inks */
+    --text:       #ede8f0;
+    --text-soft:  #b8afc6;
+    --text-dim:   #8d849a;
+    --text-faint: #5d5670;
+
+    /* Pastel palette — coral primary, mint, lavender, butter, peach (dark-mode tuned) */
+    --accent:        #ff9b85;        /* warm coral */
+    --accent-2:      #ff7d68;
+    --accent-soft:   rgba(255, 155, 133, 0.15);
+    --accent-glow:   rgba(255, 155, 133, 0.30);
+
+    --mint:        #6fc8a8;
+    --mint-soft:   rgba(111, 200, 168, 0.15);
+    --lavender:    #b09ad8;
+    --lavender-soft: rgba(176, 154, 216, 0.15);
+    --butter:      #ffc66c;
+    --butter-soft: rgba(255, 198, 108, 0.15);
+    --peach:       #ffa478;
+    --peach-soft:  rgba(255, 164, 120, 0.15);
+    --sky:         #7fb5d8;
+    --sky-soft:    rgba(127, 181, 216, 0.15);
+
+    /* Semantic */
+    --info: var(--sky);
+    --good: var(--mint);
+    --warn: var(--butter);
+    --bad:  #ff7d8e;
+
+    /* Effects: glowing dark shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25), 0 1px 2px rgba(0, 0, 0, 0.15);
+    --shadow:    0 8px 28px rgba(0, 0, 0, 0.35), 0 2px 6px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 24px 60px rgba(0, 0, 0, 0.5), 0 4px 12px rgba(0, 0, 0, 0.25);
+
+    --radius:    14px;
+    --radius-lg: 22px;
+    --radius-xl: 28px;
+    --transition: 220ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; }
+  body {
+    font: 15px/1.6 'Nunito', 'Quicksand', 'SF Pro Rounded', -apple-system, 'Segoe UI', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    background: var(--bg);
+    color: var(--text);
+    display: grid;
+    grid-template-rows: auto 1fr;
+    /* Glowing pastel auras in the corners */
+    background-image:
+      radial-gradient(at 0% 0%, rgba(255, 164, 120, 0.10) 0px, transparent 45%),
+      radial-gradient(at 100% 0%, rgba(176, 154, 216, 0.10) 0px, transparent 45%),
+      radial-gradient(at 50% 100%, rgba(111, 200, 168, 0.08) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+
+  ::selection { background: var(--accent-soft); color: var(--text); }
+
+  /* ---- Header ---- */
+  header {
+    padding: 22px 32px;
+    background: rgba(28, 26, 38, 0.75);
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    gap: 22px;
+    align-items: center;
+    flex-wrap: wrap;
+    position: sticky; top: 0; z-index: 50;
+  }
+  header h1 {
+    font-size: 19px; margin: 0; font-weight: 800;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    display: flex; align-items: center; gap: 12px;
+  }
+  header h1::before {
+    content: '📚'; font-size: 22px;
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 42px; height: 42px;
+    background: linear-gradient(135deg, var(--accent-soft) 0%, var(--peach-soft) 100%);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+  }
+  header h1 .subtitle { color: var(--text-dim); font-weight: 500; font-size: 13px; }
+  header .stats {
+    display: flex; gap: 8px; margin-left: auto;
+    color: var(--text-soft); font-size: 13px; align-items: center;
+  }
+  header .stats span:not(:last-child) {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 14px;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-weight: 500;
+  }
+  header .stats b { color: var(--text); font-weight: 800; font-size: 14px; }
+  header a {
+    color: var(--accent-2); text-decoration: none; font-weight: 600;
+    transition: color var(--transition);
+  }
+  header a:hover { color: var(--text); }
+
+  /* ---- Layout ---- */
+  .layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    height: 100%;
+    min-height: 0;
+  }
+
+  /* ---- Sidebar ---- */
+  aside {
+    border-right: 1px solid var(--line);
+    background: rgba(22, 20, 29, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    overflow-y: auto;
+    padding: 22px 16px;
+  }
+
+  /* Pretty search box */
+  aside .search {
+    width: 100%;
+    padding: 12px 14px 12px 42px;
+    background: var(--bg-card);
+    border: 2px solid var(--line);
+    border-radius: 999px;
+    color: var(--text);
+    font: inherit;
+    font-size: 14px;
+    transition: all var(--transition);
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%238d849a' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.3-4.3'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: 14px center;
+    box-shadow: var(--shadow-sm);
+  }
+  aside .search:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-soft), var(--shadow-sm);
+  }
+  aside .search::placeholder { color: var(--text-faint); }
+
+  aside .filter-row { display: flex; gap: 14px; margin: 16px 6px; flex-wrap: wrap; }
+  aside .filter-row label {
+    font-size: 13px; color: var(--text-soft);
+    display: flex; align-items: center; gap: 8px; cursor: pointer;
+    user-select: none;
+    font-weight: 600;
+  }
+  aside .filter-row input[type="checkbox"] {
+    appearance: none; -webkit-appearance: none;
+    width: 18px; height: 18px;
+    border: 2px solid var(--line-strong);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all var(--transition);
+    position: relative;
+    background: var(--bg-card);
+  }
+  aside .filter-row input[type="checkbox"]:checked {
+    background: var(--accent); border-color: var(--accent);
+  }
+  aside .filter-row input[type="checkbox"]:checked::after {
+    content: '✓'; position: absolute; inset: 0;
+    color: white; font-size: 12px; font-weight: 900;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* Pastel rotating colors per module */
+  aside .module {
+    padding: 11px 16px;
+    margin-bottom: 4px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    user-select: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-soft);
+    font-size: 14px;
+    font-weight: 600;
+    transition: all var(--transition);
+    border: 2px solid transparent;
+  }
+  aside .module:hover {
+    background: var(--bg-card);
+    color: var(--text);
+    transform: translateX(3px);
+  }
+  aside .module.active {
+    background: var(--bg-card);
+    color: var(--text);
+    border-color: var(--accent);
+    box-shadow: var(--shadow-sm), inset 0 0 0 4px var(--accent-soft);
+    transform: translateX(3px);
+  }
+  /* Cycle pastel colors for the active module */
+  aside .module.active:nth-of-type(7n+1) { border-color: var(--accent); box-shadow: var(--shadow-sm), inset 0 0 0 4px var(--accent-soft); }
+  aside .module.active:nth-of-type(7n+2) { border-color: var(--mint); box-shadow: var(--shadow-sm), inset 0 0 0 4px var(--mint-soft); }
+  aside .module.active:nth-of-type(7n+3) { border-color: var(--lavender); box-shadow: var(--shadow-sm), inset 0 0 0 4px var(--lavender-soft); }
+  aside .module.active:nth-of-type(7n+4) { border-color: var(--butter); box-shadow: var(--shadow-sm), inset 0 0 0 4px var(--butter-soft); }
+  aside .module.active:nth-of-type(7n+5) { border-color: var(--peach); box-shadow: var(--shadow-sm), inset 0 0 0 4px var(--peach-soft); }
+  aside .module.active:nth-of-type(7n+6) { border-color: var(--sky); box-shadow: var(--shadow-sm), inset 0 0 0 4px var(--sky-soft); }
+
+  aside .module .count {
+    font-size: 12px;
+    background: var(--bg-soft);
+    padding: 3px 10px;
+    border-radius: 999px;
+    color: var(--text-dim);
+    font-variant-numeric: tabular-nums;
+    font-weight: 700;
+    transition: all var(--transition);
+    min-width: 28px;
+    text-align: center;
+  }
+  aside .module.active .count {
+    background: var(--accent); color: white;
+  }
+  aside .module.active:nth-of-type(7n+2) .count { background: var(--mint); }
+  aside .module.active:nth-of-type(7n+3) .count { background: var(--lavender); }
+  aside .module.active:nth-of-type(7n+4) .count { background: var(--butter); color: var(--text); }
+  aside .module.active:nth-of-type(7n+5) .count { background: var(--peach); }
+  aside .module.active:nth-of-type(7n+6) .count { background: var(--sky); }
+  aside .module:hover .count { background: var(--bg-elev); color: var(--text); }
+
+  aside .progress {
+    margin: 24px 6px 8px; padding: 16px 18px;
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--line);
+    box-shadow: var(--shadow-sm);
+  }
+  aside .progress .bar {
+    height: 10px;
+    background: var(--bg-soft);
+    border-radius: 999px;
+    overflow: hidden;
+    margin-top: 10px;
+  }
+  aside .progress .fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--mint) 0%, var(--lavender) 50%, var(--accent) 100%);
+    width: 0%;
+    transition: width 400ms ease-out;
+    border-radius: 999px;
+  }
+  aside .progress .label {
+    font-size: 12px;
+    color: var(--text-dim);
+    display: flex; justify-content: space-between;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-weight: 800;
+  }
+  aside .progress .label span:last-child {
+    color: var(--text); font-variant-numeric: tabular-nums;
+    font-weight: 800;
+  }
+
+  /* ---- Main content ---- */
+  main { overflow-y: auto; padding: 32px 40px 80px; }
+  main h2 {
+    margin: 0 0 8px;
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+  main .module-meta {
+    color: var(--text-dim); font-size: 14px;
+    margin-bottom: 28px;
+    display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
+    font-weight: 600;
+  }
+  main .module-meta a {
+    color: var(--accent); text-decoration: none;
+    background: var(--accent-soft);
+    padding: 4px 12px;
+    border-radius: 999px;
+    transition: all var(--transition);
+    border: 1px solid var(--line);
+  }
+  main .module-meta a:hover {
+    background: var(--accent); color: var(--bg);
+    transform: translateY(-1px);
+    border-color: var(--accent);
+  }
+
+  /* ---- Page card — pastel notebook page ---- */
+  .page {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-xl);
+    padding: 26px 30px;
+    margin-bottom: 26px;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition);
+  }
+  .page:hover {
+    box-shadow: var(--shadow);
+    transform: translateY(-1px);
+  }
+  .page h3 {
+    margin: 0 0 6px;
+    font-size: 19px;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: var(--text);
+  }
+  .page .page-url {
+    font-size: 12px;
+    color: var(--text-faint);
+    margin-bottom: 14px;
+    word-break: break-all;
+    font-family: ui-monospace, 'SF Mono', Consolas, monospace;
+  }
+  .page .page-url a {
+    color: var(--text-dim); text-decoration: none;
+    transition: color var(--transition);
+  }
+  .page .page-url a:hover { color: var(--accent-2); }
+
+  .page .context {
+    background: linear-gradient(135deg, var(--butter-soft) 0%, var(--peach-soft) 100%);
+    border: 1px solid var(--line);
+    padding: 14px 18px;
+    border-radius: var(--radius);
+    color: var(--text-soft);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+    position: relative;
+    font-weight: 500;
+  }
+  .page .context::before {
+    content: '✨'; margin-right: 6px;
+  }
+
+  .page .slides {
+    font-size: 13px;
+    margin-bottom: 16px;
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  }
+  .page .slides::before {
+    content: '📎 Slides'; font-size: 12px;
+    color: var(--text-soft); font-weight: 700;
+    margin-right: 8px;
+  }
+  .page .slides .pill {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: var(--lavender-soft);
+    color: var(--lavender);
+    padding: 6px 14px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-size: 12.5px;
+    font-weight: 600;
+    transition: all var(--transition);
+    border: 1px solid var(--line);
+  }
+  .page .slides .pill:hover {
+    background: var(--lavender);
+    color: var(--bg);
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: var(--shadow-sm);
+    border-color: var(--lavender);
+  }
+
+  /* ---- Video card — playful sticky-note feel ---- */
+  .video {
+    border-top: 1px dashed var(--line);
+    padding: 20px 0;
+    display: grid;
+    grid-template-columns: 32px 1fr auto;
+    gap: 16px;
+    align-items: start;
+    transition: opacity var(--transition);
+  }
+  .video:first-of-type { border-top: none; padding-top: 12px; }
+  .video.watched .vmeta-title {
+    text-decoration: line-through;
+    text-decoration-color: var(--mint);
+    text-decoration-thickness: 2px;
+    color: var(--text-dim);
+  }
+  .video.watched { opacity: 0.65; }
+
+  .video .vcheck { padding-top: 4px; }
+  .video .vcheck input[type="checkbox"] {
+    appearance: none; -webkit-appearance: none;
+    width: 22px; height: 22px;
+    border: 2.5px solid var(--line-strong);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all var(--transition);
+    position: relative;
+    background: var(--bg-card);
+  }
+  .video .vcheck input[type="checkbox"]:hover {
+    border-color: var(--mint);
+    transform: scale(1.05);
+  }
+  .video .vcheck input[type="checkbox"]:checked {
+    background: var(--mint);
+    border-color: var(--mint);
+  }
+  .video .vcheck input[type="checkbox"]:checked::after {
+    content: '✓'; position: absolute; inset: 0;
+    color: white; font-weight: 900; font-size: 14px;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .video .vmeta-title {
+    font-weight: 800; font-size: 16px;
+    margin-bottom: 6px;
+    cursor: pointer;
+    color: var(--text);
+    transition: color var(--transition);
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+  }
+  .video .vmeta-title:hover { color: var(--accent-2); }
+
+  .video .vmeta-line {
+    font-size: 12px;
+    color: var(--text-dim);
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .video .vmeta-line code {
+    background: var(--lavender-soft);
+    padding: 3px 9px;
+    border-radius: 6px;
+    font-family: ui-monospace, 'SF Mono', Consolas, monospace;
+    font-size: 11.5px;
+    color: var(--lavender);
+    border: 1px solid var(--line);
+    font-weight: 500;
+  }
+  .video .vmeta-line .badge {
+    background: var(--sky-soft);
+    color: var(--sky);
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 11.5px;
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .video .vmeta-line .badge.broken {
+    background: rgba(255, 125, 142, 0.18); color: var(--bad);
+  }
+  .video .vmeta-line .badge.huge {
+    background: var(--butter-soft); color: var(--butter);
+  }
+
+  .video .vmeta-subjects {
+    color: var(--text-soft);
+    font-size: 14px;
+    margin-top: 10px;
+    line-height: 1.6;
+    max-width: 75ch;
+  }
+
+  .video .vactions {
+    display: flex; gap: 8px;
+    flex-direction: column;
+    align-items: stretch;
+    min-width: 140px;
+  }
+  .video .btn {
+    background: var(--bg-card);
+    border: 2px solid var(--line);
+    color: var(--text);
+    padding: 9px 18px;
+    border-radius: 999px;
+    font-size: 13px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    font-weight: 700;
+    transition: all var(--transition);
+    font-family: inherit;
+  }
+  .video .btn:hover {
+    background: var(--bg-elev);
+    border-color: var(--line-strong);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+  }
+  .video .btn.primary {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+    color: white;
+    border: none;
+    padding: 11px 20px;
+    font-weight: 800;
+    box-shadow: 0 4px 12px var(--accent-glow);
+  }
+  .video .btn.primary:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 20px var(--accent-glow);
+  }
+
+  .video .vexpand {
+    grid-column: 1 / 4;
+    margin-top: 18px;
+    display: none;
+    animation: slideDown 280ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .video.open .vexpand { display: block; }
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ---- FULL-WIDTH HERO PLAYER ---- */
+  .vplayer {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #1a1410;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow-lg);
+  }
+  .vplayer iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+  .vplayer .placeholder {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 16px;
+    color: rgba(255, 255, 255, 0.85);
+    cursor: pointer;
+    background:
+      radial-gradient(circle at 50% 40%, rgba(255, 155, 133, 0.18) 0%, transparent 60%),
+      linear-gradient(135deg, #2a1f18 0%, #1a1410 100%);
+    transition: background var(--transition);
+  }
+  .vplayer .placeholder:hover {
+    background:
+      radial-gradient(circle at 50% 40%, rgba(255, 155, 133, 0.28) 0%, transparent 60%),
+      linear-gradient(135deg, #312218 0%, #1a1410 100%);
+  }
+  .vplayer .placeholder .play-icon {
+    width: 92px; height: 92px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+    display: flex; align-items: center; justify-content: center;
+    color: white;
+    font-size: 34px;
+    transition: all 280ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    padding-left: 6px;
+    box-shadow: 0 10px 30px rgba(255, 155, 133, 0.45), 0 0 0 8px rgba(255, 255, 255, 0.08);
+  }
+  .vplayer .placeholder:hover .play-icon {
+    transform: scale(1.1);
+    box-shadow: 0 14px 40px rgba(255, 155, 133, 0.6), 0 0 0 16px rgba(255, 255, 255, 0.1);
+  }
+  .vplayer .placeholder small { font-size: 13px; opacity: 0.7; }
+
+  .vplayer.broken {
+    aspect-ratio: auto;
+    padding: 32px;
+    display: flex; align-items: center; justify-content: center;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(255, 125, 142, 0.12) 0%, rgba(255, 164, 120, 0.10) 100%);
+    color: var(--bad);
+    font-size: 14px;
+    font-weight: 600;
+    border: 1px solid var(--line);
+  }
+
+  .vplayer-fallback {
+    display: none;
+    padding: 12px 18px;
+    background: var(--butter-soft);
+    border-radius: var(--radius);
+    color: var(--butter);
+    font-size: 13px;
+    margin-bottom: 12px;
+    font-weight: 500;
+    border: 1px solid var(--line);
+  }
+  .vplayer-fallback a { color: var(--accent); font-weight: 700; }
+  .vplayer-fallback.show { display: block; }
+
+  /* ---- Transcript editor (paste your own) ---- */
+  .vexpand label.lbl {
+    font-size: 12px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: block;
+    margin: 18px 0 8px;
+    font-weight: 800;
+  }
+  .vexpand textarea {
+    width: 100%;
+    min-height: 120px;
+    padding: 14px 16px;
+    background: var(--bg-card-2);
+    color: var(--text);
+    border: 2px solid var(--line);
+    border-radius: var(--radius);
+    font: 13px/1.7 ui-monospace, 'SF Mono', Consolas, monospace;
+    resize: vertical;
+    transition: all var(--transition);
+  }
+  .vexpand textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px var(--accent-soft);
+  }
+  .vexpand .saved {
+    font-size: 12px;
+    color: var(--mint);
+    margin-left: 8px;
+    opacity: 0;
+    transition: opacity var(--transition);
+    font-weight: 700;
+  }
+  .vexpand .saved.show { opacity: 1; }
+
+  /* ---- Empty / footer ---- */
+  .empty {
+    text-align: center;
+    color: var(--text-dim);
+    padding: 100px 20px;
+  }
+  .empty h2 { color: var(--text); }
+
+  .footer-note {
+    margin-top: 36px;
+    padding: 22px 26px;
+    background: linear-gradient(135deg, var(--mint-soft) 0%, var(--sky-soft) 100%);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-xl);
+    font-size: 14px;
+    color: var(--text-soft);
+    line-height: 1.7;
+  }
+  .footer-note b { color: var(--text); font-weight: 800; }
+  .footer-note code {
+    background: var(--bg-card-2);
+    padding: 3px 9px;
+    border-radius: 6px;
+    font-size: 12.5px;
+    color: var(--accent);
+    font-weight: 600;
+    border: 1px solid var(--line);
+  }
+
+  /* ---- Scrollbars ---- */
+  ::-webkit-scrollbar { width: 12px; height: 12px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb {
+    background: var(--line-strong);
+    border-radius: 999px;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+  }
+  ::-webkit-scrollbar-thumb:hover { background-color: var(--text-faint); background-clip: padding-box; }
+
+  /* ---- Header download button + modal ---- */
+  header .dl-btn {
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+    color: white;
+    border: none;
+    border-radius: 999px;
+    padding: 10px 20px;
+    font-weight: 800;
+    font-size: 13px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all var(--transition);
+    box-shadow: 0 4px 12px var(--accent-glow);
+  }
+  header .dl-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px var(--accent-glow);
+  }
+  header .dl-btn:disabled { opacity: 0.6; cursor: default; transform: none; box-shadow: none; }
+
+  #dl-modal {
+    position: fixed; inset: 0;
+    background: rgba(0,0,0,0.65);
+    backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+    display: none;
+    align-items: center; justify-content: center;
+    z-index: 999;
+    animation: fadeIn 200ms;
+  }
+  @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+  #dl-modal.show { display: flex; }
+  #dl-modal .box {
+    background: var(--bg-card);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-lg);
+    padding: 24px 28px;
+    max-width: 580px;
+    width: 90%;
+    max-height: 80vh;
+    overflow: auto;
+    box-shadow: var(--shadow-lg);
+  }
+  #dl-modal h3 { margin: 0 0 10px; font-size: 19px; font-weight: 600; letter-spacing: -0.01em; }
+  #dl-modal p { color: var(--text-soft); font-size: 13.5px; line-height: 1.6; margin: 8px 0; }
+  #dl-modal ol { color: var(--text-soft); font-size: 13.5px; line-height: 1.7; padding-left: 22px; }
+  #dl-modal ol li { margin-bottom: 6px; }
+  #dl-modal code {
+    background: var(--bg); padding: 2px 6px; border-radius: 4px;
+    font-size: 12px; color: var(--accent); border: 1px solid var(--line);
+  }
+  #dl-modal .dl-row { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
+  #dl-modal button {
+    font: inherit; padding: 9px 18px; border-radius: 8px;
+    cursor: pointer; border: 1px solid var(--line);
+    background: var(--bg-elev); color: var(--text);
+    font-weight: 500; transition: all var(--transition);
+  }
+  #dl-modal button:hover { background: var(--bg-card-2); border-color: var(--line-strong); }
+  #dl-modal button.primary {
+    background: linear-gradient(180deg, var(--accent) 0%, var(--accent-2) 100%);
+    color: #1a1106;
+    border-color: var(--accent-2);
+    font-weight: 600;
+  }
+  #dl-modal button.primary:hover { transform: translateY(-1px); box-shadow: 0 4px 14px var(--accent-glow); }
+  #dl-modal .progress {
+    margin-top: 18px; height: 8px;
+    background: var(--bg); border-radius: 4px; overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  #dl-modal .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--good) 0%, #4cc8a3 100%);
+    width: 0%;
+    transition: width var(--transition);
+  }
+  #dl-modal .log {
+    margin-top: 12px; max-height: 220px; overflow-y: auto;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font: 11px/1.5 ui-monospace, 'SF Mono', Consolas, monospace;
+    color: var(--text-dim);
+  }
+  #dl-modal .log .ok { color: var(--good); }
+  #dl-modal .log .skip { color: var(--text-dim); }
+  #dl-modal .log .err { color: var(--bad); }
+
+  /* ---- Video element ---- */
+  .vplayer video {
+    width: 100%; height: 100%;
+    background: #000;
+    display: block;
+  }
+  .vplayer .err-overlay {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 10px;
+    background: linear-gradient(180deg, rgba(255, 122, 138, 0.10) 0%, rgba(255, 122, 138, 0.04) 100%);
+    color: var(--text);
+    text-align: center;
+    padding: 20px;
+    font-size: 13.5px;
+  }
+  .vplayer .err-overlay button {
+    margin-top: 8px;
+    background: var(--info); color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 7px;
+    cursor: pointer;
+    font: inherit;
+    font-weight: 500;
+    transition: all var(--transition);
+  }
+  .vplayer .err-overlay button:hover { transform: translateY(-1px); filter: brightness(1.1); }
+
+  /* ---- Live-following transcript panel — pastel notebook ---- */
+  .vtranscript {
+    margin-top: 14px; max-height: 380px; overflow-y: auto;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 0 8px 10px;
+    font-size: 14.5px;
+    line-height: 1.7;
+    box-shadow: var(--shadow-sm);
+  }
+  .vtranscript .vt-header {
+    font-size: 12px; color: var(--text-soft);
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--line);
+    margin: 0 -8px 8px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-weight: 800;
+    background: rgba(35, 32, 46, 0.85);
+    position: sticky; top: 0; z-index: 1;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .vtranscript .vt-header::before {
+    content: '💬 Live transcript'; font-size: 13px;
+  }
+  .vtranscript .vt-header span:first-child { display: none; }
+  .vtranscript .vt-header span:last-child { color: var(--text-dim); font-weight: 500; font-size: 11px; }
+  .vtranscript .vt-line {
+    padding: 10px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: var(--text-soft);
+    transition: all 160ms ease-out;
+    margin: 2px 0;
+  }
+  .vtranscript .vt-line:hover {
+    background: var(--bg-elev);
+    color: var(--text);
+    transform: translateX(2px);
+  }
+  .vtranscript .vt-line.active {
+    background: linear-gradient(135deg, var(--accent-soft) 0%, var(--peach-soft) 100%);
+    color: var(--text);
+    font-weight: 700;
+    box-shadow: 0 2px 12px var(--accent-glow), inset 0 0 0 1px var(--accent-glow);
+    transform: translateX(2px);
+  }
+  .vtranscript .vt-line .vt-time {
+    display: inline-block;
+    min-width: 56px;
+    color: var(--text-faint);
+    font-family: ui-monospace, 'SF Mono', Consolas, monospace;
+    font-size: 11.5px;
+    margin-right: 10px;
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+  }
+  .vtranscript .vt-line.active .vt-time { color: var(--accent-2); }
+  .vtranscript.empty {
+    color: var(--text-dim); font-style: italic;
+    text-align: center; padding: 32px;
+    font-size: 14px;
+  }
+
+  /* ---- Final Exam section ---- */
+  aside .final-exam-btn {
+    margin: 18px 6px 8px;
+    padding: 14px 16px;
+    background: linear-gradient(135deg, rgba(255,155,133,0.18), rgba(176,154,216,0.18));
+    border: 1.5px solid var(--accent);
+    border-radius: var(--radius);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    font-weight: 800;
+    color: var(--text);
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+    position: relative;
+    overflow: hidden;
+  }
+  aside .final-exam-btn::before {
+    content: "";
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, transparent, rgba(255,155,133,0.08));
+    opacity: 0; transition: opacity var(--transition);
+  }
+  aside .final-exam-btn:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: var(--accent-2); }
+  aside .final-exam-btn:hover::before { opacity: 1; }
+  aside .final-exam-btn.active {
+    background: linear-gradient(135deg, var(--accent-soft), var(--lavender-soft));
+    border-color: var(--accent-2);
+    box-shadow: var(--shadow), 0 0 0 3px var(--accent-glow);
+  }
+  aside .final-exam-btn .fe-emoji { font-size: 20px; }
+  aside .final-exam-btn .fe-tag {
+    font-size: 10px; font-weight: 800; letter-spacing: 0.08em;
+    background: var(--accent); color: #1a0f0a;
+    padding: 3px 8px; border-radius: 8px; text-transform: uppercase;
+  }
+
+  main .fe-hero {
+    background: linear-gradient(135deg, var(--bg-card), var(--bg-card-2));
+    border: 1px solid var(--line);
+    border-radius: var(--radius-xl);
+    padding: 32px 36px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+  }
+  main .fe-hero::before {
+    content: "";
+    position: absolute; top: 0; right: 0; width: 280px; height: 280px;
+    background: radial-gradient(circle, var(--accent-glow), transparent 70%);
+    pointer-events: none;
+  }
+  main .fe-hero h2 { margin-top: 0; font-size: 32px; }
+  main .fe-hero .fe-sub {
+    color: var(--text-soft); font-size: 15px; line-height: 1.7;
+    max-width: 720px; position: relative;
+  }
+  main .fe-hero .fe-tags {
+    display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px;
+    position: relative;
+  }
+  main .fe-hero .fe-tag {
+    background: var(--bg-elev); border: 1px solid var(--line-strong);
+    padding: 6px 12px; border-radius: 999px;
+    font-size: 12px; font-weight: 700;
+    color: var(--text-soft);
+  }
+  main .fe-hero .fe-tag b { color: var(--accent); }
+
+  main .fe-section {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 26px 30px;
+    margin-bottom: 22px;
+    box-shadow: var(--shadow-sm);
+  }
+  main .fe-section h3 {
+    margin: 0 0 18px;
+    font-size: 20px; font-weight: 800;
+    display: flex; align-items: center; gap: 10px;
+  }
+  main .fe-section h3 .fe-icon { font-size: 24px; }
+
+  main .fe-pdfs { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+  main .fe-pdf {
+    background: var(--bg-card-2);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    text-decoration: none;
+    color: var(--text);
+    display: flex; gap: 12px; align-items: center;
+    transition: var(--transition);
+  }
+  main .fe-pdf:hover {
+    border-color: var(--accent);
+    background: var(--accent-soft);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+  }
+  main .fe-pdf .fe-pdf-icon { font-size: 26px; }
+  main .fe-pdf .fe-pdf-title { font-weight: 700; font-size: 14px; }
+  main .fe-pdf .fe-pdf-sub { font-size: 11px; color: var(--text-dim); margin-top: 2px; }
+
+  main .fe-weights { display: flex; flex-direction: column; gap: 12px; }
+  main .fe-weight {
+    display: grid;
+    grid-template-columns: 200px 1fr 60px;
+    gap: 14px;
+    align-items: center;
+  }
+  main .fe-weight .fe-w-name { font-weight: 700; font-size: 14px; }
+  main .fe-weight .fe-w-name small { display: block; color: var(--text-dim); font-weight: 500; font-size: 11px; margin-top: 2px; }
+  main .fe-weight .fe-w-bar {
+    height: 26px; background: var(--bg-elev); border-radius: 999px;
+    overflow: hidden; position: relative;
+    border: 1px solid var(--line);
+  }
+  main .fe-weight .fe-w-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    border-radius: 999px;
+    transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+  }
+  main .fe-weight.t5 .fe-w-fill { background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+  main .fe-weight.t2 .fe-w-fill { background: linear-gradient(90deg, var(--mint), #4fb38f); }
+  main .fe-weight.t7 .fe-w-fill { background: linear-gradient(90deg, var(--lavender), #9077c8); }
+  main .fe-weight.t3 .fe-w-fill { background: linear-gradient(90deg, var(--butter), #f0a93f); }
+  main .fe-weight.t6 .fe-w-fill { background: linear-gradient(90deg, var(--peach), #f08858); }
+  main .fe-weight.t4 .fe-w-fill { background: linear-gradient(90deg, var(--sky), #5e98c0); }
+  main .fe-weight.t1 .fe-w-fill { background: linear-gradient(90deg, var(--text-faint), var(--text-dim)); }
+  main .fe-weight .fe-w-pct {
+    text-align: right; font-weight: 800; font-size: 16px;
+    color: var(--text);
+  }
+
+  main .fe-priority {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px;
+  }
+  main .fe-priority-row {
+    background: var(--bg-card-2);
+    border: 1px solid var(--line);
+    border-left: 4px solid var(--accent);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  main .fe-priority-row.tier-1 { border-left-color: var(--accent); }
+  main .fe-priority-row.tier-2 { border-left-color: var(--butter); }
+  main .fe-priority-row.tier-3 { border-left-color: var(--mint); }
+  main .fe-priority-row.tier-4 { border-left-color: var(--text-faint); }
+  main .fe-priority-row .fe-rank {
+    font-size: 22px; font-weight: 900;
+    color: var(--accent); min-width: 32px;
+  }
+  main .fe-priority-row.tier-2 .fe-rank { color: var(--butter); }
+  main .fe-priority-row.tier-3 .fe-rank { color: var(--mint); }
+  main .fe-priority-row.tier-4 .fe-rank { color: var(--text-faint); }
+  main .fe-priority-row .fe-rank-body { flex: 1; }
+  main .fe-priority-row .fe-rank-name { font-weight: 800; font-size: 15px; margin-bottom: 4px; }
+  main .fe-priority-row .fe-rank-why { font-size: 13px; color: var(--text-soft); line-height: 1.5; }
+
+  main .fe-drills { display: flex; flex-direction: column; gap: 10px; }
+  main .fe-drill {
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 14px 16px;
+    background: var(--bg-card-2);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+  }
+  main .fe-drill .fe-drill-num {
+    background: var(--accent); color: #1a0f0a;
+    width: 28px; height: 28px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 900; font-size: 14px;
+    flex-shrink: 0;
+  }
+  main .fe-drill-body { flex: 1; }
+  main .fe-drill-title { font-weight: 700; font-size: 14px; margin-bottom: 3px; }
+  main .fe-drill-desc { font-size: 13px; color: var(--text-soft); line-height: 1.5; }
+
+  main .fe-topics { display: flex; flex-direction: column; gap: 14px; }
+  main .fe-topic {
+    background: var(--bg-card-2);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 18px 20px;
+  }
+  main .fe-topic h4 {
+    margin: 0 0 10px; font-size: 16px; font-weight: 800;
+    display: flex; align-items: center; gap: 10px;
+  }
+  main .fe-topic h4 .fe-topic-pct {
+    font-size: 12px; padding: 3px 10px;
+    border-radius: 999px; font-weight: 800;
+    background: var(--accent-soft); color: var(--accent);
+    border: 1px solid var(--accent);
+  }
+  main .fe-topic-jump {
+    margin-left: auto;
+    font-size: 12px; font-weight: 700;
+    color: var(--accent); cursor: pointer;
+    background: none; border: none;
+    padding: 4px 10px; border-radius: 8px;
+    transition: var(--transition);
+  }
+  main .fe-topic-jump:hover { background: var(--accent-soft); }
+  main .fe-topic ul { margin: 8px 0 0; padding-left: 20px; }
+  main .fe-topic li { margin-bottom: 4px; line-height: 1.55; font-size: 13.5px; color: var(--text-soft); }
+  main .fe-topic li b { color: var(--text); font-weight: 700; }
+
+  main .fe-callout {
+    background: linear-gradient(135deg, var(--butter-soft), var(--peach-soft));
+    border: 1px solid var(--butter);
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    font-size: 14px;
+    color: var(--text);
+    margin-top: 16px;
+  }
+  main .fe-callout b { color: var(--butter); }
+  main .fe-disclaimer {
+    margin-top: 20px;
+    padding: 14px 18px;
+    border: 1px dashed var(--line-strong);
+    border-radius: var(--radius);
+    font-size: 12.5px;
+    color: var(--text-dim);
+    line-height: 1.55;
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>
+    CECS 201 — Computer Logic Design I
+    <span class="subtitle">· Spring 2026 · Video Hub</span>
+  </h1>
+  <div class="stats">
+    <span><b id="stat-videos">0</b> videos</span>
+    <span><b id="stat-mb">0</b> MB</span>
+    <span><b id="stat-watched">0</b> watched</span>
+    <button class="dl-btn" id="dl-open">⬇ Download all videos</button>
+    <span><a href="https://csulb.instructure.com/courses/112467/modules" target="_blank" rel="noopener">Open Canvas ↗</a></span>
+  </div>
+</header>
+
+<div id="dl-modal">
+  <div class="box">
+    <h3>Download all 102 videos (~2.7 GB)</h3>
+    <p>This will use your existing Canvas login (in this Chrome session) to download every video into your default Downloads folder. Then run the included <code>ORGANIZE_VIDEOS.bat</code> to move them into the right module sub-folders so the website can play them.</p>
+    <ol>
+      <li>Click <b>Start downloading</b> below — Chrome will fetch the videos one by one.</li>
+      <li>If Chrome asks "This site is trying to download multiple files", click <b>Allow</b>.</li>
+      <li>Wait until the progress bar finishes (could be 10–30 min depending on connection).</li>
+      <li>Run <code>ORGANIZE_VIDEOS.bat</code> in the project folder — it moves files into <code>Topic_1/</code>, <code>Lab_4/</code>, etc.</li>
+      <li>Reload this page. Click <b>▶ Play</b> on any video — it now plays from disk.</li>
+    </ol>
+    <div class="dl-row">
+      <button class="primary" id="dl-start">Start downloading</button>
+      <button id="dl-cancel">Cancel</button>
+      <button id="dl-close" style="display:none">Close</button>
+    </div>
+    <div class="progress" style="display:none" id="dl-progress-wrap"><div class="progress-fill" id="dl-progress-fill"></div></div>
+    <div class="log" style="display:none" id="dl-log"></div>
+  </div>
+</div>
+
+<div class="layout">
+  <aside>
+    <input type="search" id="search" class="search" placeholder="Search videos, subjects, files…" />
+    <div class="filter-row">
+      <label><input type="checkbox" id="hide-watched" /> Hide watched</label>
+      <label><input type="checkbox" id="only-issues" /> Only issues</label>
+    </div>
+    <div id="final-exam-btn" class="final-exam-btn" title="Final exam study guide and topic weighting">
+      <span><span class="fe-emoji">🎯</span> Final Exam</span>
+      <span class="fe-tag">Study</span>
+    </div>
+    <div id="module-list"></div>
+    <div class="progress">
+      <div class="label"><span>Progress</span><span id="progress-text">0 / 0</span></div>
+      <div class="bar"><div class="fill" id="progress-fill"></div></div>
+    </div>
+  </aside>
+  <main id="main"></main>
+</div>
+
+<script>
+/* ---------- Course data (compiled from the per-module markdown notes) ---------- */
+const COURSE = {
+  name: "CECS 201 Sec01 9334 — Computer Logic Design I",
+  modulesUrl: "https://csulb.instructure.com/courses/112467/modules",
+  fileBase: "https://csulb.instructure.com/files/",
+  pageBase: "https://csulb.instructure.com/courses/112467/pages/",
+  modules: [
+    {
+      name: "Topic 1: Introduction",
+      pages: [{
+        title: "Class_1: Videos (part 1)", url: "class-1-videos-part-1",
+        context: "Watch the videos below. Take the quiz. Get ready to practice and learn in class.",
+        slides: [
+          {id:"28284847", name:"topic1-FacultyIntro_CourseDelivery-cecs201.pdf"},
+          {id:"28283221", name:"topic1-Syllabus-highlights-cecs201-Fall-2025-v1.pdf"},
+          {id:"28284713", name:"topic1-Intro-to-digital-cecs201.pdf"},
+        ],
+        videos: [
+          {title:"Class 1 Video 1: Faculty Intro and Course Delivery Mode", filename:"FacultyIntro-ClassDeliveryMode-Spring-2025.mp4", sizeMB:17.5, fileId:"28284981",
+            subjects:"Instructor introduction; course delivery mode (in-person/online split); attendance and participation expectations; Canvas navigation walkthrough."},
+          {title:"Class 1: Syllabus Highlights", filename:"SyllabusHighlights-Fall-25.mp4", sizeMB:0.0, fileId:"28285009", broken:true,
+            subjects:"⚠ The .mp4 on Canvas is only 18 KB — likely an empty stub. Use the slide PDF as the source for this segment: course objectives, grading breakdown, policies, required textbook (zyBooks Ch.1), lab software setup."},
+          {title:"Class 1 Video 2: Introduction to the Digital World", filename:"class1_video_0.mp4", sizeMB:24.8, fileId:"28284710",
+            subjects:"What 'digital' means and why digital systems exist; analog vs. digital; discrete vs. continuous representations; binary as the foundation; examples of digital systems in everyday life."},
+        ],
+      }],
+    },
+    {
+      name: "Topic 2: Numbers and Their Representations",
+      pages: [
+        { title:"Class_1: Videos (part 2)", url:"class-1-videos-part-2",
+          context:"Class 1 Video 1: Number Systems · Video 2: Binary to Decimal · Video 3: Decimal to Binary.",
+          slides:[],
+          videos: [
+            {title:"Number Systems", filename:"class1_video1_number_systems.mp4", sizeMB:16.4, fileId:"28284874",
+              subjects:"Concept of a number system; positional notation; base-r representation; intro to binary, octal, decimal, hexadecimal."},
+            {title:"Binary to Decimal", filename:"class1_video2_binary_to_decimal.mp4", sizeMB:26.4, fileId:"28283345",
+              subjects:"Algorithm for binary→decimal conversion (Σ bᵢ·2ⁱ); worked examples on small and large numbers."},
+            {title:"Decimal to Binary", filename:"class1_video_3_decimal_to_binary.mp4", sizeMB:23.0, fileId:"28283346",
+              subjects:"Algorithm for decimal→binary (repeated division by 2 / successive subtraction); worked examples; verification by reverse conversion."},
+          ],
+        },
+        { title:"Class_2: Videos", url:"class-2-videos",
+          context:"Hex/octal/signed numbers; binary↔hex; binary addition; signed numbers (two's complement); cheat sheet.",
+          slides:[
+            {id:"28284986", name:"class2_binary_to_decimal_algorithm.pdf"},
+            {id:"28284984", name:"class2_decimal_to_binary_algorithm.pdf"},
+          ],
+          videos: [
+            {title:"Hexadecimal, Octal, and Signed Numbers", filename:"class2_video1.mp4", sizeMB:23.9, fileId:"28284958",
+              subjects:"Hex and octal as compact binary forms; conversion among bases; intro to signed-number representations; motivation for two's complement."},
+            {title:"From Binary to Hexadecimal", filename:"class2_video_2.mp4", sizeMB:14.6, fileId:"28284667",
+              subjects:"Grouping binary digits into nibbles for hex; conversion in both directions; common pitfalls."},
+            {title:"Addition of Binary Numbers", filename:"class2_video_2.5.mp4", sizeMB:6.1, fileId:"28284700",
+              subjects:"Binary addition rules; carry propagation; column-by-column addition with worked examples."},
+            {title:"Signed Numbers", filename:"class2_video_3.mp4", sizeMB:31.5, fileId:"28284532",
+              subjects:"Sign-magnitude, one's complement, two's complement; range of representable values; advantages of two's complement."},
+            {title:"Signed Numbers (cont.)", filename:"class2_video_4.mp4", sizeMB:37.8, fileId:"28284665",
+              subjects:"Continuation: converting between representations; sign extension; conversion examples in two's complement."},
+            {title:"Number Conversion — Cheat Sheet", filename:"class2_video_5.mp4", sizeMB:31.8, fileId:"28284962",
+              subjects:"Summary of all conversion algorithms covered (decimal↔binary, binary↔hex, binary↔octal, signed forms)."},
+          ],
+        },
+        { title:"Class_3: Videos", url:"class-3-videos",
+          context:"Unsigned addition · Unsigned subtraction · Multiplication · Signed add · Signed sub.",
+          slides:[ {id:"28284540", name:"Overflow_un_signed.pdf"} ],
+          videos: [
+            {title:"Unsigned Addition", filename:"class3_video_1.mp4", sizeMB:11.6, fileId:"28284611",
+              subjects:"Unsigned binary addition; carry-out behavior; detecting unsigned overflow."},
+            {title:"Unsigned Subtraction", filename:"class3_video_2_unsigned_subtraction.mp4", sizeMB:15.7, fileId:"28284696",
+              subjects:"Unsigned binary subtraction; borrow propagation; turning subtraction into addition via two's complement."},
+            {title:"Multiplication", filename:"class3_video_3_multiplication.mp4", sizeMB:6.9, fileId:"28284612",
+              subjects:"Binary multiplication algorithm — shift-and-add, partial products; comparison to long multiplication."},
+            {title:"Signed Addition", filename:"class3_video_4_signed_add.mp4", sizeMB:24.8, fileId:"28284613",
+              subjects:"Two's-complement addition rules; signed-overflow detection; mixed-sign examples."},
+            {title:"Signed Subtraction", filename:"class3_video_5_sign_sub.mp4", sizeMB:26.0, fileId:"28284543",
+              subjects:"Signed subtraction via two's-complement addition; sign-extension; overflow corner cases."},
+          ],
+        },
+        { title:"Class_4: Videos", url:"class-4-videos",
+          context:"Binary recap · Binary codes · Parity ASCII.",
+          slides:[],
+          videos: [
+            {title:"Binary Recap", filename:"class4_video1_binalry_recap.mp4", sizeMB:7.1, fileId:"28284960",
+              subjects:"Recap of binary arithmetic and representations from Classes 1–3 before introducing coding schemes."},
+            {title:"Binary Codes", filename:"class4_video_2_binary_codes.mp4", sizeMB:30.3, fileId:"28284961",
+              subjects:"Common binary codes — BCD, Gray, excess-3; weighted vs. unweighted; use cases."},
+            {title:"Parity and ASCII", filename:"class4_video_3_parity_ascii.mp4", sizeMB:23.0, fileId:"28284708",
+              subjects:"Parity bits (even/odd) for single-bit error detection; ASCII as a binary character code."},
+          ],
+        },
+      ],
+    },
+    {
+      name: "Topic 3: Boolean Algebra and Logic Gates",
+      pages: [
+        { title:"Class 5: Videos", url:"class-5-videos",
+          context:"Binary Logic · Logic Gates · Timing Diagrams · Intro to Truth Tables.",
+          slides:[],
+          videos: [
+            {title:"Binary Logic", filename:"class5_video1.mp4", sizeMB:28.2, fileId:"28284946",
+              subjects:"Foundations of binary (Boolean) logic — values 0 and 1; AND, OR, NOT operations; algebraic system over {0,1}."},
+            {title:"Logic Gates", filename:"class5_video2.mp4", sizeMB:27.7, fileId:"28284544",
+              subjects:"Standard gate symbols and behavior — AND, OR, NOT, NAND, NOR, XOR, XNOR; schematic notation; truth tables."},
+            {title:"Timing Diagrams", filename:"class5_video3.mp4", sizeMB:21.9, fileId:"28284509",
+              subjects:"Reading and drawing timing/waveform diagrams; gate output response over time; verifying gate behavior with waveforms."},
+            {title:"Intro to Truth Tables", filename:"class5_video4.mp4", sizeMB:17.2, fileId:"28284546",
+              subjects:"Building truth tables for arbitrary Boolean expressions; relationship between truth tables, gates, and Boolean expressions."},
+          ],
+        },
+        { title:"Class 6: Videos", url:"class-6-videos-2",
+          context:"Boolean Algebra Properties (1/4 through 4/4).",
+          slides:[],
+          videos: [
+            {title:"Boolean Algebra Properties (1/4)", filename:"class6_video1.mp4", sizeMB:25.0, fileId:"28284548",
+              subjects:"First set of axioms/identities — identity, null, idempotent, complement laws."},
+            {title:"Boolean Algebra Properties (2/4)", filename:"class6_video2.mp4", sizeMB:38.7, fileId:"28284947",
+              subjects:"Commutative, associative, and distributive laws; comparison with regular algebra."},
+            {title:"Boolean Algebra Properties (3/4)", filename:"class6_video3.mp4", sizeMB:16.3, fileId:"28284046",
+              subjects:"DeMorgan's theorems and applications; converting between AND/OR forms."},
+            {title:"Boolean Algebra Properties (4/4)", filename:"class6_video4.mp4", sizeMB:12.4, fileId:"28284599",
+              subjects:"Absorption and consensus laws; algebraic manipulation to simplify Boolean expressions."},
+          ],
+        },
+        { title:"Class 7: Videos", url:"class-7-videos",
+          context:"Sum-of-Products · Sum of minterms · S-o-P to S-o-m · Compact notation · Functions.",
+          slides:[],
+          videos: [
+            {title:"Sum-of-Products (SoP)", filename:"class7_video1.mp4", sizeMB:35.2, fileId:"28284965",
+              subjects:"SoP canonical form; building SoP from a truth table; AND-OR gate networks."},
+            {title:"Sum of Minterms", filename:"class7_video2.mp4", sizeMB:12.5, fileId:"28284542",
+              subjects:"Minterms — definition, numbering, reading from a truth table; canonical sum-of-minterms expressions."},
+            {title:"S-o-P to S-o-m", filename:"class7_video3.mp4", sizeMB:31.0, fileId:"28284609",
+              subjects:"Converting between general SoP and canonical sum-of-minterms; expanding terms to canonical form."},
+            {title:"Compact Notation", filename:"class7_video4.mp4", sizeMB:34.2, fileId:"28284585",
+              subjects:"Σm(...) compact-notation for sum-of-minterms; reading and writing functions in this shorthand."},
+            {title:"Functions (1/2)", filename:"class7_video5.mp4", sizeMB:21.8, fileId:"28284663",
+              subjects:"Defining a Boolean function in multiple equivalent forms (truth table, expression, gate diagram)."},
+            {title:"Functions (2/2)", filename:"class7_video6.mp4", sizeMB:23.2, fileId:"28284621",
+              subjects:"Equivalence between forms; simplification motivation; transition toward Karnaugh maps."},
+          ],
+        },
+      ],
+    },
+    {
+      name: "Topic 4: Combinational Logic",
+      pages: [
+        { title:"Class 8: Videos", url:"class-8-videos",
+          context:"Top-Down Design · K-Maps (1/3, 2/3, 3/3).",
+          slides:[],
+          videos: [
+            {title:"Top-Down Design", filename:"class8_video1.mp4", sizeMB:18.6, fileId:"28284871",
+              subjects:"Top-down methodology — start from problem statement, derive truth tables/specs, then implement gates; contrast with bottom-up."},
+            {title:"K-Maps (1/3)", filename:"class8_video2.mp4", sizeMB:38.9, fileId:"28284625",
+              subjects:"Karnaugh map basics — layout (Gray-code adjacency); 2- and 3-variable K-maps; reading minterms."},
+            {title:"K-Maps (2/3)", filename:"class8_video3.mp4", sizeMB:11.8, fileId:"28284605",
+              subjects:"Grouping 1s on a K-map — pairs, quads, octets; rules for valid groups; product term per group."},
+            {title:"K-Maps (3/3)", filename:"class8_video4.mp4", sizeMB:41.8, fileId:"28284498",
+              subjects:"Reading the simplified Boolean expression off the K-map; essential prime implicants; common pitfalls."},
+          ],
+        },
+        { title:"Class 9: Videos", url:"class-9-videos",
+          context:"4-variable K-Map · Examples · Don't Care.",
+          slides:[],
+          videos: [
+            {title:"4-variable K-Map", filename:"class9_video1.mp4", sizeMB:33.3, fileId:"28284963",
+              subjects:"Extending K-maps to 4 variables; the 4×4 layout; identifying larger groups (octets); wrap-around adjacency."},
+            {title:"K-Map Examples", filename:"class9_video2.mp4", sizeMB:35.7, fileId:"28284638",
+              subjects:"Multiple full worked examples — from truth table to minimized expression."},
+            {title:"Don't Care Conditions", filename:"class9_video3.mp4", sizeMB:38.5, fileId:"28284877",
+              subjects:"Don't-care (X) entries on K-maps; when they arise; using them to make larger groups for greater simplification."},
+          ],
+        },
+      ],
+    },
+    {
+      name: "Topic 5: Combinational Datapath Components",
+      pages: [
+        { title:"Class 12: Videos", url:"class-12-videos",
+          context:"Encoders (1/3, 2/3, 3/3).",
+          slides:[],
+          videos: [
+            {title:"Encoders (1/3)", filename:"class14_video1.mp4", sizeMB:28.7, fileId:"28284743",
+              subjects:"Intro to encoders — definition; contrast with decoders; where encoders show up in real systems."},
+            {title:"Encoders (2/3)", filename:"class14_video2.mp4", sizeMB:31.3, fileId:"28284514",
+              subjects:"Encoder truth tables and gate-level implementation; basic 4-to-2 and 8-to-3 encoders."},
+            {title:"Encoders (3/3)", filename:"class14_video3-v2.mp4", sizeMB:42.9, fileId:"28284762",
+              subjects:"Priority encoders — handling multiple simultaneous active inputs; valid-output bit; design walkthrough."},
+          ],
+        },
+        { title:"Class 13: Videos", url:"class-13-videos",
+          context:"Top-Down Design and Multiple Outputs (1/2, 2/2).",
+          slides:[],
+          videos: [
+            {title:"Top-Down Design and Multiple Outputs (1/2)", filename:"class15_video1.mp4", sizeMB:26.8, fileId:"28284939",
+              subjects:"Multi-output combinational circuits using top-down decomposition; sharing logic across outputs."},
+            {title:"Top-Down Design and Multiple Outputs (2/2)", filename:"class15_video2.mp4", sizeMB:12.0, fileId:"28284726",
+              subjects:"Worked example continuing the multi-output design; gate count optimization."},
+          ],
+        },
+        { title:"Class 14: Videos", url:"class-14-videos",
+          context:"2-to-1 MUX (recap) · Addition and Half Adder · Full Adder.",
+          slides:[],
+          videos: [
+            {title:"2-to-1 MUX (recap)", filename:"class10_video1.mp4", sizeMB:15.6, fileId:"28284768",
+              subjects:"Recap of the 2-to-1 multiplexer — truth table, gate diagram, Verilog form; building block for larger logic."},
+            {title:"Addition and Half Adder", filename:"class16_video2.mp4", sizeMB:19.1, fileId:"28284736",
+              subjects:"Single-bit binary addition; half adder = XOR (sum) + AND (carry); truth table and schematic."},
+            {title:"Full Adder", filename:"class16_video3.mp4", sizeMB:28.7, fileId:"28284772",
+              subjects:"Full adder — three inputs (A, B, Cin), two outputs; gate-level realization; chaining into a ripple-carry adder."},
+          ],
+        },
+        { title:"Class 15: Videos", url:"class-15-videos",
+          context:"Adder · Subtractor.",
+          slides:[],
+          videos: [
+            {title:"Adder", filename:"class17_video1.mp4", sizeMB:41.8, fileId:"28284557",
+              subjects:"Multi-bit ripple-carry adder; carry propagation; latency analysis; intro to faster adder schemes."},
+            {title:"Subtractor", filename:"class17_video2.mp4", sizeMB:34.6, fileId:"28284738",
+              subjects:"Binary subtractor built from an adder using two's-complement (invert B + add 1); add/subtract control via XOR."},
+          ],
+        },
+        { title:"Class 16: Videos", url:"class-16-videos",
+          context:"How Comparators Work · 1-bit and 4-bit Comparators · Subtractor.",
+          slides:[],
+          videos: [
+            {title:"How Comparators Work", filename:"class18_video1.mp4", sizeMB:25.9, fileId:"28284759",
+              subjects:"Magnitude comparators — equality, less-than, greater-than outputs; built from XOR/XNOR plus combinational logic."},
+            {title:"1-bit and 4-bit Comparators", filename:"class18_video2.mp4", sizeMB:32.8, fileId:"28284748",
+              subjects:"1-bit comparator from truth table; cascading 1-bit comparators into a 4-bit comparator with cascade inputs."},
+            {title:"Subtractor (revisit)", filename:"class18_video3.mp4", sizeMB:48.5, fileId:"28284746",
+              subjects:"Second pass on the subtractor — likely a more detailed walkthrough or a different-style example."},
+          ],
+        },
+      ],
+    },
+    {
+      name: "Topic 6: Synchronous Sequential Logic",
+      pages: [
+        { title:"Class 17: Videos", url:"class-17-videos",
+          context:"Intro to Synchronous Sequential Logic · Clock · SR latch · D latch · D flip-flop.",
+          slides:[],
+          videos: [
+            {title:"Intro to Synchronous Sequential Logic", filename:"class19_video1.mp4", sizeMB:42.8, fileId:"28284787",
+              subjects:"Why sequential logic exists (state, memory); contrast with combinational; what 'synchronous' means."},
+            {title:"Clock", filename:"class19_video2.mp4", sizeMB:17.8, fileId:"28284560",
+              subjects:"The clock signal — period, frequency, duty cycle, rising/falling edges; sequential elements' use of the clock."},
+            {title:"SR Latch", filename:"class19_video3.mp4", sizeMB:29.3, fileId:"28284976",
+              subjects:"SR latch — cross-coupled NAND/NOR; characteristic table; the invalid (S=R=1) state."},
+            {title:"D Latch", filename:"class19_video4.mp4", sizeMB:36.9, fileId:"28284788",
+              subjects:"D latch (level-triggered) — eliminating the invalid SR state; transparent vs. opaque modes."},
+            {title:"D Flip-Flop", filename:"class19_video5.mp4", sizeMB:19.0, fileId:"28284789",
+              subjects:"D flip-flop (edge-triggered) — master-slave from two D latches; positive vs. negative edge triggering; Q⁺ = D."},
+          ],
+        },
+        { title:"Class 18: Videos", url:"class-18-videos",
+          context:"4-bit Register · 4-bit Load Register · Shifting.",
+          slides:[],
+          videos: [
+            {title:"4-bit Register", filename:"class20_video1.mp4", sizeMB:53.3, fileId:"28284656", huge:true,
+              subjects:"Building a 4-bit register from four D flip-flops sharing a clock; bus notation."},
+            {title:"4-bit Load Register", filename:"class20_video2.mp4", sizeMB:37.5, fileId:"28284042",
+              subjects:"Adding a 'load' enable using a mux on each bit; selectively writing new data vs. holding."},
+            {title:"Shifting", filename:"class20_video3.mp4", sizeMB:45.5, fileId:"28284563",
+              subjects:"Shift registers — SISO/SIPO/PISO/PIPO classifications; serial-in/serial-out; clocked shifting behavior."},
+          ],
+        },
+        { title:"Class 19: Videos", url:"class-19-videos",
+          context:"Multi-function Registers · Multi-function Shift Register · Setup/Hold/Clock-to-Q.",
+          slides:[],
+          videos: [
+            {title:"Multi-function Registers", filename:"class21_video1.mp4", sizeMB:27.0, fileId:"28284790",
+              subjects:"Registers combining load, hold, shift; muxes to select among next-state options."},
+            {title:"Multi-function Shift Register", filename:"class21_video2.mp4", sizeMB:35.6, fileId:"28284800",
+              subjects:"Bidirectional / left-or-right shift registers with parallel load; control encoding."},
+            {title:"Setup, Hold, and Clock-to-Q Delay", filename:"class21_video3.mp4", sizeMB:30.8, fileId:"28284641",
+              subjects:"Sequential timing — t_setup, t_hold, t_clk-to-Q; metastability; max clock frequency derivation."},
+          ],
+        },
+        { title:"Class 20: Videos", url:"class-20-videos",
+          context:"How Counters Work · Counter Design · Timers (1/2, 2/2).",
+          slides:[],
+          videos: [
+            {title:"How Counters Work", filename:"class22_video1.mp4", sizeMB:14.7, fileId:"28284801",
+              subjects:"Counters as state machines walking through values on each clock edge; up/down/modulo-N."},
+            {title:"Counter Design", filename:"class22_video2.mp4", sizeMB:41.1, fileId:"28284802",
+              subjects:"Designing a counter from scratch — flip-flops + next-state combinational logic; ripple vs. synchronous; loadable/clearable."},
+            {title:"Timers (1/2)", filename:"class22_video3.mp4", sizeMB:23.4, fileId:"28284807",
+              subjects:"Timer concept — counter-driven timed signals; relating count value to wall-clock time given a clock frequency."},
+            {title:"Timers (2/2)", filename:"class22_video4.mp4", sizeMB:40.5, fileId:"28284565",
+              subjects:"Timer design examples — periodic pulses, programmable timers, application examples."},
+          ],
+        },
+      ],
+    },
+    {
+      name: "Topic 7: Finite State Machines",
+      pages: [
+        { title:"Class 21: Videos", url:"class-21-videos",
+          context:"FSM Definition · Moore visual rep · Moore operation · Mealy operation.",
+          slides:[],
+          videos: [
+            {title:"Finite State Machine — Definition", filename:"class25_video1.mp4", sizeMB:17.3, fileId:"28284811",
+              subjects:"Formal FSM definition (states, inputs, outputs, transition function, output function, initial state); real-world examples."},
+            {title:"FSM (Moore) — Visual Representation", filename:"class25_video2.mp4", sizeMB:19.5, fileId:"28284821",
+              subjects:"Drawing Moore-machine state diagrams — circles for states with output labels inside; arrows labelled with input conditions only."},
+            {title:"FSM (Moore) — Operation", filename:"class25_video3.mp4", sizeMB:21.8, fileId:"28284834",
+              subjects:"Walking through Moore FSM cycle by cycle; state transitions on the clock edge; outputs depend only on state."},
+            {title:"FSM (Mealy) — Operation", filename:"class25_video4.mp4", sizeMB:12.5, fileId:"28284819",
+              subjects:"Mealy machines — outputs are a function of (state, input); state-diagram convention; contrast with Moore."},
+          ],
+        },
+        { title:"Class 22: Videos", url:"class-22-videos",
+          context:"FSM Example #1 · FSM Example #2.",
+          slides:[],
+          videos: [
+            {title:"FSM Example #1", filename:"class26_video1.mp4", sizeMB:25.6, fileId:"28284815",
+              subjects:"First worked example — problem statement → state diagram → state table."},
+            {title:"FSM Example #2", filename:"class26_video2.mp4", sizeMB:12.5, fileId:"28284827",
+              subjects:"Second worked example — a more complex sequence detector or similar."},
+          ],
+        },
+        { title:"Class 23: Videos", url:"class-23-videos",
+          context:"FSM State Encoding · Timing diagram for FSM.",
+          slides:[],
+          videos: [
+            {title:"FSM State Encoding", filename:"class27_video1.mp4", sizeMB:20.6, fileId:"28284828",
+              subjects:"Encoding states in flip-flops — binary, Gray, one-hot; trade-offs in flip-flop count vs. next-state logic."},
+            {title:"Timing Diagram for FSM", filename:"class27_video2.mp4", sizeMB:33.5, fileId:"28284824",
+              subjects:"Reading and drawing FSM timing diagrams; relating clock edges, transitions, outputs; setup/hold/clock-to-Q in this context."},
+          ],
+        },
+        { title:"Class 24: Videos", url:"class-24-videos",
+          context:"FSM Implementation (1/2, 2/2) and a third video (untitled on page).",
+          slides:[],
+          videos: [
+            {title:"FSM Implementation (1/2)", filename:"class28_video1.mp4", sizeMB:24.0, fileId:"28284823",
+              subjects:"Implementing an FSM at the gate level — state register + next-state logic + output logic; deriving equations from the state table."},
+            {title:"FSM Implementation (2/2)", filename:"class28_video2.mp4", sizeMB:47.2, fileId:"28284831",
+              subjects:"Continuation — full schematic, simulation, and verification of the implemented FSM."},
+            {title:"FSM (Class 24 video 3 — title was blank on the page)", filename:"class28_video3.mp4", sizeMB:34.2, fileId:"28284809",
+              subjects:"Title was blank on Canvas. Likely an extension of FSM implementation (Verilog walkthrough or deeper example)."},
+          ],
+        },
+        { title:"Class 25: Videos", url:"class-25-videos",
+          context:"FSM Issues.",
+          slides:[],
+          videos: [
+            {title:"FSM Issues", filename:"class29_video1.mp4", sizeMB:30.7, fileId:"28284818",
+              subjects:"Common FSM design pitfalls — unreachable states, undefined transitions, glitches in Mealy outputs, reset strategies."},
+          ],
+        },
+      ],
+    },
+    {
+      name: "Lab 1: Videos and Quiz",
+      pages: [{
+        title:"Lab Assignment 1: Videos and Slides", url:"lab-assignment-1-videos-and-slides",
+        context:"Watch the videos. Take the quiz.",
+        slides:[
+          {id:"28283323", name:"Intro_to_HDL.pdf"},
+          {id:"28284539", name:"Verilog-keywords-module-01.pdf"},
+          {id:"28284540", name:"Overflow_un_signed.pdf"},
+        ],
+        videos: [
+          {title:"Intro to HDL", filename:"Intro_to_HDL.mp4", sizeMB:9.4, fileId:"28284957",
+            subjects:"What an HDL is; why Verilog (vs. VHDL/SystemVerilog); HDL vs. programming language (concurrent hardware vs. sequential software)."},
+          {title:"Verilog — Id, Key, and Module", filename:"Verilog_id_key_module_01.mp4", sizeMB:13.1, fileId:"28284527",
+            subjects:"Verilog identifiers, reserved keywords, the `module … endmodule` block — port lists, internal nets, declaring a basic module."},
+          {title:"How to Create a Project in Vivado", filename:"How_to_create_project_in_Vivado.mp4", sizeMB:5.4, fileId:"28284535",
+            subjects:"Creating a new project in Xilinx Vivado — selecting device/board, project type, initial setup."},
+          {title:"How to Add Source in Vivado", filename:"How_to_add_source_in_Vivado.mp4", sizeMB:10.3, fileId:"28284528",
+            subjects:"Adding source files (Verilog modules) to an existing Vivado project; importing vs. creating new; organizing the source tree."},
+          {title:"How to Create a Testbench in Vivado", filename:"How_to_create_testbench_in_Vivado-720.mp4", sizeMB:18.5, fileId:"28284522",
+            subjects:"Creating a simulation source (testbench) in Vivado; simulation vs. synthesizable sources; testbench module structure."},
+          {title:"Verilog — Testbenches", filename:"Verilog-TB-02.mp4", sizeMB:5.3, fileId:"28284712",
+            subjects:"Testbench structure — `initial` blocks; `$display`/`$monitor`; applying stimulus; checking outputs; typical testbench patterns."},
+          {title:"How to Perform a Simulation in Vivado", filename:"How_to_perfom_simulation_in_Vivado.mp4", sizeMB:13.3, fileId:"28284953",
+            subjects:"Running behavioral simulation; launching the simulator; the waveform viewer; adjusting run length; signal observation."},
+        ],
+      }],
+    },
+    {
+      name: "Lab 2: Videos and Quiz",
+      pages: [{
+        title:"Lab 2 Assignment : Videos and Slides", url:"lab-2-assignment-videos-and-slides-copy",
+        context:"Verilog — Module Instantiation. Simulation — Running the Simulation, Adding to the Wave.",
+        slides:[
+          {id:"28285022", name:"Verilog-Module Instantiation.pdf"},
+          {id:"28284645", name:"Verilog operators.pdf"},
+        ],
+        videos: [
+          {title:"Verilog — Module Instantiation", filename:"Verilog_module_inst.mp4", sizeMB:9.5, fileId:"28284964",
+            subjects:"Instantiating a previously written Verilog module inside another — positional vs. named port connection; pitfalls; naming the instance."},
+          {title:"Simulation — Running and Adding to the Wave", filename:"Simulation_run_adding_to_wave.mp4", sizeMB:7.1, fileId:"28284602",
+            subjects:"Running a behavioral simulation in Vivado; adding internal nets/signals to the waveform viewer for inspection."},
+        ],
+      }],
+    },
+    {
+      name: "Lab 3: Videos and Quiz",
+      pages: [{
+        title:"Lab 3 Assignment : Videos and Slides", url:"lab-3-assignment-videos-and-slides",
+        context:"Syntax Errors · Simulation — Set as Top.",
+        slides:[ {id:"28284645", name:"Verilog operators.pdf"} ],
+        videos: [
+          {title:"Vivado Syntax Errors", filename:"Vivado_sintax_errors.mp4", sizeMB:16.0, fileId:"28283342",
+            subjects:"Reading Vivado error logs; locating the offending line; fixing typical mistakes (semicolons, port mismatches, undeclared identifiers)."},
+          {title:"Simulation — Set as Top", filename:"Vivdo_set_as_top.mp4", sizeMB:8.6, fileId:"28283341",
+            subjects:"Choosing the active top-level module for synthesis vs. simulation; how Vivado picks a default; how to override."},
+        ],
+      }],
+    },
+    {
+      name: "Lab 4: Videos and Quiz",
+      pages: [{
+        title:"Lab 4 Assignment : Videos and Slides", url:"lab-4-assignment-videos-and-slides",
+        context:"Verilog — Vectors · Verilog — Always/Case · FPGA — 2-to-1 MUX.",
+        slides:[
+          {id:"28285010", name:"Verilog-vectors-v0.pdf"},
+          {id:"28285013", name:"Verilog-always_case-v2.pdf"},
+          {id:"28284975", name:"Wire_reg_Verilog.pdf"},
+        ],
+        videos: [
+          {title:"Verilog — Vectors", filename:"Verilog_vectors.mp4", sizeMB:21.0, fileId:"28284583",
+            subjects:"Multi-bit signal declarations (`[N-1:0] sig`); indexing/slicing; bit- and part-select; little- vs. big-endian conventions. (Reused in Lab 6 and Lab 7.)"},
+          {title:"Verilog — Always/Case", filename:"Verilog_always_case-v2.mp4", sizeMB:56.8, fileId:"28284742", huge:true,
+            subjects:"`always @*` blocks; `case`/`casez`/`casex`; synthesis to combinational muxes/decoders; pitfalls with sensitivity lists or missing `default`."},
+          {title:"FPGA — 2-to-1 MUX", filename:"FPGA_mux_2to1.MOV", sizeMB:252.2, fileId:"28284972", huge:true,
+            subjects:"Programming a 2-to-1 mux onto the Nexys A7 FPGA; using the testbench `mux_4to1_4b_case_tb.v` and `MasterConstraint_NexysA7-100T.txt`. Largest video in the course."},
+        ],
+      }],
+    },
+    {
+      name: "Lab 5: Videos and Quiz",
+      pages: [{
+        title:"Lab 5 Assignment : Videos and Slides", url:"lab-5-assignment-videos-and-slides",
+        context:"Verilog — `if` Statement · Verilog — Hierarchy · Simulating and Debugging Hierarchical Design.",
+        slides:[
+          {id:"28285038", name:"Verilog-if-v01.pdf"},
+          {id:"28284996", name:"Verilog-hiarachical-v01.pdf"},
+        ],
+        videos: [
+          {title:"Verilog — `if` Statement", filename:"Verilog_IF.mp4", sizeMB:5.4, fileId:"28284771",
+            subjects:"`if`/`else if`/`else` inside `always`; synthesis to priority logic vs. balanced muxes; comparison with `case`."},
+          {title:"Verilog — Hierarchy", filename:"Verilog_Hierarchy.mp4", sizeMB:17.8, fileId:"28284744",
+            subjects:"Hierarchical Verilog designs — top-level module instantiating sub-modules; managing port connections; benefits (reuse, readability, isolation)."},
+          {title:"Simulating and Debugging Hierarchical Design", filename:"Vivado_simulate_hierarchy.mp4", sizeMB:12.9, fileId:"28283352",
+            subjects:"Adding sub-module signals to the waveform viewer; navigating the design hierarchy at runtime; debugging across boundaries."},
+        ],
+      }],
+    },
+    {
+      name: "Lab 6: Videos and Quiz",
+      pages: [{
+        title:"Lab 6 Assignment : Videos and Slides", url:"lab-6-assignment-videos-and-slides-2",
+        context:"Verilog — Vectors. Plus re-watch references for adders, subtractors, mux, XOR (always/case).",
+        slides:[ {id:"28285010", name:"Verilog-vectors-v0.pdf"} ],
+        videos: [
+          {title:"Verilog — Vectors", filename:"Verilog_vectors.mp4", sizeMB:21.0, fileId:"28284583",
+            subjects:"Same file as Lab 4 / Lab 7. Verilog vector declarations, indexing, slicing — transcribe once, reuse."},
+        ],
+      }],
+    },
+    {
+      name: "Lab 7: Videos and Quiz",
+      pages: [{
+        title:"Lab 7 Assignment : Videos and Slides", url:"lab-7-assignment-videos-and-slides",
+        context:"Verilog — Clock Generator · Register · Vectors.",
+        slides:[
+          {id:"28285077", name:"Verilog-clk_generator-v1.pdf"},
+          {id:"28285058", name:"Verilog-register-v1.pdf"},
+          {id:"28285010", name:"Verilog-vectors-v0.pdf"},
+        ],
+        videos: [
+          {title:"Verilog — Clock (CLK) Generator", filename:"Verilog_CLK_generator.mp4", sizeMB:10.9, fileId:"28283355",
+            subjects:"Generating a clock in a testbench — `initial` + `always #N clk = ~clk;`; choosing period; toggle delay vs. frequency."},
+          {title:"Verilog — Register", filename:"Verilog_Register.mp4", sizeMB:24.2, fileId:"28284852",
+            subjects:"Inferring a register (D flip-flop bank) with `always @(posedge clk)`; non-blocking assignment for sequential logic; reset patterns."},
+          {title:"Verilog — Vectors", filename:"Verilog_vectors.mp4", sizeMB:21.0, fileId:"28284583",
+            subjects:"Same file as Lab 4 / Lab 6 — vectors."},
+        ],
+      }],
+    },
+    {
+      name: "Lab 8: Videos and Quiz",
+      pages: [{
+        title:"Lab 8 Assignment : Videos and Slides", url:"lab-8-assignment-videos-and-slides",
+        context:"Page text and filenames don't fully match — actual videos are FSM Part 1 / Part 2 based on filename.",
+        slides:[ {id:"28284813", name:"Verilog-fsm-v1.pdf"} ],
+        videos: [
+          {title:"Verilog FSM (Part 1)", filename:"Verilog_FSM_01.mp4", sizeMB:18.4, fileId:"28284832",
+            subjects:"Coding an FSM in Verilog (Part 1) — state encoding; canonical 2- or 3-block FSM template; current-state register and next-state logic."},
+          {title:"Verilog FSM (Part 2)", filename:"Verilog_FSM_02.mp4", sizeMB:29.4, fileId:"28284817",
+            subjects:"Output logic (Mealy vs. Moore); reset and initial state; simulating an FSM; coding pitfalls."},
+        ],
+      }],
+    },
+  ],
+};
+
+/* ---------- State (persisted in localStorage) ---------- */
+const STATE_KEY = "cecs201_video_state_v1";
+let state = JSON.parse(localStorage.getItem(STATE_KEY) || "{}");
+if (!state.watched) state.watched = {};
+if (!state.transcripts) state.transcripts = {};
+function saveState() { localStorage.setItem(STATE_KEY, JSON.stringify(state)); }
+
+let activeModule = COURSE.modules[0].name;
+let searchQuery = "";
+let hideWatched = false;
+let onlyIssues = false;
+
+/* ---------- Rendering ---------- */
+const moduleListEl = document.getElementById("module-list");
+const mainEl = document.getElementById("main");
+const searchEl = document.getElementById("search");
+const hideWatchedEl = document.getElementById("hide-watched");
+const onlyIssuesEl = document.getElementById("only-issues");
+
+function totalVideos() {
+  return COURSE.modules.reduce((s, m) => s + m.pages.reduce((s2, p) => s2 + p.videos.length, 0), 0);
+}
+function totalMB() {
+  return Math.round(COURSE.modules.reduce((s, m) =>
+    s + m.pages.reduce((s2, p) => s2 + p.videos.reduce((s3, v) => s3 + (v.sizeMB||0), 0), 0), 0));
+}
+function watchedCount() {
+  return Object.values(state.watched).filter(Boolean).length;
+}
+function videoKey(v) { return v.fileId + ":" + v.filename; }
+
+function moduleVideoCount(m) {
+  return m.pages.reduce((s, p) => s + p.videos.length, 0);
+}
+function videoMatchesSearch(v, page, mod) {
+  if (!searchQuery) return true;
+  const q = searchQuery.toLowerCase();
+  const blob = (v.title + " " + v.filename + " " + (v.subjects||"") + " " + page.title + " " + mod.name).toLowerCase();
+  return blob.includes(q);
+}
+function videoMatchesFilters(v, page, mod) {
+  if (hideWatched && state.watched[videoKey(v)]) return false;
+  if (onlyIssues && !v.broken && !v.huge) return false;
+  return videoMatchesSearch(v, page, mod);
+}
+
+function renderSidebar() {
+  // Final Exam button active state
+  const feBtn = document.getElementById('final-exam-btn');
+  if (feBtn) feBtn.classList.toggle('active', activeModule === 'Final Exam');
+  moduleListEl.innerHTML = "";
+  for (const m of COURSE.modules) {
+    let displayCount;
+    if (searchQuery || hideWatched || onlyIssues) {
+      let n = 0;
+      for (const p of m.pages) for (const v of p.videos) if (videoMatchesFilters(v, p, m)) n++;
+      displayCount = n;
+    } else {
+      displayCount = moduleVideoCount(m);
+    }
+    const div = document.createElement("div");
+    div.className = "module" + (m.name === activeModule ? " active" : "");
+    div.innerHTML = `<span>${escapeHtml(m.name)}</span><span class="count">${displayCount}</span>`;
+    div.addEventListener("click", () => { activeModule = m.name; renderAll(); });
+    moduleListEl.appendChild(div);
+  }
+  // Stats
+  document.getElementById("stat-videos").textContent = totalVideos();
+  document.getElementById("stat-mb").textContent = totalMB().toLocaleString();
+  document.getElementById("stat-watched").textContent = watchedCount();
+  // Progress
+  const tv = totalVideos();
+  const wc = watchedCount();
+  document.getElementById("progress-text").textContent = `${wc} / ${tv}`;
+  document.getElementById("progress-fill").style.width = (tv ? (wc/tv*100) : 0) + "%";
+}
+
+function renderMain() {
+  if (activeModule === "Final Exam") { renderFinalExam(); return; }
+  const m = COURSE.modules.find(x => x.name === activeModule) || COURSE.modules[0];
+  let html = `<h2>${escapeHtml(m.name)}</h2>`;
+  html += `<div class="module-meta">${m.pages.length} page${m.pages.length===1?'':'s'} · ${moduleVideoCount(m)} video${moduleVideoCount(m)===1?'':'s'} · <a href="${COURSE.modulesUrl}" target="_blank" rel="noopener">Open Canvas modules ↗</a></div>`;
+
+  let anyShown = false;
+  for (const p of m.pages) {
+    const filtered = p.videos.filter(v => videoMatchesFilters(v, p, m));
+    if (filtered.length === 0) continue;
+    anyShown = true;
+    html += `<div class="page">`;
+    html += `<h3>${escapeHtml(p.title)}</h3>`;
+    html += `<div class="page-url"><a href="${COURSE.pageBase}${encodeURIComponent(p.url)}" target="_blank" rel="noopener">${COURSE.pageBase}${escapeHtml(p.url)} ↗</a></div>`;
+    if (p.context) html += `<div class="context">${escapeHtml(p.context)}</div>`;
+    if (p.slides && p.slides.length) {
+      html += `<div class="slides">📎 Slides: `;
+      for (const s of p.slides) {
+        html += `<a class="pill" href="${COURSE.fileBase}${s.id}/download" target="_blank" rel="noopener">${escapeHtml(s.name)}</a>`;
+      }
+      html += `</div>`;
+    }
+    for (const v of filtered) {
+      const key = videoKey(v);
+      const isWatched = !!state.watched[key];
+      const transcript = state.transcripts[key] || "";
+      html += `<div class="video${isWatched ? ' watched' : ''}" data-key="${escapeHtml(key)}">`;
+      html += `  <div class="vcheck"><input type="checkbox" ${isWatched?'checked':''} data-action="toggle-watch" /></div>`;
+      html += `  <div class="vmeta">`;
+      html += `    <div class="vmeta-title" data-action="toggle-expand">${escapeHtml(v.title)}</div>`;
+      html += `    <div class="vmeta-line">`;
+      html += `      <code>${escapeHtml(v.filename)}</code>`;
+      html += `      <span class="badge${v.broken?' broken':''}${v.huge?' huge':''}">${v.sizeMB} MB</span>`;
+      if (v.broken) html += `      <span class="badge broken">⚠ broken stub</span>`;
+      if (v.huge) html += `      <span class="badge huge">large file</span>`;
+      html += `      <span class="badge">id ${v.fileId}</span>`;
+      html += `    </div>`;
+      if (v.subjects) html += `<div class="vmeta-subjects">${escapeHtml(v.subjects)}</div>`;
+      html += `  </div>`;
+      html += `  <div class="vactions">`;
+      html += `    <button class="btn primary" data-action="play">▶ Play</button>`;
+      html += `    <a class="btn" href="${COURSE.fileBase}${v.fileId}" target="_blank" rel="noopener">View on Canvas</a>`;
+      html += `    <button class="btn" data-action="toggle-expand">Transcript ▾</button>`;
+      html += `  </div>`;
+      html += `  <div class="vexpand">`;
+      if (v.broken) {
+        html += `    <div class="vplayer broken">⚠ This file on Canvas is only ~18 KB — an empty stub. Nothing to play. Use the slide PDF on this page as the source.</div>`;
+      } else {
+        const localPath = localPathFor(v);
+        html += `    <div class="vplayer" data-fileid="${escapeHtml(v.fileId)}" data-filename="${escapeHtml(v.filename)}" data-localpath="${escapeHtml(localPath)}">`;
+        html += `      <div class="placeholder" data-action="load-player">`;
+        html += `        <div class="play-icon">▶</div>`;
+        html += `        <div style="font-weight:600;color:var(--text)">Click to play</div>`;
+        html += `        <small>Plays from <code>${escapeHtml(localPath)}</code></small>`;
+        html += `      </div>`;
+        html += `    </div>`;
+        html += `    <div class="vplayer-fallback">If the file isn't on disk yet, click <b>⬇ Download all videos</b> in the header to fetch them from Canvas, or use <a href="${COURSE.fileBase}${v.fileId}" target="_blank" rel="noopener">Watch on Canvas</a>.</div>`;
+        html += `    <div class="vplayer-actions">`;
+        html += `      <a class="btn" href="${COURSE.fileBase}${v.fileId}/download" target="_blank" rel="noopener">⬇ Download .mp4</a>`;
+        html += `      <a class="btn" href="${COURSE.fileBase}${v.fileId}" target="_blank" rel="noopener">Open on Canvas ↗</a>`;
+        html += `    </div>`;
+      }
+      html += `    <label class="lbl">Transcript <span class="saved">saved</span></label>`;
+      html += `    <textarea data-action="transcript" placeholder="Run the .mp4 through MacWhisper / Whisper Desktop / OpenAI Whisper / otter.ai, then paste here. This saves to your browser only.">${escapeHtml(transcript)}</textarea>`;
+      html += `  </div>`;
+      html += `</div>`;
+    }
+    html += `</div>`;
+  }
+  if (!anyShown) {
+    html += `<div class="empty"><h2>No videos match your filters</h2><p>Try clearing the search or uncheck "Hide watched" / "Only issues".</p></div>`;
+  }
+  html += `<div class="footer-note">
+    <b>How playback works.</b> Each video plays from a local <code>.mp4</code> in your project folder (e.g. <code>Topic_2/class2_video1.mp4</code>). To get the files: click <b>⬇ Download all videos</b> in the header (uses your Canvas login to fetch every video), then run <code>ORGANIZE_VIDEOS.bat</code> to sort them into module folders. If a video isn't downloaded yet, the player shows a fallback "Watch on Canvas" button. Transcripts saved per-video stay in your browser only.
+  </div>`;
+  mainEl.innerHTML = html;
+
+  // Wire up events
+  mainEl.querySelectorAll('.video').forEach(el => {
+    const key = el.dataset.key;
+    el.querySelectorAll('[data-action="toggle-watch"]').forEach(c => {
+      c.addEventListener('change', e => {
+        state.watched[key] = e.target.checked;
+        saveState();
+        el.classList.toggle('watched', e.target.checked);
+        renderSidebar();
+      });
+    });
+    el.querySelectorAll('[data-action="toggle-expand"]').forEach(c => {
+      c.addEventListener('click', () => el.classList.toggle('open'));
+    });
+    el.querySelectorAll('[data-action="play"]').forEach(c => {
+      c.addEventListener('click', () => {
+        el.classList.add('open');
+        const placeholder = el.querySelector('.placeholder');
+        if (placeholder) loadPlayer(placeholder);
+        // scroll player into view
+        setTimeout(() => {
+          const player = el.querySelector('.vplayer');
+          if (player) player.scrollIntoView({behavior: 'smooth', block: 'nearest'});
+        }, 50);
+      });
+    });
+    el.querySelectorAll('[data-action="load-player"]').forEach(p => {
+      p.addEventListener('click', () => loadPlayer(p));
+    });
+    el.querySelectorAll('[data-action="transcript"]').forEach(t => {
+      let timer;
+      const savedEl = el.querySelector('.saved');
+      t.addEventListener('input', e => {
+        state.transcripts[key] = e.target.value;
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          saveState();
+          savedEl.classList.add('show');
+          setTimeout(() => savedEl.classList.remove('show'), 1200);
+        }, 300);
+      });
+    });
+  });
+}
+
+/* ---------- Local-file player ---------- */
+// Compute the canonical relative path for each fileId based on the FIRST module
+// it appears in, so duplicates (e.g. Verilog_vectors.mp4) live in one place.
+function moduleFolder(name) {
+  const m = name.match(/^(Topic|Lab)\s+(\d+)/i);
+  return m ? `${m[1]}_${m[2]}` : name.replace(/[^A-Za-z0-9]+/g, '_');
+}
+// Public hosting: video assets live on a GitHub Release (large files don't fit in Pages).
+// Keep this in one place so it's easy to bump when we re-upload to a new release tag.
+const REMOTE_RELEASE_BASE = "https://github.com/Gozorp/cecs201-study-hub/releases/download/v1.0";
+const FILE_LOCATIONS = (() => {
+  const out = {};
+  for (const m of COURSE.modules) {
+    for (const p of m.pages) {
+      for (const v of p.videos) {
+        if (!out[v.fileId]) out[v.fileId] = `${REMOTE_RELEASE_BASE}/${v.filename}`;
+      }
+    }
+  }
+  return out;
+})();
+function localPathFor(video) { return FILE_LOCATIONS[video.fileId]; }
+
+// Track open Canvas popup windows by fileId
+const openPopups = {};
+
+function loadPlayer(placeholder) {
+  const wrap = placeholder.parentElement; // .vplayer
+  const fileId = wrap.dataset.fileid;
+  const filename = wrap.dataset.filename;
+  const localPath = wrap.dataset.localpath;
+
+  // Build a <video> element pointing at the local file.
+  const vid = document.createElement('video');
+  vid.controls = true;
+  vid.preload = 'auto';
+  vid.playsInline = true;
+  // Encode each path segment so spaces/parens etc. survive — but if it's already
+  // a full URL (public hosting via GitHub Releases), pass through unchanged so we
+  // don't break the protocol/host slashes.
+  const encodedPath = /^https?:\/\//i.test(localPath)
+    ? localPath
+    : localPath.split('/').map(encodeURIComponent).join('/');
+  // Use a <source> element with explicit type so Chrome doesn't need to sniff
+  const source = document.createElement('source');
+  source.src = encodedPath;
+  source.type = filename.toLowerCase().endsWith('.mov') ? 'video/quicktime' : 'video/mp4';
+  vid.appendChild(source);
+
+  // Add a captions <track> pointing at the auto-generated .vtt subtitle file.
+  // We force the track into "showing" mode programmatically so captions appear
+  // on the video by default — no need for the user to click the CC button.
+  const track = document.createElement('track');
+  track.kind = 'subtitles';
+  track.label = 'Auto transcript';
+  track.srclang = 'en';
+  track.src = encodedPath + '.vtt';
+  track.default = true;
+  vid.appendChild(track);
+  // Force captions visible as soon as the track is loaded
+  track.addEventListener('load', () => {
+    if (track.track) track.track.mode = 'showing';
+  });
+  // Also try once metadata loads, in case track loads before that listener fires
+  vid.addEventListener('loadedmetadata', () => {
+    for (let i = 0; i < vid.textTracks.length; i++) {
+      if (vid.textTracks[i].kind === 'subtitles') vid.textTracks[i].mode = 'showing';
+    }
+  });
+
+  // Only show the "not downloaded" overlay if the error is real (NETWORK/SRC error
+  // on the video itself, not a track load failure). Track errors are normal when
+  // .vtt doesn't exist yet and shouldn't blow away the player.
+  let errored = false;
+  vid.addEventListener('error', () => {
+    if (errored) return;
+    // Filter: ignore errors that came from the <track> element
+    const err = vid.error;
+    if (!err) return;  // no actual video error
+    errored = true;
+    placeholder.style.display = 'flex';
+    placeholder.innerHTML =
+      '<div class="play-icon" style="background:#ff6b6b;color:#fff;font-size:18px">!</div>' +
+      `<div style="color:var(--text);font-weight:600">Couldn't load video</div>` +
+      `<small>Expected file: <code>${escapeHtml(localPath)}</code></small>` +
+      `<small>Error code ${err.code}: ${escapeHtml(err.message || 'unknown')}</small>`;
+    if (vid.parentElement) vid.parentElement.removeChild(vid);
+  });
+
+  wrap.appendChild(vid);
+  placeholder.style.display = 'none';
+
+  // Add live-following transcript panel below the player
+  const transcriptDiv = document.createElement('div');
+  transcriptDiv.className = 'vtranscript empty';
+  transcriptDiv.innerHTML = '<div class="vt-header"><span>Live transcript</span><span style="font-size:10px">click any line to jump</span></div><div>Loading transcript…</div>';
+  wrap.parentElement.insertBefore(transcriptDiv, wrap.nextSibling);
+
+  // Fetch and parse the .vtt
+  fetch(encodedPath + '.vtt').then(r => {
+    if (!r.ok) throw new Error('no vtt');
+    return r.text();
+  }).then(vttText => {
+    const cues = parseVtt(vttText);
+    if (cues.length === 0) throw new Error('empty vtt');
+    transcriptDiv.classList.remove('empty');
+    const header = transcriptDiv.querySelector('.vt-header');
+    transcriptDiv.innerHTML = '';
+    transcriptDiv.appendChild(header);
+    const lineEls = cues.map(c => {
+      const div = document.createElement('div');
+      div.className = 'vt-line';
+      div.dataset.start = c.start;
+      const tm = Math.floor(c.start);
+      const mm = String(Math.floor(tm/60)).padStart(2,'0');
+      const ss = String(tm%60).padStart(2,'0');
+      div.innerHTML = `<span class="vt-time">${mm}:${ss}</span> ${escapeHtml(c.text)}`;
+      div.addEventListener('click', () => { vid.currentTime = c.start; vid.play(); });
+      transcriptDiv.appendChild(div);
+      return {div, start: c.start, end: c.end};
+    });
+    // Highlight current line as time updates
+    let activeIdx = -1;
+    vid.addEventListener('timeupdate', () => {
+      const t = vid.currentTime;
+      let idx = -1;
+      // Binary search for current cue
+      for (let i = 0; i < lineEls.length; i++) {
+        if (t >= lineEls[i].start && t <= lineEls[i].end) { idx = i; break; }
+        if (t < lineEls[i].start) { idx = Math.max(0, i-1); break; }
+      }
+      if (idx === activeIdx) return;
+      if (activeIdx >= 0) lineEls[activeIdx].div.classList.remove('active');
+      activeIdx = idx;
+      if (idx >= 0) {
+        const el = lineEls[idx].div;
+        el.classList.add('active');
+        // Auto-scroll to keep the active line in view (smooth, but avoid scrolling the whole page)
+        const parent = transcriptDiv;
+        const elTop = el.offsetTop - parent.offsetTop;
+        const elBot = elTop + el.offsetHeight;
+        if (elTop < parent.scrollTop || elBot > parent.scrollTop + parent.clientHeight) {
+          parent.scrollTop = elTop - parent.clientHeight / 2 + el.offsetHeight / 2;
+        }
+      }
+    });
+  }).catch(() => {
+    transcriptDiv.innerHTML = '<div class="vt-header"><span>Live transcript</span><span></span></div><div style="color:var(--text-dim);font-style:italic;text-align:center;padding:14px 8px">No transcript yet. Run <code>RUN_TRANSCRIBER.bat</code> in the project folder to generate captions for every video.</div>';
+  });
+
+  // Try to play
+  vid.play().catch(()=>{ /* user gesture rules — controls still work */ });
+}
+
+// Parse a WebVTT string into [{start, end, text}, ...]
+function parseVtt(text) {
+  const cues = [];
+  const blocks = text.replace(/\r/g, '').split(/\n\n+/);
+  const tsRe = /(\d{1,2}:)?(\d{2}):(\d{2})\.(\d{3})\s*-->\s*(\d{1,2}:)?(\d{2}):(\d{2})\.(\d{3})/;
+  for (const b of blocks) {
+    const m = b.match(tsRe);
+    if (!m) continue;
+    const start = (parseInt(m[1])||0)*3600 + parseInt(m[2])*60 + parseInt(m[3]) + parseInt(m[4])/1000;
+    const end   = (parseInt(m[5])||0)*3600 + parseInt(m[6])*60 + parseInt(m[7]) + parseInt(m[8])/1000;
+    const lines = b.split('\n');
+    const tsIdx = lines.findIndex(l => tsRe.test(l));
+    const text = lines.slice(tsIdx+1).join(' ').trim();
+    if (text) cues.push({start, end, text});
+  }
+  return cues;
+}
+
+function openCanvasPopup(fileId) {
+  const url = `https://csulb.instructure.com/courses/112467/files/${fileId}`;
+  const existing = openPopups[fileId];
+  if (existing && !existing.closed) { existing.focus(); return; }
+  const w = 1100, h = 720;
+  const left = (window.screen.availWidth - w) / 2;
+  const top = (window.screen.availHeight - h) / 2;
+  const win = window.open(url, `cecs201_player_${fileId}`,
+    `width=${w},height=${h},left=${left},top=${top},popup=yes,resizable=yes,scrollbars=yes`);
+  if (win) openPopups[fileId] = win;
+  else alert("Pop-up blocked. Allow pop-ups for this site, or open Canvas in a new tab.");
+}
+
+/* ---------- Bulk download ---------- */
+let dlCancelled = false;
+
+async function downloadAllVideos() {
+  const all = [];
+  for (const m of COURSE.modules) for (const p of m.pages) for (const v of p.videos) {
+    if (v.broken) continue;
+    if (all.find(x => x.fileId === v.fileId)) continue; // dedupe shared files
+    all.push({...v, _module: m.name});
+  }
+  const total = all.length;
+  const log = document.getElementById('dl-log');
+  const fill = document.getElementById('dl-progress-fill');
+  document.getElementById('dl-progress-wrap').style.display = 'block';
+  log.style.display = 'block';
+  document.getElementById('dl-start').disabled = true;
+  document.getElementById('dl-cancel').style.display = 'none';
+  document.getElementById('dl-close').style.display = 'inline-block';
+
+  function append(cls, text) {
+    const div = document.createElement('div');
+    div.className = cls;
+    div.textContent = text;
+    log.appendChild(div);
+    log.scrollTop = log.scrollHeight;
+  }
+
+  append('', `Queueing ${total} videos…`);
+
+  for (let i = 0; i < total; i++) {
+    if (dlCancelled) { append('skip', 'Cancelled.'); break; }
+    const v = all[i];
+    const url = `https://csulb.instructure.com/files/${v.fileId}/download?download_frd=1`;
+    try {
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = v.filename;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      append('ok', `[${i+1}/${total}] ${v.filename}  (${v.sizeMB} MB)`);
+    } catch(e) {
+      append('err', `[${i+1}/${total}] FAILED ${v.filename}: ${e.message}`);
+    }
+    fill.style.width = ((i+1)/total*100) + '%';
+    // Pause between triggers so Chrome doesn't drop them
+    await new Promise(r => setTimeout(r, 700));
+  }
+
+  if (!dlCancelled) {
+    append('ok', `\nAll ${total} download requests sent. Watch Chrome's downloads bar — large files may still be transferring.`);
+    append('', `Next: run ORGANIZE_VIDEOS.bat in the project folder to move files into Topic_/Lab_ sub-folders.`);
+  }
+}
+
+document.getElementById('dl-open').addEventListener('click', () => {
+  document.getElementById('dl-modal').classList.add('show');
+});
+document.getElementById('dl-cancel').addEventListener('click', () => {
+  dlCancelled = true;
+  document.getElementById('dl-modal').classList.remove('show');
+});
+document.getElementById('dl-close').addEventListener('click', () => {
+  document.getElementById('dl-modal').classList.remove('show');
+});
+document.getElementById('dl-start').addEventListener('click', () => {
+  dlCancelled = false;
+  downloadAllVideos();
+});
+
+/* ---------- Final Exam study view ---------- */
+const FINAL_EXAM = {
+  pdfs: [
+    { file: "Final_Exam/final_study_guide-F25.pdf",         title: "Final Study Guide (F25)",     sub: "Topics & objectives covered on the final" },
+    { file: "Final_Exam/final_review_problems_Fall2025.pdf", title: "Final Review Problems",       sub: "Drill problems from the review session" },
+    { file: "Final_Exam/Final-Fall2025-v1.pdf",              title: "Past Final — Fall 2025",      sub: "Most recent prior final, full exam" },
+    { file: "Final_Exam/Final-Spring2025-v0.pdf",            title: "Past Final — Spring 2025",    sub: "Spring '25 final, full exam" },
+  ],
+  // Weight estimates derived from study guide objective counts + question counts on Fall '25 + Spring '25 finals
+  weights: [
+    { topic: "Topic 5", name: "Combinational Datapath Components",   sub: "MUX/DEMUX, decoders, encoders, adders, ALU", pct: 33, key: "t5" },
+    { topic: "Topic 2", name: "Number Systems & Codes",                sub: "Binary/hex, 2's complement, BCD, fixed-pt arithmetic", pct: 19, key: "t2" },
+    { topic: "Topic 7", name: "Finite State Machines",                  sub: "Moore vs Mealy, state diagrams, state tables → circuit", pct: 16, key: "t7" },
+    { topic: "Topic 3", name: "Boolean Algebra & Logic Gates",          sub: "SOP/POS, simplification, gate-level circuits", pct: 14, key: "t3" },
+    { topic: "Topic 6", name: "Sequential / Storage Elements",          sub: "Latches, flip-flops, registers, counters", pct: 11, key: "t6" },
+    { topic: "Topic 4", name: "Karnaugh Maps",                          sub: "K-map minimization, don't cares, hazards",  pct:  7, key: "t4" },
+    { topic: "Topic 1", name: "Introduction / Course Setup",            sub: "Not directly tested",                       pct:  0, key: "t1" },
+  ],
+  priority: [
+    { tier: 1, name: "Topic 5 — Datapath components",      why: "Heaviest single topic on the final. MUX selection logic, decoder outputs, ripple-carry vs carry-lookahead adders, ALU op-codes — expect 2–3 questions." },
+    { tier: 1, name: "Topic 7 — FSMs",                     why: "Always a multi-part design question: word problem → state diagram → state table → next-state logic → output logic. High point-value." },
+    { tier: 2, name: "Topic 2 — Numbers",                  why: "Quick wins. 2's complement add/subtract, range, overflow detection. Memorize the fixed conversions cold." },
+    { tier: 2, name: "Topic 3 — Boolean algebra",          why: "Foundation for every other answer. Practice SOP↔POS, DeMorgan, and gate counting." },
+    { tier: 3, name: "Topic 6 — Registers & counters",     why: "1–2 questions on shift-register behavior or counter timing diagrams." },
+    { tier: 3, name: "Topic 4 — K-maps",                   why: "Lighter than expected on the final, but still appears as a sub-step in Topic 3 and 5 questions." },
+    { tier: 4, name: "Topic 1 — Intro",                    why: "Effectively unweighted — skip in study time, just review the cheat-sheet." },
+  ],
+  drills: [
+    { title: "4-bit ripple adder + overflow detector",            desc: "Build the full circuit, then trace 0110 + 0111 in 2's complement. Identify the overflow flag's logic." },
+    { title: "8:1 MUX from two 4:1 MUXes + 1 inverter",           desc: "Show the connections. Then redo it using only NAND gates as a sanity check." },
+    { title: "BCD-to-7-segment decoder, K-map for segment 'a'",    desc: "Build the truth table for inputs 0–9, mark 10–15 as don't-cares, minimize the SOP for segment a." },
+    { title: "Vending machine FSM (Moore)",                       desc: "States = total cents inserted. Inputs = nickel/dime. Outputs = dispense, return-coin. Draw diagram + state table." },
+    { title: "4-bit synchronous up-counter with parallel load",   desc: "Use D flip-flops. Sketch waveforms for clock, load, parallel inputs, and Q outputs." },
+    { title: "2's-complement subtraction: 5-bit, 11010 − 00111",  desc: "Do it via add-the-2's-complement. Check for overflow. Convert each value to signed decimal first." },
+    { title: "K-map with 2 don't-cares, 4 variables",             desc: "Show essential prime implicants. Justify which don't-care assignments yield the simplest cover." },
+    { title: "Sequence detector (101 non-overlapping)",           desc: "Mealy FSM. Draw state diagram, state table, derive next-state and output equations using D flip-flops." },
+  ],
+  // Topic deep-dives mapped to module names so we can offer a "jump to topic videos" button
+  topicDetails: [
+    { topic: "Topic 5", moduleName: "Topic 5: Combinational Datapath Components", pct: 33, points: [
+      "<b>MUX (multiplexer):</b> n select lines → 2ⁿ inputs. Implement as logic function generators (any Boolean function in n+1 vars from 2ⁿ:1 MUX).",
+      "<b>DEMUX / decoder:</b> n inputs → 2ⁿ outputs. Used for memory address decoding and one-hot output generation.",
+      "<b>Encoders:</b> priority encoder behavior, valid-output line.",
+      "<b>Adders:</b> half-adder, full-adder, ripple-carry adder (RCA), carry-lookahead concept (G_i, P_i).",
+      "<b>Subtractors:</b> use 2's complement — A − B = A + (~B) + 1. Wire into the adder via XOR on B and Cin = 1.",
+      "<b>ALU:</b> mode bits select operation. Know the standard 4-op micro-ALU (AND/OR/ADD/SUB) and how the carry line is repurposed."
+    ]},
+    { topic: "Topic 2", moduleName: "Topic 2: Numbers", pct: 19, points: [
+      "<b>Bases:</b> binary ↔ decimal ↔ hex; method-of-doubling and method-of-division.",
+      "<b>Signed representations:</b> sign-magnitude, 1's complement, 2's complement (the only one tested for arithmetic).",
+      "<b>2's complement range:</b> n bits → −2ⁿ⁻¹ to +2ⁿ⁻¹ − 1. Memorize for n = 4, 8, 16.",
+      "<b>Overflow rule:</b> overflow occurs when the carry into the MSB and the carry out of the MSB differ.",
+      "<b>BCD:</b> each decimal digit = 4 bits; 0–9 valid, 10–15 illegal. BCD addition needs the +6 correction.",
+      "<b>Fixed-point:</b> understand binary point placement, range and resolution trade-offs."
+    ]},
+    { topic: "Topic 7", moduleName: "Topic 7: FSM", pct: 16, points: [
+      "<b>Moore vs Mealy:</b> Moore output = f(state); Mealy output = f(state, input). Mealy fewer states, transient outputs.",
+      "<b>Design flow:</b> word problem → state diagram → state table → state assignment → next-state K-maps → flip-flop input equations → output equations.",
+      "<b>State minimization:</b> merge equivalent states (same outputs, same next-states for every input).",
+      "<b>Common patterns:</b> sequence detectors (overlapping vs non-overlapping), vending machines, traffic lights, counters as FSMs.",
+      "<b>D flip-flops:</b> always preferred for design; D = next-state expression directly."
+    ]},
+    { topic: "Topic 3", moduleName: "Topic 3: Boolean Algebra", pct: 14, points: [
+      "<b>Identities:</b> idempotent, complement, De Morgan, absorption, consensus.",
+      "<b>SOP / POS:</b> minterms vs maxterms; how to read a truth table either way.",
+      "<b>Canonical → minimal:</b> algebraic simplification first, then K-map.",
+      "<b>Universal gates:</b> any Boolean function with NAND-only or NOR-only — you must be able to redraw an AND/OR/NOT circuit using just NANDs.",
+      "<b>Functional completeness:</b> {AND, OR, NOT} or {NAND} or {NOR} alone are complete."
+    ]},
+    { topic: "Topic 6", moduleName: "Topic 6: Registers", pct: 11, points: [
+      "<b>Latches:</b> SR, gated SR, gated D — level-triggered. Know the invalid-input case for SR.",
+      "<b>Flip-flops:</b> edge-triggered D (most common), JK, T. Know when output changes (rising vs falling edge).",
+      "<b>Registers:</b> n D flip-flops sharing a clock. Parallel-in/parallel-out, shift registers (SISO, SIPO, PISO).",
+      "<b>Counters:</b> ripple (asynchronous) vs synchronous. Be able to design a mod-N synchronous counter with D or JK FFs.",
+      "<b>Timing:</b> setup time, hold time, propagation delay — definitions only."
+    ]},
+    { topic: "Topic 4", moduleName: "Topic 4: K-maps", pct: 7, points: [
+      "<b>Layout:</b> 2, 3, 4-variable K-maps. Gray-code adjacency.",
+      "<b>Implicants:</b> prime implicant vs essential prime implicant.",
+      "<b>Don't-cares:</b> use to enlarge groups, but only if it yields a simpler cover.",
+      "<b>POS form:</b> group the 0s instead of the 1s; complement the result.",
+      "<b>Hazards:</b> static-1 hazard occurs when adjacent 1-groups don't overlap; add a redundant cover term to fix."
+    ]},
+  ],
+};
+
+function renderFinalExam() {
+  const fe = FINAL_EXAM;
+  let html = `<div class="fe-hero">
+    <h2>🎯 Final Exam — Study Guide & Topic Weighting</h2>
+    <div class="fe-sub">
+      What's actually on the final, weighted by how much it shows up across the official study guide and the two most recent past finals (Fall '25 and Spring '25). Built so you can focus your study time where the points are.
+    </div>
+    <div class="fe-tags">
+      <span class="fe-tag">📄 <b>4</b> source PDFs</span>
+      <span class="fe-tag">🧮 <b>2</b> past finals analyzed</span>
+      <span class="fe-tag">🎓 Made by a student, for students</span>
+    </div>
+  </div>`;
+
+  // PDFs
+  html += `<div class="fe-section">
+    <h3><span class="fe-icon">📄</span> Source materials</h3>
+    <div class="fe-pdfs">`;
+  for (const p of fe.pdfs) {
+    html += `<a class="fe-pdf" href="${escapeHtml(p.file)}" target="_blank" rel="noopener">
+      <div class="fe-pdf-icon">📕</div>
+      <div>
+        <div class="fe-pdf-title">${escapeHtml(p.title)}</div>
+        <div class="fe-pdf-sub">${escapeHtml(p.sub)}</div>
+      </div>
+    </a>`;
+  }
+  html += `</div></div>`;
+
+  // Weighting
+  html += `<div class="fe-section">
+    <h3><span class="fe-icon">⚖️</span> Topic weighting on the final</h3>
+    <div class="fe-weights">`;
+  for (const w of fe.weights) {
+    html += `<div class="fe-weight ${w.key}">
+      <div class="fe-w-name"><b>${escapeHtml(w.topic)}</b><small>${escapeHtml(w.name)}</small></div>
+      <div class="fe-w-bar"><div class="fe-w-fill" style="width:${w.pct}%"></div></div>
+      <div class="fe-w-pct">${w.pct}%</div>
+    </div>`;
+  }
+  html += `</div>
+    <div class="fe-callout">
+      <b>Read this:</b> percentages are estimates from question-counting + study-guide-objective-counting across the Fall '25 final, Spring '25 final, and the F25 study guide. Treat them as <i>where to spend your study time</i>, not a contract from the professor.
+    </div>
+  </div>`;
+
+  // Priority
+  html += `<div class="fe-section">
+    <h3><span class="fe-icon">🚀</span> Study priority order</h3>
+    <div class="fe-priority">`;
+  fe.priority.forEach((p, i) => {
+    html += `<div class="fe-priority-row tier-${p.tier}">
+      <div class="fe-rank">#${i+1}</div>
+      <div class="fe-rank-body">
+        <div class="fe-rank-name">${escapeHtml(p.name)}</div>
+        <div class="fe-rank-why">${escapeHtml(p.why)}</div>
+      </div>
+    </div>`;
+  });
+  html += `</div></div>`;
+
+  // Drills
+  html += `<div class="fe-section">
+    <h3><span class="fe-icon">💪</span> Drill these the night before</h3>
+    <div class="fe-drills">`;
+  fe.drills.forEach((d, i) => {
+    html += `<div class="fe-drill">
+      <div class="fe-drill-num">${i+1}</div>
+      <div class="fe-drill-body">
+        <div class="fe-drill-title">${escapeHtml(d.title)}</div>
+        <div class="fe-drill-desc">${escapeHtml(d.desc)}</div>
+      </div>
+    </div>`;
+  });
+  html += `</div></div>`;
+
+  // Topic deep dives
+  html += `<div class="fe-section">
+    <h3><span class="fe-icon">📚</span> Topic deep-dive — what to actually know</h3>
+    <div class="fe-topics">`;
+  for (const t of fe.topicDetails) {
+    const safeMod = escapeHtml(t.moduleName).replace(/'/g, "\\'");
+    html += `<div class="fe-topic">
+      <h4>
+        <span>${escapeHtml(t.topic)} — ${escapeHtml(t.moduleName.split(': ')[1] || t.moduleName)}</span>
+        <span class="fe-topic-pct">${t.pct}%</span>
+        <button class="fe-topic-jump" data-jump="${escapeHtml(t.moduleName)}">Watch videos →</button>
+      </h4>
+      <ul>`;
+    for (const pt of t.points) html += `<li>${pt}</li>`;
+    html += `</ul></div>`;
+  }
+  html += `</div></div>`;
+
+  html += `<div class="fe-disclaimer">
+    <b>Made by a student.</b> This page summarizes publicly distributed study materials from the CECS 201 course on Canvas. It's not an official answer key and isn't endorsed by the instructor. The weighting numbers are my best read of past finals plus the F25 study guide — your final may shift. Always go to the source PDFs above as the authoritative material.
+  </div>`;
+
+  mainEl.innerHTML = html;
+
+  // Wire up "Watch videos →" buttons to jump to the corresponding module
+  mainEl.querySelectorAll('[data-jump]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const target = btn.getAttribute('data-jump');
+      activeModule = target;
+      renderAll();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+}
+
+function renderAll() {
+  renderSidebar();
+  renderMain();
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[c]));
+}
+
+searchEl.addEventListener('input', e => { searchQuery = e.target.value.trim(); renderAll(); });
+hideWatchedEl.addEventListener('change', e => { hideWatched = e.target.checked; renderAll(); });
+onlyIssuesEl.addEventListener('change', e => { onlyIssues = e.target.checked; renderAll(); });
+
+document.getElementById('final-exam-btn').addEventListener('click', () => {
+  activeModule = 'Final Exam';
+  renderAll();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+renderAll();
+</script>
+</body>
+</html>

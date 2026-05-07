@@ -1,0 +1,101 @@
+WEBVTT
+
+00:00:00.750 --> 00:00:04.750
+Hi, this is Dr. Jelena Trajkovic from the CECS Department at Cal State Long Beach.
+
+00:00:04.750 --> 00:00:08.750
+So what we want to do right now is make a new structure.
+
+00:00:08.750 --> 00:00:15.750
+This new structure is going to use only this little time which is positive edge of the clock
+
+00:00:15.750 --> 00:00:23.750
+in which it's going to quote-unquote sample the value of the input and store it.
+
+00:00:23.750 --> 00:00:29.750
+The edge is going to be called positive or arising edge of the clock
+
+00:00:29.750 --> 00:00:36.990
+and that is this little moment in which clock cycle goes from value of 0 to
+
+00:00:36.990 --> 00:00:43.220
+value of 1. The circuit that we are going to draw right now is going to be
+
+00:00:43.220 --> 00:00:52.280
+called the flip-flop and very often you will see me using DFF to annotate
+
+00:00:52.280 --> 00:00:58.520
+shortly for D flip-flop. D flip-flop is going to have two inputs. One is the
+
+00:00:58.520 --> 00:01:05.640
+input that is going to be data that is going to be stored and the other one is what used to be
+
+00:01:05.640 --> 00:01:12.520
+enable input however we are going to elevate it right now and it's going to become clock
+
+00:01:13.160 --> 00:01:21.080
+it's going to be connected to the clock that is one output that is a queue and that basically
+
+00:01:21.080 --> 00:01:23.720
+is the value of the data that is stored.
+
+00:01:24.880 --> 00:01:27.600
+So we are going to implement this
+
+00:01:27.600 --> 00:01:42.330
+using two cascading,
+
+00:01:42.330 --> 00:01:52.190
+two cascading D latches.
+
+00:01:52.190 --> 00:01:56.310
+So I'm going to draw a block diagram
+
+00:01:57.590 --> 00:02:00.390
+and point out some little things
+
+00:02:00.390 --> 00:02:02.070
+that we need to figure out.
+
+00:02:02.070 --> 00:02:07.070
+So first of all, we are going to put first D latch,
+
+00:02:07.630 --> 00:02:18.100
+This D latch in this configuration is going to be called master.
+
+00:02:18.100 --> 00:02:28.940
+This is master servant arrangement or configuration.
+
+00:02:28.940 --> 00:02:45.280
+So the first one is master.
+
+00:02:45.280 --> 00:02:58.370
+So external data input is going to be connected to the input of this latch, master latch.
+
+00:02:58.370 --> 00:03:06.690
+It is important to remember that we are connecting clock to the first enable, but clock has to
+
+00:03:06.690 --> 00:03:16.930
+go through a node gate and I should probably put my hand down when I'm drawing things and
+
+00:03:16.930 --> 00:03:21.850
+this is going to connect to clock.
+
+00:03:21.850 --> 00:03:29.250
+have Q output here and we are going to connect and I'll change the colors so
+
+00:03:29.250 --> 00:03:35.170
+that you are not much that you understand that this is the second D
+
+00:03:35.170 --> 00:04:02.220
+latch this one is servant and is connected to its E output so clock is
+
+00:04:02.220 --> 00:04:08.300
+connected without being negated to the E output and clock is connected with not
+
+00:04:08.300 --> 00:04:19.730
+gauge to the output of the first latch and if we look into it as a box
+
+00:04:19.730 --> 00:04:35.720
+this is our flip-flop. Flip-flops in general have very similar block diagram
+

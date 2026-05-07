@@ -1,0 +1,407 @@
+WEBVTT
+
+00:00:01.170 --> 00:00:06.130
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach. So there are a couple
+
+00:00:06.130 --> 00:00:16.450
+of things to keep in mind at this point of time. First of all, we now saw that each cell
+
+00:00:16.450 --> 00:00:26.530
+represents one minterm. So this is just explanation what our cell is going to mean to us. It is
+
+00:00:26.530 --> 00:00:32.690
+not way to use. We are going to see a way to use in a little while. The other thing that is important
+
+00:00:32.690 --> 00:00:42.210
+for us to know is if you look at any adjacent, any two adjacent cells. So let's say this one
+
+00:00:43.170 --> 00:00:50.610
+and this one. They have in common that for both of them the value of i1 is 1
+
+00:00:50.610 --> 00:01:02.610
+but they differ on value of i0. As a general rule, when we move on to more than two variables,
+
+00:01:02.610 --> 00:01:10.970
+you're going to see that the adjacent cells will only differ by value for one variable.
+
+00:01:10.970 --> 00:01:13.170
+And that is what we are going to utilize.
+
+00:01:13.170 --> 00:01:21.810
+Okay, let's see now how we use kmaps to work with function in too many mace functions.
+
+00:01:23.730 --> 00:01:30.690
+Here we have an example. I'm going to put this here so that it is going to help us a little bit
+
+00:01:30.690 --> 00:01:39.090
+with placement. Here we have an example of some function y that is specified using representation
+
+00:01:39.090 --> 00:01:41.730
+of the truth table.
+
+00:01:41.730 --> 00:01:45.490
+And as you see for 00 and 01, Y is equal to one,
+
+00:01:45.490 --> 00:01:47.470
+other than that, it is equal to zero.
+
+00:01:48.510 --> 00:01:53.510
+How do we represent this in form of truth,
+
+00:01:53.510 --> 00:01:56.490
+sorry, in the form of K-map?
+
+00:01:56.490 --> 00:02:01.650
+So again, we have two variable K-map.
+
+00:02:01.650 --> 00:02:06.200
+So that's going to be two by two cells.
+
+00:02:06.200 --> 00:02:08.960
+I zero is on the right hand side,
+
+00:02:08.960 --> 00:02:13.960
+I1 is on the left, values for I0, values for 11.
+
+00:02:15.520 --> 00:02:18.080
+This one is in term zero.
+
+00:02:19.360 --> 00:02:24.320
+So that one is described by this cell here.
+
+00:02:25.780 --> 00:02:30.780
+In each cell, we are going to place the value
+
+00:02:32.480 --> 00:02:36.160
+for the function, the output value of the function.
+
+00:02:36.160 --> 00:02:38.040
+And we are going to actually place only ones.
+
+00:02:38.040 --> 00:02:39.880
+We don't need to place the zeros.
+
+00:02:39.880 --> 00:02:42.280
+Zeros are going to be there for default.
+
+00:02:42.280 --> 00:02:47.020
+So, minterm zero is going to have one.
+
+00:02:48.120 --> 00:02:53.020
+And minterm one is going to have one.
+
+00:02:54.000 --> 00:02:57.560
+Other ones are zeros, but that is default
+
+00:02:57.560 --> 00:03:01.200
+and we are not going to crowd our K math
+
+00:03:01.200 --> 00:03:06.200
+and make that place those zeros explicitly.
+
+00:03:06.240 --> 00:03:07.840
+We are going to leave them as is.
+
+00:03:07.840 --> 00:03:12.840
+Now, next thing is we're going to look at our K-map.
+
+00:03:13.560 --> 00:03:16.560
+And when we look at our K-maps,
+
+00:03:16.560 --> 00:03:21.560
+we want to find adjacent cells that have one
+
+00:03:22.840 --> 00:03:26.280
+inside of the cell and we need to group them together.
+
+00:03:26.280 --> 00:03:29.080
+And we group them together by,
+
+00:03:29.080 --> 00:03:30.760
+we call it circling it,
+
+00:03:30.760 --> 00:03:33.200
+although that is not always circled many times
+
+00:03:33.200 --> 00:03:35.040
+that is actually ellipsis.
+
+00:03:35.040 --> 00:03:42.580
+So first, find adjacent.
+
+00:03:42.580 --> 00:03:47.580
+I'm going to say adjacent once in the table and circle.
+
+00:03:50.560 --> 00:04:10.290
+Once we do that, we are going to write an expression.
+
+00:04:10.290 --> 00:04:12.090
+Now, how do we do that?
+
+00:04:12.090 --> 00:04:17.100
+That is the catch of all.
+
+00:04:17.100 --> 00:04:19.620
+If you remember, I mentioned to you
+
+00:04:20.940 --> 00:04:24.660
+that those cells that are adjacent,
+
+00:04:24.660 --> 00:04:33.780
+they have some one value that is different between them and then the other value is going to be the
+
+00:04:33.780 --> 00:04:44.820
+same. So we are going to look into the cell here and we are going to see i0 changes. However,
+
+00:04:44.820 --> 00:04:56.300
+However, I1 stays the same, so for this cell to describe it, I1 is equal to zero.
+
+00:04:56.300 --> 00:05:06.300
+So you remember when we were writing both minterms and sum of products, when we always
+
+00:05:06.300 --> 00:05:14.500
+have a value of a variable that is equal to b1, and we need to make that into part of
+
+00:05:14.500 --> 00:05:20.820
+sum of products, or to make product out of that, we need to say that the expression that
+
+00:05:20.820 --> 00:05:30.260
+is going to describe this cell is i1'. So we have to find the variable that is the same.
+
+00:05:30.260 --> 00:05:38.340
+We see if that variable is 0, then we write complemented expression. If it were 1, we
+
+00:05:38.340 --> 00:05:46.420
+would write I want prime without, sorry, I want without prime. This is how we are
+
+00:05:46.420 --> 00:05:53.740
+going to do this. Now, I want to show you something. This is more me persuading you
+
+00:05:53.740 --> 00:05:59.700
+that this is actually correct. So you're not, this is an extra explanation for you
+
+00:05:59.700 --> 00:06:06.940
+to be able to digest that this is exactly I want prime. Let's write this
+
+00:06:06.940 --> 00:06:11.000
+I'm going to call it extra.
+
+00:06:11.000 --> 00:06:16.000
+Let's write this in sum of minterms four.
+
+00:06:17.440 --> 00:06:19.300
+So we have minterm zero,
+
+00:06:20.760 --> 00:06:25.680
+which is I one prime, I zero prime,
+
+00:06:25.680 --> 00:06:35.610
+or minterm one, I one prime, or I zero.
+
+00:06:40.000 --> 00:06:42.820
+Just remove this.
+
+00:06:42.820 --> 00:06:56.100
+So, if you use distributive law, you see I1' and I0' or I0.
+
+00:06:56.100 --> 00:07:04.340
+Now we know that I0' or I0 is always 1, so that is I1' and 1.
+
+00:07:04.340 --> 00:07:12.340
+And anything and 1 is going to be that particular variable.
+
+00:07:12.340 --> 00:07:15.920
+so you can see that these two are equivalent.
+
+00:07:17.180 --> 00:07:20.140
+So it does take a little bit of time to get used to it.
+
+00:07:21.300 --> 00:07:34.810
+Now, let's look at the example number two.
+
+00:07:34.810 --> 00:07:37.530
+We're going to make things a little bit more complicated.
+
+00:07:37.530 --> 00:07:39.630
+We're going to start instead of with a,
+
+00:07:40.930 --> 00:07:43.870
+through table, we're going to start with a function.
+
+00:07:43.870 --> 00:07:46.810
+So you're starting with function a two,
+
+00:07:46.810 --> 00:07:49.450
+sorry, f two with a and b,
+
+00:07:49.450 --> 00:07:55.860
+and we have A B or A prime B or A prime B prime.
+
+00:07:56.220 --> 00:08:01.220
+Now we have to populate the K map.
+
+00:08:01.340 --> 00:08:08.740
+So again, we are going to draw a K map.
+
+00:08:08.900 --> 00:08:13.180
+B, it's on the right hand side is going to go here.
+
+00:08:13.180 --> 00:08:16.460
+A, it's on the left is going to go here.
+
+00:08:16.460 --> 00:08:19.340
+And we have zero one and zero one.
+
+00:08:20.740 --> 00:08:22.840
+Which midterm is this one?
+
+00:08:24.760 --> 00:08:31.280
+It's minterm that A and B have one, one.
+
+00:08:31.280 --> 00:08:34.690
+Which minterm is this one?
+
+00:08:34.690 --> 00:08:37.650
+A needs to be zero and B needs to be one.
+
+00:08:37.650 --> 00:08:38.870
+So this is M one.
+
+00:08:40.350 --> 00:08:43.710
+And this one, zero, zero, is M zero.
+
+00:08:44.830 --> 00:08:48.690
+So in the place where those, in the cells
+
+00:08:48.690 --> 00:08:53.110
+that represent those three minterms, we have to put one.
+
+00:08:53.110 --> 00:08:58.110
+So M zero is represented by this cell here.
+
+00:08:58.110 --> 00:09:04.830
+so we're going to put one. M1 is represented by this one. We're going to put one here
+
+00:09:05.790 --> 00:09:12.110
+and M3 is represented by this one. We're going to put one. You don't need to make another square
+
+00:09:12.110 --> 00:09:19.070
+inside this square. I'm just doing this to point out because I don't think you can see when my
+
+00:09:19.710 --> 00:09:27.390
+pencil hour is over. Now we have to group them. We have to find how to group them.
+
+00:09:28.110 --> 00:09:33.110
+And there are some rules that we have to use.
+
+00:09:33.770 --> 00:09:37.370
+Okay, so commercial break to rules
+
+00:09:37.370 --> 00:09:54.450
+and then we are going to go back into grouping.
+
+00:09:54.450 --> 00:09:58.830
+In our map, we need to quote unquote cover
+
+00:09:58.830 --> 00:10:03.030
+every one that is every value one
+
+00:10:03.030 --> 00:10:06.750
+that appears at least one using at least one SERC.
+
+00:10:08.270 --> 00:10:10.590
+And then we have to add expression for that.
+
+00:10:10.590 --> 00:10:15.590
+So rule number one, at least means we can cover it.
+
+00:10:16.190 --> 00:10:22.100
+When I say cover, that means encompass it in this circle.
+
+00:10:22.100 --> 00:10:27.100
+Cover every cell that has value one,
+
+00:10:29.910 --> 00:10:36.800
+at least once.
+
+00:10:36.800 --> 00:10:38.880
+Again, this is more ellipsis.
+
+00:10:40.740 --> 00:10:55.820
+And add the expression for that circle.
+
+00:10:55.820 --> 00:11:03.730
+And for each circle you're going to have one
+
+00:11:04.730 --> 00:11:10.130
+product term and all those products are going to be connected with
+
+00:11:10.810 --> 00:11:12.810
+OR, which is sum.
+
+00:11:13.430 --> 00:11:15.430
+Rule number two is
+
+00:11:17.370 --> 00:11:25.010
+use the largest possible circles and use the fewest amount of them for the simplify expression.
+
+00:11:25.330 --> 00:12:10.700
+And I mean this is not a rule, but it is
+
+00:12:10.700 --> 00:12:17.060
+just to write for me to write even though I said you are going to make out
+
+00:12:17.060 --> 00:12:24.940
+of one you're going to get product terms you're going to connect all those
+
+00:12:24.940 --> 00:12:42.140
+products in the equation with or okay let's look at the example that we have
+
+00:12:42.140 --> 00:12:55.630
+here. One possibility is to do this. Second possibility would be, so now I'm going to
+
+00:12:55.630 --> 00:13:06.750
+make it into red, is to do this. Is this the largest possible circle? No, it's not.
+
+00:13:06.750 --> 00:13:20.550
+We can make it larger because we are able and we are allowed to use multiple to let's
+
+00:13:20.550 --> 00:13:29.030
+call it cover each one with multiple circles. So this is larger than the previous one. Let's
+
+00:13:29.030 --> 00:13:33.550
+Let's write an expression for this one.
+
+00:13:33.550 --> 00:13:36.950
+a changes between those two ones.
+
+00:13:36.950 --> 00:13:39.890
+However b stays 1.
+
+00:13:39.890 --> 00:13:49.030
+Because b is 1, the product term that we are going to use for this is only b.
+
+00:13:49.030 --> 00:13:53.350
+How about the top circle?
+
+00:13:53.350 --> 00:14:03.250
+For this, b changes, but a is equal to 0 is the same.
+
+00:14:03.250 --> 00:14:06.730
+So these are the same four.
+
+00:14:06.730 --> 00:14:15.130
+So therefore, product term that describes this purple circle is a prime.
+
+00:14:15.130 --> 00:14:26.380
+So function f2 is going to be a prime or b.
+
+00:14:26.380 --> 00:14:32.890
+So this is, let's call it, quote unquote, connect and with all.
+
+00:14:32.890 --> 00:14:37.050
+Let's talk a little bit more about troubleshooting this in the next video.
+
+00:14:37.050 --> 00:14:39.050
+Thanks for watching.
+

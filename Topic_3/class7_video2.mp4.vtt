@@ -1,0 +1,113 @@
+WEBVTT
+
+00:00:01.100 --> 00:00:07.100
+Hi, this is Dr. Jelena Trajkovic from the CECS Department at Cal State Long Beach.
+
+00:00:07.100 --> 00:00:12.100
+Now that we know about the sum of products, let's move on to the sum of minterms.
+
+00:00:12.100 --> 00:00:17.100
+Sum of minterms form is also called canonical form somewhere.
+
+00:00:17.100 --> 00:00:25.100
+And minterms are actually a special form of sum of products.
+
+00:00:25.100 --> 00:00:32.900
+In this special form, each product needs to be in the form of so-called mean term.
+
+00:00:32.900 --> 00:00:34.700
+What does that mean?
+
+00:00:34.700 --> 00:00:46.590
+That if we have three variables or three literals in our function or our expression, each of
+
+00:00:46.590 --> 00:00:51.590
+those literals need to appear exactly once
+
+00:00:54.810 --> 00:00:56.110
+in this product term.
+
+00:00:57.050 --> 00:01:02.050
+So if we have function that has A, B, and C,
+
+00:01:05.290 --> 00:01:10.520
+that function has three literals.
+
+00:01:10.520 --> 00:01:12.220
+You can think about literals
+
+00:01:12.220 --> 00:01:13.920
+in terms of your input variables
+
+00:01:13.920 --> 00:01:16.440
+if that is easier for you.
+
+00:01:16.440 --> 00:01:42.070
+So, with respect to this function a c prime, is this a product? Yes. Is this a min term?
+
+00:01:42.070 --> 00:01:53.670
+a b c here, a b c here, a c here? No, it's not min term. How about a b c prime? Is it
+
+00:01:53.670 --> 00:02:03.800
+the product? Yes. Is it a special kind of product that is called midterm? I can find
+
+00:02:03.800 --> 00:02:11.800
+A, B and C. It doesn't matter if the literal is in its original form or it's
+
+00:02:11.800 --> 00:02:20.280
+complemented, it needs to appear there. So it is midterm. Yes, midterm. Yes,
+
+00:02:20.280 --> 00:02:29.960
+especially around midterm I get to mix up min terms in midterm. How about this
+
+00:02:29.960 --> 00:02:45.070
+one? And we had that. Is it a product? No. And because it's not a product then
+
+00:02:45.070 --> 00:02:57.280
+it's not many term as well. Let's look at the sum of many terms. So Y is equal to
+
+00:02:57.280 --> 00:03:09.970
+ABC or AB prime C. Mind you, M is lowercase M here because there is something
+
+00:03:09.970 --> 00:03:14.970
+that is called a max term but right now we are not going to cover that. I think
+
+00:03:14.970 --> 00:03:25.130
+it's covered in your book. So is this a sum of many terms? It's a sum of products, definitely.
+
+00:03:25.130 --> 00:03:35.560
+In each product it has three literals. Yes, it is. How about if we say that y is a function
+
+00:03:35.560 --> 00:03:46.840
+of a and b and c. If we have another y that is a b or a b prime c, is it sum of products?
+
+00:03:46.840 --> 00:04:11.710
+Yes, is it sum of min terms? Nope, because here we are missing one. How about, well this
+
+00:04:11.710 --> 00:04:16.710
+This one is not Simon product and not some of Mentherms.
+
+00:04:18.710 --> 00:04:22.170
+Can it be made into some of products?
+
+00:04:22.170 --> 00:04:23.630
+Yes.
+
+00:04:23.630 --> 00:04:26.790
+Can it be made into some of Mentherms?
+
+00:04:26.790 --> 00:04:27.750
+Yes.
+
+00:04:27.750 --> 00:04:29.750
+So let's pause here
+
+00:04:29.750 --> 00:04:32.430
+and go into making some of Mentherms
+
+00:04:32.430 --> 00:04:35.110
+out of some of products in the next lecture.
+
+00:04:36.590 --> 00:04:37.430
+Thank you.
+

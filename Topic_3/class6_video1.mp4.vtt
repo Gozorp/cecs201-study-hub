@@ -1,0 +1,248 @@
+WEBVTT
+
+00:00:00.720 --> 00:00:07.720
+Hi, this is Dr. Jelena Trajkovic from the CECS Department. We are starting a new topic with
+
+00:00:07.720 --> 00:00:16.640
+this many lectures. It is going to be properties of Boolean algebra. Then we go into simplification.
+
+00:00:16.640 --> 00:00:23.920
+Using Boolean algebra, we are going to simplify expressions. That is going to be a valuable
+
+00:00:23.920 --> 00:00:32.960
+and tool for designing digital circuits. As you may have remembered, I mentioned
+
+00:00:32.960 --> 00:00:40.040
+that in order to make circuits that are correct, we employed
+
+00:00:40.040 --> 00:00:48.440
+mathematics theory in mathematics and that is Boolean algebra. Boolean and binary
+
+00:00:48.440 --> 00:00:54.560
+both have things in common that they have two values for the variables. In
+
+00:00:54.560 --> 00:00:58.700
+Boolean world they're called true and false, in binary world they're called 0
+
+00:00:58.700 --> 00:01:16.640
+and 1. They may map 1 to 1 so basically 1 is true and 0 is false and that's why
+
+00:01:16.640 --> 00:01:24.960
+we can use this precious mathematical tool in order to design digital circuits.
+
+00:01:26.480 --> 00:01:33.120
+Another thing that we need to know is, yes, in the introductory chapter in this book,
+
+00:01:33.120 --> 00:01:39.440
+you did see gates. Sorry, you did see transistors. But the point right now is
+
+00:01:39.440 --> 00:01:49.520
+that we build circuits using gates not transistors because transistors are so small that you know we
+
+00:01:49.520 --> 00:02:00.080
+have to move towards bigger basic blocks let's call them that way bigger blocks that we can
+
+00:02:00.080 --> 00:02:22.520
+use in order to design because of that so use gates and gates represent Boolean functions
+
+00:02:23.560 --> 00:02:43.300
+and so we can because gates represent Boolean functions these are and or and and not as we
+
+00:02:44.020 --> 00:02:53.250
+already covered that we can use properties of Boolean algebra I'm going to call it
+
+00:02:53.250 --> 00:03:02.050
+B A for short to create correct circuits and to manipulate those circuits sometimes to make them
+
+00:03:02.050 --> 00:03:11.890
+better sometimes to make it less better implementable or smaller in size. Okay so let's go with the
+
+00:03:11.890 --> 00:03:24.200
+first property which is something that that might be very familiar for you, distributive property.
+
+00:03:24.200 --> 00:03:40.560
+and this distributive property is for AND operand and the property is such that it
+
+00:03:40.560 --> 00:03:54.200
+states that A and B or C is the same as A, B, A and B or A and C. So we are going to
+
+00:03:54.200 --> 00:04:01.200
+do one fun thing here. We are going to make a circuit diagram for the left-hand
+
+00:04:01.200 --> 00:04:12.740
+side and for the right-hand side. So for the left-hand side we will have B, C, we
+
+00:04:12.740 --> 00:04:20.480
+have to supply that to OR gate which I do not draw very well and we are going
+
+00:04:20.480 --> 00:04:29.320
+to add AND gate and we're going to make left side of this equation. Now just to
+
+00:04:29.320 --> 00:04:34.400
+make a point of it for the right hand side I'm going to make different colors
+
+00:04:34.400 --> 00:04:44.240
+so A well I am going to use a little trick so I'm going to make A here and B
+
+00:04:44.240 --> 00:04:49.200
+and C here it really doesn't matter where you put your inputs. That will do
+
+00:04:49.200 --> 00:05:01.030
+that because I want my diagram to be a little bit more readable. So A, A and B
+
+00:05:01.030 --> 00:05:13.560
+and the gigantic dot here and A and so we have two of them. Now we have to do
+
+00:05:13.560 --> 00:05:27.110
+or the outputs here are equivalent.
+
+00:05:30.390 --> 00:05:32.950
+So that's one fun thing,
+
+00:05:32.950 --> 00:05:36.770
+just to have a visual representation.
+
+00:05:36.770 --> 00:05:41.770
+Ask yourself which one has fewer gates.
+
+00:05:43.650 --> 00:05:45.970
+Ask yourself which one might be faster.
+
+00:05:46.930 --> 00:05:48.530
+Let's talk about that in class.
+
+00:05:49.470 --> 00:05:52.190
+The other thing that is going to help you out
+
+00:05:52.190 --> 00:05:54.690
+with this property, even though this one
+
+00:05:54.690 --> 00:05:59.690
+very much resembles multiplication in regular algebra,
+
+00:06:00.070 --> 00:06:01.770
+is a truth table.
+
+00:06:01.770 --> 00:06:03.550
+Now I'm going to show you,
+
+00:06:03.550 --> 00:06:07.310
+we introduced truth tables prior to this mini lecture,
+
+00:06:07.310 --> 00:06:10.850
+I'm going to show you how to use truth table
+
+00:06:10.850 --> 00:06:15.430
+to prove that the left-hand side of this equation
+
+00:06:16.330 --> 00:06:20.390
+is the same as the right-hand side of this equation.
+
+00:06:20.390 --> 00:06:29.170
+And I'm going to go slowly on this, so we have three variables.
+
+00:06:29.170 --> 00:06:33.450
+For three variables, we have 2 to the power of 3.
+
+00:06:33.450 --> 00:06:37.730
+That is 2, 4, 8, different combinations.
+
+00:06:37.730 --> 00:06:44.810
+So 0, 1, 0, 1, 0, 1, 0, 1, total of 8.
+
+00:06:44.810 --> 00:06:54.450
+B is going to be twice slow, 0, 0, 1, 1, 0, 0.
+
+00:06:54.450 --> 00:06:57.170
+and we're going to slow it down even more.
+
+00:06:57.170 --> 00:07:02.170
+Zero, zero, zero, zero, one, one, one, one.
+
+00:07:02.810 --> 00:07:05.810
+We're going to make lines
+
+00:07:05.810 --> 00:07:10.410
+that is going to help us out with the truth table.
+
+00:07:10.410 --> 00:07:13.130
+Okay, let's first deconstruct
+
+00:07:13.130 --> 00:07:16.330
+and make left-hand side of this equation.
+
+00:07:17.690 --> 00:07:20.690
+First thing that we need to evaluate is A,
+
+00:07:20.690 --> 00:07:46.160
+sorry, b or c. 0 or 0 is 0, 0 or 1 is 1, 1 or 0 is 1, 1 or 1 is 1, 2, 0 is 0, 0 and 1 is 1, 1 and 0 is 1, 1 and 1 is 1.
+
+00:07:46.160 --> 00:07:57.980
+So this is going to be expression for entire left hand side which is A and B or C. So we
+
+00:07:57.980 --> 00:08:06.600
+are looking into this and this column. It is a little bit easier to try to find where
+
+00:08:06.600 --> 00:08:16.920
+we have both ones. So this is the first row that we will have both ones. This is and this
+
+00:08:16.920 --> 00:08:25.120
+one and here zero and one is zero and a is zero in all of this so nothing is
+
+00:08:25.120 --> 00:08:34.420
+going to change. Now I'm going to make a double line here and to change color to
+
+00:08:34.420 --> 00:08:44.490
+my purple that we used to draw the diagram for the right hand side.
+
+00:08:44.490 --> 00:08:49.060
+It's not diagram, it's thread-canceled.
+
+00:08:49.060 --> 00:09:01.950
+So we need to evaluate parts of it, A, B, then to evaluate A and C, and then to evaluate
+
+00:09:01.950 --> 00:09:19.160
+entire right side, which is A, B, or A, C. A, B. Two zeros is zero, A, B. Two zeros is
+
+00:09:19.160 --> 00:09:30.240
+0 and 1 is 0, 0 is 1 and 1 is 0, 1 and 0 is 0, 1 and 0 is 0, 2 0's and 2 1's
+
+00:09:30.240 --> 00:09:56.590
+AC, 0 and 0, 0, 0 and 1, 0, 0 and 0, 0, 0 and 1, 0, 1 and 0, 0, 1 and 1 is 1, 1 and
+
+00:09:56.590 --> 00:10:01.590
+0 is 0, 1 and 1 is 1.
+
+00:10:01.590 --> 00:10:05.590
+Now we are going to do all of these two columns.
+
+00:10:05.590 --> 00:10:12.120
+So we have to find wherever there is at least one 1.
+
+00:10:12.120 --> 00:10:17.120
+All 0s is 0, all 0s is 0, all 0s is 0,
+
+00:10:17.120 --> 00:10:23.120
+0 or 0 is 0, 0 is 0, 0 or 1 is 1,
+
+00:10:23.120 --> 00:10:27.120
+1 or 0 is 1, 1 and 1 is 1.
+
+00:10:27.120 --> 00:10:35.880
+The question that we have is, are those two equal to each other?
+
+00:10:35.880 --> 00:10:45.880
+If we want to show that they are equal to each other, we need to observe the truth table for left-hand side
+
+00:10:45.880 --> 00:10:59.890
+and truth table for right-hand side, which is called up and C.
+
+00:10:59.890 --> 00:11:07.810
+the first row equivalent, second equivalent, third equivalent, fourth equivalent, fifth good,
+
+00:11:08.450 --> 00:11:25.920
+sixth, seventh, and eighth all good. We used truth table to prove the distributive law,
+
+00:11:30.370 --> 00:11:39.890
+law of property. So let's wrap up here with this video and continue in the next one. Thank you.
+

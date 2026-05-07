@@ -1,0 +1,215 @@
+WEBVTT
+
+00:00:00.590 --> 00:00:07.250
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach. So, to recap from the
+
+00:00:07.250 --> 00:00:16.070
+last class, we checked out what conceptually FSM looks like, and we are going to focus on
+
+00:00:16.070 --> 00:00:24.230
+more FSM. So, we do have inputs, and we do have combinational block, which is next state
+
+00:00:24.230 --> 00:00:30.730
+logic. Combinational block that generates next state logic takes external inputs as
+
+00:00:30.730 --> 00:00:40.890
+its input, but it also takes the value of the current state. Current state is being
+
+00:00:40.890 --> 00:00:48.230
+stored in a state register. Here you can see just one D and one Q input, however
+
+00:00:48.230 --> 00:00:55.250
+this can be and usually is registered that has more than one bit only. Current
+
+00:00:55.250 --> 00:01:02.330
+state is being updated on every clock cycle by the value and becomes a value
+
+00:01:02.330 --> 00:01:09.410
+of this next state that combinational logic is going to provide. And because
+
+00:01:09.410 --> 00:01:15.710
+this is a more FSM, output is going to depend only on the current state. So
+
+00:01:15.710 --> 00:01:24.390
+So output of the current state register is going to feed as an input into logic for more
+
+00:01:24.390 --> 00:01:25.390
+output.
+
+00:01:25.390 --> 00:01:30.550
+This is also another combinational circuit block.
+
+00:01:30.550 --> 00:01:33.330
+So this is definitely a register.
+
+00:01:33.330 --> 00:01:35.750
+This is going to be some sort of set of gates.
+
+00:01:35.750 --> 00:01:39.750
+This is also going to be some set of gates, some sub-circuit.
+
+00:01:39.750 --> 00:01:49.910
+And we want today to learn how to actually make these subsystems, make those circuits.
+
+00:01:49.910 --> 00:01:53.370
+To do that, we are going to take an example.
+
+00:01:53.370 --> 00:01:59.810
+And example is going to be an FSM that is given using the state transition diagram as
+
+00:01:59.810 --> 00:02:02.090
+you see below.
+
+00:02:02.090 --> 00:02:08.890
+This FSM has four states, S0, S1, S2, and S3.
+
+00:02:08.890 --> 00:02:13.930
+It has one input A and it has one output toggle.
+
+00:02:13.930 --> 00:02:16.530
+So let's see what this FSM does.
+
+00:02:16.530 --> 00:02:21.930
+So right now we are going to go opposite way of what we usually do in our initial classes
+
+00:02:21.930 --> 00:02:27.690
+that we give a problem statement and then we design FSM, we are going to, for a given
+
+00:02:27.690 --> 00:02:30.650
+FSM, figure out what it does.
+
+00:02:30.650 --> 00:02:40.250
+So to be able to do that I already had a sample input provided and I already wrote a line
+
+00:02:40.250 --> 00:02:45.290
+where we are going to list all the states and toggle.
+
+00:02:45.290 --> 00:02:54.690
+Remember there is a clock cycle and these dashed lines are going to show our positive
+
+00:02:54.690 --> 00:02:57.850
+edge of clock in this case.
+
+00:02:57.850 --> 00:03:06.400
+if we want to be precise I can actually add that too. So that is a positive edge
+
+00:03:06.400 --> 00:03:11.480
+of clock cycle here and then there is another positive edge of clock cycle
+
+00:03:11.480 --> 00:03:18.700
+here and another positive edge of clock cycle. I am just going to add the
+
+00:03:18.700 --> 00:03:35.180
+positive edges and I'm going to make the rest of cycle ups in a second when I know
+
+00:03:35.180 --> 00:03:45.990
+where my borders are. Mind you this is supposed to be all same size which does
+
+00:03:45.990 --> 00:03:56.870
+not appear on my diagram. So let's go back to the states. Okay, we always start from the state 0.
+
+00:03:57.750 --> 00:04:12.390
+So we start when we say 0. If you see here in state 0, toggle is equal to 0. On the next
+
+00:04:12.390 --> 00:04:19.410
+clock cycle you see that A is equal to 1. When A is equal to 1, we transition to
+
+00:04:19.410 --> 00:04:34.880
+state S1 where toggle becomes 1. On the next clock cycle, A is still 1. We stay
+
+00:04:34.880 --> 00:04:42.620
+in state S1 so we can actually do it a little bit differently. We can say
+
+00:04:42.620 --> 00:04:51.100
+we are going to be in state 1 all the while here, and toggle is going to be 1. However, in the
+
+00:04:51.100 --> 00:05:05.740
+following positive edge of the cycle, a is already 1, sorry, a is dropped to 0. So here, that means
+
+00:05:05.740 --> 00:05:14.610
+we are going to follow this edge and we are going to go into a state 2. And in this state 2,
+
+00:05:15.250 --> 00:05:33.260
+toggle stays 1. On the next cycle, if you see here, a is still equal to 0, so we are going to
+
+00:05:33.260 --> 00:06:00.960
+follow this edge and stay in S2. Follow is equal to. On the following edge, sorry on the following cycle,
+
+00:06:02.080 --> 00:06:09.120
+A becomes 1 so that means that we are following this edge. So we are transitioning to S3.
+
+00:06:09.120 --> 00:06:22.080
+in S3 toggl is going to drop down and toggl is becoming one sorry toggl is becoming zero
+
+00:06:22.080 --> 00:06:35.710
+so S3 when a is equal to 1 stays we are in S3 and when a is equal to 1 we stay in S3
+
+00:06:35.710 --> 00:06:54.790
+and that means this is going to go and stay basically the same value of 0 and
+
+00:06:54.790 --> 00:07:06.060
+finally on this last positive edge which is shown here a is equal to 0 so a is
+
+00:07:06.060 --> 00:07:19.400
+equal equal to 0 we are in S3 because a is equal to 0 we are going back to S0 in S0
+
+00:07:19.400 --> 00:07:24.400
+root toggle is equal to zero, and that's where we stop.
+
+00:07:25.000 --> 00:07:30.000
+Now question is, what does this circuit actually do?
+
+00:07:33.930 --> 00:07:37.210
+And this is a little bit kind of more complex one,
+
+00:07:37.210 --> 00:07:41.930
+so I'm going to try to highlight a couple of things.
+
+00:07:41.930 --> 00:07:48.460
+If you see here on this positive edge of A,
+
+00:07:48.460 --> 00:07:51.740
+toggle changes its value.
+
+00:07:51.740 --> 00:08:01.700
+and it keeps its value until we encounter the next positive edge of A, and that point
+
+00:08:01.700 --> 00:08:10.500
+toggle is going to change. So kind of long story short, every time that A hits positive
+
+00:08:10.500 --> 00:08:26.740
+edge, toggle is becoming, I'm going to say new, is becoming toggle prime of old. So
+
+00:08:26.740 --> 00:08:29.940
+On A, positive edge of A,
+
+00:08:29.940 --> 00:08:33.700
+toggle is going to go and change its value.
+
+00:08:33.700 --> 00:08:38.700
+So it basically changes twice as slow as it, as A changes.
+
+00:08:42.140 --> 00:08:45.900
+So here is with, we are going to have a little break
+
+00:08:47.260 --> 00:08:48.980
+and continue in next video,
+
+00:08:48.980 --> 00:08:51.420
+and we are going to make a circuit
+
+00:08:51.420 --> 00:08:55.660
+for this particular FSM,
+
+00:08:55.660 --> 00:08:58.540
+knowing everything that we know so far.
+
+00:08:58.540 --> 00:09:00.380
+Take a break, understand this circuit,
+
+00:09:00.380 --> 00:09:02.020
+and then I will see you in the next video.
+
+00:09:02.020 --> 00:09:03.020
+Thanks for watching.
+

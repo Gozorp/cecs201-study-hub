@@ -1,0 +1,278 @@
+WEBVTT
+
+00:00:00.500 --> 00:00:13.500
+Hi, this is Dr. Jelena Trajkovic from CECS Department, Cal State Long Beach. This is a summary of everything that we learned today.
+
+00:00:13.500 --> 00:00:29.500
+This is a very good resource for you to make by yourself and to understand that there is a process when we need to convert numbers.
+
+00:00:29.500 --> 00:00:31.540
+so we're going to start from
+
+00:00:31.540 --> 00:00:32.740
+converting
+
+00:00:32.740 --> 00:00:35.100
+binary to decimal
+
+00:00:35.100 --> 00:00:37.320
+number as you see here
+
+00:00:37.320 --> 00:00:45.080
+in case we have a binary number in format B
+
+00:00:45.080 --> 00:00:46.720
+with most significant bit
+
+00:00:46.720 --> 00:00:48.100
+Bn-1
+
+00:00:48.100 --> 00:00:50.300
+then Bn-2
+
+00:00:50.300 --> 00:00:51.860
+to B0
+
+00:00:51.860 --> 00:00:53.940
+the first thing that we need to ask
+
+00:00:53.940 --> 00:00:56.340
+ourselves is
+
+00:00:56.340 --> 00:00:59.660
+what is its representation?
+
+00:00:59.660 --> 00:01:05.500
+Is it unsigned or is it signed?
+
+00:01:05.500 --> 00:01:08.100
+So for unsigned representation,
+
+00:01:08.100 --> 00:01:11.940
+please do remember that these are positive numbers only.
+
+00:01:12.960 --> 00:01:15.500
+And only thing that we need to do
+
+00:01:15.500 --> 00:01:18.340
+is multiply each coefficient
+
+00:01:19.380 --> 00:01:22.060
+with corresponding two to the power of
+
+00:01:23.300 --> 00:01:24.980
+corresponding index.
+
+00:01:26.100 --> 00:01:31.100
+You get value of decimal number,
+
+00:01:31.460 --> 00:01:34.820
+and you're done. Nothing else needs to be done.
+
+00:01:36.340 --> 00:01:40.580
+So this is the first thing that we have learned when we started talking about binary numbers.
+
+00:01:42.100 --> 00:01:47.780
+However, if the representation is signed, you have to ask further questions.
+
+00:01:49.220 --> 00:01:57.140
+Further question is, is the representation signed magnitude or the representation is
+
+00:01:57.140 --> 00:02:09.860
+to complement. If we are in sine magnitude representation, what we need to do is we need
+
+00:02:09.860 --> 00:02:18.900
+to basically partition our number. We literally take snips with scissors and look at b and
+
+00:02:18.900 --> 00:02:29.900
+n-1. That one is going to determine the sign. And then we stick the remaining bits, so bn-2
+
+00:02:29.900 --> 00:02:38.940
+to be zero, and we use the same procedure that we use here, which is annotated with two
+
+00:02:38.940 --> 00:02:47.140
+stars here, to get the absolute value. The third step is that we combine. We take the
+
+00:02:47.140 --> 00:02:52.920
+sign that we got in step one we take the absolute value that we got in step two
+
+00:02:52.920 --> 00:03:05.500
+and we are done. Now if we have number that is signed and that it's in tooth
+
+00:03:05.500 --> 00:03:11.380
+complement we have to ask further questions. First question that we are
+
+00:03:11.380 --> 00:03:19.020
+going to ask is number positive or negative? We are going to determine this
+
+00:03:19.020 --> 00:03:29.020
+by observing the most significant fit for bn-1. If bn-1 is 0, then the number is positive,
+
+00:03:29.020 --> 00:03:38.020
+and we continue in this round. If bn-1 is 1, we continue on the right-hand side of the chart.
+
+00:03:38.020 --> 00:03:46.020
+If the number is positive, we are just going to follow the same procedure, annotate it here, and we are done.
+
+00:03:46.020 --> 00:03:50.020
+There is nothing else that we can do. We have to do that.
+
+00:03:50.020 --> 00:04:03.020
+However, if the number is bn-1 is 1, that signifies the number is negative, then we need to find its two complements.
+
+00:04:03.020 --> 00:04:14.020
+Flip the bits, add one. Once we add one, we again have to come back to the procedure shown here,
+
+00:04:14.020 --> 00:04:16.020
+and to get absolute value.
+
+00:04:16.780 --> 00:04:19.360
+Because we know that number is negative
+
+00:04:20.780 --> 00:04:22.780
+this is basically
+
+00:04:23.540 --> 00:04:25.300
+step 0.
+
+00:04:25.300 --> 00:04:32.240
+We will be combining here. We will be combining here step 0
+
+00:04:33.200 --> 00:04:35.200
+and we will be combining
+
+00:04:35.200 --> 00:04:37.200
+step 3
+
+00:04:37.200 --> 00:04:41.200
+and we are going to get the whole value of the number and the f1.
+
+00:04:42.400 --> 00:04:44.400
+So this was
+
+00:04:44.400 --> 00:04:56.760
+from binary to decimal. Let's look in the other way around. What happens if we are converting
+
+00:04:56.760 --> 00:05:07.280
+from decimal to binary? First question that we need to ask is how many bits do we have
+
+00:05:07.280 --> 00:05:16.070
+use sometimes number of bits is given to you but sometimes that number is is not
+
+00:05:16.070 --> 00:05:23.870
+given and you have to figure out by yourself so if you need in both cases
+
+00:05:23.870 --> 00:05:29.470
+you're going to go with procedure as shown below and you are going to ask
+
+00:05:29.470 --> 00:05:42.150
+yourself is the number of bits that you allocated sufficient or not. Okay again
+
+00:05:42.150 --> 00:05:48.590
+second question that we ask is the representation that we are having. So are
+
+00:05:48.590 --> 00:05:57.790
+we using unsigned or we are using signed numbers? If we are using unsigned numbers
+
+00:05:57.790 --> 00:06:02.790
+Again, remind yourself that these are only positive numbers.
+
+00:06:02.790 --> 00:06:06.790
+What we need to take is the number itself.
+
+00:06:06.790 --> 00:06:09.790
+Keep dividing by 2.
+
+00:06:09.790 --> 00:06:14.790
+Keep noting both the integer part and remainder.
+
+00:06:14.790 --> 00:06:23.790
+Read from the bottom up and we have the number itself.
+
+00:06:23.790 --> 00:06:31.630
+We can add leading zeros. If we have enough space, if someone tells me,
+
+00:06:31.630 --> 00:06:38.990
+hey, you know, please tell, give me six bits representation of number 10, sure,
+
+00:06:38.990 --> 00:06:48.030
+you can add leading zeros to it to make it six bits. You do not, for unsigned numbers,
+
+00:06:48.030 --> 00:06:56.150
+you do not have to because in unsigned numbers most significant bit is not
+
+00:06:56.150 --> 00:07:02.070
+special in any case. It is one of the bits that is giving you the absolute
+
+00:07:02.070 --> 00:07:09.690
+value of the number. If you ask the question what kind of representation do
+
+00:07:09.690 --> 00:07:18.420
+you either want and you got the requirement for signed you have to ask
+
+00:07:18.420 --> 00:07:24.540
+yourself do you want sine magnitude or tooth complement? If it is sine magnitude
+
+00:07:24.540 --> 00:07:32.460
+representation you are going to designate one bit for a place for one bit
+
+00:07:32.460 --> 00:07:36.960
+that is going to carry your sine bit and depending of what number you have
+
+00:07:36.960 --> 00:07:46.080
+positive or negative you're going to insert zero or one. For the remaining bits
+
+00:07:46.080 --> 00:07:51.880
+that are providing your absolute value, you're going to keep using the same
+
+00:07:51.880 --> 00:07:57.240
+procedure and outline on the far left of this chart. You're going to put those
+
+00:07:57.240 --> 00:08:07.970
+two pieces together and you're done. If we are using signed numbers, those
+
+00:08:07.970 --> 00:08:16.190
+complement, we will again have to figure out if the number that we have to
+
+00:08:16.190 --> 00:08:23.630
+convert from decimal to binary is a positive number or negative number. If the
+
+00:08:23.630 --> 00:08:31.110
+number is positive we are going to follow the procedure outlined here and
+
+00:08:31.110 --> 00:08:49.070
+please make sure that you have enough space so that the leading or MSB
+
+00:08:49.070 --> 00:09:09.900
+leading bit for MSB stays 0. If the decimal number is negative, what you are going to
+
+00:09:09.900 --> 00:09:15.940
+do is take the absolute value of this decimal number. With this absolute value of this decimal
+
+00:09:15.940 --> 00:09:21.460
+number you are going to follow the same procedure as outlined here and you are going to make
+
+00:09:21.460 --> 00:09:24.260
+and bit number.
+
+00:09:24.260 --> 00:09:25.560
+Watch out.
+
+00:09:25.560 --> 00:09:32.900
+This one has to start with
+
+00:09:32.900 --> 00:09:34.360
+leading
+
+00:09:34.360 --> 00:09:39.660
+no significant bit.
+
+00:09:39.660 --> 00:09:43.520
+Then you are going to flip all the bits, add one
+
+00:09:43.520 --> 00:09:46.020
+and you are going to be one.
+
+00:09:46.020 --> 00:09:47.860
+I hope this was helpful. Thank you for watching.
+

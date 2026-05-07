@@ -1,0 +1,26 @@
+WEBVTT
+
+00:00:00.980 --> 00:00:07.980
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach. We will be continuing to talk about comparators.
+
+00:00:07.980 --> 00:00:25.980
+So we are going to design a comparator in a little bit different way. So we are going to actually use this logic and this explanation that is outlined in example one and example two to make comparator.
+
+00:00:25.980 --> 00:00:38.340
+So, what we want to do is we want to go and make comparator using the same process, same
+
+00:00:38.340 --> 00:00:44.100
+logic as outlined before that, in examples one and two.
+
+00:00:44.100 --> 00:00:53.390
+Okay, so what we need to do is we need to make a box like seen in this image.
+
+00:00:53.390 --> 00:00:56.310
+And we are going to do it this way.
+
+00:00:56.310 --> 00:01:05.150
+we are going to start with the most significant bit, and we are going to assume that we have
+
+00:01:05.150 --> 00:01:06.470
+one bit of comparator.
+

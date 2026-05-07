@@ -1,0 +1,167 @@
+WEBVTT
+
+00:00:01.140 --> 00:00:08.940
+Hi, this is Dr. Jelena Trajkovic from CECS Department at Cal State University, Long Beach.
+
+00:00:08.940 --> 00:00:14.420
+So we created our module and we created a testbench to test the module.
+
+00:00:14.420 --> 00:00:21.580
+You can verify that the hierarchy is correct by looking at the simulation sources and
+
+00:00:21.580 --> 00:00:27.700
+opening all the pluses, clicking on all the pluses and opening entire hierarchy here.
+
+00:00:27.700 --> 00:00:32.700
+and you can see here that add behavioral test bench
+
+00:00:35.440 --> 00:00:40.440
+is depending or it's instantiating a unit under a test
+
+00:00:44.340 --> 00:00:48.140
+which is of a type add underscore BEH.
+
+00:00:49.140 --> 00:00:51.260
+This is a good sign and this is something
+
+00:00:51.260 --> 00:00:55.140
+that it looks like the simulation,
+
+00:00:55.140 --> 00:00:57.660
+everything is okay and simulation is going to work.
+
+00:00:57.660 --> 00:01:01.820
+So it's an important thing that we select,
+
+00:01:01.820 --> 00:01:06.940
+basically click on the test bench file to start simulating.
+
+00:01:06.940 --> 00:01:09.100
+So when we do that,
+
+00:01:09.100 --> 00:01:12.340
+we're going to do a run simulation.
+
+00:01:12.780 --> 00:01:18.620
+Press the button and click run behavioral simulation.
+
+00:01:18.620 --> 00:01:27.300
+More about types of simulation we will cover later on.
+
+00:01:27.300 --> 00:01:34.300
+And now we're going to rearrange a little bit our windows in order to be able to see the results of simulation.
+
+00:01:34.300 --> 00:01:52.350
+So the first thing that you can see here is there are some values that are being shown in this test here.
+
+00:01:52.350 --> 00:02:01.400
+So in order to show everything, you can do a couple of things.
+
+00:02:01.400 --> 00:02:05.840
+One is to just press this icon here.
+
+00:02:05.840 --> 00:02:08.800
+It is going to show entire simulation range
+
+00:02:08.800 --> 00:02:12.800
+with invisible range of values.
+
+00:02:15.400 --> 00:02:18.700
+And the other one is we can always go zoom out and zoom in.
+
+00:02:20.240 --> 00:02:22.560
+The other thing that you can look here at
+
+00:02:22.560 --> 00:02:24.880
+are the values that are being displayed.
+
+00:02:24.880 --> 00:02:29.880
+Obviously here the values are displayed in a decimal form.
+
+00:02:29.880 --> 00:02:37.380
+So, one of the things that I would like to show you today is that there are different ways of representing our outputs.
+
+00:02:37.380 --> 00:02:59.380
+So, let's first look at the binary representation, and actually we can shift and select all of the, or select it, you can select the as-you-ish signals that you want to look, and you can transfer them all into binary.
+
+00:02:59.380 --> 00:03:05.380
+So now, between 0 and 100 nanoseconds,
+
+00:03:05.380 --> 00:03:09.220
+the input values are 0, 0, 0 and 0, 0, 1,
+
+00:03:09.220 --> 00:03:12.580
+the output is 0, 0, 1 and the carry is 0.
+
+00:03:12.580 --> 00:03:16.980
+If you move further on and you move to
+
+00:03:16.980 --> 00:03:20.580
+the right-hand side of 100 nanoseconds,
+
+00:03:20.580 --> 00:03:25.500
+you can see that the output value is 0, 0, 0,
+
+00:03:25.500 --> 00:03:27.220
+but the carry is 1.
+
+00:03:27.220 --> 00:03:29.100
+There are a couple of more things
+
+00:03:29.100 --> 00:03:36.700
+that are very pertinent for this lab assignment and are very handy to know afterwards for other
+
+00:03:36.700 --> 00:03:43.340
+assignments, you can choose other ways of representation. So let's first look at the
+
+00:03:43.340 --> 00:03:51.340
+one that you actually saw at the beginning. Let's see first unsigned SMLR representation.
+
+00:03:51.340 --> 00:04:07.130
+0 plus 1 is equal to 1, and result carryout is 0, and the other values are represented
+
+00:04:07.130 --> 00:04:14.570
+on the right-hand side here. However, since this lab is actually following the unit on
+
+00:04:14.570 --> 00:04:23.290
+numbers in their representation, we can also represent these values using a sine number
+
+00:04:23.290 --> 00:04:30.370
+representation. And sine number representation is actually two's complement. So now the question
+
+00:04:30.370 --> 00:04:40.610
+is, are those results correct? What are you expecting? Is when you're looking at either
+
+00:04:40.610 --> 00:04:50.530
+sign on one side or plain binary representation. Are your outputs correct and does your circuit
+
+00:04:50.530 --> 00:04:57.090
+work correctly? In the lab, one of the questions is going to be basically looking at this.
+
+00:04:58.130 --> 00:05:05.570
+Another thing that I wanted to point to you is that when you are running your simulation,
+
+00:05:05.570 --> 00:05:10.450
+you can always have a default value of time that the simulation is going to be run.
+
+00:05:11.090 --> 00:05:20.930
+In order to add more, you can specify in this command line, in the console, in command line,
+
+00:05:22.210 --> 00:05:32.290
+run and add unit of time. In this case, the amount of time that the design has been run
+
+00:05:32.290 --> 00:05:40.090
+was sufficient but in other cases it might not and by pressing arrow up you
+
+00:05:40.090 --> 00:05:48.440
+can repeat the command that you had written before and you can see here that
+
+00:05:48.440 --> 00:05:55.820
+we are adding in increments hundred and hundred nanoseconds. More about
+
+00:05:55.820 --> 00:06:01.220
+simulation we will learn in the next couple of videos I hope this was
+
+00:06:01.220 --> 00:06:04.820
+helpful thank you for watching
+

@@ -1,0 +1,209 @@
+WEBVTT
+
+00:00:02.190 --> 00:00:08.350
+Hi, this is Dr. Jelena Trajkovic with CECS Department, Cal State Long Beach. So let's go back to the
+
+00:00:08.350 --> 00:00:16.350
+question that I posed at the end of previous video. And that is, can we use the half adder
+
+00:00:17.070 --> 00:00:29.100
+to implement audition actually? So let's look at that. Here, when we are doing position zero,
+
+00:00:29.100 --> 00:00:37.740
+we have one bit and another bit, and we
+
+00:00:37.740 --> 00:00:41.340
+generate one bit output in terms of sum
+
+00:00:41.340 --> 00:00:43.940
+and one another bit of output in terms of
+
+00:00:43.940 --> 00:00:48.620
+carry. However, when we look at the bit 1,
+
+00:00:48.620 --> 00:00:52.820
+so bit 0, 1, 2, 3, we are going to call them
+
+00:00:52.820 --> 00:00:56.860
+like powers of 2. When we look at the
+
+00:00:56.860 --> 00:01:07.440
+bit one. We see that they already have one bit of carry and two bits from the
+
+00:01:07.440 --> 00:01:14.940
+original two numbers that we have to add. So we actually need three inputs and two
+
+00:01:14.940 --> 00:01:25.840
+outputs. So half adder would be enough to work for bit zero if we don't have carry
+
+00:01:25.840 --> 00:01:39.080
+in, but not for bit 1, 2, 3, and n in general. So that's why this circuit is called a half
+
+00:01:39.080 --> 00:01:50.000
+other because it is adding only some portions of what we need to. What we are going to
+
+00:01:50.000 --> 00:01:56.180
+do now we are going to specify, derive a specification and through table and
+
+00:01:56.180 --> 00:02:12.330
+equations for circuit that is called full adder. So full adder is going to have two
+
+00:02:12.330 --> 00:02:18.570
+input bits and we will have some sort of carry-in that is being taken into
+
+00:02:18.570 --> 00:02:30.800
+account. So full adder has three input bits and two output. Two outputs or two
+
+00:02:30.800 --> 00:02:44.380
+three inputs or input bits. Let's call it three inputs. Each one is one bit. So what
+
+00:02:44.380 --> 00:02:54.820
+we are going to do now, we are going to take now three x, y, and z and we will
+
+00:02:54.820 --> 00:03:10.580
+have also C and S as outputs. So 0 0 0 0 0 0 1 0 1 0 0 1 1. Half table done. Now I'm
+
+00:03:10.580 --> 00:03:14.380
+going to show you the other method that we haven't used for a very long time. So you
+
+00:03:14.380 --> 00:03:23.300
+start with the rightmost and alternate. 0 1 0 1. Then we go to the next column and
+
+00:03:23.300 --> 00:03:32.900
+alternate but slower. So we do two zeros and then two ones. And then because
+
+00:03:32.900 --> 00:03:38.380
+everything was 0 on top, now we have everything 0 in the bottom half of the
+
+00:03:38.380 --> 00:03:48.780
+table. So we have outputs on the right hand side. They're going to be carry C and
+
+00:03:48.780 --> 00:03:51.280
+they're going to be sum S.
+
+00:03:52.700 --> 00:03:56.420
+Okay, specification for this
+
+00:03:56.420 --> 00:04:00.700
+is basically rules of addition
+
+00:04:00.700 --> 00:04:04.580
+for two, for basically three binary numbers,
+
+00:04:04.580 --> 00:04:06.660
+not two binary numbers.
+
+00:04:06.660 --> 00:04:08.300
+So we will go row by row.
+
+00:04:09.300 --> 00:04:11.900
+If you have three zeros,
+
+00:04:11.900 --> 00:04:14.940
+your sum is zero, your scary is zero.
+
+00:04:14.940 --> 00:04:26.940
+If we have 1, 1, sum is 1, carry is 0. Again, same thing, just 1 is in a different position.
+
+00:04:26.940 --> 00:04:38.940
+Sum is 1, carry is 0. Now if we have 0 plus 1 plus 1, carry is 1, sum is 0.
+
+00:04:38.940 --> 00:05:00.990
+For the bottom part of the table, we have 1 0 0, sum is 1, carry is 0, 1 0 1, 1 and 1 is 0, carry 1.
+
+00:05:00.990 --> 00:05:08.990
+Again, 1 and 1 is 0, carry 1 and 1 is 1 is 1, carry 1.
+
+00:05:08.990 --> 00:05:15.580
+So here is our specification in form of truth table.
+
+00:05:15.580 --> 00:05:28.760
+we made it formal. Let's write it in a form of minimal sum of products and for that we
+
+00:05:28.760 --> 00:05:35.560
+are going to use kmap because we have two outputs, we have to write equations for two
+
+00:05:35.560 --> 00:06:00.230
+functions. Let's do it first for carry. x, y, z are here. This is not pretty. Table 0, 1, 0, 0, 0, 1, skip 1, 1, 0, 1, 1.
+
+00:06:00.230 --> 00:06:20.830
+Okay, so Kerry has 1 for min term 3. 0, 1, 2, 3 is here. And then it has 1 for min terms
+
+00:06:20.830 --> 00:06:35.620
+five, six, and seven. Five, six, and seven. And this is the case where we can make the
+
+00:06:35.620 --> 00:06:53.090
+largest circle is going to be three, and each of these largest circles are going to take
+
+00:06:53.090 --> 00:07:08.290
+advantage of this mean term 7. Sorry, yeah, mean term 7. So, C is equal to XZ for this
+
+00:07:08.290 --> 00:07:21.450
+group pink or for the blue group pink is going to be YZ or for the yellow group pink is going
+
+00:07:21.450 --> 00:07:31.810
+to be XY. Let's repeat that for S. I can suggest that you can pause here and do
+
+00:07:31.810 --> 00:07:41.510
+that by yourself because this is a great practice. So while I'm working you can
+
+00:07:41.510 --> 00:07:52.470
+pause and continue when it's done. So to fast forward a little bit I draw a table
+
+00:07:52.470 --> 00:08:02.270
+offline and I'm going to populate the table. So minterm 0 is 0, minterm 1 is 1,
+
+00:08:02.270 --> 00:08:15.430
+minterm 2 is 1, minterm 3 which is this one is 0, minterm 4 is 1, minterm 5 is 1,
+
+00:08:15.430 --> 00:08:28.630
+minterm6 is 1 and minterm7 is... sorry, minterms 5 and 6 are 0, so only 4 and 7 are 1.
+
+00:08:28.630 --> 00:08:37.470
+Oh, we found right now one function that is not really very promising to be optimized,
+
+00:08:37.470 --> 00:08:45.550
+our biggest circle that we can make is size of 1. So S needs to be implemented
+
+00:08:45.550 --> 00:08:59.750
+in sum of main terms form. So that is X prime Y prime Z, that's main term 1, or X
+
+00:08:59.750 --> 00:09:11.670
+X prime Y Z prime, that's main term 2, or X Y prime Z prime, main term 4, or X Y Z, which
+
+00:09:11.670 --> 00:09:33.880
+is main term 7. As a cell study, draw a logic diagram, logic circuit, or gate level.
+
+00:09:33.880 --> 00:09:47.720
+Just now to think about what is in the block diagram for this circuit.
+
+00:09:47.720 --> 00:09:59.410
+So for the block diagram we will have full adder or FA
+
+00:09:59.410 --> 00:10:09.410
+and this full adder, well I think it's a little bit better if I make a box a little bit different,
+
+00:10:09.410 --> 00:10:18.080
+and this four-eather is going to have three inputs, but inputs are going to be from the top.
+
+00:10:18.080 --> 00:10:25.440
+So X, Y, and Z, and it's going to have two outputs. One is S, which is some bit,
+
+00:10:26.400 --> 00:10:38.000
+and one is C, which is carry out bit. So we'll have three. Please note that sometimes you are
+
+00:10:38.000 --> 00:10:45.740
+going to see the inputs in this notation carry in that is instead of Z then you
+
+00:10:45.740 --> 00:10:55.440
+have I don't know let's say B and A but you're always going to have sum and then
+
+00:10:55.440 --> 00:11:04.360
+you're going to have C or carry out this is all the same if you call FA or full
+
+00:11:04.360 --> 00:11:10.920
+other, all of this is good. Get ready we are going to do some practice in class
+
+00:11:10.920 --> 00:11:17.960
+using half other and full other. Hope this was helpful.
+

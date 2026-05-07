@@ -1,0 +1,188 @@
+WEBVTT
+
+00:00:00.500 --> 00:00:05.740
+Hi, this is Dr. Jelena Trajkovic, CECS Department at Cal State Long Beach. Let's talk about timers.
+
+00:00:07.340 --> 00:00:18.620
+So, a timer is a circuit and it is a sequential circuit that is going to generate a pulse at
+
+00:00:19.820 --> 00:00:21.820
+specified time interval.
+
+00:00:22.500 --> 00:00:25.460
+So, let's get that down, write that down.
+
+00:00:26.060 --> 00:00:59.830
+That generates a pulse at specific time and though the time can repeat,
+
+00:00:59.830 --> 00:01:21.930
+so it can be time intervals. So duration of pulse can be full cycle. So duration of pulse can be
+
+00:01:21.930 --> 00:01:30.460
+a full cycle. So this is from the beginning of cycle to the beginning of next cycle.
+
+00:01:31.420 --> 00:01:45.270
+We are going to work on an example of a timer and this timer is going to have,
+
+00:01:45.270 --> 00:01:56.290
+so each timer has to have some sort of counter in registers inside that counts.
+
+00:01:56.290 --> 00:02:11.070
+So clock rate will be rate that the counter inside this timer counts or time
+
+00:02:11.070 --> 00:02:25.660
+rate in which timer counts is going to be timer will have a counter inside and
+
+00:02:25.660 --> 00:02:46.980
+and this counter every clock cycle.
+
+00:02:47.060 --> 00:02:50.400
+It will count every clock cycle.
+
+00:02:50.400 --> 00:02:53.040
+What we are going to do here,
+
+00:02:53.920 --> 00:02:57.760
+we are going to reuse.
+
+00:02:57.760 --> 00:03:02.760
+So you're going to be a little bit imaginative
+
+00:03:04.240 --> 00:03:09.240
+as we will do the design of countdown counter
+
+00:03:09.240 --> 00:03:27.900
+with a load in class. So we are going to assume that we already have a box that is 3-bit count
+
+00:03:29.180 --> 00:03:42.140
+down that is going to have load and count connected to it and it's going to have terminal count
+
+00:03:42.140 --> 00:03:57.260
+and it's going to have C220. So we will use that. We are going to use some three
+
+00:03:57.260 --> 00:04:04.420
+bit registers and a couple of other circuits in order to design the counter.
+
+00:04:04.420 --> 00:04:18.050
+And this is going to be count down. So watch out when we are counting down our
+
+00:04:18.050 --> 00:04:23.190
+terminal count is going to be reached when we reach zero. So we will be doing
+
+00:04:23.190 --> 00:04:39.210
+from 1 1 1 to 0 0 1 to all zeros. So when we reach 0 0 0 TC will become 1. So let
+
+00:04:39.210 --> 00:04:45.450
+us do some drawing. I'm going to do a couple of things offline and I'm
+
+00:04:45.450 --> 00:04:54.330
+going to meet you in this video in a couple of minutes. Thank you. Okay, so I drew quite a bit
+
+00:04:54.330 --> 00:05:03.370
+of the schematic. Let's start from the top. We want to say that this counter is going to count
+
+00:05:03.370 --> 00:05:11.850
+from some upper bound to zero. And when the counter reaches zero, this terminal count,
+
+00:05:11.850 --> 00:05:25.240
+TC is going to generate a signal T saying, I mean like a pulse saying that
+
+00:05:25.240 --> 00:05:32.440
+this is the time that we wanted to count up till. So we are counting several
+
+00:05:32.440 --> 00:05:38.200
+clock cycles and at the end of this count when TC is equal to all zeros we
+
+00:05:38.200 --> 00:05:45.540
+are going to generate a pulse for T. So what do we need to do? We need to load
+
+00:05:45.540 --> 00:06:00.800
+the upper bound. Now this upper bound is going to be stored in this register here
+
+00:06:00.800 --> 00:06:09.480
+but if we think a little bit about it we will be counting from if upper bound
+
+00:06:09.480 --> 00:06:17.800
+let's say is is five we want five clock cycles to be counted we will count up
+
+00:06:17.800 --> 00:06:29.480
+up till zero. So zero, one, two, three and four is going to have five clock cycles counted in.
+
+00:06:30.440 --> 00:06:38.760
+So when we load upper bound five we need to subtract one from it in order to have correct
+
+00:06:38.760 --> 00:06:45.560
+count. Otherwise we will have an extra cycle. So this circuit is going to be doing minus one.
+
+00:06:45.560 --> 00:06:58.370
+So this is decrement circuit, DEC. And so we put five on the upper bound and then
+
+00:06:59.330 --> 00:07:05.170
+the output of this decrement circuit, we are going to have four. And we'll go through that
+
+00:07:05.170 --> 00:07:14.450
+once again when we analyze the functionality of this. Now we have here load register that has
+
+00:07:14.450 --> 00:07:22.200
+LD and of course it has a clock cycle. So we're going to connect this to clock,
+
+00:07:23.400 --> 00:07:36.550
+we're going to connect this to LD. This register here is going to serve for us to keep the value,
+
+00:07:37.190 --> 00:07:44.470
+the maximum value that we count from stored here because we can just load once the upper bound
+
+00:07:44.470 --> 00:07:57.970
+and we can make counter count any number of iterations, 4, 3, 2, 1, 0, 4, 3, 2, 1, 0, and so and so forth.
+
+00:07:57.970 --> 00:08:04.970
+We'll talk about this particular connection a little bit later. So let me go back.
+
+00:08:04.970 --> 00:08:13.970
+So if we want to take the value that is stored in this load register and put it in 3-bit counter,
+
+00:08:13.970 --> 00:08:30.550
+going to use the max here and that max is going to actually be controlled by this same signal
+
+00:08:30.550 --> 00:08:41.200
+which is load that operates with the top register. Finally, we have to connect this. This is going
+
+00:08:41.200 --> 00:08:53.600
+to be our external yes I want to count signal and we can connect this clock to
+
+00:08:53.600 --> 00:08:59.360
+the same clock cycle at the top or we can have a separate oscillator. So let's
+
+00:08:59.360 --> 00:09:07.990
+say that we are going to have one microsecond oscillator and oscillators
+
+00:09:07.990 --> 00:09:14.880
+are in generally things that do generate our clock. So we know that the
+
+00:09:14.880 --> 00:09:23.040
+3-bit counter on the bottom is going to work with a clock rate of one
+
+00:09:23.040 --> 00:09:44.820
+microcycle. Microcycle! Microsecond! Where am I coming from? So we'll use this or
+
+00:09:44.820 --> 00:09:59.130
+this load to let update the counter and this makes our counter complete. What is
+
+00:09:59.130 --> 00:10:12.100
+inside of our counter is most of the circuitry outlined here. Now I want to
+
+00:10:12.100 --> 00:10:19.220
+point out one thing. We have this count output of this 3-bit counter that we're
+
+00:10:19.220 --> 00:10:27.060
+kind of not interested in because what 3-bit counter needs to do, it needs to generate a pulse
+
+00:10:28.980 --> 00:10:38.820
+at its T output and that is all that we are going to think of. So that's it for now. Let's
+
+00:10:38.820 --> 00:10:45.140
+move on to how does this operate and why is this a little bit more on a complicated side. Well,
+
+00:10:45.140 --> 00:10:50.340
+it's quite complicated, complex, in the next video. Thank you.
+

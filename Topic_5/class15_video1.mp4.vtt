@@ -1,0 +1,92 @@
+WEBVTT
+
+00:00:00.820 --> 00:00:06.020
+Hi, this is Dr. Jelena Trajkovic from the CECS Department at Cal State Long Beach. We already
+
+00:00:06.020 --> 00:00:13.420
+mentioned both topics for today's class, top-down design and multiple outputs. However, we didn't
+
+00:00:13.420 --> 00:00:20.980
+really do any practice in terms of problems. We just introduced those two concepts and
+
+00:00:20.980 --> 00:00:29.640
+yes, we did do some combinational circuits like decoder and encoder that had multiple
+
+00:00:29.640 --> 00:00:36.760
+up. So I just want to recap very quickly and follow through with examples so that we can do
+
+00:00:37.960 --> 00:00:49.460
+some practice in class. So top-down, this is what it is. This is top-down design methodology
+
+00:00:53.940 --> 00:01:00.580
+or method, whatever you want to say. So first thing that we need to do, why does it say top?
+
+00:01:00.580 --> 00:01:14.320
+because we started top level, which is very, in top level explanation of how your circuit works,
+
+00:01:14.320 --> 00:01:24.880
+we give just explanation of how the circuit works. We don't do any more detailed breakdown
+
+00:01:24.880 --> 00:01:31.920
+of the circuit. So actually there is no circuit, there is just functionality. So first step in
+
+00:01:31.920 --> 00:01:37.610
+in top-down is to capture.
+
+00:01:37.610 --> 00:01:38.930
+We did that already.
+
+00:01:38.930 --> 00:01:47.260
+So that is describing.
+
+00:01:47.260 --> 00:01:49.340
+And we need to have the task
+
+00:01:49.340 --> 00:01:51.620
+that we want to implement in hardware.
+
+00:01:51.620 --> 00:01:54.900
+We have to do tell us,
+
+00:01:54.900 --> 00:01:59.420
+we have to have as many details as possible
+
+00:01:59.420 --> 00:02:10.640
+about its behavior that we want to implement.
+
+00:02:11.680 --> 00:02:16.680
+And capture can be done in terms of natural language
+
+00:02:16.680 --> 00:02:29.280
+or it can be done in terms of truth table. This is a little bit more technical capture.
+
+00:02:29.280 --> 00:02:50.620
+Second step is convert, convert into circuit or implement. That is what implement means.
+
+00:02:50.620 --> 00:02:59.620
+So this one is going to take it from truth table. By the way, when we start from natural language,
+
+00:02:59.620 --> 00:03:03.620
+We will need to bring it down to the truth table.
+
+00:03:03.620 --> 00:03:07.620
+Now, we start with this truth table,
+
+00:03:07.620 --> 00:03:10.620
+and we go through the steps.
+
+00:03:10.620 --> 00:03:15.620
+We do some of minterms,
+
+00:03:15.620 --> 00:03:28.320
+and then we do simplified sum of products.
+
+00:03:28.320 --> 00:03:32.320
+Now, we can do from truth table,
+
+00:03:32.320 --> 00:03:38.800
+table. We can straight go to... when we know the sum of min terms, instead of writing the
+
+00:03:38.800 --> 00:03:44.960
+equation, we can go to K math and then get...
+

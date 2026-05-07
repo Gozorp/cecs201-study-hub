@@ -1,0 +1,74 @@
+WEBVTT
+
+00:00:01.170 --> 00:00:08.170
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach. Let us introduce if statement.
+
+00:00:08.170 --> 00:00:17.170
+We have here two examples of if statement. Let us first look at the simpler one. If statement needs to be enclosed within always statement.
+
+00:00:17.170 --> 00:00:29.170
+And always statement has its begin and end. If, in simple form, has just one assignment, if portion of the body.
+
+00:00:29.170 --> 00:00:34.170
+So we have to see if SEL is equal to one,
+
+00:00:34.570 --> 00:00:39.570
+basically expression in this parentheses evaluates to true.
+
+00:00:40.050 --> 00:00:43.890
+And in that case, this portion gets executed.
+
+00:00:43.890 --> 00:00:48.370
+If this is false, else portion of if statement
+
+00:00:48.370 --> 00:00:52.370
+gets executed and basically we have option
+
+00:00:52.370 --> 00:00:57.370
+to choose one or two ways to assign value to register F.
+
+00:00:57.370 --> 00:01:05.050
+register app. Be mindful of sensitivity list of your OR statement, so you have to know what you
+
+00:01:05.050 --> 00:01:14.250
+are trying to accomplish within your IF statement. In general, the variable that you are evaluating
+
+00:01:15.290 --> 00:01:21.850
+here in parentheses would go into always block and also all the variables that are on the right
+
+00:01:21.850 --> 00:01:31.530
+hand side will go on this portion. That is mostly for combinatorial circuits. We're going
+
+00:01:31.530 --> 00:01:39.050
+to talk about anything else later on, basically sequential. But be mindful that you need to
+
+00:01:39.050 --> 00:01:46.970
+include all the variables that might change and on which when they change you need to
+
+00:01:46.970 --> 00:01:52.890
+re-evaluate this if statement. On the right hand side is a little bit more elaborate example of
+
+00:01:52.890 --> 00:02:03.370
+if statement and it is elaborate because the code in for if portion of body is a little bit more
+
+00:02:03.370 --> 00:02:11.050
+complex and this is just showing that if such example it is basically that you have more than
+
+00:02:11.050 --> 00:02:17.930
+single statement inside of the if portion of the body, you have to include begin and end.
+
+00:02:17.930 --> 00:02:27.530
+So here f becomes a, g becomes not a, and a different expression here are assigned to f and g
+
+00:02:27.530 --> 00:02:38.330
+within begin and end. So again, remember that if always goes with always block, it has to be
+
+00:02:38.330 --> 00:02:44.330
+enclosed inside of always block and always block, it has its begin and end and then depends
+
+00:02:44.330 --> 00:02:52.770
+on the complexity of if loop you can live without begin and end if it's a single expression
+
+00:02:52.770 --> 00:02:59.210
+or you need to include begin and end. I hope this is helpful. Thank you.
+

@@ -1,0 +1,164 @@
+WEBVTT
+
+00:00:01.940 --> 00:00:07.940
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach.
+
+00:00:07.940 --> 00:00:12.940
+Let us introduce FSMs and their implementation in Verilog.
+
+00:00:12.940 --> 00:00:19.940
+In this video, we are going to look through an example of Moore FSM.
+
+00:00:19.940 --> 00:00:26.940
+And as shown on the diagram here, Moore FSM consists of three separate blocks.
+
+00:00:26.940 --> 00:00:35.980
+The first block here is basically a synchronous sequential block that is state register.
+
+00:00:35.980 --> 00:00:41.260
+So it's a structure that is going to memorize the state in which FSM is.
+
+00:00:41.260 --> 00:00:47.040
+We have two combinational blocks, one of them is next state logic, and the other one is
+
+00:00:47.040 --> 00:00:49.380
+output logic.
+
+00:00:49.380 --> 00:00:53.980
+We are going to assume that transitions to the next state are going to happening on
+
+00:00:53.980 --> 00:01:00.380
+positive edge of the clock. Straight from this diagram, from this organization,
+
+00:01:03.100 --> 00:01:09.740
+three-segment coding style is derived and that is the coding style that we are going to use
+
+00:01:09.740 --> 00:01:17.980
+in this course. As you can see here you have an always block that is going to represent a basic
+
+00:01:17.980 --> 00:01:25.980
+register then you will have always block that is going to represent combinational circuit
+
+00:01:26.780 --> 00:01:36.700
+for a state transition basically next state logic and the last one is output generation logic here
+
+00:01:36.700 --> 00:01:44.780
+it is written as also another combinational always block but it can be much simpler and
+
+00:01:44.780 --> 00:01:48.940
+and simplify itself to a just assignment statement.
+
+00:01:48.940 --> 00:01:53.940
+Before all of this, we have a part of code
+
+00:01:55.340 --> 00:02:02.260
+in which we show the values basically explicitly
+
+00:02:05.800 --> 00:02:10.800
+and declare explicitly assigned values to the states.
+
+00:02:10.800 --> 00:02:22.880
+states. This portion of code, in general, is optional, as designers can opt out to let
+
+00:02:22.880 --> 00:02:31.020
+the tool optimize the state assignment. However, in this lab, we are going to look for explicit
+
+00:02:31.020 --> 00:02:40.780
+state assignment, and you will have a different encoding than shown here, but the procedure
+
+00:02:40.780 --> 00:02:47.260
+is going to be the same, so basically we will have local param which stands for
+
+00:02:47.260 --> 00:02:55.740
+local parameter, and we are going to assign explicit values to S0, S1, S2 and S3.
+
+00:02:55.740 --> 00:03:02.820
+In this case it's going to be simple binary encoding. So let us look at the
+
+00:03:02.820 --> 00:03:10.260
+example that we are going to follow through this couple of videos. So the
+
+00:03:10.260 --> 00:03:17.300
+state transition diagram is shown on the bottom left side. Once again,
+
+00:03:17.300 --> 00:03:23.220
+we are going to assume that the transitions are happening on every positive edge of the clock cycle
+
+00:03:24.020 --> 00:03:29.380
+and transitions are going to start from the starting state, as I rotated here,
+
+00:03:29.380 --> 00:03:33.460
+it's going to be S0. Depending on the value of enable,
+
+00:03:33.460 --> 00:03:38.460
+the transition is going to be different one.
+
+00:03:38.860 --> 00:03:41.600
+If enable is one, we will follow this arc
+
+00:03:41.600 --> 00:03:46.460
+and we are going to transition from S zero to S one.
+
+00:03:46.460 --> 00:03:50.600
+And is if transition, if enable is zero,
+
+00:03:52.120 --> 00:03:54.240
+we will stay in the same state.
+
+00:03:55.800 --> 00:04:00.240
+Outputs are shown within the same circle
+
+00:04:00.240 --> 00:04:04.560
+that annotate the state, as this is more of a same example,
+
+00:04:04.560 --> 00:04:08.640
+and we will have a four-bit output sequence.
+
+00:04:08.640 --> 00:04:11.200
+It is very similar to one of the examples
+
+00:04:11.200 --> 00:04:13.520
+that we covered during the lectures.
+
+00:04:13.520 --> 00:04:16.880
+And in this four-bit sequence,
+
+00:04:16.880 --> 00:04:21.640
+the number of ones is going to be reducing
+
+00:04:21.640 --> 00:04:25.860
+as we move through every state.
+
+00:04:25.860 --> 00:04:28.680
+So basically from four ones, three ones,
+
+00:04:28.680 --> 00:04:31.780
+to two ones and one in a string,
+
+00:04:31.780 --> 00:04:36.030
+and then back to four of them.
+
+00:04:36.030 --> 00:04:40.990
+As I mentioned, the state encoding
+
+00:04:40.990 --> 00:04:45.990
+can be left out to tool to be assigned,
+
+00:04:47.250 --> 00:04:50.470
+or it can be explicit,
+
+00:04:50.470 --> 00:04:53.390
+and we are going to use explicit state encoding,
+
+00:04:53.390 --> 00:04:57.370
+and we are going to use three-segment code as shown here.
+
+00:04:57.370 --> 00:05:05.370
+In the next video, we are going to go through each separate segment in this code
+
+00:05:05.370 --> 00:05:12.370
+and give more details and tips and tricks on how to successfully write code for this.
+
+00:05:12.370 --> 00:05:17.370
+Hope this was helpful. We will continue in the next video.
+

@@ -1,0 +1,137 @@
+WEBVTT
+
+00:00:01.360 --> 00:00:08.060
+Hi, this is Dr. Jelena Trajkovic from the CECS Department at Cal State Long Beach. So, we want to look into something
+
+00:00:08.460 --> 00:00:12.460
+that you need to pay attention while you are designing FSM's and
+
+00:00:14.300 --> 00:00:23.220
+for lack of better terminology, we are going to call them issues. So, first thing that we need to pay attention to when we are making
+
+00:00:24.300 --> 00:00:27.080
+FSM is when we have a state,
+
+00:00:30.770 --> 00:00:35.990
+let's call it S, at a given time
+
+00:00:36.350 --> 00:00:43.710
+we have to design an FSM such that in a given time only one outgoing condition
+
+00:00:43.710 --> 00:00:54.070
+has to be true. So first of all you have to define all possible paths from a
+
+00:00:54.070 --> 00:01:21.580
+state, well from each state better to say. So basically these are outgoing edges and
+
+00:01:21.580 --> 00:01:25.100
+and make sure that you know where you are going to go next.
+
+00:01:25.100 --> 00:01:30.100
+So exactly one outgoing condition has to be true.
+
+00:01:51.020 --> 00:01:54.820
+So there cannot be any ambiguity.
+
+00:01:54.820 --> 00:01:58.740
+So if you're looking at the state S zero,
+
+00:01:58.740 --> 00:02:00.780
+we are going to say, sorry, S,
+
+00:02:00.780 --> 00:02:02.360
+well, we can call it S zero.
+
+00:02:03.420 --> 00:02:06.680
+On A, we are going to stay at S zero.
+
+00:02:07.660 --> 00:02:11.020
+On A prime, we are going to go into S one.
+
+00:02:12.830 --> 00:02:19.830
+and that is all outgoing parts are defined from A, from S0.
+
+00:02:19.830 --> 00:02:33.830
+Now, let's think about, let's stretch our imagination and think about having not only A, but also B as an input variable or input signal.
+
+00:02:33.830 --> 00:02:38.830
+What if I say that I'm going to stay here on A,
+
+00:02:40.830 --> 00:02:46.730
+and transition here on B?
+
+00:02:46.730 --> 00:02:51.010
+Well, first of all, these are not all possible
+
+00:02:51.010 --> 00:02:53.090
+values of A and B,
+
+00:02:53.090 --> 00:02:58.090
+because we have AB, AB prime, A prime B,
+
+00:02:58.650 --> 00:03:00.110
+and A prime B prime.
+
+00:03:01.070 --> 00:03:05.230
+But also this poses additional problem.
+
+00:03:05.230 --> 00:03:08.190
+Let me change color for a second and show you this.
+
+00:03:08.190 --> 00:03:15.300
+What if we say a, b is equal to one, one?
+
+00:03:15.300 --> 00:03:20.120
+So for that one, a is equal to one and b is equal to one.
+
+00:03:20.120 --> 00:03:25.120
+So in that case, FSM will try to stay in state S one
+
+00:03:26.120 --> 00:03:28.560
+and try to go to state S zero.
+
+00:03:30.000 --> 00:03:34.520
+That is definitely not what we planned and what we want
+
+00:03:34.520 --> 00:03:35.800
+because at that time,
+
+00:03:35.800 --> 00:03:40.140
+we are going to have conflicting requirements
+
+00:03:40.140 --> 00:03:41.760
+for transitioning.
+
+00:03:41.760 --> 00:03:45.600
+The other thing that is equally not okay
+
+00:03:45.600 --> 00:03:49.040
+is that we define the FSM in this way,
+
+00:03:49.040 --> 00:03:53.080
+but we have input that is equal to zero.
+
+00:03:54.040 --> 00:03:57.040
+So A is equal to zero, B is equal to zero.
+
+00:03:58.440 --> 00:04:01.200
+In that case, we actually do not know
+
+00:04:01.200 --> 00:04:03.340
+where to go in S1.
+
+00:04:03.340 --> 00:04:14.580
+So, definitely, we have to make this FSM differently. We have to make it better. So, S0 is here.
+
+00:04:14.580 --> 00:04:25.260
+We have transition on A, and we have transition on A prime, and then we have S1. So, we can
+
+00:04:25.260 --> 00:04:41.460
+say a on a prime b we are going here and on a prime b not we are staying here. Mind you
+
+00:04:41.460 --> 00:04:52.820
+we also have to cover other cases but at least this solution is going to take care of this
+
+00:04:52.820 --> 00:05:15.010
+problem here. So self-study all possible pieces and try to simulate it by yourself.
+

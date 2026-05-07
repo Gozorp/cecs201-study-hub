@@ -1,0 +1,239 @@
+WEBVTT
+
+00:00:00.210 --> 00:00:07.870
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach. So, we already did several
+
+00:00:07.870 --> 00:00:14.610
+combinational circuits, maxis to start with, decoders and encoders, all of them are combinational.
+
+00:00:14.610 --> 00:00:23.350
+And decoders are such circuits that have N inputs, 2 to the N outputs. And what distinguishes
+
+00:00:23.350 --> 00:00:29.350
+them is that NP inputs decide on the output that is going to be active and
+
+00:00:29.350 --> 00:00:35.030
+only one output is going to be active at the time. So if you need to recap more
+
+00:00:35.030 --> 00:00:40.270
+of the coders please pause the video now and then continue after you're done
+
+00:00:40.270 --> 00:00:46.310
+reminding yourself of how the coders work and what are the truth tables and
+
+00:00:46.310 --> 00:00:50.590
+and the logic diagram, block diagrams for them.
+
+00:00:50.590 --> 00:00:53.350
+Now we want to do encoders.
+
+00:00:53.350 --> 00:01:09.840
+So they are again, combinational circuits,
+
+00:01:09.840 --> 00:01:12.840
+but their function is inverse
+
+00:01:12.840 --> 00:01:28.080
+compared to the function of decoder.
+
+00:01:28.080 --> 00:01:30.880
+So then they are going to have,
+
+00:01:30.880 --> 00:01:33.340
+so watch out for the first words that I'm saying,
+
+00:01:33.340 --> 00:01:44.550
+up to, two to the n outputs,
+
+00:01:44.550 --> 00:01:51.280
+in order to have n outputs.
+
+00:01:51.280 --> 00:01:56.280
+So like we said, it's inverse two to the N inputs
+
+00:01:57.860 --> 00:02:02.860
+for encoder and N outputs for encoder.
+
+00:02:04.080 --> 00:02:08.800
+Watch out, sometimes encoders do not have to have
+
+00:02:09.700 --> 00:02:12.820
+all two to the N inputs,
+
+00:02:13.980 --> 00:02:18.280
+but they may and they very often do.
+
+00:02:18.280 --> 00:02:25.520
+So let's look at an example that is going to help us figure out the
+
+00:02:25.520 --> 00:02:31.320
+function of encoder. We know it's inverse but let's go into details. So we are
+
+00:02:31.320 --> 00:02:43.540
+going to go and look into inputs are going to be annotated as bits D. So it's
+
+00:02:43.540 --> 00:02:58.880
+It's going to be, we are going to take N is equal to 2, so we are going to have 4, 2, 2 encoder.
+
+00:02:58.880 --> 00:03:08.880
+And for 4 to 2 encoder, the inputs are going to be D3, D2, D1, and D0.
+
+00:03:08.880 --> 00:03:16.280
+And these stands for kind of data, so they can be anything, any letter.
+
+00:03:16.280 --> 00:03:24.120
+The important thing is that their index is 3, 2, 1, and 0, and 3, 1 is most significant
+
+00:03:24.120 --> 00:03:29.120
+that 0 is least significant.
+
+00:03:29.120 --> 00:03:36.560
+And then we're going to have two outputs, output 1 and output 0.
+
+00:03:36.560 --> 00:03:41.560
+Again, you can call them Y, you can call them F, you can call them whatever you want.
+
+00:03:41.560 --> 00:03:48.560
+The important thing is that they have an index such that the most significant bit is here.
+
+00:03:48.560 --> 00:03:57.490
+NSB and LSB is here.
+
+00:03:57.490 --> 00:04:03.490
+Okay, so that means that we have to have a truth table.
+
+00:04:03.490 --> 00:04:08.490
+Truth table is the best illustration. It's kind of intuitive.
+
+00:04:08.490 --> 00:04:15.290
+good for people who are visual learners. It's good for people who are kind of experimental learners
+
+00:04:15.290 --> 00:04:24.330
+because they give lots of examples in the form of two tables. And then we have output O1 and O0.
+
+00:04:26.510 --> 00:04:33.950
+Now let's go back to the coder. That's why I wrote down little notes about it at the top.
+
+00:04:33.950 --> 00:04:44.320
+The encoder is such a circuit that has only one input that is active at the time.
+
+00:04:44.320 --> 00:04:46.320
+So this is the catch.
+
+00:04:46.320 --> 00:04:51.320
+For encoder, we have to make an assumption.
+
+00:04:51.320 --> 00:05:20.570
+We are going to have assumption that only one input is active at the time.
+
+00:05:20.570 --> 00:05:40.550
+and that other input combinations are not possible.
+
+00:05:40.550 --> 00:05:43.470
+So let's start it from D0.
+
+00:05:43.470 --> 00:05:48.470
+Let's say that first possibility is that D0 is one,
+
+00:05:48.630 --> 00:05:52.080
+everything else is zero.
+
+00:05:52.080 --> 00:05:58.590
+So this is the way that you're going to think about it.
+
+00:06:00.800 --> 00:06:04.720
+D0 is one.
+
+00:06:06.200 --> 00:06:09.880
+What is the binary code for zero,
+
+00:06:09.880 --> 00:06:17.480
+index 0 in D0. It's 00. So that is what the outputs are going to be. It's really
+
+00:06:17.480 --> 00:06:26.930
+inverse from the code. The second one is D1 is equal to 1. So binary code for
+
+00:06:26.930 --> 00:06:45.440
+the index 1 is 01. Next is going to be that E2 is equal to 1 and the outputs are
+
+00:06:45.440 --> 00:07:02.080
+going to be I sorry O1 is 1 and O0 is 0 and finally 1 0 0 0 gives us 1 1
+
+00:07:02.080 --> 00:07:16.560
+watch out this is a big assumption and it's going to help us a lot do basically
+
+00:07:16.560 --> 00:07:29.320
+very simplified way of the equations. So let's look at this possibility. For I0,
+
+00:07:29.320 --> 00:07:42.430
+so our our assumption is again only one input is going to be one at a time and
+
+00:07:42.430 --> 00:07:49.470
+for this case we are going to look at the truth table and write down equation.
+
+00:07:49.470 --> 00:07:53.390
+for I0. We look at those two
+
+00:07:53.390 --> 00:07:56.710
+rows and then for the top row
+
+00:07:56.710 --> 00:08:00.870
+we see that the only
+
+00:08:00.870 --> 00:08:03.950
+signal that is equal to 1
+
+00:08:03.950 --> 00:08:07.510
+is going to be D1
+
+00:08:07.510 --> 00:08:10.470
+and for this one
+
+00:08:10.470 --> 00:08:13.310
+we see that only signal that is going to be
+
+00:08:13.310 --> 00:08:16.470
+equal to 1 is D3.
+
+00:08:16.470 --> 00:08:27.520
+you are more than welcome to make a kmap for that. We do really not need to write
+
+00:08:27.520 --> 00:08:43.880
+a full sum of minterms form because we will not really need to specify the
+
+00:08:43.880 --> 00:08:57.190
+values for d0, d2 and d3 they are already 0 by design of it. Now let's look at the
+
+00:08:57.190 --> 00:09:14.930
+output 1. Output 1 is equal to 1. Then d2 is 1 and then d3 is 1. So I'm
+
+00:09:14.930 --> 00:09:24.550
+proposing that for cell study you do two things. One thing is two
+
+00:09:24.550 --> 00:09:37.150
+put those two equations for O0 and O1 and O1 and put all possible combinations of D3,
+
+00:09:37.150 --> 00:09:45.090
+2, 1 and 0 as given in this table, just as given in this table to see what are the values
+
+00:09:45.090 --> 00:10:05.690
+that they are going to be. That is one thing. And second thing that I am requesting you
+
+00:10:05.690 --> 00:10:21.210
+to do as a self-study, draw the gate level diagram. I think that we should also draw
+
+00:10:21.210 --> 00:10:29.500
+here the record is that the block diagram. So this is block diagram because it looks
+
+00:10:29.500 --> 00:10:43.530
+like a block. Again, all the blocks are the same unless you specify what is the block representing.
+
+00:10:43.530 --> 00:11:11.870
+So this is 4 to 2 encoder and that 4 to 2 encoder has 4 inputs, 2 outputs, this is L0
+
+00:11:11.870 --> 00:11:14.330
+and that is pretty much it.
+
+00:11:14.330 --> 00:11:17.390
+Thanks for watching, see you with a new thing in the new video.
+

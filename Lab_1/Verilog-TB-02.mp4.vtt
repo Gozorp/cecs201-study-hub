@@ -1,0 +1,161 @@
+WEBVTT
+
+00:00:00.780 --> 00:00:06.780
+Hi, this is Dr. Jelena Trajkovic from the CECS Department at Cal State Long Beach University.
+
+00:00:06.780 --> 00:00:09.780
+Let us introduce testbenches.
+
+00:00:09.780 --> 00:00:12.780
+Testbenches are actually modules.
+
+00:00:12.780 --> 00:00:18.780
+These are modules that wrap around modules that we are going to test.
+
+00:00:18.780 --> 00:00:21.780
+We are going to refer to that one as Unit Other Test.
+
+00:00:21.780 --> 00:00:29.780
+Testbenches provide input, or more inputs if Unit Other Test has more than one input,
+
+00:00:29.780 --> 00:00:35.380
+output, and also may check the values of the output for the module that we are testing.
+
+00:00:35.380 --> 00:00:43.660
+For the example that follows this tutorial, we are going to create a test bench according
+
+00:00:43.660 --> 00:00:49.580
+to one of the examples, one of the videos that we provided with the tool support, and
+
+00:00:49.580 --> 00:00:56.100
+our module is going to be called add underscore beh underscore tv. So this is the name of
+
+00:00:56.100 --> 00:00:57.380
+the module that we are testing,
+
+00:00:57.380 --> 00:01:00.620
+and we are adding underscore tv to it.
+
+00:01:00.620 --> 00:01:03.620
+And mentioned in that video,
+
+00:01:03.620 --> 00:01:07.900
+the inputs and outputs do not exist.
+
+00:01:07.900 --> 00:01:11.580
+So basically more test bench doesn't have any ports.
+
+00:01:12.580 --> 00:01:16.500
+For each input of the original unit on the test module,
+
+00:01:16.500 --> 00:01:18.580
+we are going to create a register,
+
+00:01:18.580 --> 00:01:21.920
+and for each output, we are going to create wire.
+
+00:01:21.920 --> 00:01:25.720
+After that, we are going to instantiate the module.
+
+00:01:25.720 --> 00:01:28.080
+So we are going to create an instance
+
+00:01:28.080 --> 00:01:32.100
+of a type add underscore beh.
+
+00:01:32.100 --> 00:01:34.640
+The name of that instance is going to be uut
+
+00:01:34.640 --> 00:01:38.080
+and port connection is going to be as old here,
+
+00:01:38.080 --> 00:01:39.900
+more into one of the other videos.
+
+00:01:41.200 --> 00:01:44.200
+After that, we are going to place the body of the test bench
+
+00:01:44.200 --> 00:01:46.360
+and end of the test bench is going to be
+
+00:01:47.720 --> 00:01:50.960
+shown with end module keyword.
+
+00:01:50.960 --> 00:01:54.240
+So to visualize this concept,
+
+00:01:54.240 --> 00:01:56.840
+we can look at this picture.
+
+00:01:56.840 --> 00:02:01.800
+Entire portion that is marked in red
+
+00:02:01.800 --> 00:02:04.000
+actually is TensorBench.
+
+00:02:04.000 --> 00:02:07.280
+So here in the body of TensorBench,
+
+00:02:07.280 --> 00:02:10.760
+we are starting with initial begin and end input.
+
+00:02:10.760 --> 00:02:15.760
+And this is one walk that is going to provide inputs
+
+00:02:17.680 --> 00:02:20.400
+inputs to the module on the test.
+
+00:02:20.400 --> 00:02:24.480
+And for each of the registers specified
+
+00:02:24.480 --> 00:02:25.900
+in the signal declaration,
+
+00:02:25.900 --> 00:02:30.160
+we are going to assign the value
+
+00:02:30.160 --> 00:02:34.800
+and wait for designated amount of time.
+
+00:02:34.800 --> 00:02:37.240
+This value is going to be supplied
+
+00:02:37.240 --> 00:02:38.720
+to our unit under test,
+
+00:02:38.720 --> 00:02:43.720
+which is of type add underscore beh, add behavioral.
+
+00:02:44.120 --> 00:02:47.800
+It is going to, the module is going to produce
+
+00:02:47.800 --> 00:02:50.280
+the values for out and for carry.
+
+00:02:51.240 --> 00:02:56.240
+These values can be observed using test bench
+
+00:02:56.920 --> 00:02:59.960
+and checked against the correct values
+
+00:02:59.960 --> 00:03:04.680
+or can be observed in waveform,
+
+00:03:04.680 --> 00:03:07.280
+which is the method that you are going to use
+
+00:03:07.280 --> 00:03:11.190
+in your lab one.
+
+00:03:11.190 --> 00:03:16.110
+So the full body of test bench from the beginning to end
+
+00:03:16.110 --> 00:03:18.670
+looks as shown here.
+
+00:03:18.670 --> 00:03:21.990
+Your task will be to add additional cases
+
+00:03:21.990 --> 00:03:24.170
+as per your lab specification.
+

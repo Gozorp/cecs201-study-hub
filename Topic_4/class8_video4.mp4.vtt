@@ -1,0 +1,260 @@
+WEBVTT
+
+00:00:00.910 --> 00:00:11.410
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach. So, we are pros at two variable K-maps.
+
+00:00:11.410 --> 00:00:41.750
+That means that we are ready for three variable K-maps. That means that we need three variables.
+
+00:00:41.750 --> 00:00:47.750
+Remember how I told you that, you know, what has to be on the right-hand side, what has to be on the left-hand side?
+
+00:00:47.750 --> 00:00:54.570
+going to be taking care of that with this so basically we have expression that
+
+00:00:54.570 --> 00:00:59.630
+this is going to be most significant bit and this is going to be least significant
+
+00:00:59.630 --> 00:01:24.150
+bit knowing that I'm going to make a map so you're going to have one variable
+
+00:01:24.150 --> 00:01:34.440
+left so values of these variables are going to be listed here down and we're
+
+00:01:34.440 --> 00:01:45.550
+going to have two variables here. They need to be closer to the diagonal
+
+00:01:45.550 --> 00:01:54.230
+divider because we need to put the values. So x can be 0 or 1. Now there is a
+
+00:01:54.230 --> 00:02:03.450
+little trick for y and z. This is 0, 0. This is 0, 1. Remember that we had the
+
+00:02:03.450 --> 00:02:16.170
+rule that adjacent cells can have only value of one variable that changes. So instead of having
+
+00:02:16.170 --> 00:02:24.810
+one zero here we're going to have one one. Only variable that is going to change its value between
+
+00:02:24.810 --> 00:02:32.410
+those two between cells that are left of right of this divided line that I'm showing
+
+00:02:33.450 --> 00:02:40.170
+they're going to have a value of y different and then you're going to have
+
+00:02:40.170 --> 00:02:54.080
+1 0 here again let's do star this is the same however this one is different so
+
+00:02:54.080 --> 00:03:19.460
+reason of this peculiar placing is we need to have a value of only one between
+
+00:03:19.460 --> 00:03:33.330
+adjacent cells or squares whatever you want to call them. Now we are going to read the
+
+00:03:33.330 --> 00:03:48.360
+value and annotate the value for each cell. So this one is 0 0 0. Oh this is M0. The next one is
+
+00:03:50.040 --> 00:04:01.880
+0 0 1 M1. Now if we want to be consecutive we will have 0 1 0 M2 comes here
+
+00:04:01.880 --> 00:04:18.200
+and then M3 0 1 1 is here. Here is 1 0 0 and 4 1 0 1 and 5 then we skip one cell
+
+00:04:18.200 --> 00:04:28.400
+1 1 0 and 6 and the next one is 1 1 1 and 7. Let's look at the values of
+
+00:04:28.400 --> 00:04:38.240
+variables. So I am going to do these things with highlighters. Everything that is in this entire
+
+00:04:39.120 --> 00:04:50.110
+row is going to have x is equal to zero value. Everything that is here is going to have x is
+
+00:04:50.110 --> 00:05:10.960
+equal to 1. Now let's look into Y variable. So here those two are having Y is equal to 0.
+
+00:05:12.560 --> 00:05:21.500
+Mind you, if you can see, if you can notice, there are total of four different cells that
+
+00:05:21.500 --> 00:05:28.220
+are characterized by x is equal to 0, 4 different x is equal to 1,
+
+00:05:28.220 --> 00:05:36.460
+4x is equal to, sorry, y is equal to 0, and then here y is equal to 1.
+
+00:05:36.460 --> 00:05:41.020
+Now the interesting part, also known as complicated part,
+
+00:05:41.020 --> 00:05:44.140
+every time that I say that something is interesting it's a little bit
+
+00:05:44.140 --> 00:05:47.900
+more difficult than the one after that. Look at this,
+
+00:05:47.900 --> 00:05:50.860
+this one is one, and this one is one.
+
+00:05:50.860 --> 00:05:54.260
+So these two cells,
+
+00:05:54.260 --> 00:05:57.020
+sorry, two columns,
+
+00:05:57.020 --> 00:05:59.060
+they have
+
+00:05:59.060 --> 00:06:04.780
+z is equal to one.
+
+00:06:04.780 --> 00:06:06.060
+And the
+
+00:06:06.060 --> 00:06:13.060
+difficult part is that if you see here z is equal to zero and z is equal to zero,
+
+00:06:15.340 --> 00:06:18.740
+well, this is
+
+00:06:18.740 --> 00:06:28.740
+equals to zero and this part here is also z is equal to zero. Now think about
+
+00:06:29.380 --> 00:06:35.780
+employ your three-dimensional thinking. When you employ the three-dimensional thinking
+
+00:06:36.980 --> 00:06:51.380
+think about a piece of paper that has this table drawn on it and now start folding this paper so
+
+00:06:51.380 --> 00:07:04.020
+So when you look from here, the paper is going to look something like this.
+
+00:07:04.020 --> 00:07:12.140
+So what I'm trying to show you is I'm trying to show you this edge and this edge.
+
+00:07:12.140 --> 00:07:15.940
+Once we fold the paper, they are becoming adjacent.
+
+00:07:15.940 --> 00:07:19.980
+You remember what we said for the definition of adjacent cells?
+
+00:07:19.980 --> 00:07:29.980
+we said that they have one common and basically one value that changes. So the value that changes is one.
+
+00:07:29.980 --> 00:07:38.980
+So that means the adjacent cells are the ones that are along this red line.
+
+00:07:38.980 --> 00:07:55.560
+So I am going to give you two examples.
+
+00:07:55.560 --> 00:08:05.540
+and examples are going to be oh my god these are one for me because it's a new subtopic
+
+00:08:06.180 --> 00:08:13.540
+um i think i'm probably off for entire lecture so if f is a function of x y and z
+
+00:08:14.340 --> 00:08:24.980
+and it specify using the compact notation so we need minterms two three four and five
+
+00:08:24.980 --> 00:08:36.220
+First of all, where do we put ones? Same for two variable map. This all denote min terms
+
+00:08:36.220 --> 00:08:41.580
+for which function is equal to one. So the place where this corresponds to these min
+
+00:08:41.580 --> 00:09:02.040
+terms we are going to put one X Y Z 0 1 0 0 0 1 skip a cell 1 0 go back 1 1 now
+
+00:09:02.040 --> 00:09:11.860
+we have 2 and 3 look 2 and 3 are upper right corner and 4 and 5 are lower
+
+00:09:11.860 --> 00:09:21.420
+left corner. Rules are the same. We need to make groupings such that for those
+
+00:09:21.420 --> 00:09:32.420
+groupings there are the largest and the fewest number of so-called circles. What
+
+00:09:32.420 --> 00:09:41.540
+is an expression, basically product, that describes the top right circle? For top
+
+00:09:41.540 --> 00:09:51.600
+right let me go and remove that so we will take things so top right what is
+
+00:09:51.600 --> 00:10:00.460
+common x is equal to 0 is common what else is common y is equal to 1 is
+
+00:10:00.460 --> 00:10:10.100
+common so the expression that is describing this circle is x prime y
+
+00:10:10.100 --> 00:10:18.320
+every time that X is 0 you are going to have it with Y. Now let's look at the
+
+00:10:18.320 --> 00:10:29.030
+bottom circle. I'm going to redo. For them common thing is that X is equal to 1
+
+00:10:29.030 --> 00:10:43.430
+and another common thing is that Y is equal to 0. So for that case we have X
+
+00:10:43.430 --> 00:11:10.410
+So, function after simplification, my function, let's call it f1, is equal to x'y or x'y'.
+
+00:11:10.410 --> 00:11:20.880
+Next example is harder, so spend a little bit more time thinking of it.
+
+00:11:20.880 --> 00:11:35.320
+that we are is given is f2 again x y and z min terms are 3 4 6 and 7. I am
+
+00:11:35.320 --> 00:11:46.500
+quickly drawing map do not worry you will start drawing these maps in a
+
+00:11:46.500 --> 00:11:51.880
+little while as quickly as I am and hopefully you will make fewer mistakes
+
+00:11:51.880 --> 00:12:17.540
+okay so three four six seven so three four six seven three four six seven oh
+
+00:12:17.540 --> 00:12:32.980
+no no this is two four six seven so we have three four six and seven something
+
+00:12:32.980 --> 00:12:40.060
+that is probably very obvious at this point of time or it will be all will
+
+00:12:40.060 --> 00:12:45.700
+become obvious with a little bit of practice for you as well is this grouping
+
+00:12:45.700 --> 00:12:54.160
+here. And this grouping here is characterized by having the same y equal
+
+00:12:54.160 --> 00:13:03.080
+to 1, z equal to 1. So the product term for this grouping is yz. Now complicated
+
+00:13:03.080 --> 00:13:14.250
+part. The complicated part is going to be light blue, is you have one here and one here. You can
+
+00:13:14.250 --> 00:13:20.810
+put a little circle around each of those ones, but then things are not minimal. Let's go back
+
+00:13:20.810 --> 00:13:32.640
+to our example of folded paper. Remember those edges on the side, right and left, are adjacent
+
+00:13:32.640 --> 00:13:40.400
+to each other, even they are not in two-dimensional world. So that means that we can group these
+
+00:13:40.400 --> 00:13:48.520
+two fields or these two min terms together. And when we group them, you see that x is
+
+00:13:48.520 --> 00:14:02.120
+equal to 1 is common thing. Other thing that is common is y, sorry, z is equal to 0. So
+
+00:14:02.120 --> 00:14:09.680
+The product term is x and z prime.
+
+00:14:09.680 --> 00:14:25.160
+So finally, the simplified equation is y, z or x, z prime.
+
+00:14:25.160 --> 00:14:27.240
+Great job!
+
+00:14:27.240 --> 00:14:32.320
+Let's do quiz and let's practice more in class.
+
+00:14:32.320 --> 00:14:33.120
+Thanks for watching.
+

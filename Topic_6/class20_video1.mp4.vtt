@@ -1,0 +1,395 @@
+WEBVTT
+
+00:00:01.460 --> 00:00:06.460
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach.
+
+00:00:06.460 --> 00:00:10.460
+So in the last set of many lectures, we introduced D flip-flop.
+
+00:00:10.460 --> 00:00:16.460
+That has two inputs, one for data and the other one for clock, and it has one output.
+
+00:00:16.460 --> 00:00:24.460
+That basically supplies the data that has been stored inside of the D flip-flop.
+
+00:00:24.460 --> 00:00:29.460
+And in class, we saw a little bit more of operation
+
+00:00:30.240 --> 00:00:34.700
+of the flip-flop and we learned
+
+00:00:34.700 --> 00:00:38.020
+that on the rising edge of the clock,
+
+00:00:38.020 --> 00:00:42.560
+the flip-flop is going to capture its side inside.
+
+00:00:43.440 --> 00:00:45.180
+So I'll write that down.
+
+00:00:46.060 --> 00:00:48.220
+The value that is on the input, sorry.
+
+00:00:48.220 --> 00:00:57.460
+So on rising clock edge,
+
+00:00:57.460 --> 00:01:04.680
+the value that is on the input will be captured
+
+00:01:06.280 --> 00:01:13.650
+and stored inside of the day 50 flip-flop.
+
+00:01:17.360 --> 00:01:19.540
+One thing that we didn't talk about
+
+00:01:19.540 --> 00:01:22.820
+and that is like a new introduction to,
+
+00:01:22.820 --> 00:01:27.060
+I mean of new concept right now,
+
+00:01:27.060 --> 00:01:30.780
+is that all flip-flops are going to have
+
+00:01:30.780 --> 00:01:34.460
+one additional special input,
+
+00:01:34.460 --> 00:01:37.460
+that is going to be called reset.
+
+00:01:41.580 --> 00:01:47.910
+So it's better to annotate it properly outside.
+
+00:01:47.910 --> 00:01:52.550
+And when that reset becomes one,
+
+00:01:52.550 --> 00:01:57.550
+or on edge, also positive edge of reset,
+
+00:01:59.470 --> 00:02:03.230
+of reset, so either on edge,
+
+00:02:03.230 --> 00:02:08.080
+or reset equals to one,
+
+00:02:09.240 --> 00:02:11.440
+the D flip-flop is going to reset.
+
+00:02:11.440 --> 00:02:12.960
+What does that mean?
+
+00:02:12.960 --> 00:02:20.040
+That content of D flip-flop will become zero,
+
+00:02:20.040 --> 00:02:23.420
+no matter what is on the input.
+
+00:02:23.420 --> 00:02:27.420
+So basically, probably it's better
+
+00:02:27.420 --> 00:02:36.300
+of D flip-flop becomes zero on reset.
+
+00:02:36.300 --> 00:02:50.420
+One reason, no matter, is the D input.
+
+00:02:55.430 --> 00:03:00.430
+So now we know absolutely everything, fingers crossed,
+
+00:03:00.990 --> 00:03:04.030
+to be able to store one bit of information.
+
+00:03:05.630 --> 00:03:08.350
+And when we know how to store one bit of information,
+
+00:03:08.350 --> 00:03:11.590
+we can make registers.
+
+00:03:11.590 --> 00:03:14.790
+So registers usually do not store
+
+00:03:14.790 --> 00:03:16.350
+only one bit of information.
+
+00:03:16.350 --> 00:03:32.510
+registers store a group of bits.
+
+00:03:32.510 --> 00:03:38.500
+In our examples, in example here,
+
+00:03:38.500 --> 00:03:45.340
+we are going to make a four-bit register.
+
+00:03:45.340 --> 00:04:00.720
+So that one is going to store four bits.
+
+00:04:00.720 --> 00:04:02.860
+This is going to be stored,
+
+00:04:02.860 --> 00:04:16.540
+make this the on positive or rising clock edge.
+
+00:04:22.290 --> 00:04:26.530
+Now, if we know that one bit is stored using
+
+00:04:26.530 --> 00:04:36.490
+one D flip-flop. We can figure out that in order to make a four-bit register, we
+
+00:04:36.490 --> 00:04:47.780
+need to use total of four D flip-flops. And the point of register is that all of
+
+00:04:47.780 --> 00:04:59.500
+those bits for all flip-flops are going to be kept and stored simultaneously
+
+00:04:59.500 --> 00:05:12.850
+simultaneously. So all values on the input, and we are going to have input D3 to 0,
+
+00:05:14.850 --> 00:05:32.040
+well on the inputs because there are multiple of them, will be stored simultaneously,
+
+00:05:33.800 --> 00:05:42.360
+and we are going to store them all on positive edge of clock. So now a little bit of lingo.
+
+00:05:42.360 --> 00:05:47.360
+So when we store those bits inside of, from the input,
+
+00:05:50.360 --> 00:05:51.700
+so we have bits of the input
+
+00:05:51.700 --> 00:05:55.680
+and we store those bits from the input inside of a register
+
+00:05:55.680 --> 00:06:05.540
+that is called loading the register.
+
+00:06:05.740 --> 00:06:15.000
+So basically update the content of the register
+
+00:06:18.550 --> 00:06:24.960
+with the data supplied on the register.
+
+00:06:26.950 --> 00:06:33.620
+on the output, input pins or input inputs.
+
+00:06:35.100 --> 00:06:37.740
+Okay, let us make our first register.
+
+00:06:37.740 --> 00:06:40.700
+So as I said, we are going to make a four-bit register.
+
+00:06:40.700 --> 00:06:43.860
+We are going to have to be a little bit careful
+
+00:06:43.860 --> 00:06:46.940
+about space here.
+
+00:06:46.940 --> 00:06:49.060
+The other thing that we need to remember,
+
+00:06:49.060 --> 00:06:53.380
+we are going to use block diagram
+
+00:06:59.380 --> 00:07:00.780
+for D flip flop.
+
+00:07:00.780 --> 00:07:05.780
+So each bit needs one D flip-flop to be stored in.
+
+00:07:06.300 --> 00:07:09.340
+So I'll start from the right-hand side,
+
+00:07:09.340 --> 00:07:11.140
+and we are going to create a structure
+
+00:07:11.140 --> 00:07:14.380
+that is going to store bit zero.
+
+00:07:15.380 --> 00:07:18.900
+So it's going to be called D flip-flop zero.
+
+00:07:19.820 --> 00:07:22.740
+We are going to have D input.
+
+00:07:23.740 --> 00:07:25.700
+We are going to have Q output.
+
+00:07:26.580 --> 00:07:29.460
+We are going to have clock.
+
+00:07:29.460 --> 00:07:34.460
+And I'm usually not going to draw always reset,
+
+00:07:35.700 --> 00:07:37.820
+that is going to be assumed right now
+
+00:07:37.820 --> 00:07:40.180
+because we are learning
+
+00:07:40.180 --> 00:07:44.020
+and because we are kind of able,
+
+00:07:44.020 --> 00:07:46.660
+we need to make sure that you understand this,
+
+00:07:46.660 --> 00:07:53.070
+we will be putting even reset on all our drawings.
+
+00:07:53.110 --> 00:07:58.110
+So this D is going to be connected to bit zero
+
+00:08:00.870 --> 00:08:11.400
+all the data that we need to supply and to store inside of the register.
+
+00:08:12.680 --> 00:08:30.050
+This Q is going to produce Q0. We make the flip flop one. All the flip flops inside are the same.
+
+00:08:32.390 --> 00:08:45.920
+They're just connected to different inputs and different outputs. To some extent,
+
+00:08:45.920 --> 00:08:54.240
+And there is a template to these registers,
+
+00:08:54.240 --> 00:08:59.240
+plop two, it's connected to bit two.
+
+00:09:00.160 --> 00:09:03.860
+So bit zero, bit one, bit two,
+
+00:09:03.860 --> 00:09:08.860
+and it produces Q of two basically stored value.
+
+00:09:29.740 --> 00:09:34.590
+Now that we have this, we are going to say,
+
+00:09:34.590 --> 00:09:38.310
+okay, we have clock signal.
+
+00:09:38.310 --> 00:09:39.830
+So this is important.
+
+00:09:39.830 --> 00:09:42.270
+All of the registers, oh, sorry,
+
+00:09:42.270 --> 00:09:47.270
+all of the deflip flops have to be updated simultaneously.
+
+00:09:49.670 --> 00:09:54.670
+That means that they have to share common clock.
+
+00:10:02.600 --> 00:10:04.440
+Clock is the same for all of them.
+
+00:10:05.640 --> 00:10:27.630
+Also, they have the same reset, common reset.
+
+00:10:27.630 --> 00:10:32.310
+And there we go, we made a four-bit register.
+
+00:10:32.310 --> 00:10:37.760
+So let's take highlighter
+
+00:10:37.760 --> 00:10:44.940
+to explain what are so-called boundaries of our register.
+
+00:10:47.140 --> 00:10:53.900
+So when we, okay, we'll connect this a little bit.
+
+00:10:55.500 --> 00:11:00.500
+When we draw a block diagram for a register,
+
+00:11:04.140 --> 00:11:09.140
+this is what is going to be inside of the block itself.
+
+00:11:09.140 --> 00:11:25.680
+so it's going to be 4. Okay something weird is happening with with my pencil.
+
+00:11:25.680 --> 00:11:46.840
+So block diagram for 4-bit register is going to be a little bit even smaller
+
+00:11:46.840 --> 00:12:09.810
+such that you write 4-bit register. We are going to have the input that is
+
+00:12:09.810 --> 00:12:28.070
+going to be accommodating four bits we will have clock we are going to have
+
+00:12:28.070 --> 00:12:39.400
+reset you can put it to the side you can put it at the bottom whatever works for
+
+00:12:39.400 --> 00:12:49.740
+you and then we are going to have also four bits of output and that is it
+
+00:12:49.740 --> 00:13:02.010
+important thing to know and I'm going to change the color is how does this
+
+00:13:02.010 --> 00:13:23.860
+register work okay so when when clock one clock equals to 0 all of those four
+
+00:13:23.860 --> 00:13:40.330
+flip-flops D flip-flop 3 to D flip-flop 0 all of them are going to hold the
+
+00:13:40.330 --> 00:13:55.580
+previous value, whatever that previous value was. Let's assume that the previous
+
+00:13:55.580 --> 00:14:23.770
+value q3 to q0 was 0 0 0 0. Let us also assume that we will provide value 1 0 0 1
+
+00:14:23.770 --> 00:14:31.250
+on the inputs, on four inputs of the, maybe I should have written those
+
+00:14:31.250 --> 00:14:36.010
+numbers on the top of the line, but these are the numbers that are
+
+00:14:36.010 --> 00:14:43.730
+provided, binary numbers, that are provided on each of the inputs. So what is going
+
+00:14:43.730 --> 00:14:49.490
+to happen? As long as clock is equal to zero, nothing is going to happen. The
+
+00:14:49.490 --> 00:15:03.450
+content inside is 0 0 0 so the content inside is 0 0 0 0 and then when we go and
+
+00:15:03.450 --> 00:15:11.950
+supply this is new data that we are supplying maybe a little bit more obvious
+
+00:15:11.950 --> 00:15:27.810
+that this is new data. We're supplying new data which is 1, 0, 0, and 1. So that data
+
+00:15:27.810 --> 00:15:36.210
+is supplied sometimes before rising edge of the clock. So when rising edge of the clock
+
+00:15:36.210 --> 00:15:46.680
+happens. The data that has been supplied on input is going to go and be stored
+
+00:15:46.680 --> 00:15:52.680
+inside of these flip-flops. So this one is going to change value to be 1, this
+
+00:15:52.680 --> 00:15:56.960
+one is going to change value to become 0, this one is going to change value to
+
+00:15:56.960 --> 00:16:01.360
+become 0. Well actually it was previous value was 0, but it's going to write
+
+00:16:01.360 --> 00:16:10.280
+new zero inside of this and this one is going to become one. So only after on
+
+00:16:10.280 --> 00:16:25.920
+clock edge, positive clock edge, the content q3 to zero becomes 1 0 0 1 and
+
+00:16:25.920 --> 00:16:39.900
+And that content is going to stay when clock is one, when clock goes to zero, when clock
+
+00:16:39.900 --> 00:16:41.780
+is zero.
+
+00:16:41.780 --> 00:16:53.420
+And on the next clock edge, we have opportunity to write new data, provide new data on the
+
+00:16:53.420 --> 00:17:01.100
+inputs prior to this new clock edge but only on that new clock edge we have to
+
+00:17:01.100 --> 00:17:10.460
+have opportunity to to basically load new data inside of the register. We will
+
+00:17:10.460 --> 00:17:15.500
+be moving to next registry next video thanks for watching
+

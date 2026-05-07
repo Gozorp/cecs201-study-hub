@@ -1,0 +1,143 @@
+WEBVTT
+
+00:00:00.720 --> 00:00:05.720
+Hi, this is Dr. Jelena Trajkovic from the CECS Department at Cal State Long Beach.
+
+00:00:05.720 --> 00:00:11.720
+The next topic in our series of mini lectures is subtraction.
+
+00:00:11.720 --> 00:00:34.600
+This time around we are going to look into subtraction in context of sign to complement numbers.
+
+00:00:34.600 --> 00:00:49.300
+So this is the theoretical explanation of how we are going to look at subtraction.
+
+00:00:49.300 --> 00:00:57.300
+If you have a number A, and you kind of do not care if that number is positive or negative,
+
+00:00:57.300 --> 00:01:21.060
+and then you have a positive number B, in order to subtract, what we want to do is to take this first number, A,
+
+00:01:21.060 --> 00:01:32.850
+And instead of subtracting, we want to add, but what we want to add is actually minus b.
+
+00:01:32.850 --> 00:01:47.340
+Let's look at the similar example, but in this case, b is a negative number.
+
+00:01:47.340 --> 00:02:00.760
+It's annotated as minus b.
+
+00:02:00.760 --> 00:02:08.760
+So in this example, we also want to utilize, actually, addition.
+
+00:02:10.280 --> 00:02:28.170
+What is minus minus b? Plus b. Now, let's think about this in terms of sign numbers,
+
+00:02:28.170 --> 00:02:51.020
+binary sign numbers. If we look into minus b, that one, it is a 2's complement of the
+
+00:02:51.020 --> 00:03:04.360
+number plus b. Now, I hope this is not going to be confusing. What if we have
+
+00:03:04.360 --> 00:03:36.630
+minus, minus B, that adds something plus B. Well, it is a two's complement of, so this
+
+00:03:36.630 --> 00:03:53.820
+is two's complement of plus B. This one is two's complement of minus B. And we might
+
+00:03:53.820 --> 00:03:59.760
+be using this and you'll see how when we start practicing. We are going to go
+
+00:03:59.760 --> 00:04:07.020
+through one example and then we are going to do more practice in our life
+
+00:04:07.020 --> 00:04:14.120
+one-on-one, not one-on-one, life synchronous lectures. So what if we want
+
+00:04:14.120 --> 00:04:25.120
+to do decimal 4 minus decimal 2. Let's do it this way. We're going to take 4
+
+00:04:25.120 --> 00:04:35.180
+in decimal and we are going to convert it to binary then we are going to do
+
+00:04:35.180 --> 00:04:43.140
+minus two and instead of performing subtraction we are going to perform
+
+00:04:43.140 --> 00:04:51.460
+addition actually so two to the power of zero two to the power of one two to the
+
+00:04:51.460 --> 00:05:09.240
+power of 2, and a little bit lopsided. 0, so it's 4-bit representation. How do we get
+
+00:05:09.240 --> 00:05:49.180
+minus 2. Start with plus 2, 0, 0, 1, 0. This is in binary. Flip it. 1, 0, 1, 1. Add 1. 1
+
+00:05:49.180 --> 00:06:01.290
+1 and 1 is 0, carry 1. These 3 are 1, carry 0.
+
+00:06:01.290 --> 00:06:11.290
+3 are 1, carry 0. These 3 are 1, carry 0.
+
+00:06:11.290 --> 00:06:20.290
+So now, finally, we have minus 2 in 2's complement, 1, 1, 1, 0.
+
+00:06:20.290 --> 00:06:23.600
+What are we noting?
+
+00:06:23.600 --> 00:06:28.600
+The most significant bit is 1 that designates that this is negative.
+
+00:06:28.600 --> 00:06:32.600
+The most significant bit here is 0. It designates that this is positive.
+
+00:06:32.600 --> 00:06:45.600
+Okay, so let's do plus 4 plus minus 2 plus 4 0 1 0 0 minus 2 1 1 1 0
+
+00:06:45.600 --> 00:06:51.800
+We might have some carries over here
+
+00:06:51.800 --> 00:06:57.800
+0 and 0 is 0 carry 0
+
+00:06:57.800 --> 00:07:02.800
+3 of them together are 1 carry 0
+
+00:07:02.800 --> 00:07:15.800
+three of them together is zero, carry one. Two of them, three of them together is zero, another carry one.
+
+00:07:15.800 --> 00:07:22.210
+So let's look at the result. Two things that we need to look at the result.
+
+00:07:22.210 --> 00:07:33.210
+One is we need to look at both four bits and the other thing that we learned in the previous module we need to look at those two most significant bit carries.
+
+00:07:33.210 --> 00:07:51.730
+Two conclusions. First conclusion. These two are the same. And we know from there, there is no overflow.
+
+00:07:51.730 --> 00:07:59.730
+So we know then that this is actually correct result. Now let's look at the result. That's what we learned last week.
+
+00:07:59.730 --> 00:08:08.100
+So two things again that we have to learn. First thing, we have to observe the most significant bit.
+
+00:08:08.100 --> 00:08:12.100
+By observing most significant bit we are going to learn the sign.
+
+00:08:12.100 --> 00:08:17.100
+So sign is going to be plus because most significant bit is one.
+
+00:08:17.100 --> 00:08:23.100
+Then we need to look at all the other bits and find the absolute value.
+
+00:08:23.100 --> 00:08:33.100
+Other bits are going to give us 2, so plus 2 decimal,
+
+00:08:33.100 --> 00:08:40.920
+which actually is a correct answer in a small way.
+
+00:08:40.920 --> 00:08:47.920
+We will be practicing all of this. Please don't hesitate to pose any questions if you have.
+
+00:08:47.920 --> 00:08:49.920
+Thank you for watching.
+

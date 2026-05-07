@@ -1,0 +1,155 @@
+WEBVTT
+
+00:00:01.200 --> 00:00:21.470
+Hi, this is Dr. Jelena Trajkovic at CECS Department at Cal State Long Beach. So, we derived a general expression for value of number in a radix system with a radix or base R.
+
+00:00:21.470 --> 00:00:28.590
+Let's look at couple of examples. So first of all let's look at the one that
+
+00:00:28.590 --> 00:00:41.830
+we are most interested in. That is when this is equal to 2. Basically this is binary
+
+00:00:41.830 --> 00:01:00.470
+system in which we have coefficients in the scope of 0 and 1. They are called binary
+
+00:01:00.470 --> 00:01:20.090
+digits or bits. So our first example for binary digits and example number two for
+
+00:01:20.090 --> 00:01:32.930
+this set of videos is going to be number that is 1 1 0 1 0 1 and in order to make
+
+00:01:32.930 --> 00:01:37.770
+sure that everyone understands that this is in a binary system we are going to
+
+00:01:37.770 --> 00:01:44.490
+put an annotation of radix in the right corner you can put parentheses you can
+
+00:01:44.490 --> 00:01:53.300
+omit parentheses I'm putting them there here to be extra clear so when we look
+
+00:01:53.300 --> 00:02:08.820
+at this we can basically break this down to let's look at it zero one two three
+
+00:02:08.820 --> 00:02:14.260
+four, five, I'm basically counting the positions from the right-hand side from
+
+00:02:14.260 --> 00:02:21.020
+where the radix points would have been. So the number value is going to be one
+
+00:02:21.020 --> 00:02:31.770
+times two to the power of five plus one times two to the power of four plus zero
+
+00:02:31.770 --> 00:02:39.610
+times two to the power of three plus this position here one times two to the
+
+00:02:39.610 --> 00:02:44.610
+the power of two plus zero times two to the power of one
+
+00:02:46.570 --> 00:02:51.980
+and once times two to the power of zero.
+
+00:02:51.980 --> 00:02:56.980
+It's a hand to start getting used to the powers of two,
+
+00:02:57.920 --> 00:03:00.800
+because we will be needing them.
+
+00:03:00.800 --> 00:03:04.840
+So one times two to the power of zero,
+
+00:03:04.840 --> 00:03:07.400
+I'm going to start writing them from right to left,
+
+00:03:07.400 --> 00:03:24.010
+though it's a little bit counterintuitive, is 1. 0 times 1 to the power of 2 is going to be 0.
+
+00:03:25.050 --> 00:03:41.820
+1 2 to the 2 is 4. 0 times 2 to the 3 is going to be 0. Next power is 16. And the last is
+
+00:03:42.300 --> 00:03:54.300
+32. And when we slowly add this up together, okay, so these two terms are equal to zero,
+
+00:03:54.300 --> 00:04:08.920
+that is going to be 63 in decimal. So it's not only that we right now understand the
+
+00:04:08.920 --> 00:04:17.560
+quantity that this number 1 1 0 1 0 1 binary represents but we also learned
+
+00:04:17.560 --> 00:04:48.580
+another thing we also learned to convert a binary number into decimal. We will be
+
+00:04:48.580 --> 00:04:54.340
+moving more forward with this but I wanted to make one really important
+
+00:04:54.340 --> 00:05:03.420
+remark. If you can see here, if you can notice, we are talking just about positive
+
+00:05:03.420 --> 00:05:19.070
+numbers and starting in a little while we will be introducing formal explanation
+
+00:05:19.070 --> 00:05:32.940
+and formal name but we will call those number unsigned numbers. For now you need
+
+00:05:32.940 --> 00:05:40.220
+just to know that these are, these are positive, positive numbers that we are
+
+00:05:40.220 --> 00:05:48.940
+dealing with. What happens if we, and in general, can we have r to be any other
+
+00:05:48.940 --> 00:05:57.860
+number? Of course, r can be any arbitrary number, but let us look into one very
+
+00:05:57.860 --> 00:06:19.940
+common number system that is also very much used in digital domain, in computer domain.
+
+00:06:19.940 --> 00:06:30.740
+In hexadecimal system, with hexadecimal numbers, the base, the radix, is equal to 16.
+
+00:06:30.740 --> 00:06:40.560
+And here you probably already know this, right, we get run out of digits, at least decimals.
+
+00:06:40.560 --> 00:06:55.220
+So 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, because we can't have 10, we keep going using capital
+
+00:06:55.220 --> 00:07:08.770
+letters of alphabet. A, B, so this one is 10, this one is 11, we need 12, D, E, 14. How long
+
+00:07:08.770 --> 00:07:25.080
+do I keep like this? Let's review the previous notes. We go until R-1. Okay, R-1 is 15. So
+
+00:07:25.080 --> 00:07:34.280
+F is the last symbol that we are going to use for any of the coefficients. So an example,
+
+00:07:36.120 --> 00:07:49.400
+this is example three, so if we have B65F in hex system, in some programming languages,
+
+00:07:49.400 --> 00:07:57.560
+in some annotations it's not going to be written 16 it's going to write be
+
+00:07:57.560 --> 00:08:05.240
+written H or hex be mindful of that we are right now dealing with using it on
+
+00:08:05.240 --> 00:08:16.640
+paper so 16 is great so we first look at B B is 11 11 times 16 to the power of
+
+00:08:16.640 --> 00:08:30.640
+Okay, this is position 0, position 1, position 2, position 3, so 16 to the power of 3.
+
+00:08:30.640 --> 00:08:35.640
+Sorry, 11 times 16 to the power of 3.
+
+00:08:35.640 --> 00:09:02.380
+Then we have 6 times 16 to the power of 2 plus 5 times 16 to the position 1 and F which is 15 times 16 to the power of 0.
+
+00:09:02.380 --> 00:09:14.220
+without too much procedure, usually use Excel honestly to compute these.
+
+00:09:14.220 --> 00:09:26.220
+This is 46,687 again in power of 10.
+
+00:09:26.220 --> 00:09:45.420
+So food for thought, what would you have done if r is equal to 5, if r is equal to 8, or r is equal to 13?
+
+00:09:45.420 --> 00:09:53.920
+How would you go about that? We will keep further discussion in the next minute lecture. Thank you.
+

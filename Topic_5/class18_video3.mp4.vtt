@@ -1,0 +1,296 @@
+WEBVTT
+
+00:00:00.750 --> 00:00:05.750
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach.
+
+00:00:05.750 --> 00:00:10.750
+Now we are going to design this one-day-to-comparator.
+
+00:00:10.750 --> 00:00:15.750
+And we are going to do something quite a bit different.
+
+00:00:15.750 --> 00:00:21.750
+So, so far what we have learned are two ways to design things.
+
+00:00:21.750 --> 00:00:26.750
+One way is to use top-down design methodology and design something.
+
+00:00:26.750 --> 00:00:30.550
+So we describe functionality,
+
+00:00:30.550 --> 00:00:34.590
+we transfer that description onto truth table,
+
+00:00:34.590 --> 00:00:36.670
+and then from truth table,
+
+00:00:36.670 --> 00:00:40.830
+we go into sum of min terms, K maps,
+
+00:00:40.830 --> 00:00:44.670
+minimal sum of products, and so and so forth.
+
+00:00:44.670 --> 00:00:49.670
+However, we have a little bit of problem here
+
+00:00:50.070 --> 00:00:58.430
+because we have for each funded comparator,
+
+00:00:58.430 --> 00:01:13.410
+we have total five inputs. So we have input a, b, greater than in, less than in, and equal in.
+
+00:01:14.770 --> 00:01:23.250
+That is a pretty big truth table. It is going to be a truth table with 2 to the 5,
+
+00:01:23.250 --> 00:01:30.530
+which is 32 different rows. On top of it, we just don't have five inputs. We have three outputs.
+
+00:01:30.930 --> 00:01:35.620
+we have greater than out,
+
+00:01:36.460 --> 00:01:40.020
+less than out, and equal out.
+
+00:01:41.420 --> 00:01:43.780
+So that means we have
+
+00:01:44.900 --> 00:01:46.540
+five variables,
+
+00:01:46.540 --> 00:01:53.260
+kmap, and we have three of them. Well, five variable kmaps do exist and that is
+
+00:01:54.420 --> 00:01:57.880
+the biggest kmap, well kmap
+
+00:01:57.880 --> 00:02:03.920
+compound that it's not going to be a single map because you can't put five
+
+00:02:03.920 --> 00:02:11.280
+dimensions, it's a little bit tricky, it is not really very straightforward and we
+
+00:02:11.280 --> 00:02:21.940
+didn't cover it. So we have to think our way into making equations. So what we
+
+00:02:21.940 --> 00:02:33.050
+need to do is we need to derive those equations directly. Okay, let's put on
+
+00:02:33.050 --> 00:02:43.330
+our thinking caps and go with this. Mind you, what you will be looking at, please,
+
+00:02:43.330 --> 00:02:56.360
+we will be looking at making a one-bit comparator with five inputs and three
+
+00:02:56.360 --> 00:03:04.400
+outputs so if you look at this one bit comparator we are going to derive
+
+00:03:04.400 --> 00:03:28.620
+equations directly let's start first for equal equal out so that is this one when
+
+00:03:28.620 --> 00:03:33.100
+When are we going to generate equal out?
+
+00:03:33.100 --> 00:03:36.830
+What do we need to have?
+
+00:03:36.830 --> 00:03:45.450
+Equal out is going to be one, if, so now our ifs.
+
+00:03:49.300 --> 00:03:58.900
+Well, if equal in is equal to one,
+
+00:03:59.080 --> 00:04:11.540
+that's this case here, and a is equal to b.
+
+00:04:18.340 --> 00:04:21.900
+Now, how do we write that in form of equation?
+
+00:04:21.900 --> 00:04:31.700
+So, equal out is going to, first hand is this end.
+
+00:04:31.700 --> 00:04:40.460
+So equal in is equal to 1, that is going to be iq in without prime.
+
+00:04:40.460 --> 00:04:51.020
+Then we have to have end, and we have to put expression a is equal to b.
+
+00:04:51.020 --> 00:04:57.100
+What are our options if we were to make truth table for A is equal to B?
+
+00:04:57.100 --> 00:05:03.260
+So A needs to be equal to 1 and B needs to be equal to 1 and the other one A needs to
+
+00:05:03.260 --> 00:05:07.860
+be equal to 0 and B needs to be equal to 0.
+
+00:05:07.860 --> 00:05:13.700
+So we have to have either one of those options.
+
+00:05:13.700 --> 00:05:17.020
+So this is connected with OR operator.
+
+00:05:17.020 --> 00:05:19.380
+A equal to 1, B equal to 1.
+
+00:05:19.380 --> 00:05:28.340
+about min terms, that is min term a, b. Then we have 4, and then we have other min terms,
+
+00:05:28.340 --> 00:05:37.460
+a equal to 0, that is a prime, b equal to 0, b prime. So if you go back and read the
+
+00:05:37.460 --> 00:05:53.170
+equation if iQ in is equal to 1 and either a equal to 1, b equal to 1, or a
+
+00:05:53.170 --> 00:06:01.970
+equal to 0, b equal to 0. We are going to use the same logic to derive other ones
+
+00:06:01.970 --> 00:06:13.010
+And this is a little bit better than having 2 to the power of 5, which is 32 rows in truth
+
+00:06:13.010 --> 00:06:15.450
+table.
+
+00:06:15.450 --> 00:06:19.250
+Okay, so now let's do greater than.
+
+00:06:19.250 --> 00:06:36.180
+So when is greater than output going to be equal to 1?
+
+00:06:36.180 --> 00:06:44.500
+So here again, watch out, we need to take into account the inputs greater than in less
+
+00:06:44.500 --> 00:06:48.200
+than in equal in and inputs a and b.
+
+00:06:49.740 --> 00:06:54.740
+So greater than out is going to be equal to one
+
+00:06:55.380 --> 00:07:00.380
+if greater than in is equal to one.
+
+00:07:02.770 --> 00:07:06.920
+Now again, scrolling, scrolling, scrolling.
+
+00:07:06.920 --> 00:07:09.920
+And we didn't have exact that example,
+
+00:07:12.740 --> 00:07:15.380
+but if you see here,
+
+00:07:15.380 --> 00:07:20.380
+So if this one was greater than,
+
+00:07:20.700 --> 00:07:24.820
+then we would not have been needing to compare
+
+00:07:24.820 --> 00:07:29.820
+even this one and this one in order to conclude
+
+00:07:30.460 --> 00:07:34.040
+because most significant bit has bigger weight
+
+00:07:34.040 --> 00:07:38.620
+and most significant bit is larger for one of those
+
+00:07:38.620 --> 00:07:40.900
+we know what is the outcome.
+
+00:07:40.900 --> 00:07:43.740
+We know that the number is larger total.
+
+00:07:43.740 --> 00:07:46.660
+So if greater than in is equal to one,
+
+00:07:47.820 --> 00:07:52.580
+or again, there is logical operator,
+
+00:07:52.580 --> 00:08:01.860
+or if equal in is equal to one
+
+00:08:06.860 --> 00:08:17.200
+and a is equal to one
+
+00:08:17.920 --> 00:08:19.920
+while b is equal to zero,
+
+00:08:21.340 --> 00:08:26.340
+which is actually a greater than b.
+
+00:08:27.240 --> 00:08:38.190
+So you have to have that all the bits on the left hand side need to ensure you
+
+00:08:38.190 --> 00:08:46.950
+that they are equal and this particular bit have to for each number have to be
+
+00:08:46.950 --> 00:08:55.700
+such that I is equal to B. Okay so let us write this in form of equation
+
+00:08:55.700 --> 00:09:19.950
+greater than greater than in or equal in and and this one is a b prime we really
+
+00:09:19.950 --> 00:09:27.830
+do not need these parentheses I'm just putting them so that you kind of have
+
+00:09:27.830 --> 00:09:37.620
+hint that this is this is the part as explained on a previous draw. I hope you
+
+00:09:37.620 --> 00:09:45.980
+are slowly getting a little bit more comfortable with this idea. So now we are
+
+00:09:45.980 --> 00:10:01.120
+going to go to the last one. Less than out will be 1 if less than in is equal
+
+00:10:01.120 --> 00:10:24.220
+to 1. Or if equal n is equal to 1 and a is equal to 0, b is equal to 1, also known as
+
+00:10:24.220 --> 00:10:47.390
+a is less than b. Let's transfer our words into equations. So less than n equal n and
+
+00:10:47.390 --> 00:11:07.780
+that is it. Let's pause here and have time for you to make a drawing of Gate Level Diagram
+
+00:11:07.780 --> 00:11:18.380
+and you will see when I'm done with drawing. So here it is. Instead of drawing it, I actually
+
+00:11:18.380 --> 00:11:23.380
+borrowed the figure of one bit comparator
+
+00:11:24.360 --> 00:11:26.080
+used in your xi box.
+
+00:11:26.080 --> 00:11:29.560
+So it's going to be in your current version of xi box
+
+00:11:29.560 --> 00:11:32.160
+referred to as seen here.
+
+00:11:32.160 --> 00:11:37.160
+And this exactly implements all the equations
+
+00:11:37.680 --> 00:11:40.460
+that we used previously.
+
+00:11:41.880 --> 00:11:46.000
+Once again, to recap, it's important to notice
+
+00:11:46.000 --> 00:11:50.720
+that we have not used top-down design methodology.
+
+00:11:50.720 --> 00:11:52.520
+Instead, what we did,
+
+00:11:52.520 --> 00:11:57.100
+we used the description
+
+00:11:57.100 --> 00:12:02.040
+for each functionality of each output.
+
+00:12:02.040 --> 00:12:04.880
+And from that description, we derived the function.
+
+00:12:06.480 --> 00:12:07.580
+Hope this was helpful.
+
+00:12:07.580 --> 00:12:08.500
+See you in class.
+

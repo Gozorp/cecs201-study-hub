@@ -1,0 +1,74 @@
+WEBVTT
+
+00:00:00.690 --> 00:00:05.690
+Hi, this is Dr. Jelena Trajkovic from CECS Department at CSULB.
+
+00:00:05.690 --> 00:00:10.690
+Once we created the project, we will continue to add sources.
+
+00:00:10.690 --> 00:00:16.690
+In Project Manager, click on Add Sources, and first source to add will be our design source,
+
+00:00:16.690 --> 00:00:22.690
+which is going to be file that is going to contain module that we are implementing.
+
+00:00:22.690 --> 00:00:27.690
+Should you have a file already there, you can press Add File.
+
+00:00:27.690 --> 00:00:33.370
+however our project is empty and we are going to press create source and we are going to name
+
+00:00:35.610 --> 00:00:40.570
+our file according to our lab specification. We are going to add it to the local project.
+
+00:00:41.770 --> 00:00:51.130
+Once the file is added we can do finish and we are going to specify our inputs and outputs.
+
+00:00:51.130 --> 00:01:05.130
+We are adding two numbers, so first is going to be input 1 and in, sorry, inputs in 0 and in 1.
+
+00:01:05.130 --> 00:01:16.130
+Both of them are going to be 3-bit numbers, so for that reason we have to specify different number of bits,
+
+00:01:16.130 --> 00:01:23.850
+which is a bitstream of 2 to 0, and then we're going to specify our outputs.
+
+00:01:25.330 --> 00:01:28.170
+Our outputs are going to be
+
+00:01:31.650 --> 00:01:33.650
+Out and carry.
+
+00:01:34.210 --> 00:01:37.970
+Out is going to be also 3-bit number,
+
+00:01:39.070 --> 00:01:44.890
+which is 2 to 0, but input is going to be only a single bit.
+
+00:01:44.890 --> 00:01:54.610
+Once this is done, we can press OK, and as you can see here in Project Manager design sources,
+
+00:01:54.610 --> 00:02:02.050
+the source file is going to be created. Once this file is created, please put the class name
+
+00:02:02.050 --> 00:02:19.810
+and your name, and then look at the module. The module has been created automatically with
+
+00:02:19.810 --> 00:02:29.800
+beginning that begins with module and end module. In this space between the
+
+00:02:29.800 --> 00:02:35.200
+closed parentheses and semicolon and end module you're going to implement the
+
+00:02:35.200 --> 00:02:41.760
+code as per your lab 1 specification. Please do not forget to save the file. I
+
+00:02:41.760 --> 00:02:48.480
+usually do that with ctrl s. When file is saved the little asterisk that was
+
+00:02:48.480 --> 00:02:57.280
+shown here is going to appear and edit your your source file to save it and we
+
+00:02:57.280 --> 00:03:03.400
+will move on into creating our test bench file. Thank you for watching.
+

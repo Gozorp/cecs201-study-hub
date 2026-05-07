@@ -1,0 +1,194 @@
+WEBVTT
+
+00:00:01.040 --> 00:00:06.560
+Hi, this is Dr. Jelena Trajkovic from the CECS Department at Cal State Long Beach.
+
+00:00:06.560 --> 00:00:11.280
+One more topic that we are going to cover today is topic of truth tables.
+
+00:00:11.280 --> 00:00:23.040
+We are going to just start here and the next time using examples of properties of Boolean
+
+00:00:23.040 --> 00:00:26.640
+algebra we are going to continue a little bit deeper in this.
+
+00:00:26.640 --> 00:00:29.200
+So what are the truth tables?
+
+00:00:29.200 --> 00:00:36.960
+first of all, there are tables. They are used if you have either an expression or a function
+
+00:00:36.960 --> 00:00:42.480
+and you want to figure out what is the value of that expression or function. It's not just
+
+00:00:42.480 --> 00:00:51.200
+that you want to figure out value for one set of inputs, but we want to figure out what are the
+
+00:00:51.200 --> 00:01:00.040
+values for expression or a function for all possible inputs. So first of all we
+
+00:01:00.040 --> 00:01:07.500
+have to figure out how many different variables or inputs are there either in
+
+00:01:07.500 --> 00:01:19.420
+expression or function. So let's say that we have n inputs and when each input can
+
+00:01:19.420 --> 00:01:28.380
+assume only two possible values, which are 0 and 1, we will have a total of 2 to the
+
+00:01:28.380 --> 00:01:56.540
+n possible combinations that are going to basically give us all possible input values.
+
+00:01:56.540 --> 00:02:01.300
+So let's see that we are going to have an example of a function. I'm not going to list
+
+00:02:01.300 --> 00:02:09.780
+it yet. I'm just going to do it halfway. My function is going to be a function of a and b.
+
+00:02:10.980 --> 00:02:20.660
+So, total two inputs, input variables. So, I'm going to start making a table. I'm going to write
+
+00:02:20.660 --> 00:02:30.530
+a and b. I'm going to make a table for it and on the left hand side of the table are inputs.
+
+00:02:30.530 --> 00:02:42.740
+When we have two inputs, we have two to the power of two, four possible combinations.
+
+00:02:42.740 --> 00:02:49.340
+For two input variables, it will be, in a little while when you get to the hang of it,
+
+00:02:49.340 --> 00:02:52.700
+it will be easy to populate the truth table.
+
+00:02:52.700 --> 00:02:58.620
+But when you start having three, four, or five input variables, it is going to be a little
+
+00:02:58.620 --> 00:03:01.660
+bit more difficult.
+
+00:03:01.660 --> 00:03:14.680
+So in general you have two options, how to populate the table.
+
+00:03:14.680 --> 00:03:24.600
+One is to start doing binary counting and in the row 0 you put 0, in row 1 you put binary
+
+00:03:24.600 --> 00:03:26.000
+1 and so on and so forth.
+
+00:03:26.000 --> 00:03:33.160
+I mean I'm just giving here example of two variables, sorry, two bits, we can have it
+
+00:03:33.160 --> 00:03:36.340
+with three bits.
+
+00:03:36.340 --> 00:03:39.500
+So the other way is it's false.
+
+00:03:39.500 --> 00:03:47.180
+We start from the right-hand side and we know that we have two to the n, which in our case
+
+00:03:47.180 --> 00:03:51.820
+is n is equal to two, so basically two to the two is four.
+
+00:03:51.820 --> 00:03:55.500
+We have four possible ways to populate this table.
+
+00:03:55.500 --> 00:04:03.340
+So we start from the right-hand side and we write zero, one, zero, one until we do it
+
+00:04:03.340 --> 00:04:06.100
+total of four times.
+
+00:04:06.100 --> 00:04:14.600
+So this time around for B, for the rightmost variable, the value changes every time that
+
+00:04:14.600 --> 00:04:24.400
+you move in the next row. For A, we slow it down. So it's going to be two times we do
+
+00:04:24.400 --> 00:04:33.720
+zero and then two times we do one. If we were to have another variable of left of
+
+00:04:33.720 --> 00:04:43.200
+A, what would we do? How many zeros would we have here? And how many ones? And would
+
+00:04:43.200 --> 00:04:53.120
+we stop only at four or would we need to go to eight total rows? So that is how we
+
+00:04:53.120 --> 00:05:00.280
+populate. It is basically a systematic way where the frequency of how often the
+
+00:05:00.280 --> 00:05:08.040
+zero changes to one and one to zero is every every time we have change of rows
+
+00:05:08.040 --> 00:05:12.880
+he's every every second time that we change of row so here is going to be
+
+00:05:12.880 --> 00:05:18.640
+every fourth time every eighth time and so and so forth. Other thing that you
+
+00:05:18.640 --> 00:05:26.180
+need to notice and that is related to the number one option is if you were to
+
+00:05:26.180 --> 00:05:33.360
+read this as a binary number and convert it to decimal this one would be in
+
+00:05:33.360 --> 00:05:39.520
+decimal zero this one will be in decimal one in decimal this is going to be
+
+00:05:39.520 --> 00:05:43.040
+represent two and this is going to represent three so that's the way to
+
+00:05:43.040 --> 00:05:51.840
+to populate the table. So let's go back to the example of a function or equation. We're
+
+00:05:51.840 --> 00:05:59.680
+going to start with a little bit of a basic one and that's the example that we had previously.
+
+00:05:59.680 --> 00:06:12.240
+So it's A and B0. So when you are using a third table, you first need to figure out
+
+00:06:12.240 --> 00:06:17.200
+the values of anything that already has an operator.
+
+00:06:17.200 --> 00:06:21.920
+So before we figure out what is a and b naught,
+
+00:06:21.920 --> 00:06:24.320
+we have to figure out what is b naught.
+
+00:06:25.760 --> 00:06:28.400
+So b naught for b naught,
+
+00:06:28.400 --> 00:06:34.870
+we will look only at vehicle.
+
+00:06:38.410 --> 00:06:43.370
+So naught of b when b is equal to zero is one,
+
+00:06:43.370 --> 00:06:50.830
+not on B when B is equal to one, is zero, one, and zero.
+
+00:06:51.030 --> 00:06:56.030
+Next, we can evaluate entire expression, A and not B.
+
+00:06:56.930 --> 00:07:01.210
+For the purpose of this, we are going to look
+
+00:07:01.210 --> 00:07:05.810
+into column that depicts values of A
+
+00:07:06.710 --> 00:07:11.710
+and column that depicts values of B not.
+
+00:07:11.710 --> 00:07:32.900
+and here we are saying 0 and 1 is 0. 0 and 1 is 0. 1 and 1 is 1, bingo. 1 and 0 is 0.
+
+00:07:32.900 --> 00:07:45.630
+Now, if I do a little bit of deleting of things and make things a little bit more readable for you,
+
+00:07:45.630 --> 00:08:05.660
+you can see that we have defined for all possible values of inputs what are the values for the outputs.
+
+00:08:05.660 --> 00:08:08.660
+We are going to practice more of this. Thanks for watching.
+

@@ -1,0 +1,158 @@
+WEBVTT
+
+00:00:00.750 --> 00:00:07.750
+Hi, this is Dr. Jelena Trajkovic at CECS Department, Cal State Long Beach. So, we need to make some functions.
+
+00:00:08.510 --> 00:00:13.190
+One function is going to actually have two parts. So,
+
+00:00:14.110 --> 00:00:16.370
+function in which we produce the
+
+00:00:17.470 --> 00:00:24.590
+next state is going to be function two functions, F1 and F2, one that describes how to get an S1,
+
+00:00:24.590 --> 00:00:27.550
+S1, next state one, and NS0.
+
+00:00:27.550 --> 00:00:30.310
+And the other one is going to be a function h
+
+00:00:30.310 --> 00:00:33.590
+to describe how do we get outputs.
+
+00:00:33.590 --> 00:00:41.670
+So let's look first in how to get NS1.
+
+00:00:41.670 --> 00:00:44.710
+The inputs for NS1 are three bits,
+
+00:00:45.670 --> 00:00:49.590
+state register one, state register zero, and a.
+
+00:00:49.590 --> 00:00:51.830
+So we are going to make a K-map.
+
+00:00:53.030 --> 00:00:54.430
+SR1,
+
+00:00:55.950 --> 00:00:57.910
+SR0,
+
+00:00:57.910 --> 00:01:15.990
+and a one, one, and one, zero.
+
+00:01:17.810 --> 00:01:20.730
+And if you remember, min terms are zero,
+
+00:01:20.730 --> 00:01:25.730
+one, two, three, four, five, six, and seven.
+
+00:01:27.130 --> 00:01:30.170
+So we are going to look into each row.
+
+00:01:30.170 --> 00:01:33.490
+For min term zero, NS is zero.
+
+00:01:34.810 --> 00:01:39.730
+For min term one, NS is zero.
+
+00:01:39.730 --> 00:01:44.730
+for minterm two, and S is one.
+
+00:01:46.570 --> 00:01:50.690
+For minterm three, and S is a zero.
+
+00:01:50.690 --> 00:01:53.150
+By the way, zeros, you don't have to write.
+
+00:01:53.150 --> 00:01:57.330
+I'm just kind of doing one example with the zeros here.
+
+00:01:58.370 --> 00:02:03.370
+Okay, minterm four and five are both one.
+
+00:02:03.370 --> 00:02:23.340
+so minterm 6 is 0 and minterm 7 is 1. So if we look at the Kmap, let's do something fun.
+
+00:02:23.340 --> 00:02:34.380
+This we can't group with anything else, but these two we can group together and these two we can group together.
+
+00:02:34.380 --> 00:02:59.240
+So, NS1 is equal to SR1, SR0 complement, or SR1A, or SR1 complement, SR0A complement.
+
+00:02:59.240 --> 00:03:04.240
+So this one basically is this, this one is this,
+
+00:03:09.810 --> 00:03:12.530
+product term, and this one is this product term.
+
+00:03:13.930 --> 00:03:16.930
+Let's go now to make NS0, NS0.
+
+00:03:23.680 --> 00:03:28.680
+Again, SR1, SR0, NA, and the K-map,
+
+00:03:28.680 --> 00:03:38.740
+and looking mark, zero and one, zero, zero, zero, one,
+
+00:03:39.740 --> 00:03:44.820
+so one, one, and we are going to look into
+
+00:03:44.820 --> 00:03:49.820
+for which mean terms NS0 has one.
+
+00:03:52.020 --> 00:03:56.780
+So it is for mean term two, sorry,
+
+00:03:56.780 --> 00:04:00.780
+for mean term one, for mean term three,
+
+00:04:03.740 --> 00:04:15.100
+for min-term 5 and for min-term 7. So min-term 1, 3, 5 and 7. This is a great
+
+00:04:15.100 --> 00:04:31.530
+grouping and n, s, 0 is actually equal to a. You could check that with observing
+
+00:04:31.530 --> 00:04:40.980
+and you could see that whatever pattern is in A, it's going to be repeated for
+
+00:04:40.980 --> 00:04:50.140
+NS0. So these two are actually two functions that describe our transition
+
+00:04:50.140 --> 00:04:58.100
+from current state to the next state. And these two functions are going to be
+
+00:04:58.100 --> 00:05:08.860
+implemented inside here. So, NS1 and NS0 will be implemented in this block diagram.
+
+00:05:08.860 --> 00:05:27.980
+Now let's look into the output function. So, our output function is toggl. toggl
+
+00:05:27.980 --> 00:05:35.780
+is going to depend only on SR1 and SR0. However, all three of these are our
+
+00:05:35.780 --> 00:05:59.970
+input variables so we are going to make again three variables came up and if we
+
+00:05:59.970 --> 00:06:11.920
+look for minterms 2 3 and then for minterms 4 5
+
+00:06:11.920 --> 00:06:20.680
+toggle is going to have value of 1 so minterms 2 and 3 and 4 and 5 grouping
+
+00:06:20.680 --> 00:06:32.310
+to make minimum function is this. So toggle is going to be, to describe this one,
+
+00:06:32.310 --> 00:06:52.910
+S R 1 and S R 0 prime, or the second term is S R 1 0 and S R 0. That's the function.
+
+00:06:52.910 --> 00:07:08.450
+function is going to be implemented using this particular logic and replace
+
+00:07:08.450 --> 00:07:15.120
+basically this box. We are going to make more examples in class. I hope this was
+
+00:07:15.120 --> 00:07:17.880
+helpful. Thank you.
+

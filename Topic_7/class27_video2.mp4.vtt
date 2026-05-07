@@ -1,0 +1,266 @@
+WEBVTT
+
+00:00:00.720 --> 00:00:05.720
+Hi, this is Dr. Jelena Trajkovic from the CECS Department at Cal State Long Beach.
+
+00:00:05.720 --> 00:00:13.720
+So, we presented a couple of, well, three different ways to encode the state itself.
+
+00:00:13.720 --> 00:00:20.720
+And we mentioned for one hot encoding and gray code, there are different binary code,
+
+00:00:20.720 --> 00:00:25.720
+and for gray code in particular, that it has very different power consumption
+
+00:00:25.720 --> 00:00:30.720
+and binary encoding or one-hot encoding.
+
+00:00:33.960 --> 00:00:37.720
+In a way, well, it's not in a way,
+
+00:00:37.720 --> 00:00:42.720
+it depends on the way that we decide to encode our state.
+
+00:00:46.400 --> 00:00:49.720
+We are going to have different power consumptions,
+
+00:00:49.720 --> 00:00:53.400
+but also different complexity of a circuit.
+
+00:00:53.400 --> 00:00:58.400
+So that means that one encoding might facilitate
+
+00:00:59.580 --> 00:01:04.580
+that we have much simpler logic for next state transition,
+
+00:01:07.800 --> 00:01:10.400
+which we are going to see next class.
+
+00:01:10.400 --> 00:01:13.440
+And the other encoding may be such that
+
+00:01:13.440 --> 00:01:17.660
+it has very, very complicated logic
+
+00:01:17.660 --> 00:01:19.900
+with many gates for state transition.
+
+00:01:19.900 --> 00:01:32.140
+So, we are going more and more deep into what the FSM looks like and if you remember the
+
+00:01:32.140 --> 00:01:38.780
+definition and we make a graphic representation of this definition, more FSM is going to look
+
+00:01:38.780 --> 00:01:39.780
+like this.
+
+00:01:39.780 --> 00:01:46.620
+So, we do have inputs and we have function that produces next state which is basically
+
+00:01:46.620 --> 00:01:48.220
+the next state logic.
+
+00:01:48.220 --> 00:01:55.720
+So this is what we used to call F function in our definition.
+
+00:01:57.820 --> 00:02:01.700
+And this is a combinational circuit
+
+00:02:01.700 --> 00:02:05.500
+that takes as an input, external inputs,
+
+00:02:05.500 --> 00:02:10.500
+but it is also going to depend on the current state.
+
+00:02:10.620 --> 00:02:11.980
+And this is the red feedback
+
+00:02:11.980 --> 00:02:14.220
+that is coming out of the state register.
+
+00:02:14.220 --> 00:02:19.220
+State is going to be stored inside of the state register.
+
+00:02:20.260 --> 00:02:24.340
+And even though I showed here only one flip-flop
+
+00:02:24.340 --> 00:02:29.220
+with D and Q, this is actually going to be a register
+
+00:02:29.220 --> 00:02:32.080
+that might have and probably will have more
+
+00:02:32.080 --> 00:02:35.600
+than just one bit width.
+
+00:02:35.600 --> 00:02:38.500
+If you see here that state register is connected
+
+00:02:38.500 --> 00:02:42.600
+to the clock, so this is full entire FSM,
+
+00:02:42.600 --> 00:02:47.600
+is group of several combinational and sequential circuits.
+
+00:02:51.560 --> 00:02:56.560
+And finally, we have, let me go and annotate that.
+
+00:02:58.440 --> 00:03:01.760
+We have also more output logic.
+
+00:03:01.760 --> 00:03:08.800
+So more output logic implements our function H.
+
+00:03:08.800 --> 00:03:21.000
+So if you remember, more output is going to depend only on the state, so therefore it takes
+
+00:03:21.000 --> 00:03:29.800
+the input from state only and generates the output. Now let us see what are the timing
+
+00:03:29.800 --> 00:03:36.000
+constraints and what are the issues that can arise. So I'll take a minute to write down the
+
+00:03:36.000 --> 00:03:45.680
+assumptions and I will see you in a moment. So given this conceptual diagram of more FSM,
+
+00:03:46.320 --> 00:03:53.680
+we are going to define some timing parameters. So if you remember from a couple of classes before
+
+00:03:53.680 --> 00:04:00.240
+when we were talking about registers in general, we learned that for each register and includes
+
+00:04:00.240 --> 00:04:06.320
+state register over here, we have three timing parameters defined. First is T setup,
+
+00:04:06.320 --> 00:04:13.920
+T-hold and T-CQ. So please pause and go back to your notes of the videos if you
+
+00:04:13.920 --> 00:04:20.080
+forgot what those are. We are going to have one assumptions because T-hold
+
+00:04:20.080 --> 00:04:29.520
+and T-CQ are both time that is measured after the
+
+00:04:29.520 --> 00:04:34.400
+rising edge of the clock. We are going to assume that actually T-CQ is a
+
+00:04:34.400 --> 00:04:43.400
+longer time. The other thing that if we want to analyze this circuit that we have to assume that
+
+00:04:43.400 --> 00:04:53.880
+we have a given T next maximum which is actually propagation delay of the circuit for next state
+
+00:04:53.880 --> 00:05:01.720
+logic, basically critical part from the input to the from any of the inputs to the output of this
+
+00:05:01.720 --> 00:05:10.920
+block. Similarly we have also defined t out more which is a critical part or maximum propagation
+
+00:05:10.920 --> 00:05:18.120
+delay from the input and here we have one input that can be multi-bit to the output here.
+
+00:05:18.120 --> 00:05:25.640
+Now what we want to do is we want to figure out how do we define
+
+00:05:25.640 --> 00:05:38.800
+what is our clock cycle and how do we define what is the delay of our output logic? How long does it
+
+00:05:38.800 --> 00:05:46.920
+take to produce output logic? So let's first look at the cycle itself. We have to make sure
+
+00:05:46.920 --> 00:05:59.890
+that we have enough time in our cycle to be able to read, so let me go more
+
+00:05:59.890 --> 00:06:10.870
+prominent color, so we want to make sure that we have enough time in a cycle to
+
+00:06:10.870 --> 00:06:19.390
+read the value on the output of state register. Usually we can disregard the
+
+00:06:19.390 --> 00:06:28.270
+propagation delay through the wire that one is negligible unless specified
+
+00:06:28.270 --> 00:06:38.990
+otherwise then worst case scenario this value is going to propagate through the
+
+00:06:38.990 --> 00:06:46.630
+next state logic and that one is going to take the specified amount of time as
+
+00:06:46.630 --> 00:06:56.050
+shown here and we'll have to have our signal delivered here on time. Now let's
+
+00:06:56.050 --> 00:07:07.400
+start writing the equation and following this line one by one. So how long, what
+
+00:07:07.400 --> 00:07:12.740
+is the minimum actually clock cycle that we have to obey in order for
+
+00:07:12.740 --> 00:07:23.380
+everything to work correctly. So first we said we need time to read the output. So time that it takes
+
+00:07:23.380 --> 00:07:32.580
+from the moment that we change to, we encounter positive edge of clock till the output changes
+
+00:07:32.580 --> 00:07:41.060
+is tcq. So from positive edge of clock to the output of register changes that is tcq.
+
+00:07:41.060 --> 00:07:48.580
+so we definitely need TCQ clock to Q delay. As I said via delay, we are going to
+
+00:07:50.660 --> 00:07:58.180
+disregard. Then if we follow the blue line that I made previously,
+
+00:07:59.140 --> 00:08:06.980
+next thing that we need to go through is the next state logic. So we need time delay to go to the
+
+00:08:06.980 --> 00:08:19.980
+next take logic which is next max and then finally we this signal has to arrive in order to be
+
+00:08:19.980 --> 00:08:31.660
+correctly stored so for that we have to remember that t setup is a time so tcq is time after the
+
+00:08:31.660 --> 00:08:39.820
+clock edge. This setup is time before clock edge for which the signal needs to be stable in order
+
+00:08:39.820 --> 00:08:49.340
+to for a register or flip-flop to have a correct value that is being captured. So we have to
+
+00:08:49.340 --> 00:09:02.540
+encounter for T setup and that is the shortest amount of time that our clock. So clock can be
+
+00:09:02.540 --> 00:09:09.180
+longer than that, but if it gets to be shorter than that then we are going to probably have issues
+
+00:09:09.180 --> 00:09:16.380
+like meta-stability that you're going to read about in our chapter in the book.
+
+00:09:17.340 --> 00:09:24.860
+Now let's look at the other problem. Another problem, how long do we need to produce the output?
+
+00:09:24.860 --> 00:09:40.700
+output. So if you look into our schematic, what does output depend on? Output is going
+
+00:09:40.700 --> 00:09:48.860
+to depend only on solely on the state register. So we need time to produce the value in state
+
+00:09:48.860 --> 00:09:58.100
+register. We need time to propagate through the more output logic circuitry. And that
+
+00:09:58.100 --> 00:10:06.740
+is the time when we can actually get our value of the output. So, same as in the previous case,
+
+00:10:07.620 --> 00:10:21.050
+we need to wait for tcq. So, from the moment of positive edge of clock, we need to wait for tcq
+
+00:10:21.690 --> 00:10:29.530
+to have the correct value reflected on the output of the state register. And we need to propagate
+
+00:10:30.410 --> 00:10:50.150
+through the more output logic, which is going to be T. We can also have very, very similar
+
+00:10:52.070 --> 00:10:58.310
+computation done for mealy. However, this is not in the scope of our class this year.
+
+00:10:59.670 --> 00:11:00.950
+Thanks for watching.
+

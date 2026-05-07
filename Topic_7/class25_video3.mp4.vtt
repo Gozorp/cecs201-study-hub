@@ -1,0 +1,131 @@
+WEBVTT
+
+00:00:02.700 --> 00:00:08.700
+Hi, this is Dr. Jelena Trajkovic with CECS Department at Cal State Long Beach. So, how does it work?
+
+00:00:08.700 --> 00:00:18.700
+Okay, let's look at it. Where do we start? We have to start with initial state or start state.
+
+00:00:18.700 --> 00:00:31.950
+And maybe I should actually look, wait for me to write something before I start talking way too much.
+
+00:00:31.950 --> 00:00:45.280
+So, start with initial state and based on the state transition diagram we know that
+
+00:00:45.280 --> 00:00:54.220
+it is state S0 that we start with and we are in start at 0 we are generating or actually
+
+00:00:54.220 --> 00:01:14.190
+FSM is generates output corresponding output which in this case happens to be 0.
+
+00:01:14.190 --> 00:01:30.990
+we are sitting and waiting for a value of input. Depending on the input value, we are
+
+00:01:30.990 --> 00:01:49.020
+going to transition in the next state. So, if input value input is equal to zero, we
+
+00:01:49.020 --> 00:01:56.500
+are going to basically stay in the same state and produce the same output. If input value
+
+00:01:56.500 --> 00:02:07.040
+becomes 1, we are going to go into state 1 and produce output 1. When we come to the
+
+00:02:07.040 --> 00:02:14.320
+following state, irrespective of which one it is, we are going to stay in that state
+
+00:02:14.320 --> 00:02:22.160
+and wait for the input. So, transition is always based on the value of the input.
+
+00:02:22.160 --> 00:02:44.030
+Addition thing that I wanted to show you is what is happening in state S1.
+
+00:02:44.030 --> 00:02:51.750
+When we reach the state S1, and we need to look at the state transition diagram at the
+
+00:02:51.750 --> 00:03:04.280
+top of this page, irrespective if we get input 0 or input 1, we are going to go to S0.
+
+00:03:04.280 --> 00:03:19.080
+So basically on input equal to 0 and on input equal to 1, transition to S0 and change the
+
+00:03:19.080 --> 00:03:26.360
+value of the output to 0.
+
+00:03:26.360 --> 00:03:35.100
+Now a couple of things also to mention.
+
+00:03:35.100 --> 00:03:51.780
+So many times, what is not said, but assumed, is that there will be a clock running.
+
+00:03:51.780 --> 00:03:58.840
+And we will be, on each positive edge of the clock, going to basically sample the value
+
+00:03:58.840 --> 00:04:03.720
+of input, check the value of the input, and on that positive edge of the clock, based
+
+00:04:03.720 --> 00:04:09.160
+on the input, we are going to transition somewhere, in one of the other states.
+
+00:04:09.160 --> 00:04:16.340
+So that is another assumption that we can make.
+
+00:04:16.340 --> 00:04:20.020
+Not all FSM work that way.
+
+00:04:20.020 --> 00:04:25.020
+Some FSM are going to have only input
+
+00:04:25.340 --> 00:04:30.340
+and no clock and that is a possibility.
+
+00:04:32.060 --> 00:04:35.100
+The other thing that I wanted to show you
+
+00:04:35.100 --> 00:04:39.440
+is when you look at the FSM here,
+
+00:04:39.440 --> 00:04:54.290
+We will be in state as 0 and that state as 0 is going to make the output, so this is
+
+00:04:54.290 --> 00:04:57.660
+state.
+
+00:04:57.660 --> 00:05:06.020
+So we are in state as 0, let's go to timing diagrams and that one is going to generate
+
+00:05:06.020 --> 00:05:11.490
+an output of 0.
+
+00:05:11.490 --> 00:05:22.550
+If the input is 1, we will go to state S1 and we will have 1.
+
+00:05:22.550 --> 00:05:30.830
+Now regardless of what is next input, so this is, I am doing this impromptu just to let
+
+00:05:30.830 --> 00:05:42.670
+you know and so if we are in S0 and input became 1, we are transitioning to S1 and irrespective
+
+00:05:42.670 --> 00:05:46.790
+if the input stays one or if it changes to zero,
+
+00:05:46.790 --> 00:05:57.340
+we will be going back to S zero.
+
+00:05:57.340 --> 00:05:59.000
+And then we will stay in S zero
+
+00:05:59.000 --> 00:06:04.000
+as long as we have on the input value zero.
+
+00:06:05.700 --> 00:06:10.700
+So what this FSM is doing is generating a short pulse
+
+00:06:13.680 --> 00:06:18.240
+that is equal to one every time that we find
+
+00:06:18.240 --> 00:06:23.050
+that the input is one.
+
+00:06:23.050 --> 00:06:24.050
+Thanks for watching.
+

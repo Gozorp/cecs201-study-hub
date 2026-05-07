@@ -1,0 +1,122 @@
+WEBVTT
+
+00:00:00.980 --> 00:00:21.980
+Hi, this is Dr. Jelena Trajkovic from the CECS Department at Cal State Long Beach. So let's look into the other example, and this is what about multiple functions that, well, actually problems that require circuits that have multiple outputs.
+
+00:00:21.980 --> 00:00:34.240
+And we have seen this. We have seen this in decoders and encoders.
+
+00:00:34.240 --> 00:00:43.240
+So we are going to go and look into one particular example.
+
+00:00:43.240 --> 00:00:49.240
+And this particular example is going to include the entire top-down process.
+
+00:00:49.240 --> 00:00:52.240
+So let's say that we have a function.
+
+00:00:52.240 --> 00:01:14.760
+Well, we have a requirements to make a circuit such that it has two inputs and then it needs
+
+00:01:14.760 --> 00:01:17.620
+to signal two things.
+
+00:01:17.620 --> 00:01:37.000
+thing that this circuit has to give us is 1. Output 1 if number is less than 2.
+
+00:01:37.000 --> 00:01:42.560
+And when I say number we are going to read A, B as a binary number.
+
+00:01:42.560 --> 00:01:55.680
+number. And second requirement is output 1 if A is not equal to B.
+
+00:01:55.680 --> 00:02:04.250
+Okay, so right now, because we have two kind of disjoint requirements, we
+
+00:02:04.250 --> 00:02:09.950
+definitely know that we have to make a multiple function with multiple, sorry,
+
+00:02:09.950 --> 00:02:14.830
+circuit with multiple outputs. So basically, we need multiple functions. So we are
+
+00:02:14.830 --> 00:02:28.940
+going to have two input variables, 0, 0, 0, 1, 1, 0, 1, 1, and then we are going to make
+
+00:02:28.940 --> 00:02:37.140
+function 1 and function 2. And we are completely okay to make that into the same truth table.
+
+00:02:37.140 --> 00:02:44.900
+I usually make this line a little bit more prominent because I want to make sure they
+
+00:02:44.900 --> 00:02:54.740
+understand that left of it are inputs and right of it are outputs. And I'm trying to
+
+00:02:54.740 --> 00:03:06.160
+make a good take line here, not a mess. So based on our specification using natural
+
+00:03:06.160 --> 00:03:14.560
+language, we know that the first function is going to have 1 here because this
+
+00:03:14.560 --> 00:03:21.400
+number is binary 0 and binary 1 and this number is binary 2 so this is not less
+
+00:03:21.400 --> 00:03:28.960
+than 2, mind you with us for less not less and or equal and this one is the
+
+00:03:28.960 --> 00:03:38.200
+last one is number 3, and f1 is going to be equal to 0. So when we read a and b as binary
+
+00:03:38.200 --> 00:03:47.320
+value and we get 2, the output is 0. When we read a and b as binary value 3, then we
+
+00:03:47.320 --> 00:04:00.760
+also get 0. And f is going to be, if you look at it, it's going to be there equal here and
+
+00:04:00.760 --> 00:04:10.080
+here and they are different here and here, A and B. So let's look at first F1. We make
+
+00:04:10.080 --> 00:04:21.040
+it as a sum of min terms, A prime B prime or A prime B, and we make F2 as sum of min
+
+00:04:21.040 --> 00:04:34.080
+terms a prime b or a b prime. And if you look first into function f1, this one can be
+
+00:04:34.080 --> 00:04:46.680
+simplified using Boolean algebra laws. We can factor out a, we have b prime or b, and
+
+00:04:46.680 --> 00:04:51.720
+this is going to be one
+
+00:04:51.720 --> 00:04:54.860
+and that ends up being a prime.
+
+00:04:54.860 --> 00:04:57.400
+Second function cannot be
+
+00:04:57.400 --> 00:04:59.040
+factored out
+
+00:04:59.040 --> 00:05:04.860
+because that one is
+
+00:05:04.860 --> 00:05:07.820
+XOR function.
+
+00:05:07.820 --> 00:05:09.380
+You are welcome to
+
+00:05:09.380 --> 00:05:12.740
+leave it in this form
+
+00:05:12.740 --> 00:05:15.700
+or you can use the XOR operator.
+
+00:05:15.700 --> 00:05:18.180
+So again,
+
+00:05:18.180 --> 00:05:36.650
+self-study is drawing. Draw the circuits and start getting ready for practice
+
+00:05:38.010 --> 00:05:42.410
+in the class. Thanks for watching!
+

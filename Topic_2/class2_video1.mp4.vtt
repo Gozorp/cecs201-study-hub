@@ -1,0 +1,188 @@
+WEBVTT
+
+00:00:02.190 --> 00:00:10.290
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach. These series of mini lectures are going to start with
+
+00:00:10.890 --> 00:00:17.210
+a little bit more about hexadecimal and octal numbers. So let's first start with octal.
+
+00:00:23.280 --> 00:00:27.120
+Octal is a system that has base 8.
+
+00:00:27.960 --> 00:00:30.680
+Actually, it's better to write
+
+00:00:31.360 --> 00:00:34.360
+R is equal to 8.
+
+00:00:34.360 --> 00:00:51.240
+and consecutively we want to figure out how many bits would we need to represent
+
+00:00:51.240 --> 00:00:58.400
+one octal number because you know we already covered hexadecimal I'm just
+
+00:00:58.400 --> 00:01:09.280
+going to do a little intro to octal it has total of eight so basically all
+
+00:01:09.280 --> 00:01:24.530
+digits between 0 and 7 are fair game so knowing that 0 is 0 0 0 1 is 0 0 1 2 is
+
+00:01:24.530 --> 00:01:39.970
+0 1 0 3 is 0 1 1 4 is 1 0 0 5 is 0 1 0 6 is 0 0
+
+00:01:39.970 --> 00:01:53.850
+1 1 0 and 7 is 1 1 1 and I'm going to move this to basically represent
+
+00:01:53.850 --> 00:02:15.050
+each of those. We can see that we need three binary digits or bits to represent
+
+00:02:15.050 --> 00:02:27.930
+one octal number. So these are digits in octal system that represent
+
+00:02:27.930 --> 00:02:42.360
+total numbers, but to represent in binary we need three of them. How about hexadecimal?
+
+00:02:42.360 --> 00:02:53.920
+Hexadecimal system is where we have base 16 to remind you the digits that are possible
+
+00:02:53.920 --> 00:03:09.020
+1 2 to 9 and then we start A and go all the way to F. So for 16 possible
+
+00:03:09.020 --> 00:03:17.100
+combinations we will have to have we will have to start representing 0 with
+
+00:03:17.100 --> 00:03:29.470
+four and F is going to be one, one, one, four bits. So we would need four bits to
+
+00:03:29.470 --> 00:03:39.990
+represent one hexadecimal digit. So let us see one example of how do we move
+
+00:03:39.990 --> 00:03:49.110
+between octal and hexadecimal numbers with respect to binary. So first example
+
+00:03:49.110 --> 00:04:10.620
+is going to be from binary to octal. Let's say that we have and because we know that we are going to
+
+00:04:10.620 --> 00:04:20.620
+have groups of three I'm going to strategically place little spaces between my numbers. So I'm
+
+00:04:20.620 --> 00:04:36.240
+going to start with a radix point and I'm going to do one example so this is
+
+00:04:36.240 --> 00:04:46.760
+integer part of my number and then we will have this as a fraction part of the
+
+00:04:46.760 --> 00:04:58.920
+number. So this is a binary number. How do we figure out what is the same number in octal
+
+00:04:58.920 --> 00:05:09.610
+representation? Because we learned that we need three binary digits in order to group them and
+
+00:05:09.610 --> 00:05:19.780
+to make each octal digit. We will always be starting from the radix point and we
+
+00:05:19.780 --> 00:05:26.900
+will be moving in both left and right direction. When you start from, so you're
+
+00:05:26.900 --> 00:05:30.860
+not going to start from a leftmost, you will be starting from radix point and
+
+00:05:30.860 --> 00:05:38.220
+you will be grouping each three digits. We still need to get a little bit more
+
+00:05:38.220 --> 00:05:48.720
+used to what the basic binary are in decimal. I've been doing this for a
+
+00:05:48.720 --> 00:06:00.120
+little while so I already know it quite well. So this is 3, this is 0, 1, 2, 3, 4, 5, 6, 7 to
+
+00:06:00.120 --> 00:06:09.120
+help us out. The next grouping of 3 is going to be 1, 0, 1. That is number 5, both
+
+00:06:09.120 --> 00:06:16.000
+in decimal and in octal and then we have this little dangling one. So for this one
+
+00:06:16.000 --> 00:06:22.360
+we're going to imagine that we are grouping it with other two digits but
+
+00:06:22.360 --> 00:06:28.360
+this one stays in the rightmost position and it is not going to change any value
+
+00:06:28.360 --> 00:06:36.960
+of the number if we add in front basically prepend zeros. So this is going
+
+00:06:36.960 --> 00:06:48.990
+to be 1. So it's 1, 5, 3, point. Now what's happened on the right hand side of the
+
+00:06:48.990 --> 00:07:01.310
+radix point? We will group 1, 1, 1 and 1, 1, 1. If we look up this is going to be 7.
+
+00:07:01.310 --> 00:07:10.850
+Now what are we going to do with this 1 over here? We cannot insert 0s
+
+00:07:10.850 --> 00:07:19.300
+before. We can only insert and we need to insert zeros after. If we leave it as one
+
+00:07:19.300 --> 00:07:26.340
+we will be reading it as binary one. Sorry, as decimal or octal one which is not
+
+00:07:26.340 --> 00:07:35.080
+correct. Here one zero zero, one zero zero is actually number four. So it's one five
+
+00:07:35.080 --> 00:07:51.490
+3.7. Important thing to remember and to act accordingly is that we need to add
+
+00:07:51.490 --> 00:07:58.530
+before if we are left of radix point and after if you are right of radix point
+
+00:07:58.530 --> 00:08:08.040
+and we always need to move in those respective directions. Next example is
+
+00:08:08.040 --> 00:08:18.920
+very similar. It is an example of how to go from a binary to hexadecimal, so this
+
+00:08:18.920 --> 00:09:00.450
+is number one. Example is going to be 0 1, oops sorry, 0 1 0 1 0, and radix point 1 1 1
+
+00:09:00.450 --> 00:09:10.490
+1 1 and 0 0 1. The procedure is the same. The difference is that here we need to make
+
+00:09:10.490 --> 00:09:16.050
+groupings of four bits and because we need to make groupings on four bits we
+
+00:09:16.050 --> 00:09:28.930
+will move first into integer part so 1 0 1 1. Well if we convert this to decimal
+
+00:09:28.930 --> 00:09:40.930
+we will figure out that that is 11 and I will expect you to do a little bit
+
+00:09:40.930 --> 00:09:46.570
+of cell study of conversions in order to start being fluid. This is going to be
+
+00:09:46.570 --> 00:10:00.170
+b and the front portion that one is going to be six okay so there is six b we
+
+00:10:00.170 --> 00:10:24.880
+have a point now what happens on the right-hand side is we have all f's
+
+00:10:24.880 --> 00:10:38.000
+sorry all ones and all one is F and we have 0 0 1. That might be a little problem because we
+
+00:10:38.000 --> 00:10:50.400
+actually do not have we do not have enough digits to make groupings of four and because of that we
+
+00:10:50.400 --> 00:11:00.080
+have to add a digit to the right and instead of it being 0 0 1 this is this
+
+00:11:00.080 --> 00:11:15.660
+becomes 0 0 1 0 so this is going to be 2. We will be doing a little bit more of
+
+00:11:15.660 --> 00:11:23.140
+examples in class with this conversion and we will be doing other little
+
+00:11:23.140 --> 00:11:31.260
+conversions just to get to practice. More about next topic of this class in the
+
+00:11:31.260 --> 00:11:34.360
+next video. Thank you.
+

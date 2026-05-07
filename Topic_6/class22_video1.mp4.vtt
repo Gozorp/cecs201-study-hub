@@ -1,0 +1,98 @@
+WEBVTT
+
+00:00:00.500 --> 00:00:30.500
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach. There is a little bit more ambient noise here. I hope that does not affect us too much. So today we are going to talk about counters and timers. Encounters and timers are quote-unquote extension of registers because they do use register to store the number that they counted or to store the quote-unquote time.
+
+00:00:30.500 --> 00:00:41.890
+that that we are using. So let's first start with counters. Counters are again
+
+00:00:41.890 --> 00:01:14.450
+data path components, well, with circuits that count. Now we can count up and that
+
+00:01:14.450 --> 00:01:28.440
+is going to be 0, 1, 2, 3, n minus 1 and n or we can count it down which is going to
+
+00:01:28.440 --> 00:01:39.260
+be from n to n minus 1, 3, 2, 1, 0. So we have to do a couple of things. First, the
+
+00:01:39.260 --> 00:01:54.600
+observation is when we are counting up, next value is going to be current value
+
+00:01:54.600 --> 00:02:09.680
+plus 1. And when we are counting down, next value is going to be current value
+
+00:02:09.680 --> 00:02:28.870
+minus 1. So in the top case, we're counting up, we will be incrementing value. So adding
+
+00:02:28.870 --> 00:02:39.120
+one is referred to as increment and subtracting one is going to be called
+
+00:02:39.120 --> 00:02:45.240
+decrement. We are going to decrease value by one. So here we are going to be able
+
+00:02:45.240 --> 00:02:54.440
+to use a circuit that does incrementation which is, well, increment and decrement circuit,
+
+00:02:54.440 --> 00:03:03.240
+incrementer and decrementer. The other thing that we have to talk about is if we have an
+
+00:03:03.240 --> 00:03:09.880
+n-bit counter and let's say n is equal to 3, so 3-bit counter. So we are going to count
+
+00:03:09.880 --> 00:03:21.060
+0 0 0 0 0 0 1 so and so forth and then we are going to have 1 1 0 1 1 1 what
+
+00:03:21.060 --> 00:03:27.140
+happens after well according to this formula let's say that we are doing
+
+00:03:27.140 --> 00:03:42.920
+count up we are going to have 0 sorry we are going to have 1 1 1 plus 0 0 1 so
+
+00:03:42.920 --> 00:03:47.080
+This is going to be computation for my next value.
+
+00:03:48.200 --> 00:03:52.760
+And that is going to be zero carry one,
+
+00:03:52.760 --> 00:03:56.440
+zero carry one, zero carry one.
+
+00:03:56.440 --> 00:03:59.280
+So remember, we have only three bits
+
+00:03:59.280 --> 00:04:01.080
+because we have only three bits.
+
+00:04:01.080 --> 00:04:08.960
+This is going to be stored, carry will be discarded.
+
+00:04:12.840 --> 00:04:22.800
+Also, in some counters, we can provide carry out
+
+00:04:24.320 --> 00:04:37.280
+this bit as carryout. Nevertheless, so if you see here the next value is 0 0 0 so
+
+00:04:37.280 --> 00:04:48.240
+after 1 1 1 we start with 0 0 0 and 0 0 1 so this is called that I mean if this is
+
+00:04:48.240 --> 00:05:10.840
+referred to as counter will wrap around so that is what is happening that is
+
+00:05:10.840 --> 00:05:20.120
+what is happening if we reach the maximum value similarly if we do count
+
+00:05:20.120 --> 00:05:38.190
+down we are going to have 0 1 0 0 0 1 0 0 0 and next one is going to be 1 1 1
+
+00:05:38.190 --> 00:05:57.030
+and then sorry 110. So what you need to do, self-study, is to do 0 0 0 minus 0 0 1.
+
+00:05:57.030 --> 00:06:03.810
+Remember to use those complements to get the result and you can discard the
+
+00:06:03.810 --> 00:06:13.110
+carry out in this operation. So in the next video we are going to design a
+
+00:06:13.110 --> 00:06:16.110
+a first counter. Thanks for watching.
+

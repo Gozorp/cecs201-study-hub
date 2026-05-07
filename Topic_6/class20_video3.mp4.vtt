@@ -1,0 +1,230 @@
+WEBVTT
+
+00:00:01.330 --> 00:00:05.330
+Hi, this is Dr. Jelena Trajkovic from the CECS Department at Cal State Long Beach.
+
+00:00:05.330 --> 00:00:12.330
+So, let us play a little bit with this register and try to make it more intuitive how does it work.
+
+00:00:12.330 --> 00:00:27.330
+So, let's say that LD is equal to 1. When LD is equal to 1, S input on all maxes is equal to 1.
+
+00:00:27.330 --> 00:00:39.550
+That means whatever is on I1 input for all maxes is going to be provided on this little d input
+
+00:00:40.350 --> 00:00:50.670
+on all of the d flip flops. So maybe let's have an example. Let's say that first we did reset.
+
+00:00:50.670 --> 00:01:12.180
+When we did reset equals to 1, content of register becomes 0, 0, 0, 0, irrespective of clock,
+
+00:01:12.180 --> 00:01:21.380
+even if clock is on rising edge, if clock is equal to 1, if there is falling edge of the clock,
+
+00:01:21.380 --> 00:01:34.910
+all registers become... values of registers become zero.
+
+00:01:34.910 --> 00:01:50.110
+Now let's say right now that after a while we say hey reset is equal to zero and load
+
+00:01:50.110 --> 00:02:20.080
+is equal to 1 and D content becomes 1 1 0 0 so sorry D inputs are 1 1 0 0 if this happens
+
+00:02:20.080 --> 00:02:29.920
+On the next consecutive positive edge of clock, 1 1 0 0 is going to become the content of
+
+00:02:29.920 --> 00:02:30.920
+the register.
+
+00:02:30.920 --> 00:02:37.400
+So this 0 is going to become 1, this 0 is going to become 1, this 0 is going to stay
+
+00:02:37.400 --> 00:02:43.460
+0, this 0 is going to stay 0.
+
+00:02:43.460 --> 00:03:00.140
+Now if we before next, and that is going to stay all the way to the other, if we at this
+
+00:03:00.140 --> 00:03:24.510
+point of time, if we change to D 3 to 0 equal to 0 0 1 1 0 1, on the next positive edge
+
+00:03:24.510 --> 00:03:46.800
+of clock cycle, the output is going to become 0, 0, 1, 1. It happens now. If we say Ld is
+
+00:03:46.800 --> 00:04:12.670
+equal to zero and d becomes 1 0 1 0. When ld is equal to zero, s for all maxes becomes
+
+00:04:12.670 --> 00:04:24.830
+zero. That means i0 input for all maxes will provide the value for the output. What is
+
+00:04:24.830 --> 00:04:34.550
+connected to I0 on all maxes? Well, it's a current value of D and current value that
+
+00:04:34.550 --> 00:04:41.070
+is stored in all D flip-flops and current value that is stored in all D flip-flops is
+
+00:04:41.070 --> 00:04:48.410
+0 0 1 1 because of because of
+
+00:04:50.410 --> 00:04:56.490
+LD becoming zero and all the maxis are selecting
+
+00:04:58.010 --> 00:05:12.840
+these inputs the value that has previously been inside 0 0 1 1 is going to stay and we are not
+
+00:05:12.840 --> 00:05:23.080
+going to have, you're not going to update the content of the register with whatever is on its
+
+00:05:23.080 --> 00:05:33.200
+input because we disabled load. So that is one thing. So we are ready to go and talk about
+
+00:05:34.800 --> 00:05:40.880
+multifunctional registers. We are going to do examples of multifunctional registers in class
+
+00:05:40.880 --> 00:05:48.380
+and in order to help you with multifunctional registers and shift registers
+
+00:05:48.380 --> 00:05:55.200
+they are coming right after this we are going to review just the shifting. So I
+
+00:05:55.200 --> 00:06:00.560
+don't think that we have ever mentioned too much of shifting except when we
+
+00:06:00.560 --> 00:06:09.960
+were doing number conversion and even then we didn't go into much details. So
+
+00:06:09.960 --> 00:06:23.220
+let's look at the shift. Suppose we have a binary number like this. Please note
+
+00:06:23.220 --> 00:06:30.020
+right now I'm not committing if this is unsigned or signed number. So we right
+
+00:06:30.020 --> 00:06:39.210
+now have a number, binary number. And we want to go ahead and do shift left. That
+
+00:06:39.210 --> 00:06:48.690
+means shift to the left side. So what is it going to happen? We have four
+
+00:06:48.690 --> 00:06:56.830
+positions. When we start moving each bit to the left, the last bit, the least
+
+00:06:56.830 --> 00:07:03.110
+significant bit, is going to be moved to the position 1, position 2, position 3.
+
+00:07:03.110 --> 00:07:11.550
+This poor little zero is going to get kicked out. Sometimes we can have a
+
+00:07:11.550 --> 00:07:21.260
+carry bit here and this this bit is going to be provided in order as a carry
+
+00:07:21.260 --> 00:07:30.060
+out and when we're going shift left absolutely always we will be shifting in
+
+00:07:30.060 --> 00:07:49.980
+zero so for shifting to the left we actually do not care if the number is
+
+00:07:49.980 --> 00:08:12.750
+is unsigned or signed. Also, we don't care if the shifting is so-called arithmetic or
+
+00:08:12.750 --> 00:08:19.230
+shift in with so-called logic shift, logical shifting. So let's look at the shifting right
+
+00:08:19.230 --> 00:08:24.270
+and we are going to learn about this subtle and super important difference.
+
+00:08:26.270 --> 00:08:42.140
+Okay, so we have the same number, we're starting with the same number, we have same four positions
+
+00:08:42.140 --> 00:08:50.600
+and you're going to start shifting to the right so bit over here one that one
+
+00:08:50.600 --> 00:08:59.720
+is going to fall out side let's go it that way this bit here is becoming zero
+
+00:08:59.720 --> 00:09:08.480
+this bit zero sorry this is bit one this is bit two now what are we going to put
+
+00:09:08.480 --> 00:09:24.310
+on this position. So there are two options. One is that we do logical
+
+00:09:24.310 --> 00:09:38.400
+shifting. When we do logical shifting we always put it zero. So that is our first.
+
+00:09:38.400 --> 00:10:08.190
+if we do arithmetic shifting, always copy MSB. So we had an MSB in the original number was this one.
+
+00:10:08.190 --> 00:10:16.300
+So we're going to copy the value here. It means that there is not much difference here, right?
+
+00:10:16.300 --> 00:10:27.220
+Well, that is correct if we are talking about two kinds of numbers, one kind of numbers
+
+00:10:27.220 --> 00:10:44.650
+in unsigned and the other type of numbers is signed into two's complement positive because
+
+00:10:44.650 --> 00:11:03.160
+most significant bit is a zero what if our example is actually a number that is zero one zero one
+
+00:11:04.520 --> 00:11:16.840
+so for logic shifting right shift right we will have four bits one zero one
+
+00:11:16.840 --> 00:11:28.960
+and this is going to be 0. For arithmetic shifting right we will have 1 0 1 and
+
+00:11:28.960 --> 00:11:35.800
+then this one is going to be replicated and these are completely two different
+
+00:11:35.800 --> 00:11:52.720
+stories. So this is again copying MSB. So difference is visible for signed
+
+00:11:52.720 --> 00:12:11.640
+tools complement negative numbers. So MSB is copied for arithmetic shifting anyways,
+
+00:12:11.640 --> 00:12:15.640
+but it is visible for negative numbers.
+
+00:12:15.640 --> 00:12:21.040
+A couple of more things before we conclude with any lectures for today.
+
+00:12:21.040 --> 00:12:31.040
+One is logical shifting is there to provide services for strings of bits.
+
+00:12:31.040 --> 00:12:38.040
+bits. The bit streams do not need to be numbers. They can be some sort of indicators. Let's
+
+00:12:38.040 --> 00:12:47.040
+say bit streams are being provided via USB or via Bluetooth and you have to do one by
+
+00:12:47.040 --> 00:12:56.040
+one reading of bits. So that's how we do it. We shift bits. Arithmetic shifting. If
+
+00:12:56.040 --> 00:13:10.980
+If you shift it to the left for arithmetic, it is the same as you multiply by 2.
+
+00:13:10.980 --> 00:13:16.860
+Arithmetic shift to the right, it's the same as you divide it by 2.
+
+00:13:16.860 --> 00:13:24.340
+And for arithmetic shifting, it's super important that we preserve the sign, because sign is
+
+00:13:24.340 --> 00:13:30.260
+going to tell us, well, sign is inherent property of the number and it's
+
+00:13:30.260 --> 00:13:38.000
+important to keep the number as it holds it is and if we mess up with the most
+
+00:13:38.000 --> 00:13:41.900
+significant bit we are going to actually get completely different value of the
+
+00:13:41.900 --> 00:13:52.580
+numbers. So two things to remember, one is that for shifting to the left we
+
+00:13:52.580 --> 00:14:02.700
+always input shift in zero for shifting to the right we are going to shift in
+
+00:14:02.700 --> 00:14:11.460
+zero for logical shifting or we are going to replicate most significant bit
+
+00:14:11.460 --> 00:14:17.620
+for arithmetic shifting. Thanks for watching CM class
+

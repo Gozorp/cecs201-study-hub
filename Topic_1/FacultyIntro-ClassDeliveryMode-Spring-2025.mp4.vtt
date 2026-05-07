@@ -1,0 +1,506 @@
+WEBVTT
+
+00:00:03.410 --> 00:00:13.410
+Hi there, this is Dr. Jelena Trajkovic. I am Associate Professor at CECS Department and it's my pleasure to be your instructor for Computer Logic Design I.
+
+00:00:13.410 --> 00:00:25.410
+So let's talk about me. Let's talk a little bit about delivery mode for this course and of course wrap up with goals for this course.
+
+00:00:25.410 --> 00:00:36.930
+So, my name is pronounced Yelena and I am a graduate from PhD, a graduate, a master's
+
+00:00:36.930 --> 00:00:40.690
+graduate from ICS department from UC Irvine.
+
+00:00:40.690 --> 00:00:48.850
+I also have diploma of engineering from School of Electrical Engineering from Belgrade University,
+
+00:00:48.850 --> 00:00:51.170
+Serbia former Yugoslavia.
+
+00:00:51.170 --> 00:00:54.450
+I have held several academic positions.
+
+00:00:54.450 --> 00:00:57.530
+The current one, I joined CCS department
+
+00:00:57.530 --> 00:01:00.530
+at Cal State Long Beach in fall of 2018.
+
+00:01:00.530 --> 00:01:04.090
+Before that, I was assistant professor
+
+00:01:04.090 --> 00:01:05.970
+in Concordia University,
+
+00:01:05.970 --> 00:01:09.170
+not related to the neighboring Concordia University
+
+00:01:09.170 --> 00:01:10.230
+in Montreal.
+
+00:01:11.090 --> 00:01:15.890
+Before that, I was Resmic postdoctoral fellow
+
+00:01:15.890 --> 00:01:20.890
+and Resmic is research organization
+
+00:01:21.170 --> 00:01:31.010
+for microelectronics in Quebec and that position I was holding in a cold polytechnic demo and
+
+00:01:31.010 --> 00:01:40.770
+during my PhD I did tons of TAing at this ICS department at UC Irvine. So therefore I taught
+
+00:01:40.770 --> 00:01:49.570
+and I designed many courses. Here I taught digital design here and in Concordia I taught
+
+00:01:49.570 --> 00:01:54.370
+digital designs, digital design one and two, microprocessor systems,
+
+00:01:55.090 --> 00:02:03.090
+intro to computer organization and architecture, and also advanced computer architecture for
+
+00:02:03.090 --> 00:02:09.090
+graduate students, network on chip, course in Concordia University, and here intro to
+
+00:02:09.090 --> 00:02:15.570
+programming and problem solving, also known as CCS 174, and intro to engineering profession,
+
+00:02:15.570 --> 00:02:26.530
+also known as EMGR 101. My style of teaching is very hands-on interactive and engaging and I see
+
+00:02:26.530 --> 00:02:34.450
+this process as being partners in learning. I am going to be your guide and I hope that you will
+
+00:02:35.250 --> 00:02:42.210
+reciprocate in participation and dedication because that is essential part for your learning
+
+00:02:42.210 --> 00:02:53.970
+in your success. Overall, I do also research and service. For research, my most recent are
+
+00:02:53.970 --> 00:03:00.850
+IoT systems and engineering applications of artificial intelligence, machine learning,
+
+00:03:00.850 --> 00:03:08.530
+deep linear learning, any of that is needed. I'm very passionate about inclusive computing
+
+00:03:08.530 --> 00:03:14.690
+and computing and engineering education, and I do research in those fields. And I have
+
+00:03:15.490 --> 00:03:21.090
+big experience in network relationship, parallel course, and also
+
+00:03:23.650 --> 00:03:26.290
+computer architecture research, which is not listed here.
+
+00:03:27.170 --> 00:03:33.010
+Part of my service is mentoring, and I have been founding faculty advisor for
+
+00:03:33.010 --> 00:03:37.970
+Student Organization of Women in Computing and recently I became faculty mentor for
+
+00:03:37.970 --> 00:03:43.330
+Metric II program. Please google that and find it. I think it's a wonderful program. Maybe
+
+00:03:43.330 --> 00:03:52.850
+some of you will be joining us. In addition to that, I do mentoring my research students
+
+00:03:53.490 --> 00:04:01.890
+and sometimes my former students and I find common topics to work on and we continue working
+
+00:04:01.890 --> 00:04:10.530
+beyond our courses. Now let's switch gears to course delivery mode. This class is going to
+
+00:04:10.530 --> 00:04:16.530
+be presented and taught in flip classroom model. Flip classroom model is the model in which
+
+00:04:17.730 --> 00:04:26.690
+there is some assigned work at home. In our case it's going to be videos of theoretical concepts
+
+00:04:26.690 --> 00:04:31.690
+that we need in order to practice in class.
+
+00:04:31.890 --> 00:04:36.010
+So you will be watching videos before each seminar class
+
+00:04:36.010 --> 00:04:40.010
+and you're going to do a quiz before each seminar class.
+
+00:04:40.010 --> 00:04:43.850
+And in class, we are going to do activity.
+
+00:04:44.770 --> 00:04:48.970
+Motivation for this is that you are provided
+
+00:04:48.970 --> 00:04:51.330
+with way more instructions.
+
+00:04:51.330 --> 00:04:55.330
+You are provided with more time to have Q&A
+
+00:04:55.330 --> 00:04:59.070
+and you are provided with activities
+
+00:04:59.070 --> 00:05:00.770
+in which you participate.
+
+00:05:02.770 --> 00:05:05.270
+There is opportunity for you to get more help.
+
+00:05:06.210 --> 00:05:10.470
+For you to get help, you only need to ask.
+
+00:05:10.470 --> 00:05:12.490
+And if you don't feel comfortable doing that
+
+00:05:12.490 --> 00:05:14.970
+in front of entire class, please make an appointment
+
+00:05:14.970 --> 00:05:17.130
+and see me during the office hours
+
+00:05:17.130 --> 00:05:19.890
+or come to regular office hours without appointment.
+
+00:05:19.890 --> 00:05:31.250
+Other things that are super important for flip class is that that method of work keeps
+
+00:05:31.250 --> 00:05:35.870
+students up to date because you have to prepare for every class.
+
+00:05:35.870 --> 00:05:41.250
+You don't end up cramming your studies before the exam.
+
+00:05:41.250 --> 00:05:51.210
+And also by the way that you participate with activities, the instructor, that is me, gets
+
+00:05:51.210 --> 00:05:54.790
+the feedback and can adjust the class.
+
+00:05:54.790 --> 00:06:03.370
+Added value is that you get access to very different types of materials that suit for
+
+00:06:03.370 --> 00:06:05.650
+different learners.
+
+00:06:05.650 --> 00:06:10.890
+So you're going to have videos, you're going to have quizzes, you're going to have problems
+
+00:06:10.890 --> 00:06:14.530
+that you will be solving by yourself.
+
+00:06:14.530 --> 00:06:16.530
+You're going to have, you know, xi books.
+
+00:06:16.530 --> 00:06:19.170
+So that is reading, and again, activities
+
+00:06:19.170 --> 00:06:22.050
+and homework on top of it.
+
+00:06:22.050 --> 00:06:25.650
+And all the theory is going to be backed up
+
+00:06:25.650 --> 00:06:26.810
+by lab activities.
+
+00:06:26.810 --> 00:06:30.090
+So that's how the people who learn by doing
+
+00:06:30.090 --> 00:06:32.230
+are going to benefit from this.
+
+00:06:34.530 --> 00:06:37.850
+I did research on flipped classroom on this class
+
+00:06:37.850 --> 00:06:44.410
+in particular, but in general there is lots of research showing that this method actually
+
+00:06:44.410 --> 00:06:49.810
+improves student engagement, that students as a result have a better academic performance
+
+00:06:49.810 --> 00:06:57.290
+compared to a lecture-only style of learning, and they understand the concepts much deeper.
+
+00:06:57.290 --> 00:06:59.890
+So how are we going to do this?
+
+00:06:59.890 --> 00:07:04.890
+In seminar, we are going to cover theory at home
+
+00:07:07.330 --> 00:07:09.210
+by using videos.
+
+00:07:09.210 --> 00:07:11.250
+And based on those videos,
+
+00:07:11.250 --> 00:07:13.790
+you're going to answer some quiz questions,
+
+00:07:13.790 --> 00:07:17.430
+and that's going to be before each class.
+
+00:07:17.430 --> 00:07:20.250
+That knowledge of yours is going to support you
+
+00:07:20.250 --> 00:07:22.090
+in in-class activities.
+
+00:07:22.090 --> 00:07:25.050
+Each class, you're going to have a worksheet
+
+00:07:25.050 --> 00:07:27.250
+and you are going to work on that worksheet.
+
+00:07:27.250 --> 00:07:29.050
+those problems are going to build
+
+00:07:29.050 --> 00:07:32.250
+on top of the theory that we learned.
+
+00:07:32.250 --> 00:07:35.170
+So, and those risks are going to be provided
+
+00:07:35.170 --> 00:07:37.370
+also a little bit ahead of time.
+
+00:07:37.370 --> 00:07:42.370
+And I'm going to strongly encourage you to make teams.
+
+00:07:44.050 --> 00:07:46.010
+Those teams are going to be actually based
+
+00:07:46.010 --> 00:07:48.950
+on your lab sections so that you can work
+
+00:07:48.950 --> 00:07:51.890
+both in class and in labs using those teams.
+
+00:07:51.890 --> 00:07:55.010
+And you will be working with your partners
+
+00:07:55.010 --> 00:07:57.530
+and ask them questions.
+
+00:07:59.650 --> 00:08:02.810
+And then team representatives will be asked
+
+00:08:02.810 --> 00:08:05.170
+to share your work on whiteboard
+
+00:08:05.170 --> 00:08:07.830
+or maybe using screen sharing if we are in the lab.
+
+00:08:10.210 --> 00:08:13.370
+For labs, labs are here to reinforce the topics
+
+00:08:13.370 --> 00:08:15.730
+that we covered in seminars.
+
+00:08:15.730 --> 00:08:20.730
+There are going to be materials regarding Verilog,
+
+00:08:20.810 --> 00:08:23.370
+which is language that we will learn,
+
+00:08:23.370 --> 00:08:26.250
+Vivado, which is tool that we've all used
+
+00:08:26.250 --> 00:08:28.130
+and learn how to use,
+
+00:08:28.130 --> 00:08:32.570
+and extension of theoretical topics
+
+00:08:32.570 --> 00:08:34.370
+that are related to the labs.
+
+00:08:34.370 --> 00:08:36.050
+So again, you're going to have videos
+
+00:08:36.050 --> 00:08:38.030
+and slides and quizzes,
+
+00:08:38.030 --> 00:08:40.090
+and all of that you need to cover
+
+00:08:40.090 --> 00:08:42.250
+before each lab assignment.
+
+00:08:42.250 --> 00:08:45.630
+So not each lab session, but before each lab assignment.
+
+00:08:47.430 --> 00:08:51.370
+Once you're done with those activities,
+
+00:08:51.370 --> 00:08:54.530
+there will be release condition.
+
+00:08:54.530 --> 00:08:58.170
+That means that only after you're done with videos
+
+00:08:58.170 --> 00:09:02.030
+and quizzes, you will get to see your assignment.
+
+00:09:02.030 --> 00:09:07.030
+And the teams will be used to have you help each other
+
+00:09:09.930 --> 00:09:12.090
+and discuss the things in labs,
+
+00:09:12.090 --> 00:09:16.090
+but also we will schedule your lab demo using that.
+
+00:09:16.090 --> 00:09:17.890
+During the demo, you will show your work
+
+00:09:17.890 --> 00:09:29.010
+and answers some questions and all deliverables will be done basically individually. Watch out
+
+00:09:29.010 --> 00:09:37.600
+for that. And alongside of this you're going to have full syllabus uploaded to Canvas page.
+
+00:09:38.240 --> 00:09:43.360
+Also the convenience version of syllabus, which is going to be in slides also in our
+
+00:09:43.360 --> 00:09:54.600
+in our kindness as well in the logistic and introduction quiz that is going to reinforce
+
+00:09:54.600 --> 00:10:05.200
+your understanding of rules of this class. I have to do a warning or make you aware that
+
+00:10:05.200 --> 00:10:09.760
+all partial grades are going to be posted on Canvas except for site books. Site books
+
+00:10:09.760 --> 00:10:12.440
+they are going to keep their own partial grades.
+
+00:10:12.440 --> 00:10:16.680
+However, considering that Canvas cannot support
+
+00:10:16.680 --> 00:10:18.920
+the grade computation that we have,
+
+00:10:21.240 --> 00:10:25.080
+and considering the final grade is curved,
+
+00:10:25.080 --> 00:10:26.840
+so cut-offs are made depending
+
+00:10:26.840 --> 00:10:29.800
+on performance of entire class,
+
+00:10:29.800 --> 00:10:31.520
+the total grade on Canvas
+
+00:10:31.520 --> 00:10:34.040
+is not going to be quite accurate.
+
+00:10:34.040 --> 00:10:34.980
+So watch for that.
+
+00:10:36.200 --> 00:10:39.240
+Other couple of things that I wanted to mention,
+
+00:10:39.240 --> 00:10:43.220
+Super important, how do we want to define this class?
+
+00:10:44.740 --> 00:10:47.900
+I would say two things are extremely important.
+
+00:10:47.900 --> 00:10:51.540
+One is respect, respect yourself, your colleagues,
+
+00:10:51.540 --> 00:10:55.240
+your ISAs, our ISAs and the professor, me.
+
+00:10:56.100 --> 00:10:59.220
+So please, no cell phones, not talking, texting,
+
+00:10:59.220 --> 00:11:04.140
+games or whatever, or no loud noise or chatting.
+
+00:11:04.140 --> 00:11:09.140
+So, you know, there will be some conversation
+
+00:11:09.240 --> 00:11:13.640
+and talking in these class and in labs
+
+00:11:13.640 --> 00:11:15.880
+related to the class topics,
+
+00:11:15.880 --> 00:11:20.240
+but please make sure that the noise level is not extensive,
+
+00:11:20.240 --> 00:11:22.440
+that other people can still work
+
+00:11:22.440 --> 00:11:27.040
+and also keep other personal and social interactions
+
+00:11:28.180 --> 00:11:30.660
+out of this learning environment.
+
+00:11:31.620 --> 00:11:36.620
+Another important thing is please ask.
+
+00:11:36.620 --> 00:11:41.620
+anything that you find yourself having doubts about.
+
+00:11:43.100 --> 00:11:45.800
+If you ask, you're not only going to help yourself
+
+00:11:45.800 --> 00:11:50.020
+but your colleagues, there is no silly questions.
+
+00:11:50.020 --> 00:11:54.780
+We all sometimes do not follow equally.
+
+00:11:54.780 --> 00:11:56.340
+We have different learning styles.
+
+00:11:56.340 --> 00:11:59.900
+I do have accent as I'm non-native speakers.
+
+00:11:59.900 --> 00:12:04.900
+So any question is fair game in this classroom.
+
+00:12:04.900 --> 00:12:11.780
+room. If there is an issue, let me know if possible ahead of time. So, for example, you have doctor's
+
+00:12:11.780 --> 00:12:22.340
+appointments made six months ago, or as soon as it happens, or you notice that your grade was not
+
+00:12:22.340 --> 00:12:28.020
+entered correctly, please let me know at maximum one week after so that we can correct everything.
+
+00:12:28.020 --> 00:12:42.520
+I would like us to keep our hearts light, but really very, very serious with respect to academic
+
+00:12:42.520 --> 00:12:51.200
+integrity. That one is super strictly enforced. And then also, I would like you to think about
+
+00:12:51.200 --> 00:12:59.360
+any other rules that you would like us or any other processes procedure that
+
+00:12:59.360 --> 00:13:05.080
+you would like us to define this class. So let me know first class and we will
+
+00:13:05.080 --> 00:13:12.880
+discuss it and hopefully adopt that. Finally, goals for this class. To learn. I
+
+00:13:12.880 --> 00:13:18.960
+want you to have very strong foundation in this that they are building in this
+
+00:13:18.960 --> 00:13:27.280
+class for future computing and engineering classes. I want to provide space to grow so you're going
+
+00:13:27.280 --> 00:13:38.000
+to expand your horizons as a student and as an engineer and I would really love for you to enjoy
+
+00:13:38.000 --> 00:13:47.040
+and have fun in the process of learning and in the outcome and I'm hoping that at the end of
+
+00:13:47.040 --> 00:13:54.160
+this class, you're going to be very, very proud of yourself. I know I will. Thank you and see you in class.
+

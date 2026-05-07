@@ -1,0 +1,62 @@
+WEBVTT
+
+00:00:00.780 --> 00:00:05.140
+Hi, this is Dr. Jelena Trajkovic from the CECS Department at Cal State Long Beach.
+
+00:00:05.140 --> 00:00:15.440
+So our next topic, and this is a little bit more advanced, maybe in the mention of extra-credit
+
+00:00:15.440 --> 00:00:30.110
+activities, multiplication, and multiplication very much resembles decimal.
+
+00:00:30.110 --> 00:00:41.950
+So because multiplication is kind of simple, that it generates only one kind of result, we can write it this way.
+
+00:00:41.950 --> 00:01:00.270
+0 times 0 is 0. 0 times 1 is same as 1 times 0. That is 0. And only 1 times 1 is going to be generated.
+
+00:01:00.270 --> 00:01:17.260
+So let's look at an example. We will have a 4 bit number, 1, 0, 1, 1, and we are going to multiply that one by 1, 0, 1.
+
+00:01:17.260 --> 00:01:28.760
+To some extent it will be easy. As when we are multiplying by 1, we will be actually copying each of the numbers on the left hand side.
+
+00:01:28.760 --> 00:01:38.200
+1 times 1 is 1, y times 1 is 1, 0, and 1. Now that we are multiplying by 0, our
+
+00:01:38.200 --> 00:01:44.480
+result is going to be 0. Remember we have to shift from 1 space to the left, so we
+
+00:01:44.480 --> 00:01:59.370
+have 4 zeros. 1, 2, 3, 4. And then finally, last one here, that is 1, 1, 0, 1. What is
+
+00:01:59.370 --> 00:02:08.750
+complicated in this example is that we might have actually a carry. That's why I'm
+
+00:02:08.750 --> 00:02:16.410
+leaving a little bit of space over here in case we have any of the carries. So
+
+00:02:16.410 --> 00:02:24.110
+right now we have to add. This one doesn't need to add with anything so
+
+00:02:24.110 --> 00:02:40.060
+result is 1 and there is no, okay, result is 1, there is no carry. Here we have only
+
+00:02:40.060 --> 00:02:50.100
+1 1, carry is 0. Things start being interesting here because we have two
+
+00:02:50.100 --> 00:03:01.540
+two ones, the result is a zero, and we have carry one, one and two zeros is one, carry
+
+00:03:01.540 --> 00:03:12.020
+zero and those two are going to be one. So it's one, two, three, four, five, six. In
+
+00:03:12.020 --> 00:03:30.820
+In general, when you are multiplying 4-bit number by 3-bit number, you have to have at least 7 bits to store the result.
+
+00:03:30.820 --> 00:03:35.520
+However, this one is going to fit into 6.
+
+00:03:35.520 --> 00:03:38.020
+I hope this helps. Thank you.
+

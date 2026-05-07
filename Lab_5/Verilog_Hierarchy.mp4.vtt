@@ -1,0 +1,128 @@
+WEBVTT
+
+00:00:01.040 --> 00:00:12.540
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach. In this video, we are going to introduce hierarchical design using an example.
+
+00:00:12.540 --> 00:00:25.040
+The example is taken from the book FPGA Prototyping by Verilog Examples by Pong Chu.
+
+00:00:25.040 --> 00:00:34.720
+So, what the code on the left hand side is implementing is basically hierarchical design
+
+00:00:34.720 --> 00:00:43.540
+using two black boxes and for now, as designers, what we need to know about these black boxes
+
+00:00:43.540 --> 00:00:53.580
+are that they have two 1-bit input and one 1-bit output and the name of this module that
+
+00:00:53.580 --> 00:01:04.780
+implements them is EQ1. We also know about this module is that it performs comparison of two bits
+
+00:01:05.740 --> 00:01:14.940
+and as an input output it produces one if those two bits are equal. For your reference on your
+
+00:01:14.940 --> 00:01:25.820
+right-hand side the code for the module EQ1 is provided and EQ1 is coded in a structural way
+
+00:01:25.820 --> 00:01:34.300
+basically using gates. So here as designers we can draw schematic and what we need to
+
+00:01:34.300 --> 00:01:42.860
+do is take bit zero from A and bit zero from vector B, compare them to each other,
+
+00:01:42.860 --> 00:01:50.660
+do the same with bit 1 of a and bit 1 of b and if only if both of them are equal
+
+00:01:50.660 --> 00:01:57.740
+our a equals b is going to be 1. So we are going to code this Verilog example
+
+00:01:57.740 --> 00:02:06.660
+using structural design only in this portion here and we are going to use
+
+00:02:06.660 --> 00:02:12.180
+structural but hierarchical design in this portion here. What we need to do
+
+00:02:12.180 --> 00:02:22.060
+is instantiate two units of EQ1 and we need to connect them to inputs and this
+
+00:02:22.060 --> 00:02:28.580
+output we are going to connect to a wire. So wire needs to wire E0 and in E1
+
+00:02:28.580 --> 00:02:37.260
+needs to be declared previously. Remember that in Verilog one bit wire is
+
+00:02:37.260 --> 00:02:44.180
+default. So theoretically, this can be omitted. However, since we are beginners,
+
+00:02:44.180 --> 00:02:55.700
+I am strongly suggesting that everything gets properly declared before using. And
+
+00:02:55.700 --> 00:03:00.180
+what we are going to do here, we are going to instantiate one unit of EQ1,
+
+00:03:00.180 --> 00:03:08.100
+Looking at the diagram here. So it's EQ1 and now for this EQ1 we need to give
+
+00:03:08.100 --> 00:03:15.860
+it some sort of meaningful, meaningful name. So it's EQ underscore bit zero
+
+00:03:15.860 --> 00:03:26.980
+underscore unit and inside of parenthesis we are going to connect bit zero of A to
+
+00:03:26.980 --> 00:03:41.260
+I0 bit 0 of B to I1 and our wire E0 to EQ output. Same thing we are going to do
+
+00:03:41.260 --> 00:03:49.660
+for EQ1 as well. Please note that those two names need to be different. So
+
+00:03:49.660 --> 00:03:57.940
+So basically each time that you instantiate unit, its name needs to be unique.
+
+00:03:57.940 --> 00:04:06.540
+So for now, we have been using module instantiation in test benches, and we were always using
+
+00:04:06.540 --> 00:04:12.060
+one same name, but here, because within same design, we are making two different units.
+
+00:04:12.060 --> 00:04:17.060
+we have to give them unique names, unique identifiers.
+
+00:04:19.580 --> 00:04:21.020
+Just to let you know,
+
+00:04:21.020 --> 00:04:24.820
+when we are instantiating a unit,
+
+00:04:24.820 --> 00:04:27.260
+with this dot notation,
+
+00:04:27.260 --> 00:04:31.300
+we can actually shuffle the order
+
+00:04:31.300 --> 00:04:34.980
+in which we connect input and output ports.
+
+00:04:34.980 --> 00:04:39.980
+Again, because this is the early stage
+
+00:04:39.980 --> 00:04:46.060
+early stage of your coding in Verilog, I would suggest that you keep it vanilla, basically, to
+
+00:04:46.860 --> 00:04:55.500
+use dot notation and to connect ports in order. So, we also instantiate one end gate
+
+00:04:56.460 --> 00:05:09.740
+using a simple assignment statement, so AEQB is equal to E0 and E1. And this design
+
+00:05:09.740 --> 00:05:20.700
+is done. So most of designs, actually big designs, are used, are made using the hierarchical
+
+00:05:20.700 --> 00:05:30.940
+metology. So based on this simple example we will keep building our further assignments and
+
+00:05:30.940 --> 00:05:39.420
+basically reuse previous designs in order to make more complex designs by using hierarchical
+
+00:05:39.420 --> 00:05:44.220
+design. I hope this was helpful. Thank you for watching!
+

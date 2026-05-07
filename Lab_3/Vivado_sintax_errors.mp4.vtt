@@ -1,0 +1,131 @@
+WEBVTT
+
+00:00:01.170 --> 00:00:07.170
+Hi, this is Dr. Jelena Trajkovic, CECS Department, CSULB.
+
+00:00:07.170 --> 00:00:18.170
+Let us try to see how to deal with the syntax errors and how can the tool help us out, figure out where the syntax error is.
+
+00:00:18.170 --> 00:00:29.170
+So, for example, if we make a fairly common mistake, that is, forget to put a semicolon,
+
+00:00:29.170 --> 00:00:34.530
+There are one indicator, even in the editor, that is going to show you that something is
+
+00:00:34.530 --> 00:00:43.410
+off, and that is this jagged little red line under the next statement.
+
+00:00:43.410 --> 00:00:47.330
+If you do not get this as a clue, you can try to simulate.
+
+00:00:47.330 --> 00:00:54.970
+And when you are simulating, you're going to get the error that states that lunch simulation
+
+00:00:54.970 --> 00:00:58.130
+failed due to earlier error.
+
+00:00:58.130 --> 00:01:05.610
+Once you click on this, the most important thing for you will be to open message window.
+
+00:01:05.610 --> 00:01:11.610
+Once you open the message window, let's just move this a little bit.
+
+00:01:11.610 --> 00:01:16.730
+Once you open the message window, you are going to have the same messages you saw previously
+
+00:01:16.730 --> 00:01:17.730
+in the pop-up.
+
+00:01:17.730 --> 00:01:23.370
+But in analysis of results, you can open both sources in simulation.
+
+00:01:23.370 --> 00:01:29.330
+And both of them are going to point you to the same thing, saying that line 34, there
+
+00:01:29.330 --> 00:01:33.090
+is a syntax error next to a sign.
+
+00:01:33.090 --> 00:01:41.130
+If you think about it and see it in general, the compiler is going to give you an error
+
+00:01:41.130 --> 00:01:47.930
+in the moment it figures out that the error has occurred.
+
+00:01:47.930 --> 00:01:53.730
+So the compiler is parsing this statement, coming to the end of the statement, going
+
+00:01:53.730 --> 00:02:01.570
+to the next statement, parsing it, and instead of finishing off this statement, it's coming
+
+00:02:01.570 --> 00:02:03.330
+to another assign.
+
+00:02:03.330 --> 00:02:12.930
+So compiler is giving you error that basically this consecutive assign, it is misplaced because
+
+00:02:12.930 --> 00:02:19.310
+the previous one has not been terminated properly with a semicolon.
+
+00:02:19.310 --> 00:02:30.450
+That means that even if you are pointed to line 34, the syntax error might have happened
+
+00:02:30.450 --> 00:02:35.370
+anywhere before or in line 34.
+
+00:02:35.370 --> 00:02:48.250
+And if you see this is going to be that the middle line has different end delimiter by
+
+00:02:48.250 --> 00:02:54.090
+putting the semicolon, the jagged red line disappears.
+
+00:02:54.090 --> 00:03:02.010
+And when you save and rerun, you're going to have to see a clean simulation.
+
+00:03:02.010 --> 00:03:10.280
+I'm going to cancel it right now because I wanted to show you another couple of things
+
+00:03:10.280 --> 00:03:13.380
+that can be problematic.
+
+00:03:13.380 --> 00:03:22.900
+One very common thing is that in the test bench, when we are copying the ports of the
+
+00:03:22.900 --> 00:03:36.420
+module in the test bench, that we put comma instead of the semicolon, and the procedure
+
+00:03:36.420 --> 00:03:44.300
+is absolutely the same and that is the simulation is going to try to run I'm
+
+00:03:44.300 --> 00:03:56.370
+sorry you need every time to save the file before before trying to before
+
+00:03:56.370 --> 00:04:03.850
+trying to compile in order to get the compilation to compilation to compile
+
+00:04:03.850 --> 00:04:11.990
+the new version of the file. So if you try to simulate this one, a similar thing is going to
+
+00:04:11.990 --> 00:04:17.750
+happen. You're going to be offered to view a message window and here you're going to be pointed
+
+00:04:17.750 --> 00:04:29.190
+to the line 27 again. The error occurred in or before the line that we pointed to, the message
+
+00:04:29.190 --> 00:04:36.750
+pointed to, sorry. Another thing that might be interesting is that I want to
+
+00:04:36.750 --> 00:04:46.380
+show it to you. What about you misspelling a name? So save this and try
+
+00:04:46.380 --> 00:05:04.600
+to run the simulation. In this case the simulation is going to run, however
+
+00:05:04.600 --> 00:05:12.720
+carry is not going to be assigned. The reason for this is a little bit
+
+00:05:12.720 --> 00:05:22.280
+convoluted and let us look at this. By default, Verilog, if the variable has not
+
+00:05:22.280 --> 00:05:30.520
+been explicitly defined and this is this c-i-r-r-y variable, it is going to
+

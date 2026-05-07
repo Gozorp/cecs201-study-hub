@@ -1,0 +1,185 @@
+WEBVTT
+
+00:00:00.880 --> 00:00:05.880
+Hi, this is Dr. Jelena Trajkovic from the CECS Department at Cal State Long Beach.
+
+00:00:05.880 --> 00:00:15.880
+Let's go back for a little while and remind ourselves that there are two representations of signed numbers.
+
+00:00:15.880 --> 00:00:23.880
+The second representation that we are going to talk about right now is called two-th complement.
+
+00:00:23.880 --> 00:00:35.880
+Do not forget that whose complement represents both negative and positive numbers, same as sign number.
+
+00:00:35.880 --> 00:00:44.960
+So, how do we make this sign number into its complement representation?
+
+00:00:44.960 --> 00:00:48.960
+Couple of things that you need to, that we need to remember.
+
+00:00:48.960 --> 00:01:20.620
+First, the proof complement exists only if a member is signed, that means positive or negative in signed representation.
+
+00:01:20.620 --> 00:01:38.290
+Second thing, similarly to the one that we saw on the left-hand side here, if we have n bits in a number,
+
+00:01:39.630 --> 00:01:55.920
+of total n bits, most significant bit, is going to show the sign, so this is n, and
+
+00:01:55.920 --> 00:02:10.700
+other v-significant bits, so n-1, v-significant bit, are going to designate absolute value
+
+00:02:11.820 --> 00:02:23.730
+of the number. Consequently, we will have to use both pieces of information,
+
+00:02:23.730 --> 00:02:32.730
+the sign from here and the absolute value from here in order to get the value of an
+
+00:02:32.730 --> 00:03:01.200
+N. And lastly, we need to learn how to make a representation of a number. Making the two
+
+00:03:01.200 --> 00:03:11.160
+is not going to be very difficult, but understanding is going to some for some
+
+00:03:11.160 --> 00:03:20.760
+students quite often it presents problems. Let's go first one thing at a
+
+00:03:20.760 --> 00:03:28.640
+time and figure out how to make this complex. Okay, we will do things from easier to
+
+00:03:28.640 --> 00:03:37.440
+more complex. 1. Brace yourself. We are starting with an example. This is
+
+00:03:37.440 --> 00:03:49.320
+easiest way to learn. We will be starting with class 9 in decimal
+
+00:03:49.320 --> 00:04:26.190
+and we want to do it to convert to binary in tools complement to complement representation so we
+
+00:04:26.190 --> 00:04:35.070
+will first start with what we already know and that is just converting regularly 9 in decimal form
+
+00:04:35.070 --> 00:04:46.270
+to binary form so we take nine we will have integer part and remainder part
+
+00:04:46.270 --> 00:04:54.110
+we start dividing by two nine divided by two is four but we have remainder one
+
+00:04:54.110 --> 00:05:02.750
+four divided by two is two and the zero two divided by two is one and zero one
+
+00:05:02.750 --> 00:05:14.750
+1 divided by 2 is 0, number 1, and we read it from the bottom up, so it's 1, 0, 0, 1.
+
+00:05:14.750 --> 00:05:20.750
+There is some very, very important thing that we need to notice here.
+
+00:05:20.750 --> 00:05:29.750
+If you remember, as I mentioned here, that the most significant bit is going to show sign.
+
+00:05:29.750 --> 00:05:38.310
+and for the sign, the understanding is going to be exactly the same as previously.
+
+00:05:39.110 --> 00:05:48.260
+For the sign, sine 0 is going to designate positive numbers, sine 1 is going to designate
+
+00:05:48.260 --> 00:06:04.140
+any numbers. So if we look at that with respect to the number that we generated here,
+
+00:06:04.460 --> 00:06:15.460
+We started with the intention that we are going to represent plus 9, but we somehow got the number with 1 that is leading, more significant with which is 1.
+
+00:06:15.460 --> 00:06:27.770
+So very important thing, if we are looking at plus 9 in unsigned representation, this 4 bits here is enough.
+
+00:06:27.770 --> 00:06:38.770
+However, in order to represent this number correctly in signed tooth complement representation,
+
+00:06:38.770 --> 00:06:52.800
+the plus nine has to have five X minimum.
+
+00:06:52.800 --> 00:06:56.800
+You can prepend as many zeros as you want here.
+
+00:06:56.800 --> 00:06:59.800
+They are not going to change anything.
+
+00:06:59.800 --> 00:07:14.960
+But positive, signed to complement, is always going to have MSB, more significantly equal
+
+00:07:14.960 --> 00:07:15.960
+to zero.
+
+00:07:15.960 --> 00:07:24.200
+So the smallest number of bits which one needs to represent positive number is such that
+
+00:07:24.200 --> 00:07:28.360
+you need to see leading zero.
+
+00:07:28.360 --> 00:07:36.520
+okay let us go into a little bit more complicated example that is going to
+
+00:07:36.520 --> 00:07:43.440
+teach us what to do with negative numbers so we are in the example of minus
+
+00:07:43.440 --> 00:07:51.630
+nine and we are also going to convert it to the binary number in scientific
+
+00:07:51.630 --> 00:07:57.390
+complementary presentation but we already know what is plus nine and you know it
+
+00:07:57.390 --> 00:08:04.500
+in a scientist's complementary representation.
+
+00:08:05.060 --> 00:08:09.250
+So to speed up the things,
+
+00:08:09.250 --> 00:08:11.930
+we are going to use that knowledge.
+
+00:08:11.930 --> 00:08:18.210
+First step is start with plus nine in binary,
+
+00:08:29.050 --> 00:08:33.050
+and your plus nine in binary is zero, one, zero, zero, one.
+
+00:08:34.970 --> 00:08:41.220
+Second step is going to be flip with its.
+
+00:08:41.220 --> 00:08:47.220
+When I say flip, I mean you replace each zero with one and each one with zero.
+
+00:08:47.220 --> 00:08:54.220
+So when you flip the bits, you could get one, zero, one, one, zero.
+
+00:08:54.220 --> 00:08:57.220
+So each bit changes its own.
+
+00:08:57.220 --> 00:09:03.220
+The third step is going to be add one.
+
+00:09:03.220 --> 00:09:05.690
+Add one.
+
+00:09:05.690 --> 00:09:14.020
+We need to still learn about addition and we will be doing that shortly.
+
+00:09:14.020 --> 00:09:33.800
+Right now for this quick example, what we are going to do, so work out, we are adding 0 and 1 is 1.
+
+00:09:33.800 --> 00:09:43.800
+1 and 0 is 1, 1 and 0 is 1, 0 and 0 is 0, 1 and 0 is 1.
+
+00:09:43.800 --> 00:10:01.620
+And the last step is we obtained minus nine nine.
+
+00:10:01.620 --> 00:10:14.620
+If we look at this number carefully, we are going to notice that the most significant bit is one.
+
+00:10:14.620 --> 00:10:23.510
+And it does designate the number that the number is negative.
+
+00:10:23.510 --> 00:10:35.810
+That is all for this video. Let us move on with the conversions to and from binary to decimal in the next one.
+

@@ -1,0 +1,188 @@
+WEBVTT
+
+00:00:01.300 --> 00:00:07.300
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach. We are going to keep moving.
+
+00:00:07.300 --> 00:00:19.610
+So how do we transform any arbitrarily transformed sum of products into sum of minterms?
+
+00:00:19.610 --> 00:00:26.610
+Sum of products into sum of lowercase m.
+
+00:00:26.610 --> 00:00:35.890
+So, first of all, we need to figure out how many literals or input variables we have.
+
+00:00:35.890 --> 00:00:43.050
+Let's say that we have three literals.
+
+00:00:43.050 --> 00:00:55.030
+Then we have to inspect all the products and find if we are missing a variable.
+
+00:00:55.030 --> 00:01:05.690
+If a product is missing a variable.
+
+00:01:05.690 --> 00:01:13.580
+So let's say, for example, that we found that variable that is missing is V. So we have
+
+00:01:13.580 --> 00:01:25.560
+to take that product. So this is some product that is here. And we have to do AND with a
+
+00:01:25.560 --> 00:01:38.680
+missing variable that is in this format, V or V prime. V or V prime is actually 1. And
+
+00:01:38.680 --> 00:01:51.060
+anything and one is the same thing. So once we have that, this is a product, once we have that,
+
+00:01:52.420 --> 00:02:06.790
+we apply distributed law or property whatever. So we're going to do an example. An example is
+
+00:02:06.790 --> 00:02:16.010
+going to be a little bit longer so I'm going to break it down into two parts. If our function
+
+00:02:16.010 --> 00:02:22.390
+that has three literals, three input variables a, b, and c is given in a form a
+
+00:02:22.390 --> 00:02:31.490
+or b prime c. Let's break it down and let's first work with, well let's first
+
+00:02:31.490 --> 00:02:39.690
+work with b prime c because that is a little bit easier and then we target a
+
+00:02:39.690 --> 00:02:51.570
+a, because a is lonesome a, it has only one literal, so it's missing two. So b prime c.
+
+00:02:51.570 --> 00:03:04.500
+We figure out that what is missing here, missing literal, is a. So we say that b prime c and
+
+00:03:04.500 --> 00:03:21.580
+A or A' a complement and then we apply distributive law A B' C or A' B' C. I usually keep the
+
+00:03:21.580 --> 00:03:28.420
+order always the same so I keep the order the same is here and you're going to see in
+
+00:03:28.420 --> 00:03:35.040
+little while that that is actually going to help us out because once we put back
+
+00:03:35.040 --> 00:03:41.100
+two terms two products together you are going to have to figure out what are
+
+00:03:41.100 --> 00:03:45.300
+extras and when everything is in the same form and it's going to be easier.
+
+00:03:45.300 --> 00:03:50.160
+Right now it probably is more confusing but when the example comes I hope it's
+
+00:03:50.160 --> 00:04:00.780
+going to get to be easier. So next one is A. Well, A is only one little so it is
+
+00:04:00.780 --> 00:04:21.110
+missing B and C. So we are going to say A and B or B prime and C or C prime. You
+
+00:04:21.110 --> 00:04:26.710
+can also do it step by step. You can first do end with B and then after that end with C.
+
+00:04:28.470 --> 00:04:37.030
+So now I'm going to apply distributive law on those two and get AB or AB prime
+
+00:04:37.030 --> 00:05:03.750
+and C or C', then we will have A, B, C, A, B and C, or A, B, C', or A, B', C, A, B'
+
+00:05:03.750 --> 00:05:20.600
+c or a b prime c prime. This is a part of expression that we have on the top. This is
+
+00:05:20.600 --> 00:05:32.960
+another part of expression. Let's put them back in our equation f. f is equal to. Ok,
+
+00:05:32.960 --> 00:05:40.720
+we will copy first this part even though they are in a reverse order in the equation.
+
+00:05:40.720 --> 00:06:01.620
+a b prime c or a prime b prime c or a b c or a b c prime or a b prime c or a b prime c prime.
+
+00:06:01.620 --> 00:06:12.660
+Let me just check if I copied everything correctly. I did. So now question is if we have something
+
+00:06:12.660 --> 00:06:20.500
+that is same yes we can find that this product term or product is the same we
+
+00:06:20.500 --> 00:06:30.480
+don't have to write it twice because a b prime c or a b prime c is simply a b
+
+00:06:30.480 --> 00:06:41.220
+prime c once so one of them is going to go away and our final expression is a b
+
+00:06:41.220 --> 00:06:58.150
+prime c or a prime b prime c or a b c or a b c prime or a b prime c prime. Another thing that we can
+
+00:06:59.510 --> 00:07:14.440
+continue in this video is something that is called compact notation and it is actually
+
+00:07:14.440 --> 00:07:22.360
+directly related to a sum of minterms. If you see a minterm, let's say we see a minterm that has
+
+00:07:23.080 --> 00:07:36.840
+a b prime c, the first minterm over here, values of a b and c need to be in order for this minterm
+
+00:07:36.840 --> 00:07:45.990
+to be equal to one. a needs to be one, b needs to be zero because b is complement,
+
+00:07:45.990 --> 00:07:57.710
+and C needs to be 1 because that evaluates to 1 and 1 and 1 and that is that
+
+00:07:57.710 --> 00:08:04.590
+combination because of prime. That one is going to make this particular minterm
+
+00:08:04.590 --> 00:08:27.310
+value 1. So, in order for minterm a b prime c to be equal to 1, a needs to be 1, b needs
+
+00:08:27.310 --> 00:08:41.750
+to be 0, C needs to be 1. Now if you read A, B, and C as a binary number
+
+00:08:41.750 --> 00:08:50.310
+you're actually going to get a decimal 5. We are going to call this minterm
+
+00:08:50.310 --> 00:08:58.890
+minterm five. So we have a compact notation for this function. Let's look at
+
+00:08:58.890 --> 00:09:06.620
+it once again and I'm going to change the color to something that is
+
+00:09:06.620 --> 00:09:16.700
+completely opposite to purple. So in order for this minterm to be one, we said
+
+00:09:16.700 --> 00:09:25.240
+we need to have 1 0 1 which is corresponds to decimal 5. How about the
+
+00:09:25.240 --> 00:09:32.460
+next one? 0. Every time that you have complement that number has to be, sorry,
+
+00:09:32.460 --> 00:09:44.730
+that variable has to be 0. 0 0 1. Oh so this is actually decimal 1. A B C, all of
+
+00:09:44.730 --> 00:09:47.970
+them need to be without complement. All of them are without complement. They all
+
+00:09:47.970 --> 00:10:01.250
+need to be one that is seven and this one is one one zero that is six and this one
+
+00:10:01.250 --> 00:10:10.930
+is one zero zero that one is four so to be a little bit more precise this is
+
+00:10:10.930 --> 00:10:22.150
+going to be minterm 5, this is going to be minterm 1, minterm 7, minterm 6 and minterm 4.
+
+00:10:23.590 --> 00:10:38.930
+So to write F in a compact notation we can say it is equal to minterm 1 or minterm 4 or
+
+00:10:38.930 --> 00:10:50.210
+min-term 5 or min-term 6 or min-term 7, 1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 5 of them.
+
+00:10:50.210 --> 00:10:56.150
+I didn't miss any of them. We can also make them a little bit even more compact
+
+00:10:56.150 --> 00:11:01.310
+and that is probably how you are going to get your practice examples or in
+
+00:11:01.310 --> 00:11:20.900
+the min term. So we can say you have some of min terms 1, 4, 5, 6 and 7. I hope this was helpful. Thank you.
+

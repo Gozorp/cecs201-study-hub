@@ -1,0 +1,122 @@
+WEBVTT
+
+00:00:01.840 --> 00:00:07.340
+Hi, this is Dr. Jelena Trajkovic from CECS Department at Cal State Long Beach. Now our next topic
+
+00:00:07.340 --> 00:00:15.680
+is subtraction and please make sure to understand this is subtraction of unsigned numbers. So
+
+00:00:15.680 --> 00:00:22.520
+let us first look at the rules for subtraction. If we have two binary numbers, A and B, we're
+
+00:00:22.520 --> 00:00:28.820
+just going to look at them as their single bit. We will have two components of our result.
+
+00:00:28.820 --> 00:00:37.800
+going to be borrowed and the other one is going to be a result itself. So this is going to be
+
+00:00:38.840 --> 00:00:49.400
+both applied for a result of a minus b operation. If we have 0 minus 0, the result is 0 and we
+
+00:00:49.400 --> 00:00:57.520
+need not to borrow anything. If we have 0 minus 1, that is the most complicated case.
+
+00:00:57.520 --> 00:01:06.380
+In this case, we have to borrow 1, but also our result is going to be 1.
+
+00:01:06.380 --> 00:01:15.380
+If we have 1 minus 0, the result is going to be 1. No borrow, necessary.
+
+00:01:15.380 --> 00:01:20.380
+And 1 minus 1, 0, no borrow.
+
+00:01:20.380 --> 00:01:23.380
+Let us look at a couple of examples that go with this.
+
+00:01:23.380 --> 00:01:38.260
+The first example is 3-bit number. I like to leave an extra space below numbers to write my
+
+00:01:38.260 --> 00:01:44.020
+borrow. For me, that is more intuitive than writing them on top like we did for Carrie.
+
+00:01:46.500 --> 00:02:00.100
+1 minus 1 is 0, so there is no borrow. Those two zeros are total 0. 1 minus 0 is 1. Again,
+
+00:02:00.100 --> 00:02:08.580
+there is no border. These two zeros total, they are zero, zero minus zero, zero, and this is
+
+00:02:08.580 --> 00:02:15.780
+final, final result. To double check always you can go and convert things to decimal.
+
+00:02:18.000 --> 00:02:28.480
+So example number two. Let's try one zero one minus zero zero one.
+
+00:02:28.480 --> 00:02:40.570
+extra space for borrow, the result goes under the line. When we have 0 minus 1 we
+
+00:02:40.570 --> 00:02:51.770
+need to have result 1 but we also have borrow that is 1. 0 and plus 1 is total 1
+
+00:02:51.770 --> 00:03:00.770
+so 1 minus 1 is 0, borrow 0, those two zeros when they add it up they are total
+
+00:03:00.770 --> 00:03:09.410
+zero, so zero minus zero is zero. If you think about this, this is decimal two, this is decimal
+
+00:03:09.410 --> 00:03:23.620
+one, this is decimal one. So far so good. Let's look at other couple of examples. Zero zero zero
+
+00:03:23.620 --> 00:03:32.980
+minus zero zero one. That one is going to be interesting. Okay, we leave space for borrow.
+
+00:03:32.980 --> 00:03:43.690
+if we have 0 minus 1, our result is 1 and we have to borrow 1. Those two
+
+00:03:43.690 --> 00:03:52.050
+numbers are total 1. So again, 0 minus 1, result is 1, we have to borrow 1. Those
+
+00:03:52.050 --> 00:03:58.490
+two are again 1, 0 minus 1, this is 1, we have another one that we are
+
+00:03:58.490 --> 00:04:05.920
+borrowing here. However, result is only 3 bits. Remember what we were talking
+
+00:04:05.920 --> 00:04:20.060
+overflow before. So let's look at the final complicated example. We will have
+
+00:04:20.060 --> 00:04:43.390
+four numbers and we are going to have space for both. 1 minus 1 is 0 and we have
+
+00:04:43.390 --> 00:04:58.650
+0 both. 1 plus 0 is 0, sorry, 1 plus 0 is 1. 0 minus 1 is 1 but we have another one
+
+00:04:58.650 --> 00:05:10.170
+So these two are going to actually make a binary two.
+
+00:05:10.170 --> 00:05:24.650
+So to better understand this example, I'm going to single out this set of two times two bits.
+
+00:05:24.650 --> 00:05:38.340
+So we have, we have 1, 1, minus 0, 1. So these two have to be added to each other. So it's
+
+00:05:38.340 --> 00:06:00.680
+1, 1, minus 1, 0. 1 minus 0 is 1. And 1 minus 1 is 0. You have to notice that by creating
+
+00:06:00.680 --> 00:06:10.480
+this kind of artificial one, that's going to be actually similar to, sorry, it's not going to be similar, it's going to be corresponding to the
+
+00:06:10.480 --> 00:06:28.880
+borrow so 1 minus 1 and 1 is going to be 1 but we will have borrow 1 here 0 plus 1 is 1 so 1 this
+
+00:06:28.880 --> 00:06:40.180
+one minus this one down is 0. One thing that you can notice is that unsigned numbers when you
+
+00:06:40.180 --> 00:06:46.380
+subtract them things can get really complicated and especially they can get
+
+00:06:46.380 --> 00:06:53.440
+complicated because we are not used to binary system and binary borrow that
+
+00:06:53.440 --> 00:06:58.100
+kind of gets it too complicated. Hope this was helpful.
+

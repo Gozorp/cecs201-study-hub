@@ -1,0 +1,353 @@
+WEBVTT
+
+00:00:00.820 --> 00:00:05.420
+Hi, this is Dr. Jelena Trajkovic from the CECS Department at Cal State Long Beach.
+
+00:00:05.420 --> 00:00:15.600
+Don't-care condition is extremely useful, so sometimes we do have a situation where the
+
+00:00:15.600 --> 00:00:23.620
+function is not completely specified.
+
+00:00:23.620 --> 00:00:30.980
+that means what that means is some set of inputs, some set or value, some values
+
+00:00:30.980 --> 00:00:55.120
+of inputs are not possible. So I'm going to write here incompletely specified.
+
+00:00:55.120 --> 00:01:08.910
+Question is can we take advantage of the fact that some inputs are never going
+
+00:01:08.910 --> 00:01:15.150
+to appear in our function? The best way to illustrate this is in an
+
+00:01:15.150 --> 00:01:31.700
+example. We are going to have a knob and this knob is going to have only three
+
+00:01:31.700 --> 00:01:41.540
+levels. One level is going to have value off and other two values are going to be
+
+00:01:41.540 --> 00:01:49.880
+on. We can imagine that this is maybe our stop-top and we have off and we
+
+00:01:49.880 --> 00:01:55.960
+have first on is like low, second on is high, but you're not going to go into
+
+00:01:55.960 --> 00:02:02.040
+this. We just have three different possible inputs.
+
+00:02:02.040 --> 00:02:10.240
+And we can say off is when I am going to assign two bits to represent this. So for
+
+00:02:10.240 --> 00:02:17.280
+off we are going to say that is 0 0. For first on we are going to say that it's
+
+00:02:17.280 --> 00:02:24.560
+to be represented with inputs that are 0, 1. And the second one we are going to represent it as 0, 1, 0.
+
+00:02:25.920 --> 00:02:32.800
+So what that means is that input 1, 1 is never going to be able to appear.
+
+00:02:34.240 --> 00:02:45.760
+Let's look at the truth table and this is our left. 0, 0, 0, 1, 1, 0, 1, 1.
+
+00:02:45.760 --> 00:02:56.600
+So, for this first 0-0 combination, 0 is output, for the second combination, 1, for 31, and
+
+00:02:56.600 --> 00:03:06.240
+then for the fourth one, which is 1-1, corresponds to number 3, we are going to put x.
+
+00:03:06.240 --> 00:03:16.840
+So that x means that we really do not care what is value of f3 going to be when x equals
+
+00:03:16.840 --> 00:03:24.200
+to 1 and y equals to 1. Why we don't care? Because 1, 1 is never going to appear. We
+
+00:03:24.200 --> 00:03:31.080
+can define this function and that's how you are going to get it defined in your lab assignments
+
+00:03:31.080 --> 00:03:43.800
+and your exams is F3 is specified with a set for which F3 is equal to 0 and that is
+
+00:03:43.800 --> 00:03:55.080
+going to be a set that has 0,0. Then set for which f3 is going to be equal to 1,
+
+00:03:55.080 --> 00:04:05.000
+that is two combinations, 0,1 and 1,0. And finally, set where f3 is going to be x,
+
+00:04:05.000 --> 00:04:14.440
+or have don't care, and that is going to be for inputs x,y equals to 1,1. How
+
+00:04:14.440 --> 00:04:23.280
+does that help us? Well, let's look at the keymap. Before that, I just want to
+
+00:04:23.280 --> 00:04:32.320
+point out that because we don't care what is going to be value of this
+
+00:04:32.320 --> 00:04:39.880
+function for input 1 1, we can actually take advantage of that. That is going to
+
+00:04:39.880 --> 00:04:59.980
+be a value that we can treat as 0 or as 1 as needed. I'm making Kmap and it's two cells
+
+00:04:59.980 --> 00:05:11.540
+by two cells and I'm going to put all values. So for 0, 0 function has value 1. For 1, 0
+
+00:05:11.540 --> 00:05:15.060
+it has value one, for zero, one, it has one,
+
+00:05:15.060 --> 00:05:17.360
+and then here it has the X.
+
+00:05:18.840 --> 00:05:23.840
+As I said, X can be treated as zero or as one.
+
+00:05:23.880 --> 00:05:26.960
+So the following thing that I'm going to show you
+
+00:05:26.960 --> 00:05:29.720
+is not something that you're going to do.
+
+00:05:30.860 --> 00:05:34.900
+It is just an explanation for you to understand
+
+00:05:36.100 --> 00:05:37.940
+how can we look into it.
+
+00:05:37.940 --> 00:05:40.500
+So we can have two options.
+
+00:05:40.500 --> 00:05:45.500
+we can have, say, hey, I'm going to assume that X is zero,
+
+00:05:46.460 --> 00:05:51.920
+and hey, I'm going to assume that X is equal to one.
+
+00:05:51.920 --> 00:05:55.380
+Quickly draw a truth table.
+
+00:05:57.060 --> 00:06:03.760
+So if we assume that X is, that X is, sorry,
+
+00:06:07.000 --> 00:06:10.680
+value X in the right corner is zero,
+
+00:06:10.680 --> 00:06:13.720
+this is the truth table that we are going to get.
+
+00:06:13.720 --> 00:06:18.520
+And in this group table, my maximum circles,
+
+00:06:18.520 --> 00:06:21.020
+my largest circles are going to be those two,
+
+00:06:22.080 --> 00:06:24.420
+which is not really a big help,
+
+00:06:24.420 --> 00:06:29.420
+because for this X3 is going to be X, Y prime,
+
+00:06:30.860 --> 00:06:32.420
+description of this term,
+
+00:06:33.940 --> 00:06:38.940
+and X prime Y description of this term.
+
+00:06:40.960 --> 00:06:42.620
+Now we have another possibility.
+
+00:06:42.620 --> 00:06:57.120
+We have a possibility where we will have x, we will assume that x is equal to 1.
+
+00:06:57.120 --> 00:07:00.520
+And here is where magic happens.
+
+00:07:00.520 --> 00:07:06.840
+Because if we do this, we can make grouping this way.
+
+00:07:06.840 --> 00:07:11.840
+we group bottom two terms, or men terms,
+
+00:07:15.760 --> 00:07:20.760
+and for this grouping expression or term is x,
+
+00:07:21.680 --> 00:07:24.640
+and we group the rightmost ones,
+
+00:07:24.640 --> 00:07:28.120
+for this grouping, it's y.
+
+00:07:28.120 --> 00:07:33.120
+So F3 suddenly becomes x, okay,
+
+00:07:33.120 --> 00:07:38.120
+O, K, X, or Y.
+
+00:07:42.090 --> 00:07:47.090
+So this on the right-hand side is an explanation.
+
+00:07:49.210 --> 00:07:51.170
+Below, well, actually not below.
+
+00:07:51.170 --> 00:07:54.090
+On the left-hand side, I'm going to show you
+
+00:07:54.090 --> 00:07:58.930
+how you're going to do quote-unquote solution
+
+00:07:58.930 --> 00:08:03.200
+when you have X.
+
+00:08:03.200 --> 00:08:07.280
+You are going to take this X
+
+00:08:07.280 --> 00:08:09.900
+and you are going to, when it works out,
+
+00:08:09.900 --> 00:08:11.040
+you're going to circle it,
+
+00:08:11.040 --> 00:08:14.160
+but you don't have to circle all Xs.
+
+00:08:14.160 --> 00:08:19.160
+So, here it works for you, and here it works for you.
+
+00:08:20.800 --> 00:08:23.880
+Basically, that means that we are going to take
+
+00:08:23.880 --> 00:08:29.190
+this assumption that X is equal to one.
+
+00:08:29.190 --> 00:08:32.190
+So let us look how to do this in a map,
+
+00:08:32.190 --> 00:08:34.910
+really without breaking down and considering
+
+00:08:34.910 --> 00:08:42.710
+the possible options on the right-hand side. I'm going to have a function and
+
+00:08:42.710 --> 00:08:52.110
+this is another example. I believe that one is four and we have three variables
+
+00:08:52.110 --> 00:09:12.820
+variables, a, b, and c, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1.
+
+00:09:12.820 --> 00:09:23.880
+And our function, f4, is going to simulate like we are rolling a dice.
+
+00:09:23.880 --> 00:09:41.000
+So we are going to roll a die, right now we are going to do one, not more than one, and
+
+00:09:41.000 --> 00:09:46.720
+we are having the simulator for the die and we are going to say, hey, if the number on
+
+00:09:46.720 --> 00:09:57.310
+a die is larger or equal to four, display one.
+
+00:09:57.310 --> 00:10:11.490
+larger equal than 4 that's going to be 4 5 and 6 4 5 and 6 if the number on a die
+
+00:10:11.490 --> 00:10:25.810
+is 3 2 or 1 sorry we are going to output 0 however our die is never ever going to
+
+00:10:25.810 --> 00:10:37.060
+have 0 or 7. So for this tool, we can assume that output is x. To take advantage of x's,
+
+00:10:37.060 --> 00:10:49.570
+we are going to draw a kmap, this three variable kmap, 0, 0, 0, 1, skip 1, 1, 0, go back, 1, 1.
+
+00:10:50.690 --> 00:10:58.130
+We have a, b and c, a is on the left, b and c is on the right. And we are going to look into
+
+00:10:58.130 --> 00:11:09.880
+minterm 0 is going to have x. Minterms 1, sorry, 4, 5 and 6 are going to have
+
+00:11:11.160 --> 00:11:26.130
+1 and 7 is going to have x here for 1, 1, 1, 1. Important thing is, can we take advantage of x?
+
+00:11:26.130 --> 00:11:41.810
+can we make our grouping such that ones are all quote-unquote covered. If we do
+
+00:11:41.810 --> 00:11:49.970
+this, if we do all entire bottom row, we will be assuming that this X here is
+
+00:11:49.970 --> 00:11:58.660
+equal to 1 and the expression for this is going to be equal to, basically
+
+00:11:58.660 --> 00:12:01.540
+because it corresponds to a equals to one,
+
+00:12:01.540 --> 00:12:05.680
+the expression is going to be only a.
+
+00:12:05.680 --> 00:12:11.570
+Now question is, could we have done it differently?
+
+00:12:12.910 --> 00:12:15.630
+Let's go and delete this
+
+00:12:19.510 --> 00:12:23.410
+to get other options and discuss
+
+00:12:23.410 --> 00:12:26.070
+if they are good, bad or not.
+
+00:12:26.070 --> 00:12:32.420
+How about this option?
+
+00:12:32.420 --> 00:12:42.320
+What if we took this together and this together?
+
+00:12:49.130 --> 00:12:57.720
+So we have two product terms rather than one.
+
+00:12:57.720 --> 00:13:10.980
+What if we took this together, this together
+
+00:13:11.100 --> 00:13:12.520
+and this together?
+
+00:13:13.940 --> 00:13:18.700
+Oh my God, we have now three product terms.
+
+00:13:18.700 --> 00:13:23.700
+All of them are ending up being three two more complex
+
+00:13:23.700 --> 00:13:30.860
+complex than than the one in the beginning. So why am I showing you this?
+
+00:13:30.860 --> 00:13:37.820
+I'm showing you this so that you can understand and I understand that this
+
+00:13:37.820 --> 00:13:44.700
+might not be very intuitive and it might not be so easy from the beginning. If you
+
+00:13:44.700 --> 00:13:53.100
+need x in your K-map and if that need comes from from possibility to make
+
+00:13:53.100 --> 00:14:02.100
+larger circling like this you are going to use this X inside of the circle
+
+00:14:02.100 --> 00:14:12.540
+however you don't have you don't have to put a circle around all
+
+00:14:12.540 --> 00:14:28.720
+axis. So the rule is, let's do a rule in red that's going to help us. The rule for axis
+
+00:14:28.720 --> 00:15:02.170
+they're going to call it cover. Cover X only. If it helps you make larger area
+
+00:15:02.170 --> 00:15:24.360
+for circle that has your ones. So that means that we will include this
+
+00:15:24.360 --> 00:15:45.770
+and because this one is not helpful we will not include this x. We will not
+
+00:15:45.770 --> 00:15:52.190
+include this x. We will practice this more in class and we are going to have to
+
+00:15:52.190 --> 00:16:00.310
+practice this in our lab, I believe it's lab 3. Thanks for watching.
+

@@ -1,0 +1,398 @@
+WEBVTT
+
+00:00:00.750 --> 00:00:08.310
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach. So, in class, we used
+
+00:00:08.310 --> 00:00:21.790
+full adders to make 4-bit adders. And please do remember that all of this is a case of unsigned
+
+00:00:21.790 --> 00:00:43.280
+numbers. So what we did is we made this chain of full others where we use one full other
+
+00:00:43.280 --> 00:01:02.460
+for bit 0, other full other for bit 1, next one for bit 2, and the final one for bit 3.
+
+00:01:02.460 --> 00:01:13.380
+thing to notice is that we have carry in for bit zero, oh sorry this is cute, this
+
+00:01:13.380 --> 00:01:21.780
+carry in is actually this particular line, let me go and do it this way, so we
+
+00:01:21.780 --> 00:01:27.540
+have carry in for bit zero and everything that is connected to bit zero
+
+00:01:27.540 --> 00:01:35.060
+is connected to full adder 0, then carry out from 0 is basically carry in for 1
+
+00:01:35.060 --> 00:01:45.580
+and so and so forth. Block diagram for this adder is as shown here. So we just
+
+00:01:45.580 --> 00:01:53.300
+have to specify that all the Bs will be connected to B inputs all the A's to A
+
+00:01:53.300 --> 00:02:03.100
+input and C in and C in is going to go into C in and then C out and S, 3, 2, 1 and 0 are
+
+00:02:03.100 --> 00:02:10.900
+going to be out. You can also have a representation of all of this in a little bit more compact
+
+00:02:10.900 --> 00:02:22.660
+form which is going to be for bit adder and then we are going to have C in, we are going
+
+00:02:22.660 --> 00:02:34.340
+to have B, which is going to be 4 bits, and A, which is going to be also 4 bits, then
+
+00:02:34.340 --> 00:02:49.100
+we are going to have S, 4 bits, and C, out, 1 bit. These two are completely the same.
+
+00:02:49.100 --> 00:02:56.440
+as designer have to think that you know bit zero for V has to connect it to
+
+00:02:56.440 --> 00:03:04.460
+whatever your operand is so bit zero for if you're doing X plus Y using this
+
+00:03:04.460 --> 00:03:11.240
+other Y bit zero has to be connected to B bit zero and so and so forth one thing
+
+00:03:11.240 --> 00:03:23.600
+So now we want to go beyond and use our thinking caps, put on thinking caps and
+
+00:03:23.600 --> 00:03:32.720
+think about how to make actually a circuit that is going to make
+
+00:03:32.720 --> 00:03:39.800
+subtraction. Well, the moment we start talking about subtraction we have to
+
+00:03:39.800 --> 00:03:46.720
+actually acknowledge that we are going to be working with both positive and negative
+
+00:03:46.720 --> 00:03:59.500
+numbers. So we are going to do signed numbers and it's way easier to use two complements
+
+00:03:59.500 --> 00:04:04.500
+than signed in magnitude and that's why we've been sticking to two complements throughout
+
+00:04:04.500 --> 00:04:08.600
+entire class,
+
+00:04:08.600 --> 00:04:09.640
+sign numbers,
+
+00:04:10.640 --> 00:04:25.200
+in two's complement representation.
+
+00:04:25.200 --> 00:04:28.020
+So, let's think a little bit.
+
+00:04:29.460 --> 00:04:34.300
+Because two's complement has positive numbers
+
+00:04:34.300 --> 00:04:37.780
+that start with zero, and have some bits here,
+
+00:04:37.780 --> 00:04:40.060
+and negative numbers that start with one,
+
+00:04:40.060 --> 00:04:42.060
+and have some numbers here.
+
+00:04:42.060 --> 00:04:54.630
+let's say this is remaining 3 bits, are going to hold what is equivalent to the value of
+
+00:04:54.630 --> 00:05:26.690
+the number. If you think about it, for addition, for signed numbers, do they have to do something
+
+00:05:26.690 --> 00:05:33.250
+special to make addition of two numbers irrespective of what they start with. Do
+
+00:05:33.250 --> 00:05:41.650
+they start with the leading 0 or leading 1? No, we didn't. So for addition of
+
+00:05:41.650 --> 00:05:45.730
+numbers that are represented in two's complement, sign numbers that are
+
+00:05:45.730 --> 00:05:55.420
+represented in two's complement, we can use the same adder. Let's say for
+
+00:05:55.420 --> 00:06:17.020
+that we designed in just the last class in the recap right now is for the unsigned numbers.
+
+00:06:17.020 --> 00:06:31.060
+In order to make a circuit for subtraction, we have to remember how did we do subtraction.
+
+00:06:31.060 --> 00:06:39.160
+So what we did when we had subtraction, let's say we had number 5 in the decimal minus 3.
+
+00:06:39.160 --> 00:06:46.960
+we did we said hey we are going to do an extra addition for that a plus minus 3 so
+
+00:06:46.960 --> 00:07:00.330
+in binary version 5 is 0 1 0 1 so that is 5 but we have to make minus 3 so in
+
+00:07:00.330 --> 00:07:14.240
+order to make minus 3 we have first to make plus 3 0 0 1 0 oh sorry 1 and
+
+00:07:14.240 --> 00:07:21.730
+And then we need to flip, add one,
+
+00:07:29.140 --> 00:07:33.840
+and this is the number we got minus three.
+
+00:07:35.380 --> 00:07:38.900
+Now let's go back and think about something.
+
+00:07:38.900 --> 00:07:40.460
+This is all over again,
+
+00:07:40.460 --> 00:07:43.820
+but I really need to emphasize this
+
+00:07:43.820 --> 00:07:46.260
+because this is number plus five
+
+00:07:46.260 --> 00:07:49.460
+and we are using a signed number representation.
+
+00:07:49.460 --> 00:07:52.760
+we had to have at least four bits
+
+00:07:52.760 --> 00:07:55.300
+because leading bit needs to be zero
+
+00:07:55.300 --> 00:08:00.080
+to make sure that this is positive number.
+
+00:08:00.080 --> 00:08:03.020
+Same here, plus three is positive number,
+
+00:08:03.020 --> 00:08:04.480
+but when we make it in two,
+
+00:08:05.400 --> 00:08:09.460
+when we find its two's complement,
+
+00:08:09.460 --> 00:08:13.180
+we see that this number starts with sine minus
+
+00:08:13.180 --> 00:08:17.400
+and that is actually minus three.
+
+00:08:17.400 --> 00:08:27.620
+So we need minimum four bits to represent five,
+
+00:08:34.120 --> 00:08:37.960
+and therefore we are going to use four bits
+
+00:08:37.960 --> 00:08:41.660
+to represent minus three.
+
+00:08:41.660 --> 00:08:47.440
+Okay, let's go back to thinking about subtractor.
+
+00:08:48.340 --> 00:08:51.700
+In general, you know, side note before we go there,
+
+00:08:51.700 --> 00:08:55.700
+I remember that right now is watch out,
+
+00:08:55.700 --> 00:09:02.420
+Watch out because when we are having this minimum number of bits needed to represent
+
+00:09:02.420 --> 00:09:11.660
+something, that means that there are some situations when we are either subtracting
+
+00:09:11.660 --> 00:09:17.640
+or adding numbers and we might be getting a number that cannot fit into the designated
+
+00:09:17.640 --> 00:09:19.140
+number of bits.
+
+00:09:19.140 --> 00:09:21.220
+So remember that is overflow.
+
+00:09:21.220 --> 00:09:26.220
+Okay, so now let's look at how do we do addition.
+
+00:09:28.740 --> 00:09:32.540
+In tools complement, addition is the same
+
+00:09:32.540 --> 00:09:35.820
+as with unsigned numbers.
+
+00:09:37.060 --> 00:09:40.100
+In tools complement, how do we do subtraction?
+
+00:09:41.800 --> 00:09:46.800
+Well, what we do is we take the numbers
+
+00:09:46.800 --> 00:09:58.000
+the numbers, as here you have 5 and 3, and 5 stays as it is, but except your hand has
+
+00:09:58.000 --> 00:10:05.760
+to get its 2th complement. How do we do that? We have to do two things. We have to get
+
+00:10:05.760 --> 00:10:12.320
+to the number, positive value of this number, or desired value of this number. We have
+
+00:10:12.320 --> 00:10:22.160
+to do two steps after that. One is flip and the other step is plus one. When I say flip,
+
+00:10:22.160 --> 00:10:27.360
+we always know that you have to substitute one for zero and zero for one. What is the
+
+00:10:27.360 --> 00:10:35.730
+function that does flip in hardware? Do we have a gate that does flip? So if you put
+
+00:10:35.730 --> 00:10:39.430
+one at not gate
+
+00:10:39.430 --> 00:10:41.630
+that one is going to become zero
+
+00:10:41.630 --> 00:10:44.190
+and if you have zero
+
+00:10:44.190 --> 00:10:47.510
+at not gate that one is going to become one
+
+00:10:47.510 --> 00:10:51.450
+so flipping is done using
+
+00:10:51.450 --> 00:10:56.710
+just one little not gate
+
+00:10:56.710 --> 00:11:00.940
+okay fantastic
+
+00:11:00.940 --> 00:11:04.560
+so we need to know how to do flip
+
+00:11:04.560 --> 00:11:07.020
+we have to do plus one
+
+00:11:07.020 --> 00:11:12.020
+So here is the way that we are going to try to do subtraction.
+
+00:11:13.740 --> 00:11:18.740
+We are going to use the same hardware that we just designed,
+
+00:11:21.260 --> 00:11:26.300
+which is, and we are going to do the example of,
+
+00:11:26.300 --> 00:11:36.160
+so we are going to have a four-bit adder,
+
+00:11:36.160 --> 00:11:40.860
+and we are going to have A3, A2, A1,
+
+00:11:46.840 --> 00:12:18.260
+And then we are going to have B3, B2, B1, B0, C in, C out, S3, S2, S1, and S0.
+
+00:12:18.260 --> 00:12:33.960
+So suppose that we want to use 4-bit number x, so I'm going to use like very look like
+
+00:12:33.960 --> 00:12:48.820
+annotation and 4-bit number y, binary number y, and we want to do x minus y.
+
+00:12:48.820 --> 00:12:51.620
+What are we going to do here?
+
+00:12:51.620 --> 00:12:55.780
+I would advise you to pause and think how to connect
+
+00:12:55.780 --> 00:13:01.450
+this using the circuit that we already have.
+
+00:13:01.450 --> 00:13:05.110
+So, if we take the...
+
+00:13:05.110 --> 00:13:08.170
+let us apply the same logic that we did
+
+00:13:08.170 --> 00:13:11.570
+as we would do this by hand.
+
+00:13:11.570 --> 00:13:15.410
+When we were looking at 5
+
+00:13:15.410 --> 00:13:21.960
+we just applied that 5, we even used that 5
+
+00:13:21.960 --> 00:13:24.080
+in our
+
+00:13:24.080 --> 00:13:31.170
+addition, sorry, a subtraction. I'm sorry, I never followed through with that
+
+00:13:31.170 --> 00:13:34.150
+operation which was supposed to be
+
+00:13:34.150 --> 00:13:37.570
+0 1 0 1 and then
+
+00:13:37.570 --> 00:13:40.370
+1 1 0 1
+
+00:13:40.370 --> 00:13:42.950
+and then we add those two
+
+00:13:42.950 --> 00:13:45.010
+1 and 1 is 0
+
+00:13:45.010 --> 00:13:46.770
+carry 1
+
+00:13:46.770 --> 00:13:49.370
+2 0s add 1
+
+00:13:49.370 --> 00:13:51.170
+is 1
+
+00:13:51.170 --> 00:13:55.090
+carry 0
+
+00:13:55.090 --> 00:13:57.690
+0 and 2 1s is 0
+
+00:13:57.690 --> 00:14:09.360
+carry one and two ones are zero, we have another carry one. Do we have overflow? No, those two
+
+00:14:09.360 --> 00:14:23.680
+are the same. So here we took five as is, we took three, flip and add one and we used
+
+00:14:23.680 --> 00:14:38.800
+add operation. Now, imagine that we have x in place of 5, y in place of 3, and we have
+
+00:14:38.800 --> 00:14:48.860
+4-bit adder to perform our addition. So, x is going to be supplied to a, and we are going
+
+00:14:48.860 --> 00:15:04.300
+supply it as is x of 3, x of 2, x beat 1, and x beat 0. Now what did we need to do
+
+00:15:04.300 --> 00:15:13.540
+with the 3? We needed to flip it. How do we flip it? Using NOT gate. So here
+
+00:15:13.540 --> 00:15:22.260
+Here we are going to have a NOT gate for Y of 3.
+
+00:15:22.260 --> 00:15:43.030
+We have another input, NOT gate for Y of 2, NOT gate for bit 1 for Y, and NOT gate for
+
+00:15:43.030 --> 00:15:47.760
+bit 0.
+
+00:15:47.760 --> 00:16:01.100
+The only thing that we are missing is plus 1, but we have here 1 available input, and that is C in.
+
+00:16:01.100 --> 00:16:10.100
+So we are going to put the R code value 1 to the input C in.
+
+00:16:10.100 --> 00:16:24.760
+The result is going to be a result for y minus x, so let's call it, you can call it S0, I'm going to just put it as a result.
+
+00:16:24.760 --> 00:16:44.300
+R0, R1, R2, and R3, and we are going to have another C out.
+
+00:16:44.300 --> 00:16:45.300
+Hope this was helpful.
+

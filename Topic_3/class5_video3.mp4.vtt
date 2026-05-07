@@ -1,0 +1,173 @@
+WEBVTT
+
+00:00:01.330 --> 00:00:08.010
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach. Next topic that we are
+
+00:00:08.010 --> 00:00:17.090
+going to talk about are timing diagrams. In general, timing diagram will show us how do
+
+00:00:17.090 --> 00:00:27.230
+outputs or how does an output change over time. And we here have some generic inputs but you
+
+00:00:27.230 --> 00:00:39.110
+might get values on the input signals at any given time to use in problems like this.
+
+00:00:39.110 --> 00:00:45.950
+So we are going to first start with two circuits that we already learned. Basically they have
+
+00:00:45.950 --> 00:00:56.070
+only one gate and that is, as you see here on the left hand side, that is an end gate.
+
+00:00:56.070 --> 00:01:06.610
+So I gave values for a between t is equal to 0 to t is equal to 10 to be equal to 0,
+
+00:01:06.610 --> 00:01:14.110
+b is equal to 0 as well, and then in this next time interval from 10 to 20, a is equal
+
+00:01:14.110 --> 00:01:17.750
+to 1, b is equal to 0, and so on and so forth.
+
+00:01:17.750 --> 00:01:23.430
+What we need to do is we need to break down each interval, I mean the timing diagram
+
+00:01:23.430 --> 00:01:32.350
+into each interval and observe the inputs. So we have 0 and 0. That is going to create
+
+00:01:32.350 --> 00:01:47.310
+output 0. 0 and 1. That is going to create output 0. 0 and 1. Another 0 and 1 and 1.
+
+00:01:47.310 --> 00:01:54.870
+Finally we got one. It is important that while you are drawing these
+
+00:01:54.870 --> 00:02:01.430
+diagrams that you very very clearly annotate and show which level is 0 and
+
+00:02:01.430 --> 00:02:08.070
+which level is 1. They need to be clearly pointed out. Second example is going to
+
+00:02:08.070 --> 00:02:15.950
+be OR gate. So for OR gate we have in the first time interval and notice here
+
+00:02:15.950 --> 00:02:25.590
+I didn't really specify what is the duration of each interval. Two zeros are 0 and in the
+
+00:02:25.590 --> 00:02:35.790
+second interval we have at least one 1 which is here. So here the output is 1, 0 and 1
+
+00:02:35.790 --> 00:02:48.710
+is 1 and 1 and 1 is 1. Now when we have a little bit more complex circuit as the one
+
+00:02:48.710 --> 00:02:55.990
+given below, we first need to do some prep work. And prep work is we have to annotate
+
+00:02:55.990 --> 00:03:02.550
+the output of each gate. So we are going to start from node gate, output of node gate
+
+00:03:02.550 --> 00:03:10.070
+is going to be assigned a variable p, output on the top end gate we are going to call it q,
+
+00:03:10.710 --> 00:03:18.260
+and on the bottom one we are going to call r. Knowing that, we are going to go and start
+
+00:03:18.260 --> 00:03:25.940
+building our timing diagram. So I already assumed, showed that there are some values for a and b.
+
+00:03:26.660 --> 00:03:31.940
+Let's look at now each part of the, sorry, each point of the
+
+00:03:34.740 --> 00:03:41.780
+diagram that we just annotated, basically output of each gate. What are the values for p, q, and
+
+00:03:41.780 --> 00:03:54.300
+R. Let's look first for P. P is related to A, because P is not A. So in the first portion
+
+00:03:54.300 --> 00:04:02.860
+of my diagram, it is going to be 1. In the second portion of the diagram, where basically
+
+00:04:02.860 --> 00:04:12.060
+in second time interval is going to be 0, then it is going to be 1 and then 0, because
+
+00:04:12.060 --> 00:04:24.720
+All the time that I'm drawing P, I'm actually looking at A because P is equal not A. Next
+
+00:04:24.720 --> 00:04:41.810
+one is going to be Q. For Q, the inputs are P and B. So, let's change color. So, P and
+
+00:04:41.810 --> 00:04:46.330
+B are input for Q, zero and one.
+
+00:04:48.050 --> 00:04:50.450
+We can do this interval by interval,
+
+00:04:50.450 --> 00:04:57.090
+which is P, B, B is a zero.
+
+00:04:57.090 --> 00:05:00.090
+The moment something is zero and it's input to AND gate,
+
+00:05:00.090 --> 00:05:01.370
+it's going to be zero.
+
+00:05:02.690 --> 00:05:07.210
+Or we can look into the timing diagrams and say,
+
+00:05:07.210 --> 00:05:12.010
+is there a place in this timing diagram
+
+00:05:12.010 --> 00:05:23.060
+where both b and p are equal to 1. And that is this timing interval here. So before that
+
+00:05:24.660 --> 00:05:35.300
+and after that all is equal to zero. Please feel free to go interval by interval if that is
+
+00:05:35.300 --> 00:05:49.420
+prefer the way for you. Let's look at R. What is R dependent on? R is A and B.
+
+00:05:49.420 --> 00:06:18.000
+Okay, so R, we're looking at a and b. 0 and 0 is 0. 0 and 1 is 0. 0 and 1 is again 0.
+
+00:06:18.000 --> 00:06:45.300
+And final interval, 1 and 1 is 1. And y, so y is, sorry, dark green, y is output on OR gate,
+
+00:06:45.300 --> 00:07:05.830
+And OR is between Q and R. So OR gate is 1 at any moment when either of the inputs are
+
+00:07:05.830 --> 00:07:22.870
+So 0 or 0 is 0, 0 and or 0 is 0, 1 or 0 is 1, 1 or 0 is 1. So our final timing
+
+00:07:22.870 --> 00:07:31.790
+diagram has quite a few different values shown. So we have values on the inputs
+
+00:07:31.790 --> 00:07:39.260
+some what let's call them intermediate values which are the values in certain
+
+00:07:39.260 --> 00:07:48.380
+points of the circuit and then output values. Please do also read the chapter
+
+00:07:48.380 --> 00:07:52.700
+basic circuits drawing conventions because you will be needing it
+
+00:07:52.700 --> 00:07:58.420
+throughout the course and some of that we already have used here and that is for
+
+00:07:58.420 --> 00:08:17.400
+example and this point that we have let me just delete this at this point that
+
+00:08:17.400 --> 00:08:28.740
+we have big dot and connection here and from A we have big dot but we cross
+
+00:08:28.740 --> 00:08:36.110
+these lines but that doesn't mean that they are connected, they're next to
+
+00:08:36.110 --> 00:08:43.850
+each other and you will see that that is shown in the chapter.
+
+00:08:43.850 --> 00:08:51.690
+Another thing that I might use, especially that my drawing with free hand on laptop is not great,
+
+00:08:51.690 --> 00:09:06.970
+when there is no connection I might use this instead of this. Only this will represent connection.
+
+00:09:06.970 --> 00:09:08.810
+Thanks for watching.
+

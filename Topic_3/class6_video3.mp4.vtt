@@ -1,0 +1,137 @@
+WEBVTT
+
+00:00:01.680 --> 00:00:11.680
+Hi, this is Dr. Jelena Trajkovic from the CECS Department at Cal State Long Beach. We have several more properties to mention, so let's keep on going.
+
+00:00:11.680 --> 00:00:33.580
+First one is going to be commutative property. For this one we have one for AND, we are going to have FOR operator.
+
+00:00:33.580 --> 00:00:41.580
+And for AND, it is going to be A and B is the same as B and A.
+
+00:00:41.580 --> 00:00:57.050
+For OR, it's going to be A OR B is B OR A.
+
+00:00:57.050 --> 00:01:03.050
+In terms of drawing designs using gates,
+
+00:01:03.050 --> 00:01:11.050
+That means that really it doesn't matter which input is connected to which variable,
+
+00:01:11.050 --> 00:01:16.050
+the output is going to be the same.
+
+00:01:16.050 --> 00:01:39.370
+Through tables, I'm going to request you do it as a self-study.
+
+00:01:39.370 --> 00:01:46.370
+Remember, you want to prove that the left-hand side is equal to the right-hand side,
+
+00:01:46.370 --> 00:01:50.130
+so you're going to have two variables
+
+00:01:50.130 --> 00:01:54.780
+and then you're going to have a, b,
+
+00:01:54.780 --> 00:02:01.280
+and b, a, and do all the possible combinations of it.
+
+00:02:06.690 --> 00:02:10.250
+Aside of, alongside with commutative,
+
+00:02:10.250 --> 00:02:11.970
+we have another property,
+
+00:02:11.970 --> 00:02:20.810
+which is like existence of null element.
+
+00:02:20.810 --> 00:02:27.220
+And then this one is also for and and for or.
+
+00:02:27.220 --> 00:02:46.520
+For AND operator, A and 0 is equal to 0, and for OR, OR and 1 is equal to 1.
+
+00:02:46.520 --> 00:02:58.420
+For this, I'm going to leave it to you to make gates, but I'm going to quickly make root tables.
+
+00:02:58.420 --> 00:03:18.570
+So 0 and 0 is 0, 0, 1 and 0 is 0, so the output is 0 as well.
+
+00:03:19.530 --> 00:03:23.290
+Same here. A, we have 1, these are two inputs.
+
+00:03:23.970 --> 00:03:29.530
+I'm putting quotation marks just to make sure to emphasize that there is
+
+00:03:30.850 --> 00:03:35.630
+that this is value 1.
+
+00:03:36.990 --> 00:03:39.430
+It doesn't look like L or something like that.
+
+00:03:39.430 --> 00:03:54.930
+0 or 1 is 1, 1 or 1 is 1, and definitely the result is equal to 1.
+
+00:03:54.930 --> 00:04:08.940
+Next property that deserves new color is called idempotent.
+
+00:04:08.940 --> 00:04:16.700
+I do break my funk every time to try to pronounce that.
+
+00:04:16.700 --> 00:04:30.330
+So the property is, as such, a, or a, is always going to be a, and, or and, is always going
+
+00:04:30.330 --> 00:04:34.930
+to be, oh, a, and and, is always going to be a.
+
+00:04:34.930 --> 00:04:47.930
+Again, quick proof table, this time I'm going to combine both of them, so 0 and 1, a, or
+
+00:04:47.930 --> 00:05:02.740
+a 0 or 0 is 0 1 or 1 is 1 and that is definitely the same as a now I'm going
+
+00:05:02.740 --> 00:05:22.100
+to do the second one here a and a is equal to a 0 and 0 is 0 1 and 1 is 1
+
+00:05:22.100 --> 00:05:34.140
+Again, this is equal to a. And second to last, before we pause for the next video, is going
+
+00:05:34.140 --> 00:05:57.750
+to be an associative property. So associative property has also two forms. One is for and,
+
+00:05:57.750 --> 00:06:11.710
+which shows that A and B and C is absolutely the same as A and B and C, and the other one
+
+00:06:11.710 --> 00:06:22.110
+is for OR, which shows if we group A or B and then we do OR with C, it's absolutely
+
+00:06:22.110 --> 00:06:31.430
+the same as we have A, or B, or C. This is actually nice to know when we are drawing
+
+00:06:31.430 --> 00:06:37.890
+diagrams, so I'm going to first draw the one with OR, which means that if we have A, B,
+
+00:06:37.890 --> 00:06:49.810
+and C, if we first do A or B, and we do after that OR C, that is going to be equivalent
+
+00:06:49.810 --> 00:07:07.850
+to A that is going to be OR with the result of B or C. I think it was this color and draw
+
+00:07:07.850 --> 00:07:22.320
+the one for AND. We can do AND of A and B and do AND of C. That is going to give absolutely
+
+00:07:22.320 --> 00:07:35.560
+the same result as if we first do AND of B and C and then do AND with A. These two are
+
+00:07:35.560 --> 00:07:40.120
+completely equivalent and they are actually even equivalent to the number of gates. So
+
+00:07:40.120 --> 00:07:46.200
+it really doesn't matter. I hope this helps and we are going to move on to the last
+
+00:07:46.200 --> 00:07:49.360
+that you're going to cover in the next video.
+
+00:07:49.360 --> 00:07:50.200
+Thank you.
+

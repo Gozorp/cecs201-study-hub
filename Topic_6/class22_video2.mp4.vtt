@@ -1,0 +1,251 @@
+WEBVTT
+
+00:00:00.780 --> 00:00:08.780
+Hi, this is Dr. Jelena Trajkovic, Cal State Long Beach CECS Department. So, let us design our first counter.
+
+00:00:08.780 --> 00:00:21.780
+We are going to design a 3-bit counter that counts up. So, the counter is not going to have any data inputs.
+
+00:00:21.780 --> 00:00:26.780
+So, we are not going to load anything in it. It is going to have certain control signals.
+
+00:00:26.780 --> 00:00:37.780
+So first, we are going to assume that we have a clock CLK signal and we have reset signal
+
+00:00:37.780 --> 00:00:44.780
+because our very basic block that we are going to use for building counter is registered.
+
+00:00:44.780 --> 00:00:51.340
+So registers will have asynchronous reset, but maybe very specific.
+
+00:00:51.340 --> 00:00:58.740
+means no matter when the reset becomes active everything goes to zero so it
+
+00:00:58.740 --> 00:01:05.020
+doesn't depend on clock. Now we are going to have a couple of other control
+
+00:01:05.020 --> 00:01:11.940
+signals. First signal that we are going to define is clear signal CLR and when
+
+00:01:11.940 --> 00:01:20.180
+clear is equal to 1 we are going to synchronously clear the content of our
+
+00:01:20.180 --> 00:01:30.580
+counter which means if clear is equal to 1 and on positive edge of clock the
+
+00:01:30.580 --> 00:01:38.940
+content of a counter is going to be put to all zeros so we clear the counter.
+
+00:01:38.940 --> 00:01:50.520
+Now if clear is equal to 0 and if count is equal to 1 the counter will start
+
+00:01:50.520 --> 00:01:54.600
+counting and because we said that we are going to design counter up it is going
+
+00:01:54.600 --> 00:02:01.360
+to increment the values one by one. Let's define the outputs that we want to
+
+00:02:01.360 --> 00:02:16.510
+produce. So we are going to have two outputs one is going to be C, output C
+
+00:02:16.510 --> 00:02:30.680
+which is going to be the value of the counter content of the counter and then
+
+00:02:30.680 --> 00:02:45.770
+we are going to have TC. It stands for terminal count. So this particular, so
+
+00:02:45.770 --> 00:02:55.550
+this, if we are making a 3-bit counter, C is going to be 3-bit as well. And terminal
+
+00:02:55.550 --> 00:03:12.440
+count is just 1-bit. And TC is going to be 1. When counter reaches its maximum
+
+00:03:12.440 --> 00:03:39.460
+terminal value before wrapping around so let's think a little bit about TC
+
+00:03:39.460 --> 00:03:51.100
+before we start drawing any images so C is going to go through sequence 0 0 0 0
+
+00:03:51.100 --> 00:04:09.280
+0 0 1 0 1 0 and then 1 1 0 1 1 1 and the next one is 0 0 0. So our value when we
+
+00:04:09.280 --> 00:04:18.920
+need to generate TC is 1 1 1. So what is going to be a min term that is going to
+
+00:04:18.920 --> 00:04:35.720
+create one when input bits are 1 1 1. So TC as a function of bits 0, C1 and C2 is going to be
+
+00:04:35.720 --> 00:04:55.360
+C2 and C1 and C0. Remember when we have a vector we can have access to each bit of
+
+00:04:55.360 --> 00:05:06.200
+that vector just by using the index. So this is a min term for TC. So okay we
+
+00:05:06.200 --> 00:05:13.400
+are going to use a multifunctional register which we covered in class and
+
+00:05:13.400 --> 00:05:31.750
+that multifunctional register is going to have two control signals for clear
+
+00:05:31.750 --> 00:05:40.590
+and for load. How are we going to now load things when we don't have external
+
+00:05:40.590 --> 00:05:45.590
+load? Well we have to do something inside the counter. Okay so because we
+
+00:05:45.590 --> 00:05:53.440
+need 3-bit register we are going to sorry we need 3-bit counter we will need to
+
+00:05:53.440 --> 00:06:05.750
+use 3-bit register and and then this 3-bit register is going to have clear
+
+00:06:05.750 --> 00:06:20.460
+and load it is also going to have a clock and a synchronous reset so what do
+
+00:06:20.460 --> 00:06:36.360
+we do every time so this is the 2 to 0 this is C 2 to 0 and we are expecting to
+
+00:06:36.360 --> 00:06:54.830
+make TC it's supposed to be C every time that we need to go we encounter new
+
+00:06:54.830 --> 00:07:04.310
+clock cycle we have to take all the value that is stored in register and we
+
+00:07:04.310 --> 00:07:20.940
+have to add one to it so this is an incrementer so we can make it like that
+
+00:07:20.940 --> 00:07:32.160
+or we can make a box that has I and C inside so input and this is three bits
+
+00:07:32.160 --> 00:07:49.660
+this is three bits. Now this value is going to also be provided on output. We
+
+00:07:49.660 --> 00:07:58.940
+need to take TC and TC is going to be taken as we take each bit from those
+
+00:07:58.940 --> 00:08:05.900
+three bits here. TC is not going to be inside of a register I'm sorry about
+
+00:08:05.900 --> 00:08:16.360
+that it's going to be inside of the counter and to be precise actually we
+
+00:08:16.360 --> 00:08:19.980
+we can say, okay, register is going to have Q output
+
+00:08:19.980 --> 00:08:22.820
+and the counter is going to have C output.
+
+00:08:22.820 --> 00:08:24.800
+It's not really that big of a deal.
+
+00:08:25.660 --> 00:08:29.640
+So we're going to take each of those three bits separately.
+
+00:08:31.020 --> 00:08:34.380
+Not that this is a great drawing.
+
+00:08:34.380 --> 00:08:37.920
+You can alternatively do this,
+
+00:08:38.780 --> 00:08:41.300
+but I kind of want it to be a little bit more obvious.
+
+00:08:41.300 --> 00:08:46.140
+So this is Q of zero, Q of one,
+
+00:08:46.360 --> 00:08:55.800
+and Q of two so we have those three bits put them in an add gate and we are going
+
+00:08:55.800 --> 00:09:15.800
+to generate TC and this one and finally we are going to connect clear and LD so
+
+00:09:15.800 --> 00:09:45.940
+C and then C and T here. The counter itself is going to be a circuit that is enclosed
+
+00:09:45.940 --> 00:10:05.590
+in the orange outline. The block diagram is going to be as follows. So we are going to
+
+00:10:05.590 --> 00:10:23.540
+have three bit counter and it counts up we are going to have clear input we are
+
+00:10:23.540 --> 00:10:34.600
+going to have count input we are going to have clock reset these are all inputs
+
+00:10:34.600 --> 00:10:41.440
+then we are going to have TC 1-bit terminal count and we are going to have
+
+00:10:41.440 --> 00:11:04.360
+C220 3-bit output. Let us go back talk a little bit how this counter works. So if
+
+00:11:04.360 --> 00:11:20.480
+If clear is equal to 1, everything inside clear equals to 1, content Q inside of the
+
+00:11:20.480 --> 00:11:30.920
+register is going to be 000.
+
+00:11:30.920 --> 00:11:40.480
+Now the moment clear becomes 0, nothing is going to happen, the content is going to become
+
+00:11:40.480 --> 00:11:52.030
+to stay 0, 0, 0. Also, that content, because it's Q, that content is on these output lines
+
+00:11:53.630 --> 00:12:13.880
+here. So, when Q is 0, C is 0 and TC is 0, because we have 0 and 0 and 0 are going to give us 0.
+
+00:12:13.880 --> 00:12:22.720
+Now the same applies here because the output is the same. Now if clear is equal
+
+00:12:22.720 --> 00:12:32.080
+to 0 and load is equal to 1, sorry, count is equal to 1, count equals to 1 makes
+
+00:12:32.080 --> 00:12:41.470
+load equal to 1. cnt from the outside is going to be equal to ld, it's going to be
+
+00:12:41.470 --> 00:12:53.360
+equal to 1. When that happens, the value is here to start with 0, 0, 0. So that value
+
+00:12:53.360 --> 00:13:08.770
+here is 0, 0, 0. Then value here is 0, 0, 1. On the next positive clock edge, that
+
+00:13:08.770 --> 00:13:20.970
+0 0 1 is going to hop inside of the register so Q 2 2 0 will become 0 0 1 and
+
+00:13:20.970 --> 00:13:37.320
+therefore C 2 2 0 will become 0 0 1 and TC is still going to be 0. So shortly
+
+00:13:37.320 --> 00:13:44.960
+Shortly after this positive clock edge, we are going to change.
+
+00:13:44.960 --> 00:13:55.280
+So I'm going to actually do something here, and I'm going to change to a different color.
+
+00:13:55.280 --> 00:14:05.980
+Now shortly after the positive edge, this number will change into 001.
+
+00:14:05.980 --> 00:14:14.680
+This number here, it's the same value, it's going to be changed to 001.
+
+00:14:14.680 --> 00:14:22.520
+This number here is going to change to 010.
+
+00:14:22.520 --> 00:14:34.200
+What do we need in order for this 010 to make it inside of the register?
+
+00:14:34.200 --> 00:14:47.720
+So we need clear to remain 0, count equals load to remain 1, and we need a next positive
+
+00:14:47.720 --> 00:14:50.220
+clock edge.
+
+00:14:50.220 --> 00:15:02.210
+at that time Q will become 0 1 0 and shortly after that C 2 2 0 will become
+
+00:15:02.210 --> 00:15:14.470
+0 1 0. In class we are going to make a couple of other flavors of counters the
+
+00:15:14.470 --> 00:15:22.550
+one that has load and the one that has down counter and we are going to
+
+00:15:22.550 --> 00:15:25.190
+continue with timers in next video. Thank you for watching!
+

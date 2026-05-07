@@ -1,0 +1,287 @@
+WEBVTT
+
+00:00:01.100 --> 00:00:07.100
+Hi, this is Dr. Jelena Trajkovic from the CECS Department at Cal State Long Beach.
+
+00:00:07.100 --> 00:00:15.100
+Today we are going to start with introduction to Verilog. So let us first introduce identifiers and keywords.
+
+00:00:15.100 --> 00:00:25.100
+Identifiers are designed defined names and they are used for constructs such as modules, input or output ports.
+
+00:00:25.100 --> 00:00:32.100
+They have to start with an uppercase or lowercase letter or an underscore.
+
+00:00:32.100 --> 00:00:39.860
+This one character can be followed by any number of letters, digits, underscores or
+
+00:00:39.860 --> 00:00:41.460
+dollar signs.
+
+00:00:41.460 --> 00:00:49.900
+Beware, Verilog is case sensitive and these two variables where e is capital in this
+
+00:00:49.900 --> 00:00:56.200
+one and en is capital in the second one are treated as two completely separate
+
+00:00:56.200 --> 00:01:02.920
+variables. Alongside identifiers we do have keywords. They are part of language.
+
+00:01:02.920 --> 00:01:10.260
+They are words like module, input and output. These words are not allowed to be
+
+00:01:10.260 --> 00:01:16.660
+used over identifiers. Complete list of keywords can be find in the chapter of
+
+00:01:16.660 --> 00:01:26.470
+of xiBook listed in the bottom module is a basic building block of the language its syntax is such
+
+00:01:26.470 --> 00:01:36.630
+that you first have word module and at the end you have word end module one word your compiler
+
+00:01:36.630 --> 00:01:48.070
+shows all the sorry your editor in Rivado shows all the keywords in purple afterward module
+
+00:01:48.070 --> 00:01:55.610
+you need to give a name for the module, so basically it's going to be module-identified,
+
+00:01:55.610 --> 00:01:59.690
+and in the parentheses there is a set of input and output ports.
+
+00:01:59.690 --> 00:02:04.330
+This list can be empty or it can have multiple input and output.
+
+00:02:04.330 --> 00:02:07.850
+Sometimes port can be also both input and output ports.
+
+00:02:07.850 --> 00:02:15.530
+So after keyword that determines if port is input or output, we have
+
+00:02:15.530 --> 00:02:24.810
+size of the port if the port is different than only one bit as carry is here and then we have the
+
+00:02:24.810 --> 00:02:34.810
+identifier for the input and output port. After the parentheses and semicolon the body of the
+
+00:02:34.810 --> 00:02:42.010
+module is described here. The question is when does the module get to work? Most of the time I
+
+00:02:42.010 --> 00:02:44.370
+I will actually use term,
+
+00:02:44.370 --> 00:02:47.690
+when does the module get re-evaluated?
+
+00:02:47.690 --> 00:02:52.330
+Well, it does get to be re-evaluated
+
+00:02:52.330 --> 00:02:56.570
+if at least one of the inputs change its value.
+
+00:02:57.870 --> 00:03:00.650
+So let us look at the body of the module.
+
+00:03:00.650 --> 00:03:02.050
+In the body of the module,
+
+00:03:02.050 --> 00:03:06.290
+we first present signal declarations
+
+00:03:06.290 --> 00:03:08.890
+for all the internal signals in the module,
+
+00:03:08.890 --> 00:03:11.850
+and that can be followed by any number
+
+00:03:11.850 --> 00:03:15.930
+of continuous assignment statements, as shown here,
+
+00:03:15.930 --> 00:03:21.520
+or module instantiations that will be introduced later.
+
+00:03:21.520 --> 00:03:24.240
+So signals, when they are declared a layer,
+
+00:03:24.240 --> 00:03:28.360
+they have to first show the type, data type of the signal,
+
+00:03:29.320 --> 00:03:32.560
+and they have to show the signal name in the end.
+
+00:03:32.560 --> 00:03:36.840
+If the signal width is different than zero,
+
+00:03:36.840 --> 00:03:41.360
+sorry, than one, then the range and the total,
+
+00:03:41.360 --> 00:03:45.960
+that implies the total size of the bits in the signal
+
+00:03:45.960 --> 00:03:48.000
+is shown in between.
+
+00:03:49.320 --> 00:03:54.320
+You can declare one variable at a time,
+
+00:03:54.680 --> 00:03:58.520
+or as shown here, you can declare multiple of that.
+
+00:03:58.520 --> 00:04:03.520
+So this is both W0 and W1 are wires of the size of one bit.
+
+00:04:05.120 --> 00:04:08.920
+Signals are usually used for assignment statements,
+
+00:04:08.920 --> 00:04:10.560
+as shown here.
+
+00:04:10.560 --> 00:04:13.840
+but also they are used for module instantiations.
+
+00:04:13.840 --> 00:04:16.180
+Module instantiation is actually,
+
+00:04:18.300 --> 00:04:20.920
+module instantiation is actual,
+
+00:04:20.920 --> 00:04:25.080
+for module instantiation we use it to connect modules
+
+00:04:25.080 --> 00:04:27.720
+which are basically circuit parts
+
+00:04:27.720 --> 00:04:29.680
+to each other using this virus.
+
+00:04:31.200 --> 00:04:36.040
+Important thing about signals is they do not keep values.
+
+00:04:36.040 --> 00:04:38.960
+So whatever is on the right hand side
+
+00:04:38.960 --> 00:04:41.980
+And when this value changes,
+
+00:04:41.980 --> 00:04:44.440
+the value of the left-hand side of the signal
+
+00:04:44.440 --> 00:04:46.900
+gets re-evaluated and becomes a new value.
+
+00:04:48.900 --> 00:04:51.300
+We also need to know that by default,
+
+00:04:51.300 --> 00:04:55.960
+all input and output ports are declared as wires.
+
+00:04:55.960 --> 00:05:00.760
+They can be redefined afterwards here,
+
+00:05:00.760 --> 00:05:04.160
+but this needs to be redefined.
+
+00:05:04.160 --> 00:05:06.640
+This redefinition has to be explicit.
+
+00:05:06.640 --> 00:05:11.180
+So you basically, you have to explicitly say register
+
+00:05:11.180 --> 00:05:12.100
+and so on and so forth.
+
+00:05:12.100 --> 00:05:14.160
+You will see those examples later.
+
+00:05:17.010 --> 00:05:19.990
+So after, inside of body of the module,
+
+00:05:19.990 --> 00:05:22.730
+after signal declaration,
+
+00:05:22.730 --> 00:05:27.730
+we can have some number of continuous assignment statements.
+
+00:05:27.730 --> 00:05:29.570
+Continuous assignment statements
+
+00:05:29.570 --> 00:05:32.850
+always start with keyword assign.
+
+00:05:32.850 --> 00:05:34.490
+And then on the left hand side,
+
+00:05:34.490 --> 00:05:43.450
+there is a signal name followed by assignments operator and on the right hand side is expression.
+
+00:05:43.450 --> 00:05:53.730
+When will any of those assignments data be re-evaluated? Any time that any of the signals
+
+00:05:53.730 --> 00:06:00.250
+on the right hand side inside of expression changes its value, then that's when this
+
+00:06:00.250 --> 00:06:07.390
+is going to be re-evaluated, kind of re-computed, and then the value of the signal itself on
+
+00:06:07.390 --> 00:06:14.970
+the left hand side will potentially change its value. It is very important to understand
+
+00:06:14.970 --> 00:06:21.490
+that these signal assignment statements, even though they are written one after another,
+
+00:06:21.490 --> 00:06:30.130
+do not need to execute sequentially. They actually model parts of circuits and they
+
+00:06:30.130 --> 00:06:39.130
+connections. And basically, in that scenario, by hybrid description language,
+
+00:06:39.130 --> 00:06:47.130
+they do not need to execute in order. What does that mean? Suppose that value
+
+00:06:47.130 --> 00:06:54.930
+of i and 0 changes. When value of i and 0 changes, this expression is going to be
+
+00:06:54.930 --> 00:07:03.130
+re-evaluated, a new value is going to be assigned to temp out. Out and carry get
+
+00:07:03.130 --> 00:07:11.090
+to be assigned as portions of temp out. But we are not ever going to be certain
+
+00:07:11.090 --> 00:07:18.610
+if this assignment statement or this assignment statement is going to be done
+
+00:07:18.610 --> 00:07:23.330
+before each other. They are theoretically actually going to be
+
+00:07:23.330 --> 00:07:28.020
+be executed at the very same moment.
+
+00:07:28.020 --> 00:07:29.780
+If you look at the right-hand side
+
+00:07:29.780 --> 00:07:32.280
+of the continuous assignment statement,
+
+00:07:33.660 --> 00:07:38.660
+usually what is placed there is an expression.
+
+00:07:38.680 --> 00:07:41.860
+The expressions are combination
+
+00:07:41.860 --> 00:07:45.180
+of variables and operands.
+
+00:07:45.180 --> 00:07:47.580
+And for example, here in this example,
+
+00:07:47.580 --> 00:07:50.580
+operand is plus for addition.
+
+00:07:50.580 --> 00:07:53.180
+But full list of operands,
+
+00:07:53.180 --> 00:07:59.340
+one that is quite well organized can be found down here on the link before.
+
+00:07:59.340 --> 00:08:03.830
+Thank you.
+

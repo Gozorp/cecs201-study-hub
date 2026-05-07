@@ -1,0 +1,122 @@
+WEBVTT
+
+00:00:01.260 --> 00:00:07.100
+Hi, this is Dr. Jelena Trajkovic at CECS Department, Cal State Long Beach.
+
+00:00:07.100 --> 00:00:22.460
+So far, in the previous mini-lecture, we have seen how to convert a number from radix to some
+
+00:00:22.460 --> 00:00:24.340
+different color.
+
+00:00:24.340 --> 00:00:29.620
+So we started from binary to decimal, and then we had another example from hexadecimal to
+
+00:00:29.620 --> 00:00:30.620
+decimal.
+
+00:00:30.620 --> 00:00:50.670
+so this was number conversion base r to decimal. Now we are going to look at the opposite
+
+00:00:51.710 --> 00:01:25.150
+and we are going to go and focus on conversion of binary and we are going to do from decimal
+
+00:01:25.150 --> 00:01:37.980
+sorry to binary. The best is to learn from the example because it is going to be easier to
+
+00:01:37.980 --> 00:01:46.700
+comprehend than if we do it in a general procedure. Actually I have never done a general procedure.
+
+00:01:46.700 --> 00:02:04.020
+So, for example, and I believe it's 4 in this series, is convert number 41 in decimal into x,
+
+00:02:04.020 --> 00:02:14.620
+and we are going to see what x is. That is that is my line. So, to do that we have to start with
+
+00:02:14.620 --> 00:02:21.460
+a little table that looks like this. Here we are going to put integer part and
+
+00:02:21.460 --> 00:02:43.500
+here we will be putting remainder and we will start, this is double line, we will
+
+00:02:43.500 --> 00:02:49.600
+start with the number that we want to convert. So this is 41 and this is in the
+
+00:02:49.600 --> 00:02:54.560
+decimal system so because it's a binary system we will start dividing it by 2.
+
+00:02:54.560 --> 00:03:21.210
+so 41 divided by 2 is 20. That's not 20 exactly. What is left over is 1. 20
+
+00:03:21.210 --> 00:03:39.380
+divided by 2 is 10. Reminder is, which is missing a here, is 0. 10 divided by 2
+
+00:03:39.380 --> 00:03:54.280
+is 5 we have another zero that is remainder 5 divided by 2 is 2 but we
+
+00:03:54.280 --> 00:04:12.040
+have 1 here 2 divided by 2 is 1 nothing left over 1 divided by 2 is 0 and we
+
+00:04:12.040 --> 00:04:19.910
+have one here. Now super important thing and I'll take the contrasting color is
+
+00:04:19.910 --> 00:04:27.520
+the number on your right is going to be your binary number and you're going to
+
+00:04:27.520 --> 00:04:35.960
+read it in this direction basically from bottom to top. So this is going to be
+
+00:04:35.960 --> 00:04:50.240
+this is going to be your leftmost bit so it's 1 0 1 0 0 1 in binary that is our
+
+00:04:50.240 --> 00:05:03.560
+41 decimal quadratic in binary. Same procedure is going to be done for basis 8 or for
+
+00:05:03.560 --> 00:05:14.280
+basis 16 and we will be practicing in class all the time. As an added bonus,
+
+00:05:14.280 --> 00:05:27.800
+first we will be fixing the grammar here and spelling. We will be looking at some
+
+00:05:27.800 --> 00:05:36.560
+also commonly used terms that you might have heard of, but in general what is
+
+00:05:36.560 --> 00:05:43.920
+important to know are powers of two and we already did that. Two to the power of
+
+00:05:43.920 --> 00:05:52.900
+zero is one, two to the power of one is two, two to the power of two to the
+
+00:05:52.900 --> 00:06:03.460
+power of two is four, three is eight and so and so forth. But we have some special
+
+00:06:03.460 --> 00:06:08.760
+annotations and they are introduced to be kind of similar to what we are
+
+00:06:08.760 --> 00:06:16.380
+looking in the run-art decimal world and that is that 2 to the power of 10 is
+
+00:06:16.380 --> 00:06:27.360
+referred as a kilo then 2 to the power of 20 is referred to as and kilo is
+
+00:06:27.360 --> 00:06:50.530
+going to have only K is mega, 2 to 30 is giga, with G, 2 to 40 is tera.
+
+00:06:50.530 --> 00:07:07.440
+I'm not sure that one has two R's. So if I, that is another example, if I say that we
+
+00:07:07.440 --> 00:07:18.480
+have 4 kilo bits somewhere. What do we actually have? 4 is 2 to the power of 2
+
+00:07:18.480 --> 00:07:31.690
+and kilo is 2 to the power of 10 that is 2 to the power of 12 and that is total
+
+00:07:31.690 --> 00:07:52.900
+of 4096. Do not forget, byte is composed of 8 bits and something that is not really very
+
+00:07:52.900 --> 00:08:03.620
+much used, but still I would like you to know the terminology, nibble is half a byte, 4
+
+00:08:03.620 --> 00:08:14.500
+This is all for this mini lecture. I hope you enjoyed it and we will practice more in class.
+

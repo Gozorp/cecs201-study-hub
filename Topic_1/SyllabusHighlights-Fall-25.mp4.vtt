@@ -1,0 +1,602 @@
+WEBVTT
+
+00:00:02.610 --> 00:00:14.610
+Hi there, this is Dr. Jelena Trajkovic and we are going to look into some important things about syllabus and I'll point you to the things that you would really need to check out.
+
+00:00:14.610 --> 00:00:21.610
+So let's get going. So first and foremost, we are going to use Canvas to manage our course.
+
+00:00:21.610 --> 00:00:30.610
+We are going to put all the announcements, course content, and you're going to submit most of your deliverables using Canvas.
+
+00:00:30.610 --> 00:00:41.490
+and watch out, your grades on Canvas is not going to be comprehensive because Canvas is not going
+
+00:00:41.490 --> 00:00:47.890
+to have, most likely, not going to have xiBook grades. We will try to incorporate it if possible,
+
+00:00:47.890 --> 00:00:56.530
+but also we are computing, you know, final and midterm grade using a formula that I'm going to
+
+00:00:56.530 --> 00:01:02.690
+talk about in a little while and that is something that canvas cannot support. So therefore,
+
+00:01:02.690 --> 00:01:13.410
+your canvas grade is not a valid grade and does not reflect all of your deliverables.
+
+00:01:14.770 --> 00:01:20.050
+I need to remind you that all the materials that you are going to get are copyrighted,
+
+00:01:20.050 --> 00:01:25.410
+not just the book, but the materials that I am providing to you, so please do not share them or
+
+00:01:25.410 --> 00:01:29.570
+play load them to any website because that is going to be copyright violation.
+
+00:01:30.930 --> 00:01:34.530
+Please do email me anytime that you have any questions.
+
+00:01:34.530 --> 00:01:43.010
+My email is jelena.trikovic at csculb.edu. It's preferably an email rather than sending
+
+00:01:43.010 --> 00:01:50.290
+Canvas message because if you do so you can put CCS201 in subject and that is going to draw my
+
+00:01:50.290 --> 00:01:57.810
+attention immediately. I do respond within 48 hours excluding weekends and holidays. If by any
+
+00:01:57.810 --> 00:02:04.450
+chance I do not get back to you or do not make an announcement close to this 48 hours, please
+
+00:02:04.450 --> 00:02:16.290
+recent maybe the mail just got somewhere lost. We are going to have office hours and that is
+
+00:02:16.290 --> 00:02:23.490
+a great way for you to get help. We'll arrange office hours in person. Please refer to syllabus
+
+00:02:23.490 --> 00:02:30.930
+four times and we might have it in our lab classroom or in my office ECS 539.
+
+00:02:31.650 --> 00:02:39.890
+In addition to that, we can have a generous amount of by appointment office hours which are going to
+
+00:02:39.890 --> 00:02:42.970
+to be either in person or in Zoom.
+
+00:02:42.970 --> 00:02:47.170
+When you're writing to me to ask for appointment,
+
+00:02:47.170 --> 00:02:50.930
+please provide all your availability
+
+00:02:50.930 --> 00:02:53.250
+and indicate if you are on campus
+
+00:02:53.250 --> 00:02:56.850
+available for in-person meeting or you would prefer Zoom.
+
+00:02:56.850 --> 00:02:59.370
+And that is going to open more options
+
+00:02:59.370 --> 00:03:04.370
+and I'll try to get back to you as soon as possible.
+
+00:03:06.050 --> 00:03:09.170
+We can create class Slack or Discord channel,
+
+00:03:09.170 --> 00:03:10.730
+most likely Discord,
+
+00:03:10.730 --> 00:03:13.370
+but that is something that you need to request
+
+00:03:13.370 --> 00:03:17.090
+and me and ISA's need to be added to this
+
+00:03:17.090 --> 00:03:20.850
+just for academic integrity reasons
+
+00:03:20.850 --> 00:03:24.030
+and that's why no other channels are allowed.
+
+00:03:25.930 --> 00:03:28.530
+For this course, we are going to use Xibook
+
+00:03:28.530 --> 00:03:30.850
+and Xibook has been customized
+
+00:03:30.850 --> 00:03:33.450
+and always we update those customizations.
+
+00:03:34.450 --> 00:03:39.050
+Great reference book is a digital design fifth edition
+
+00:03:39.050 --> 00:03:43.890
+by Maurice Mano and you can check it out at the library.
+
+00:03:43.890 --> 00:03:47.170
+It has really good examples there.
+
+00:03:47.170 --> 00:03:51.930
+So that is about the materials for the class.
+
+00:03:51.930 --> 00:03:55.570
+But for the lab, we will ask you to bring your own computer
+
+00:03:55.570 --> 00:04:01.570
+and we'll need you to have Windows operating system installed.
+
+00:04:01.570 --> 00:04:05.690
+Linux might work, but we don't have Linux computer
+
+00:04:05.690 --> 00:04:10.690
+and therefore we can't support it,
+
+00:04:12.390 --> 00:04:17.390
+iOS basically max and new max also they do not work
+
+00:04:20.810 --> 00:04:25.810
+because when we start synthesizing after lab three
+
+00:04:26.710 --> 00:04:29.230
+or basically with lab three,
+
+00:04:29.230 --> 00:04:30.790
+we are not going to be able,
+
+00:04:30.790 --> 00:04:33.350
+you're not going to be able to synthesize your design
+
+00:04:33.350 --> 00:04:36.150
+and that is a super important part.
+
+00:04:37.310 --> 00:04:40.110
+Additional equipment is going to be an FPGA board,
+
+00:04:40.110 --> 00:04:41.950
+this is hands-on course,
+
+00:04:41.950 --> 00:04:46.950
+and the board that we are going to use is Nexus A700T.
+
+00:04:47.210 --> 00:04:49.830
+You can loan this from the department,
+
+00:04:49.830 --> 00:04:53.070
+from me basically, you will find loan agreement,
+
+00:04:53.070 --> 00:04:54.590
+and we will check it out,
+
+00:04:54.590 --> 00:04:56.030
+and you will need to return it
+
+00:04:56.030 --> 00:04:58.510
+in order to have your grades submitted.
+
+00:04:58.510 --> 00:04:59.670
+Or you can purchase,
+
+00:04:59.670 --> 00:05:01.710
+we can also provide you with instructions
+
+00:05:01.710 --> 00:05:04.510
+how to purchase with some discount for students.
+
+00:05:05.650 --> 00:05:07.290
+So let's continue with labs.
+
+00:05:08.610 --> 00:05:12.290
+Before each lab, we are going to ask you
+
+00:05:12.290 --> 00:05:14.890
+to perform some learning activities,
+
+00:05:14.890 --> 00:05:16.850
+basically to watch videos.
+
+00:05:16.850 --> 00:05:19.010
+Those videos are going to teach you
+
+00:05:19.010 --> 00:05:21.330
+about digital design concepts
+
+00:05:21.330 --> 00:05:25.090
+that we are going to reinforce in this particular lab
+
+00:05:26.090 --> 00:05:27.850
+about the language which is Verilog
+
+00:05:27.850 --> 00:05:29.750
+and tool which is Vivato.
+
+00:05:29.750 --> 00:05:32.810
+And to verify your knowledge,
+
+00:05:32.810 --> 00:05:34.470
+you're going to have to do a quiz.
+
+00:05:34.470 --> 00:05:38.470
+Quiz is going to be due right before
+
+00:05:38.470 --> 00:05:40.850
+beginning of each lab assignment.
+
+00:05:40.850 --> 00:05:43.670
+And we are going to have eight lab assignments.
+
+00:05:43.670 --> 00:05:46.230
+Each lab assignment is done individually.
+
+00:05:46.230 --> 00:05:49.070
+However, for purpose of demoing,
+
+00:05:50.230 --> 00:05:51.870
+you will be assigned in Teams
+
+00:05:51.870 --> 00:05:55.630
+and each team is going to perform them.
+
+00:05:55.630 --> 00:06:00.470
+assignment content and due dates will be posted on canvas.
+
+00:06:00.470 --> 00:06:03.790
+Watch out, the assignment file is revealed
+
+00:06:03.790 --> 00:06:07.050
+only after you're done watching all the videos
+
+00:06:07.050 --> 00:06:09.130
+and after you're done doing the quests.
+
+00:06:10.370 --> 00:06:12.230
+So that is before.
+
+00:06:12.230 --> 00:06:16.350
+Now, during the time that you do the assignment,
+
+00:06:16.350 --> 00:06:17.910
+you're going to perform activities,
+
+00:06:17.910 --> 00:06:19.910
+you're going to have your deliverables.
+
+00:06:20.910 --> 00:06:25.390
+For submission, you are going to submit a copy
+
+00:06:25.390 --> 00:06:28.190
+of your report, individual report,
+
+00:06:28.190 --> 00:06:33.190
+and all .v and .xzc files to Canvas.
+
+00:06:33.710 --> 00:06:35.630
+You're going to be very familiar
+
+00:06:35.630 --> 00:06:38.310
+with those files in a little while.
+
+00:06:40.230 --> 00:06:42.870
+When we are talking about a lab report,
+
+00:06:42.870 --> 00:06:45.690
+you're going to get a template that is on Canvas.
+
+00:06:46.990 --> 00:06:51.470
+And the, your report has in the template
+
+00:06:51.470 --> 00:06:55.070
+all the listed sections, which we expect you to include.
+
+00:06:55.390 --> 00:07:01.630
+as well and sentence. I certify that this submission is my original work and below that
+
+00:07:01.630 --> 00:07:08.350
+is there is space for your signature. Basically, we are ensuring academic integrity with this.
+
+00:07:10.350 --> 00:07:17.470
+So, once you are done, you know, performing your lab and after the due date,
+
+00:07:17.470 --> 00:07:27.830
+lab instructor and our ISAs are going to post the schedule and within the two weeks of due
+
+00:07:27.830 --> 00:07:35.270
+date maximum, we usually will do it within a week or a week and a half, you will demo.
+
+00:07:35.270 --> 00:07:42.190
+So each team will get a demo slot and we will ask you certain questions about how you
+
+00:07:42.190 --> 00:07:48.750
+did a lab and you will have to show us what you did, but also we will ask you certain concepts to
+
+00:07:48.750 --> 00:07:55.950
+clarify on maybe using pen and paper, e-pen or e-paper, so please do have that in order to be
+
+00:07:55.950 --> 00:08:05.820
+able to do your demo. In addition to that, every Sunday at 11.59 you are going to have
+
+00:08:06.940 --> 00:08:12.060
+homework assignments that are going to be done individually and they are going to be posted on
+
+00:08:12.060 --> 00:08:20.300
+xiBooks. The only exception is that first week, because sometimes obtaining xiBooks
+
+00:08:20.300 --> 00:08:26.860
+gets a little bit complicated, first week's assignment and second week assignment are going
+
+00:08:26.860 --> 00:08:33.900
+to be due at the end of second week, so to give a little bit more time. However, I'm
+
+00:08:35.740 --> 00:08:41.180
+really advocating that you do first week assignment, if possible, during that first week.
+
+00:08:43.370 --> 00:08:53.210
+We will give each student per request one extension of 48 hours and we don't need to
+
+00:08:54.170 --> 00:08:59.770
+know the reason why you need this extension. That is applicable to homework,
+
+00:09:01.770 --> 00:09:10.170
+class quizzes, lab quizzes, lab submissions but not for exams and it needs to be requested
+
+00:09:10.170 --> 00:09:19.210
+by the due date. So if you're asking for extension for your homework assignments,
+
+00:09:19.210 --> 00:09:25.770
+it is going to be due on Tuesday at 11.59. Unfortunately, we are not going to be able to
+
+00:09:25.770 --> 00:09:31.210
+give any partial credit for late submission of any of your work, but we might give you
+
+00:09:31.210 --> 00:09:36.810
+a feedback for your late lab demo. So how do you prepare for class?
+
+00:09:36.810 --> 00:09:46.090
+As you saw that class is being flipped, you're going to have a set of videos that we will ask
+
+00:09:46.090 --> 00:09:52.250
+you to watch and it's super important that you take notes during those during watching those
+
+00:09:52.250 --> 00:09:58.890
+videos. Then based on those notes and what you learn you're going to take quiz and when you
+
+00:09:58.890 --> 00:10:07.450
+come to class, each person by themselves or with the, you know, in kind of very loose collaboration
+
+00:10:07.450 --> 00:10:13.930
+with people you are in team with, you will work on the problems and those problems are going to
+
+00:10:13.930 --> 00:10:21.130
+reinforce the knowledge and clarify any misunderstandings that we might have during
+
+00:10:21.130 --> 00:10:25.770
+watching the videos. We are, of course, going to have answer any questions that you have
+
+00:10:25.770 --> 00:10:31.730
+and also we will ask you to share the work on the whiteboard in the class so
+
+00:10:31.730 --> 00:10:35.690
+it's not just everyone in their notebooks it's going to be a little bit
+
+00:10:35.690 --> 00:10:42.730
+more dynamic. Please do budget your time because you will need time outside lab
+
+00:10:42.730 --> 00:10:47.610
+and outside class to prepare for that those classes and labs but also to
+
+00:10:47.610 --> 00:10:53.050
+develop your lab solutions test them out and write the report and I request
+
+00:10:53.050 --> 00:10:54.690
+that you will follow the announcements
+
+00:10:54.690 --> 00:10:58.550
+so that we can keep in touch in timely manner.
+
+00:11:00.730 --> 00:11:03.610
+In Cal State Long Beach attendance is mandatory.
+
+00:11:04.930 --> 00:11:08.690
+However, participation is the key to your success.
+
+00:11:08.690 --> 00:11:11.930
+And your attendance is going to be checked randomly
+
+00:11:11.930 --> 00:11:16.930
+by a sign-in in the both class and in the lab.
+
+00:11:17.570 --> 00:11:20.050
+Emitterment final exams are going to be in person
+
+00:11:20.050 --> 00:11:21.970
+and they're going to be synchronous.
+
+00:11:21.970 --> 00:11:25.270
+you'll need to show us your photo ID and sign in
+
+00:11:25.270 --> 00:11:27.990
+as a proof that you have attended the midterm.
+
+00:11:27.990 --> 00:11:32.990
+And if there is something that you could foresee,
+
+00:11:35.710 --> 00:11:40.330
+so there is some, let's say you are someone
+
+00:11:40.330 --> 00:11:43.730
+for jury duty or something similar to that,
+
+00:11:43.730 --> 00:11:48.010
+let me know and we are going to have you do the exam
+
+00:11:48.010 --> 00:11:51.050
+before everyone else in the class.
+
+00:11:51.050 --> 00:11:54.730
+And if you get sick, of course,
+
+00:11:54.730 --> 00:11:57.530
+get doctor's note and contact me immediately.
+
+00:11:59.250 --> 00:12:01.270
+But what happens with an excuse absences?
+
+00:12:01.270 --> 00:12:03.450
+So we will talk about this over here.
+
+00:12:05.010 --> 00:12:10.010
+So your total lab grade will be 25% of your overall grade.
+
+00:12:12.370 --> 00:12:14.810
+Now, what do we include in that lab?
+
+00:12:14.810 --> 00:12:17.890
+We include quizzes that are done before lab.
+
+00:12:17.890 --> 00:12:21.270
+We include submission of your deliverables,
+
+00:12:21.270 --> 00:12:23.190
+which are your source files,
+
+00:12:23.190 --> 00:12:25.550
+submission of your report,
+
+00:12:25.550 --> 00:12:27.550
+and your lab demo.
+
+00:12:27.550 --> 00:12:29.790
+So that is all going to be 25%.
+
+00:12:29.790 --> 00:12:31.150
+We have homework assignments
+
+00:12:31.150 --> 00:12:33.570
+that are going to be solely in xiBook.
+
+00:12:33.570 --> 00:12:35.070
+We have quizzes.
+
+00:12:35.070 --> 00:12:36.550
+These are class quizzes
+
+00:12:36.550 --> 00:12:38.830
+that you have to do before each class.
+
+00:12:38.830 --> 00:12:40.590
+There's about 25 classes.
+
+00:12:40.590 --> 00:12:44.150
+So 25 quizzes are going to give you 10%.
+
+00:12:44.150 --> 00:12:46.390
+midterm exam is going to be 20
+
+00:12:46.390 --> 00:12:48.590
+and final exam is going to be 33.
+
+00:12:48.590 --> 00:12:51.390
+So before we get to unexcused absences,
+
+00:12:51.390 --> 00:12:54.030
+I need to point out one very important thing.
+
+00:12:55.710 --> 00:13:00.710
+Each student must earn at least 62%
+
+00:13:01.230 --> 00:13:06.150
+of overall lab grade to pass the course.
+
+00:13:06.150 --> 00:13:11.150
+Similarly, the total of midterm plus final,
+
+00:13:11.150 --> 00:13:22.990
+final. So your midterm score times 20% or 0.2, plus final score times 33% or 033.
+
+00:13:22.990 --> 00:13:34.050
+52% of that maximum will be required to pass the course. So you need to show that
+
+00:13:34.050 --> 00:13:40.870
+you have covered sufficient, that you have knowledge of sufficient lab and your
+
+00:13:40.870 --> 00:13:46.030
+radical concept in order to pass the course.
+
+00:13:46.030 --> 00:13:50.510
+In case someone would have six unexcused absences
+
+00:13:50.510 --> 00:13:53.950
+from lab or seminar, that will unfortunately
+
+00:13:53.950 --> 00:13:57.550
+cause that student a minus 5%.
+
+00:13:57.550 --> 00:14:03.150
+And in general, that is to really, really strongly emphasize
+
+00:14:03.150 --> 00:14:06.950
+how participation is important.
+
+00:14:06.950 --> 00:14:09.430
+Now, exams are going to be in person.
+
+00:14:09.430 --> 00:14:13.330
+And please do check a syllabus for the dates.
+
+00:14:13.330 --> 00:14:17.170
+Usually midterm is going to be around end of eight
+
+00:14:17.170 --> 00:14:20.250
+and start of the ninth week of classes.
+
+00:14:20.250 --> 00:14:23.410
+And final is going to be scheduled during the final week.
+
+00:14:23.410 --> 00:14:26.770
+To reiterate, we unfortunately do not have
+
+00:14:28.370 --> 00:14:32.210
+availability to do makeups
+
+00:14:32.210 --> 00:14:34.410
+for either midterm or final exam.
+
+00:14:34.410 --> 00:14:36.270
+However, if you miss your midterm,
+
+00:14:36.270 --> 00:14:39.170
+your final would count instead of the midterm.
+
+00:14:39.430 --> 00:14:51.910
+And now, about grading, so once we total all your grade, it's going to be out of 100%.
+
+00:14:51.910 --> 00:14:58.950
+We do have some opportunities for extra credit, so it's not uncommon that some students get
+
+00:14:58.950 --> 00:15:02.270
+more than 100% as total.
+
+00:15:02.270 --> 00:15:06.910
+So the percentage percent are going to be curved.
+
+00:15:06.910 --> 00:15:13.850
+And here is a link, you can check how curving is done, but in general, we are going to figure
+
+00:15:13.850 --> 00:15:20.550
+out based on success of an overall class, so your grade will depend on your performance,
+
+00:15:20.550 --> 00:15:23.490
+but also on performance of the overall class.
+
+00:15:23.490 --> 00:15:29.610
+So the top part of the bell curve or the rightmost will be A's, the middle will be B's,
+
+00:15:29.610 --> 00:15:36.750
+the left part C's, and far left will be everything that is below C. And we will curve
+
+00:15:36.750 --> 00:15:45.150
+only the last, you know, basically final grade. So I hope this was helpful. Please do review
+
+00:15:45.150 --> 00:15:50.510
+syllabus, you know, in addition to this, and see you shortly. Thank you.
+

@@ -1,0 +1,242 @@
+WEBVTT
+
+00:00:01.260 --> 00:00:07.940
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach. In order to introduce
+
+00:00:07.940 --> 00:00:17.940
+logic gate, we have to first present the theoretical background and that is going to be binary logic.
+
+00:00:17.940 --> 00:00:25.340
+So binary is because we are going to have two states. One is going to be 0, which is going
+
+00:00:25.340 --> 00:00:30.680
+to be false and the other one is going to be 1, which is going to mean true. So in
+
+00:00:30.680 --> 00:00:42.140
+In order to have binary logic we have to have two things, we have to have a set of variables
+
+00:00:42.140 --> 00:00:51.260
+and those variables are going to be able to take two discrete values and that is what
+
+00:00:51.260 --> 00:01:02.500
+I was talking about, true or one and false, zero.
+
+00:01:02.500 --> 00:01:14.970
+that we have to have a set of operators and these set of operators they have
+
+00:01:14.970 --> 00:01:22.130
+certain logical unique. So let's go back to the variables. In order to represent the
+
+00:01:22.130 --> 00:01:30.250
+variables we will be using alphabet letters. We can do A, B, but also we can
+
+00:01:30.250 --> 00:01:43.290
+do, a, b, c, so capital and lowercase letters, both of them are completely, completely okay.
+
+00:01:43.290 --> 00:01:53.170
+The only point is that each of these variables can assume at any given time one of those
+
+00:01:53.170 --> 00:02:10.560
+to values. And for the operators, for the basic ones, we have AND, OR and NOT. They take as
+
+00:02:10.560 --> 00:02:17.160
+an input, well, one of them is going to take an input, other ones are going to have two
+
+00:02:17.160 --> 00:02:24.280
+inputs. They are going to take binary inputs, and they are going to produce binary results.
+
+00:02:24.280 --> 00:02:31.480
+let us go step by step through each of them. As I'm going through that I'm going to introduce
+
+00:02:32.280 --> 00:02:45.240
+a little bit more as I'm coming along. So binary operator and it is going to be represented as
+
+00:02:45.240 --> 00:02:55.400
+dot. Be mindful, it's easy to mix it up with multiplication. So if you think about and
+
+00:02:55.400 --> 00:03:05.560
+The end, the result of end operator is going to be true only if both inputs are true.
+
+00:03:05.560 --> 00:03:17.600
+So when you say, let's say, a and b, very often we can do that even without dot a, b.
+
+00:03:17.600 --> 00:03:35.610
+is 1 only if both a and b are equal to 1, which means 2.
+
+00:03:35.610 --> 00:03:42.530
+We will be continuing working on and underneath, so I will be extending to the side to go into
+
+00:03:42.530 --> 00:03:43.530
+the next operator.
+
+00:03:43.530 --> 00:03:49.300
+The next operator is going to be OR.
+
+00:03:49.300 --> 00:03:54.380
+The sign for OR is going to be plus.
+
+00:03:54.380 --> 00:04:04.300
+the result of OR between two variables is going to be 1 if at least one of the inputs is equal to 1.
+
+00:04:05.100 --> 00:04:22.670
+So if we say A or B, the result is equal to 1 if A equals to 1 or B equals to 1.
+
+00:04:22.670 --> 00:04:36.120
+Mind you, one is, one is means true and then finally we are going to have
+
+00:04:36.120 --> 00:04:44.720
+operator NOT. This one is a little bit different while AND and OR are binary
+
+00:04:44.720 --> 00:04:58.270
+that means they take two inputs. NOT takes only one input, two of them are
+
+00:04:58.270 --> 00:05:15.190
+binary and not is going to be annotated either as apostrophe or as a bar over a
+
+00:05:15.190 --> 00:05:31.920
+variable so let's say that a not or a not the result is equal to one if a is
+
+00:05:31.920 --> 00:05:35.540
+is equal to zero.
+
+00:05:35.540 --> 00:05:41.940
+Now, we have to think about a little bit more
+
+00:05:42.940 --> 00:05:48.540
+formally representing those operators
+
+00:05:48.540 --> 00:05:50.580
+and henceforth, we are moving towards
+
+00:05:50.580 --> 00:05:55.320
+starting to look into gates.
+
+00:05:55.320 --> 00:05:57.680
+We're going to represent each of them
+
+00:05:58.580 --> 00:06:09.370
+using something that is called truth table.
+
+00:06:09.370 --> 00:06:12.810
+Well, truth table is going to give us
+
+00:06:12.810 --> 00:06:15.730
+the result of a function.
+
+00:06:15.730 --> 00:06:20.050
+In this situation, it's going to be an operator,
+
+00:06:20.050 --> 00:06:25.050
+one operator, for all possible combinations of inputs.
+
+00:06:25.810 --> 00:06:30.810
+So for AND, because we have two inputs,
+
+00:06:30.970 --> 00:06:38.890
+let's call them x and y,
+
+00:06:38.890 --> 00:06:43.890
+how many possible values, if x can take value zero and one,
+
+00:06:45.290 --> 00:06:48.050
+and y can take value zero and one?
+
+00:06:48.050 --> 00:06:55.730
+How many rows will I have in this table to represent all possible combinations of x and y?
+
+00:06:55.730 --> 00:07:09.260
+So here we are going to write the output value of x and y.
+
+00:07:09.260 --> 00:07:17.260
+So we will have 0, 0, 0, 1, 1, 0, and 1, 1.
+
+00:07:17.260 --> 00:07:26.340
+And for AND we said only if both of them are true, the result is true.
+
+00:07:26.340 --> 00:07:31.550
+Let's make through table for operator OR.
+
+00:07:31.550 --> 00:07:35.810
+We will take also x and y,
+
+00:07:35.810 --> 00:07:41.310
+x, x,
+
+00:07:41.310 --> 00:07:43.950
+OR y,
+
+00:07:43.950 --> 00:07:48.190
+again four possible combinations
+
+00:07:48.190 --> 00:07:50.310
+of input values.
+
+00:07:50.310 --> 00:07:54.470
+For OR we said, if at least one of the inputs is one,
+
+00:07:54.470 --> 00:07:56.390
+the output is one.
+
+00:07:56.390 --> 00:08:15.760
+Otherwise it's zero.
+
+00:08:15.760 --> 00:08:29.810
+naught is unary operator, so it is going to have only x and x naught, so 0 and 1 and it's
+
+00:08:29.810 --> 00:08:37.010
+an opposite of the input, the result is opposite of the input, this is 1 and this is 0. It
+
+00:08:37.010 --> 00:08:49.710
+is also going to be called complement, where that we have already heard so far. So let
+
+00:08:49.710 --> 00:08:58.710
+us look into electrical representation of electrical circuit that's going to perform
+
+00:08:58.710 --> 00:09:24.720
+all our designated functions. These are called logic gates. Those electrical circuits will
+
+00:09:24.720 --> 00:09:31.760
+have one or more inputs and they will produce the output. So let's start from the last one.
+
+00:09:31.760 --> 00:09:38.760
+The last one is going to be 0, and it's going to have an input.
+
+00:09:38.760 --> 00:09:43.960
+We are going to make a wire making an input into a circuit.
+
+00:09:43.960 --> 00:09:55.520
+Circuit is going to be represented using a triangle that has a little circle at the end.
+
+00:09:55.520 --> 00:10:06.060
+And the output is going to be X0 or X0.
+
+00:10:06.060 --> 00:10:21.210
+us now look into OR. OR has the two inputs. The gate is going to be
+
+00:10:21.210 --> 00:10:39.050
+curved on this side and curve my attempt to make OR gate is always in the
+
+00:10:39.050 --> 00:10:51.810
+another one. So the output of this is X with OR Y. And finally the circuit with
+
+00:10:51.810 --> 00:11:01.590
+the function that we started with is AND. Again we are going to have X and Y. This
+
+00:11:01.590 --> 00:11:12.670
+is flat and this is much more rounded than the one with OR. X and Y.
+
+00:11:12.670 --> 00:11:22.930
+by? Food for thought. How are we going to evaluate a binary expression? So we are going back
+
+00:11:22.930 --> 00:11:45.600
+to binary operators and how are we going to write and evaluate a binary expression? Let's
+
+00:11:45.600 --> 00:11:58.400
+say a binary expression is A and not B. Think about that and think about how to draw a
+
+00:11:58.400 --> 00:12:02.740
+of circuit for this entire expression.
+
+00:12:02.740 --> 00:12:03.580
+Thank you.
+

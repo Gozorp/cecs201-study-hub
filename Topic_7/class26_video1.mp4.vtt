@@ -1,0 +1,281 @@
+WEBVTT
+
+00:00:01.040 --> 00:00:06.300
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach. So today we are going
+
+00:00:06.300 --> 00:00:12.560
+to go through some examples of FSM's and I'm going to present a couple of them in these
+
+00:00:12.560 --> 00:00:19.560
+mini lectures and then we are going to work on some in class. So here is the example why.
+
+00:00:19.560 --> 00:00:30.560
+We are asked to draw a state transition diagram of a Moore FSM state machine that has one
+
+00:00:30.560 --> 00:00:42.280
+input, A, one output out, and two states, LO, which stands for low, and HI, which stands
+
+00:00:42.280 --> 00:00:44.280
+for high.
+
+00:00:44.280 --> 00:00:52.080
+The FSM operation is such that if input is equal to zero, we need to either go to or
+
+00:00:52.080 --> 00:00:54.360
+or stay in state low.
+
+00:00:54.360 --> 00:00:56.720
+If input is equal to one, we have to go to
+
+00:00:56.720 --> 00:01:00.640
+or stay in a state high.
+
+00:01:00.640 --> 00:01:03.980
+Since this is more FSM machine
+
+00:01:03.980 --> 00:01:06.920
+where the output depends on the state,
+
+00:01:06.920 --> 00:01:09.280
+we are going to define that with state low,
+
+00:01:09.280 --> 00:01:13.040
+output is going, output out is equal to zero.
+
+00:01:13.040 --> 00:01:18.040
+And for state high, output out is equal to one.
+
+00:01:18.040 --> 00:01:29.060
+to 1. Now let's look at the the machine itself. So what did it say? How many states do we have?
+
+00:01:37.480 --> 00:01:44.680
+This problem is very well defined, most of it. So we all know by the description of the problem
+
+00:01:44.680 --> 00:01:51.800
+that we have two states. What we don't know is what is the starting state. And we can decide,
+
+00:01:51.800 --> 00:02:11.120
+make a design decision. Low will be starting state. So you're going to make
+
+00:02:11.120 --> 00:02:17.840
+two nice round circles. I probably could have made them even larger and one is
+
+00:02:17.840 --> 00:02:22.360
+going to be low and other one is going to be high. And we made design decision
+
+00:02:22.360 --> 00:02:28.640
+that low is starting state so that means that we have this edge that is coming
+
+00:02:28.640 --> 00:02:37.840
+from quote-unquote nowhere and coming to state low and that is annotating that low is the starting
+
+00:02:37.840 --> 00:02:47.680
+state. So because of the description of problem it says if a is equal to zero we are going to
+
+00:02:47.680 --> 00:02:56.560
+stay or go to low. Well okay as I mentioned previously we have one variable that variable
+
+00:02:56.560 --> 00:03:07.120
+has two potential states. We have to have two outgoing edges for low. One when a is equal to zero
+
+00:03:07.120 --> 00:03:17.600
+and one is when a is equal to one. So okay when a is equal to zero according to a equals to zero
+
+00:03:18.560 --> 00:03:25.520
+if we are in low we are going to stay in low state and we can say on a prime
+
+00:03:26.560 --> 00:03:33.520
+alternatively we can write there on zero. Now what is going to happen if we are in state low
+
+00:03:35.920 --> 00:03:46.960
+and we have to the output that is equal to one if we get output that is one go to state
+
+00:03:50.260 --> 00:04:00.530
+so let's say we do it this way and we check our state low which is here and see that we have two
+
+00:04:00.850 --> 00:04:06.870
+outgoing edges from that state. So we are covering all possible transitions from
+
+00:04:06.870 --> 00:04:17.350
+the state low for all possible combinations of input A. Now we have to
+
+00:04:17.350 --> 00:04:24.910
+do a second part and I'm just kind of going to change the color so that we are
+
+00:04:24.910 --> 00:04:37.330
+a little bit more obvious, so if we are in state high and we get value a, we are going
+
+00:04:37.330 --> 00:05:01.550
+to stay in high. If we are in state high and we get input zero, we go to state low. So
+
+00:05:01.550 --> 00:05:06.550
+That is pretty much it, except we forgot one thing.
+
+00:05:07.730 --> 00:05:09.950
+We didn't define outputs.
+
+00:05:09.950 --> 00:05:14.950
+And outputs, because this is a more FSM,
+
+00:05:17.670 --> 00:05:21.670
+they're going to depend on the state itself.
+
+00:05:21.670 --> 00:05:26.670
+So for state low, output is going to be over zero.
+
+00:05:27.230 --> 00:05:30.110
+For state high, output is going to be one.
+
+00:05:30.110 --> 00:05:38.310
+Let's kind of play a little bit of game and see what happens if we start our FSM.
+
+00:05:38.310 --> 00:05:39.850
+And I'm just going to narrate this.
+
+00:05:39.850 --> 00:05:48.670
+If we start FSM, we are going to go into stay low and our output is going to be low.
+
+00:05:48.670 --> 00:05:56.040
+Now if next thing we get zero, we're going to stay in this same state.
+
+00:05:56.040 --> 00:05:59.160
+The next input is also again zero.
+
+00:05:59.160 --> 00:06:01.600
+We are going to stay in that state again.
+
+00:06:01.600 --> 00:06:04.040
+However, once we get one,
+
+00:06:04.040 --> 00:06:07.080
+we are going to just transition to state high
+
+00:06:07.080 --> 00:06:09.500
+and we are going to start the output one.
+
+00:06:10.600 --> 00:06:13.520
+If the following state is,
+
+00:06:13.520 --> 00:06:16.760
+sorry, if the following input is one,
+
+00:06:16.760 --> 00:06:20.040
+we are going to stay in high and keep output one.
+
+00:06:21.480 --> 00:06:23.240
+If the next state is one,
+
+00:06:23.240 --> 00:06:25.720
+we're going to stay here and keep output one.
+
+00:06:26.040 --> 00:06:30.380
+If the next input is 1, stay in high and keep out at 4.
+
+00:06:31.140 --> 00:06:33.140
+First time when we encounter
+
+00:06:33.600 --> 00:06:38.460
+input 0, we're going to transition to low and produce output 0.
+
+00:06:39.700 --> 00:06:44.100
+If we have input 0,
+
+00:06:44.460 --> 00:06:49.580
+we're going to stay in low and we are going to generate output 0.
+
+00:06:50.400 --> 00:06:52.500
+And that happens forever and ever.
+
+00:06:52.500 --> 00:06:58.900
+Mind you, a couple of things that I'm going to kind of go and with one of them
+
+00:06:58.900 --> 00:07:03.860
+I'm going to remind you from what we did in many lectures, the other one I'm
+
+00:07:03.860 --> 00:07:14.260
+going to jump forward. So first time, very often, FSM's are defined such that
+
+00:07:14.260 --> 00:07:20.060
+only on positive edge of the clock we consider what is the value of input. So
+
+00:07:20.060 --> 00:07:27.340
+that means that we are going to have all sorts of transitions that are going to be between one
+
+00:07:27.340 --> 00:07:35.100
+positive edge of clock and other positive edge of clock. Even when I say, hey, let's say we start
+
+00:07:35.100 --> 00:08:00.120
+with state, we are in state low, and on next, positive edge, for example, A is equal to
+
+00:08:00.120 --> 00:08:11.120
+zero. What happens? Well, we are going to stay in that state low. And only in the following
+
+00:08:11.120 --> 00:08:26.590
+edge. If A changes, if A becomes 1, and it did in our example, we will go to state high.
+
+00:08:27.550 --> 00:08:40.290
+Now, I'm going to show the output here, and this output is going to depend on the state.
+
+00:08:40.290 --> 00:08:45.290
+So here I'll put a zero, here I'll put a zero,
+
+00:08:48.030 --> 00:08:53.940
+this moment out becomes one.
+
+00:08:53.940 --> 00:08:56.100
+The other thing that I said that I'm going to mention
+
+00:08:56.100 --> 00:08:58.040
+with kind of jumping forward,
+
+00:08:58.040 --> 00:09:00.240
+because only next class we are going to do something
+
+00:09:00.240 --> 00:09:02.500
+that is called state encoding.
+
+00:09:02.500 --> 00:09:04.880
+So we have this state that is called low
+
+00:09:04.880 --> 00:09:06.400
+and state that is fall high.
+
+00:09:06.400 --> 00:09:09.060
+We have to represent it somehow in binary form.
+
+00:09:10.000 --> 00:09:18.040
+And that's what is called state encoding.
+
+00:09:18.040 --> 00:09:20.120
+This is just a side note.
+
+00:09:20.120 --> 00:09:25.120
+Sometimes state encoding can be equal to the output
+
+00:09:28.660 --> 00:09:31.420
+that the state is producing.
+
+00:09:31.420 --> 00:09:40.540
+So sometimes we have this equivalent
+
+00:09:40.540 --> 00:09:43.460
+and then we basically do not need to generate
+
+00:09:43.460 --> 00:09:45.940
+yet another value for the output.
+
+00:09:45.940 --> 00:09:47.560
+So that does happen.
+
+00:09:47.560 --> 00:09:48.860
+Just keep that in mind.
+
+00:09:50.340 --> 00:09:51.740
+Next example in the next video.
+
+00:09:51.740 --> 00:09:52.740
+Thanks for watching.
+
+00:09:53.380 --> 00:09:55.380
+Thanks for watching!
+

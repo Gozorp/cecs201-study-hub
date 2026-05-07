@@ -1,0 +1,53 @@
+WEBVTT
+
+00:00:01.330 --> 00:00:07.890
+Hi, this is Dr. Viviana Trajkovic, CECS Department, Cal State Long Beach. Before we start working
+
+00:00:07.890 --> 00:00:14.050
+on two's complement, we need to review addition and binary, because we will be needing that.
+
+00:00:14.050 --> 00:00:33.680
+So let's first go through rules of binary additions, one by one. And it's very, very simple. Sorry,
+
+00:00:33.680 --> 00:00:43.760
+very similar to a decimal. Zero plus zero in binary is zero. Zero plus one in binary is one.
+
+00:00:44.560 --> 00:00:50.560
+One plus zero in binary is one. And things get complicated when we get one plus one
+
+00:00:51.360 --> 00:01:03.200
+because that is zero, but we have carry over this one. So first example, and let's do something
+
+00:01:03.200 --> 00:01:25.870
+that is relatively simple will be 0 0 1 0 and 0 0 0 1. Here 0 plus 1 is 1. We don't have any care.
+
+00:01:26.590 --> 00:01:35.150
+1 plus 0 is 1. We don't have any care. 0 and 0 is 0. No care. 0 and 0 is 0. We have care.
+
+00:01:35.150 --> 00:01:49.060
+the other example that is going to be on the more complicated scale is let's do
+
+00:01:49.060 --> 00:02:03.190
+these two numbers one and one is a zero carry one one and one and zero this is
+
+00:02:03.190 --> 00:02:18.630
+0 carry 1 1 and 0 and 0 is 1 carry 0 0 and 0 and that carry 0 is 1 and last but
+
+00:02:18.630 --> 00:02:35.580
+not least the most complex one is going to be 0 1 1 1 and we are going to add 1
+
+00:02:35.580 --> 00:02:43.860
+to it. It is very very useful regardless of if you do hand carry or not have
+
+00:02:43.860 --> 00:02:57.740
+carry to write it on top of the top addendal. 1 and 1 is 0 carry 1. 1 and 1
+
+00:02:57.740 --> 00:03:10.760
+1 and 0 is 0, carry 1. 1 and 1 is 0, and 0 is 0, carry 1, and we have 1 and 2 zeros is
+
+00:03:10.760 --> 00:03:17.260
+1. I hope this is helpful and I hope that this is going to be useful for you for making
+
+00:03:17.260 --> 00:03:18.580
+this complement. Thank you.
+

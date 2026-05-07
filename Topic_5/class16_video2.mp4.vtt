@@ -1,0 +1,146 @@
+WEBVTT
+
+00:00:01.550 --> 00:00:07.630
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach. So, in order to think
+
+00:00:07.630 --> 00:00:28.030
+about how to add and make the adder itself, we need to recap addition. So, we are right
+
+00:00:28.030 --> 00:00:39.450
+now going to take into account only unsigned numbers. So, we have unsigned numbers and we
+
+00:00:39.450 --> 00:00:42.130
+we are going to talk about unsigned addition
+
+00:00:42.130 --> 00:00:45.570
+and make other that works for this case.
+
+00:00:45.570 --> 00:00:49.370
+Okay, so let's take two numbers as example,
+
+00:00:49.370 --> 00:00:54.370
+zero, one, one, one and zero, one, one, zero.
+
+00:00:56.730 --> 00:01:03.210
+We are going to add, so we need to know how to add bits.
+
+00:01:03.210 --> 00:01:05.170
+And first of all, add two bits.
+
+00:01:05.170 --> 00:01:10.170
+So one and zero is one carry is a zero.
+
+00:01:11.210 --> 00:01:29.650
+0 1 and 1 is 0 carry 1. 1 1 and 1 is 1 carry 1. 1 and 2 zeros is 1 and if you go
+
+00:01:29.650 --> 00:01:38.770
+and look at the decimal value this is plus 7 this is plus 6 decimal and this
+
+00:01:38.770 --> 00:01:47.070
+is plus 13 decimal. Remember all of them are unsigned numbers. So if you start
+
+00:01:47.070 --> 00:01:54.230
+looking at this problem of addition of two numbers from right to left, you can
+
+00:01:54.230 --> 00:02:06.130
+see that we need to figure out how to add two bits. And what two bits is, you
+
+00:02:06.130 --> 00:02:13.570
+have as an input two bits but as an output we are going to have also two bits
+
+00:02:13.570 --> 00:02:22.460
+which is going to be sum and carry. So let's go to work. We are going to design
+
+00:02:22.460 --> 00:02:42.100
+a circuit that is called half adder and half adder is going to take two inputs
+
+00:02:42.100 --> 00:02:51.060
+1 bit of input x, 1 bit of input y, and it's going to produce carry and sum as
+
+00:02:51.060 --> 00:03:11.580
+result. Two inputs, four possible combinations 0 0 0 1, 1 0 1 1. We are going
+
+00:03:11.580 --> 00:03:34.210
+to produce S and C using rules for addition. So, 0 plus 0 has some 0 and carries 0. 0 plus 1
+
+00:03:34.210 --> 00:03:52.370
+have sum 1 and carry 0. 1 plus 0 produce sum 1 and carry 0 and 1 and 1 produce sum
+
+00:03:52.370 --> 00:03:59.410
+that is equal to 0 and carry that is equal to 1. Now let's go back and
+
+00:03:59.410 --> 00:04:04.410
+and remember our functions that have multiple outputs.
+
+00:04:05.890 --> 00:04:08.490
+So these functions that have multiple outputs
+
+00:04:10.050 --> 00:04:13.690
+or circuit that have multiple outputs have,
+
+00:04:13.690 --> 00:04:16.010
+we have to define two expressions.
+
+00:04:17.290 --> 00:04:20.690
+One expression for C and one expression for S,
+
+00:04:20.690 --> 00:04:22.490
+any order that you want.
+
+00:04:22.490 --> 00:04:27.490
+C is equal to minterm that makes C equal to one
+
+00:04:27.490 --> 00:04:38.560
+equal to 1 and that is this min term here and that one is x y and s is going
+
+00:04:38.560 --> 00:04:46.220
+to be equal to sum of min terms that make s equal to 1. These are going to be
+
+00:04:46.220 --> 00:04:59.860
+those two so X prime Y or XY prime hey remember this is XOR so let's
+
+00:04:59.860 --> 00:05:11.260
+implement this using gates and we can implement it using AND or NOT gate or so
+
+00:05:11.260 --> 00:05:38.910
+self-study draw a gate level diagram for half header I'm going to draw a
+
+00:05:38.910 --> 00:06:04.670
+go with level diagram using XOR gate. So X, X or Y is going to produce output S and Y and X
+
+00:06:06.590 --> 00:06:17.310
+are going to produce C. To make sure not to forget the block diagram for half other
+
+00:06:17.310 --> 00:06:27.780
+is going to have either word have either fully written inside or HMA. It's going to
+
+00:06:27.780 --> 00:06:35.200
+have two inputs, you can call them X and Y, you can call them A, B, I1, I2, it doesn't
+
+00:06:35.200 --> 00:06:43.990
+matter because addition is not combination, the input combination for
+
+00:06:43.990 --> 00:06:48.310
+additions are all the same, it's commutative, but the outputs need to be
+
+00:06:48.310 --> 00:07:03.130
+always marked as S as sum and C as carry. So this question for the end of this
+
+00:07:03.130 --> 00:07:12.130
+video before we continue with the next one is, right now I have a half other and
+
+00:07:12.130 --> 00:07:18.770
+why is it half other we're going to see in a moment, but this half other is
+
+00:07:18.770 --> 00:07:32.210
+is capable of taking two input bits and producing two output bits. Can I use this half adder
+
+00:07:32.210 --> 00:07:41.490
+to perform, so basically can I make this one into half adder, but also here and here can
+
+00:07:41.490 --> 00:07:49.130
+I use this half adder for each position of my additional. Put on your thinking caps and
+
+00:07:49.130 --> 00:07:50.650
+I will see you in the next video.
+

@@ -1,0 +1,317 @@
+WEBVTT
+
+00:00:01.710 --> 00:00:08.130
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach. Let's start with another
+
+00:00:08.130 --> 00:00:14.070
+series of mini lectures. Today we are going to talk about several topics. There will be
+
+00:00:14.070 --> 00:00:21.470
+lots of theory and we are going to do corresponding practices in class. So what we learned so
+
+00:00:21.470 --> 00:00:31.590
+far? We learned about binary variables that have two different distinct discrete values.
+
+00:00:31.590 --> 00:00:34.550
+too many descriptions for those.
+
+00:00:34.550 --> 00:00:36.470
+So these are zero and one.
+
+00:00:36.470 --> 00:00:41.470
+And then we learned about mathematical,
+
+00:00:41.950 --> 00:00:46.510
+theoretical apparatus, which is Boolean algebra.
+
+00:00:46.510 --> 00:00:49.630
+And Boolean and binary are very close to each other
+
+00:00:49.630 --> 00:00:52.550
+because in Boolean, we have two values as well.
+
+00:00:52.550 --> 00:00:54.610
+These are false and true.
+
+00:00:54.610 --> 00:00:59.190
+So we can merge them and apply one thing to another.
+
+00:00:59.190 --> 00:01:02.790
+We can apply Boolean algebra to our binary variable,
+
+00:01:02.790 --> 00:01:07.310
+certainly then also zero as false and one as true.
+
+00:01:08.550 --> 00:01:11.510
+So now how do we use this to design circuit?
+
+00:01:11.510 --> 00:01:14.710
+We have this as a theoretical background
+
+00:01:14.710 --> 00:01:17.350
+to show us that we are going to have correct
+
+00:01:17.350 --> 00:01:21.150
+by construction circuits in the end when we make this.
+
+00:01:21.150 --> 00:01:23.710
+So we are going to do circuit design
+
+00:01:23.710 --> 00:01:25.710
+using couple of steps.
+
+00:01:25.710 --> 00:01:36.710
+One is we are going to use relatively simple, simple in appearance, not simple in terms
+
+00:01:36.710 --> 00:01:53.120
+of number of gates, sum of product, sum of products form, and then we are going to use
+
+00:01:53.120 --> 00:01:58.860
+one of the methods is going to be Boolean algebra, other methods we are going to learn
+
+00:01:58.860 --> 00:02:11.590
+next time around we are going to use a ways to simplify. Well, if we need to use some of
+
+00:02:11.590 --> 00:02:23.000
+products we actually need to know what some of products is. So let's start with parts of this
+
+00:02:23.000 --> 00:02:37.210
+name and that is what is a product. It is an expression that has only an operator.
+
+00:02:37.210 --> 00:02:53.910
+It is also referred sometimes as a product term or simply term.
+
+00:02:53.910 --> 00:03:09.350
+So, expression has to have only and. Examples will be A and B not. B not is
+
+00:03:09.350 --> 00:03:18.630
+allowed. Another expression would be a and b and c naught. Remember this is
+
+00:03:18.630 --> 00:03:24.470
+absolutely the same as a, b, c naught because sometimes the little dot is being
+
+00:03:24.470 --> 00:03:31.790
+omitted. So we need to know what is product. Let's find what is sum of products.
+
+00:03:31.790 --> 00:03:45.980
+Well, with sum, we refer to expression that has only or term.
+
+00:03:45.980 --> 00:03:50.980
+So when we put this together, we have to have products.
+
+00:03:50.980 --> 00:04:02.980
+Let's say a and b term, b prime, sorry, a, b, c prime,
+
+00:04:02.980 --> 00:04:12.620
+and then we have some for them. So this is some products or SOP that we are going
+
+00:04:12.620 --> 00:04:23.740
+to deal with. Now quick questions after I ask every question can you please pause
+
+00:04:23.740 --> 00:04:30.540
+the video think about it and then continue after you have made up your
+
+00:04:30.540 --> 00:04:51.050
+mind and you have your own answer to this. Is this a product? Suppose, think, no this
+
+00:04:51.050 --> 00:04:58.430
+is not a product because it has one product, it has other product, it has some. So this
+
+00:04:58.430 --> 00:05:06.110
+entire thing is not a product but it is some of a product. How about now we are going to
+
+00:05:06.110 --> 00:05:11.110
+to do something funky, is this a sum of products?
+
+00:05:19.190 --> 00:05:31.030
+Well, it definitely is a product.
+
+00:05:31.030 --> 00:05:36.030
+It can argue that this is a sum of products
+
+00:05:36.310 --> 00:05:39.910
+because it's not sum of products as plural,
+
+00:05:39.910 --> 00:05:41.870
+it's sum of one product.
+
+00:05:41.870 --> 00:05:46.870
+So this one is yes for being sum of products.
+
+00:05:46.870 --> 00:05:51.870
+It is a corner case of sum of products.
+
+00:05:53.270 --> 00:05:58.270
+How about this one, A and B or C?
+
+00:06:02.770 --> 00:06:07.770
+Well, this is product, but this is not all sum of products.
+
+00:06:08.290 --> 00:06:14.210
+So no for sum of products.
+
+00:06:14.210 --> 00:06:17.150
+An interesting thing about sum of products,
+
+00:06:17.150 --> 00:06:19.750
+and I'm going to change the color of pen,
+
+00:06:19.750 --> 00:06:24.750
+and we are going to go to the right-hand side of our...
+
+00:06:24.830 --> 00:06:26.810
+Well, no, I'll move down.
+
+00:06:29.950 --> 00:06:33.310
+There is something particular about some of products
+
+00:06:33.310 --> 00:06:52.480
+when you are drawing a circuit.
+
+00:06:52.480 --> 00:06:55.120
+Well, this is again a funny one.
+
+00:06:55.120 --> 00:06:57.880
+If we think that this is a product
+
+00:06:57.880 --> 00:07:01.560
+that has just one literal,
+
+00:07:01.560 --> 00:07:03.600
+that is what is or one variable,
+
+00:07:03.600 --> 00:07:11.840
+and this is another product and this is a sum. This is again another very much
+
+00:07:11.840 --> 00:07:17.560
+corner case of sum of products and this one is really really a difficult one
+
+00:07:17.560 --> 00:07:24.720
+because it definitely is also a product of sums which I think you have in your
+
+00:07:24.720 --> 00:07:30.360
+xi box but we are not going to really focus much more on it in the class. So
+
+00:07:30.360 --> 00:07:47.240
+So let's look at this. So this is drawing for a circuit for this very, very funky sum
+
+00:07:47.240 --> 00:08:21.520
+of products. Let's look at the other example. A, B or A, B prime. So A and B and then there
+
+00:08:21.520 --> 00:08:35.840
+or that makes this into sum from sum of products. Another example is a, b or a, c. So I am going
+
+00:08:35.840 --> 00:08:44.040
+overboard with these examples because I want to show you something. So a, b both of them
+
+00:08:44.040 --> 00:08:49.040
+have AND gate, AC also has AND gate
+
+00:08:52.850 --> 00:08:56.270
+and they are merged into OR gate.
+
+00:08:57.570 --> 00:09:01.450
+When you have a sum of product expression,
+
+00:09:04.290 --> 00:09:08.130
+you always, always come.
+
+00:09:08.130 --> 00:09:13.130
+And like I said, the first I'm going to do this way.
+
+00:09:13.610 --> 00:09:15.850
+It doesn't apply to the first one,
+
+00:09:15.850 --> 00:09:24.930
+the first one is corner case or exception you always get two level
+
+00:09:24.930 --> 00:09:39.760
+design. Circuits has two levels and when we say two levels oh I'm sorry I see here
+
+00:09:39.760 --> 00:09:52.280
+that we forgot, not we, I did, forget a NOT gate. When we say about, when we talk
+
+00:09:52.280 --> 00:09:59.200
+about two level design, it is important that you see. So first level here is
+
+00:09:59.200 --> 00:10:05.280
+level where we have AND gates. In the second level, and I'm going to make it
+
+00:10:05.280 --> 00:10:12.280
+this way, we have OR gate. When we talk about two level design, we
+
+00:10:12.280 --> 00:10:18.100
+really skip the little not gate not because it's not important but because
+
+00:10:18.100 --> 00:10:27.220
+not gate usually does not take as much time as and or propagation
+
+00:10:27.220 --> 00:10:36.440
+through not gate does not take that much time. So when we know that the circuit
+
+00:10:36.440 --> 00:10:44.300
+is going to be that the sum of product is always going to generate a circuit in
+
+00:10:44.300 --> 00:10:52.580
+two level form. If you want to make, if you have a requirement to make a
+
+00:10:52.580 --> 00:11:07.910
+circuit, I'm not going to use generate, let's use draw, draw a circuit in two
+
+00:11:07.910 --> 00:11:20.020
+level. I'm not sure that form is the correct term terminology but we are going to call it
+
+00:11:20.020 --> 00:11:27.620
+it in two level form. So you need to know to do a couple of things. First you start with your
+
+00:11:27.620 --> 00:11:52.800
+expression whatever is given and then make it into some of products. Second draw two level
+
+00:11:52.800 --> 00:12:08.880
+to-level-gate-level diagram and use only NOT and OR.
+
+00:12:08.880 --> 00:12:17.200
+And I am being a little bit calculated because usually what you will be doing, you will be
+
+00:12:17.200 --> 00:12:23.360
+really, from left to right, you will be seeing NOT and OR.
+
+00:12:23.360 --> 00:12:34.740
+This video is getting to be a little bit long, but we are going to do this example here is
+
+00:12:34.740 --> 00:12:49.580
+given function y where you have a, b, c, or b prime a, c.
+
+00:12:49.580 --> 00:12:55.800
+In order to make it in sum of product form, so start with given expression, making into
+
+00:12:55.800 --> 00:13:03.480
+sum of product forms, we have to use the laws that we learned last class. So distributive
+
+00:13:03.480 --> 00:13:24.840
+a, b, a, b, b prime, a, c. So now what is happening with b and b prime? b and b prime
+
+00:13:24.840 --> 00:13:38.990
+is going to be zero. So a, b, c, or a and zero, or a, c, a and zero, that is also going to
+
+00:13:38.990 --> 00:14:05.460
+be zero. And we have a, b, c, or a, c. And now we draw the circuit. Can have, we usually
+
+00:14:05.460 --> 00:14:15.300
+have two input gates with two inputs, but we can have three inputs. I believe probably even up to
+
+00:14:15.300 --> 00:14:22.100
+four inputs, but let's try whenever we can, let's try to use two or three input gates.
+
+00:14:22.100 --> 00:14:42.570
+The first one is A, B and C, all of them into end gate and the second one is A, C and I'm
+
+00:14:42.570 --> 00:14:50.850
+going to do something here to make this look a little bit more even because I want to align
+
+00:14:50.850 --> 00:15:03.400
+those and gates just to emphasize that we have two levels and these are connected
+
+00:15:03.400 --> 00:15:12.890
+with OR. Thank you for watching and let's keep going with next mini lecture
+

@@ -1,0 +1,143 @@
+WEBVTT
+
+00:00:01.710 --> 00:00:07.730
+Hi, this is Dr. Jelena Trajkovic from the CECS Department at Cal State Long Beach. The topic
+
+00:00:07.730 --> 00:00:16.080
+of this video is how to create an instance of the module using Verilog. What we do first
+
+00:00:16.080 --> 00:00:23.580
+is we write a code for module. In this code, we can identify ports of the module, input
+
+00:00:23.580 --> 00:00:29.560
+and output, and body of the module. But in order to use it, we need to create an instance
+
+00:00:29.560 --> 00:00:36.600
+of a module. We have already seen in lab 1 that we created an instance of the module inside of test
+
+00:00:36.600 --> 00:00:46.440
+batch where we use this module instance basically to create to test the functionality of the module
+
+00:00:46.440 --> 00:00:54.040
+itself. Also we can use it in structural or hierarchical design inside of the other module
+
+00:00:54.040 --> 00:00:59.420
+and we will talk about this later and use it in future labs.
+
+00:00:59.420 --> 00:01:05.660
+So let us look into test bench itself. Test bench is a wrapper
+
+00:01:05.660 --> 00:01:10.380
+around the module and in test bench we need to create
+
+00:01:10.380 --> 00:01:14.300
+for each input port of the module we need to
+
+00:01:14.300 --> 00:01:18.700
+create a variable of type of register. Bear in mind
+
+00:01:18.700 --> 00:01:23.820
+that a number of bits that this variable has
+
+00:01:23.820 --> 00:01:30.460
+has to be the same as number of bits that input port or output port has
+
+00:01:31.580 --> 00:01:44.220
+in the module that we want to test. Example in 0 has 3 bits 2 to 0 and also carry tb has just one bit
+
+00:01:44.220 --> 00:01:49.220
+and carry has one with two as well.
+
+00:01:49.220 --> 00:01:54.220
+So for inputs, we need to create variables of type of register.
+
+00:01:54.220 --> 00:02:02.220
+For outputs, we need to create variables of type of wires.
+
+00:02:02.220 --> 00:02:05.220
+It is important that the inputs are type of register,
+
+00:02:05.220 --> 00:02:09.220
+because register is variable that can hold the value.
+
+00:02:09.220 --> 00:02:18.340
+After we have been creating the variables here in the variable
+
+00:02:18.340 --> 00:02:20.860
+declaration part of the test bench,
+
+00:02:20.860 --> 00:02:24.580
+we have to create the instance of the module.
+
+00:02:24.580 --> 00:02:26.700
+We have two options to do that.
+
+00:02:26.700 --> 00:02:31.660
+One is connecting by name and the other one is connecting by order list.
+
+00:02:31.660 --> 00:02:36.000
+The option that is preferred for this course is connecting by name,
+
+00:02:36.000 --> 00:02:39.060
+and it is shown in here.
+
+00:02:39.060 --> 00:02:42.780
+As you can see, there is the name of the module,
+
+00:02:42.780 --> 00:02:44.900
+then there is the name of instance,
+
+00:02:44.900 --> 00:02:53.020
+and then there is dot followed by name of the port within module,
+
+00:02:53.020 --> 00:02:54.700
+and in parentheses,
+
+00:02:54.700 --> 00:02:59.340
+there is a name of the variable that is from the test bench.
+
+00:02:59.340 --> 00:03:06.340
+We can repeat that for each input or output port of the module.
+
+00:03:06.340 --> 00:03:14.680
+It is curious to notice that, in this connection by name scheme, the order of appearance of
+
+00:03:14.680 --> 00:03:22.560
+port is not important because they are basically name of the port is connected to name of the
+
+00:03:22.560 --> 00:03:31.280
+variable where basically the port is connected to variable here and there is no ambiguity.
+
+00:03:31.280 --> 00:03:39.800
+This is more work in order to type in all the names of the ports and names of the variable,
+
+00:03:39.800 --> 00:03:42.320
+but it is much more readable.
+
+00:03:42.320 --> 00:03:48.040
+The preferred way of doing this in the course would be the previous one, where the order
+
+00:03:48.040 --> 00:03:50.400
+and the names are all listed.
+
+00:03:50.400 --> 00:03:57.200
+However, there is another way of doing it, and this is connected by order list, where
+
+00:03:57.200 --> 00:04:05.360
+name of the ports of ADD underscore BEH module are omitted, but then the order needs to be
+
+00:04:05.360 --> 00:04:12.880
+exactly the same as the order of appearance of ports when modules declared.
+
+00:04:15.200 --> 00:04:22.240
+This is shorter, but way more error prone method of instantiating modules.
+
+00:04:22.240 --> 00:04:32.600
+As I said, our preferred method will be using the syntax shown in the first example, but
+
+00:04:32.600 --> 00:04:36.640
+for the sake of completion, I wanted to show you and offer you all the options.
+
+00:04:36.640 --> 00:04:37.440
+Thanks for watching.
+

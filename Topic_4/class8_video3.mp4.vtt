@@ -1,0 +1,74 @@
+WEBVTT
+
+00:00:01.260 --> 00:00:08.280
+Hi, this is Dr. Jelena Trajkovic from CECS Department, Cal State Long Beach. Let's discuss a little
+
+00:00:08.280 --> 00:00:14.780
+bit both rules and this example that we have here. So I'm going to redraw the example once
+
+00:00:14.780 --> 00:00:26.100
+again and so one thing to notice and that is something that we already did mention a little
+
+00:00:26.100 --> 00:00:50.230
+it if we have placement like this one can do this grouping however that one is not okay
+
+00:00:50.230 --> 00:00:57.590
+regarding to the row number two because there is larger grouping that you can do with this
+
+00:00:57.590 --> 00:01:06.710
+bottom one so instead of dashed line we will do the circle that encompasses both right
+
+00:01:06.710 --> 00:01:23.780
+handles right hand side once so that is that is x in a way of no it is no because it is will not
+
+00:01:25.140 --> 00:01:42.200
+so dash dash dash will not give us minimal expression another thing that I want to show
+
+00:01:42.200 --> 00:01:51.360
+and that does happen once in a while as a misconception again we have absolutely
+
+00:01:51.360 --> 00:01:59.640
+the same example I'm copying the example from above and we have those three ones
+
+00:01:59.640 --> 00:02:08.520
+and I'm going to do on purpose fire red which is I'm going to use to encompass
+
+00:02:08.520 --> 00:02:19.200
+all three of those ones this is also another no so if you look at those two
+
+00:02:19.200 --> 00:02:26.360
+they are your adjacent to each other if you look at those two they are just
+
+00:02:26.360 --> 00:02:38.940
+adjacent to each other however this one and this one well this one has value
+
+00:02:38.940 --> 00:02:49.500
+zero zero this one has value one one those two are not adjacent that is
+
+00:02:49.500 --> 00:03:01.530
+bringing us to rule number three and I wanted to show you though that in by
+
+00:03:01.530 --> 00:03:15.790
+example first whenever you're making circle your circle always has to have
+
+00:03:15.790 --> 00:03:28.640
+power of two min terms or once in so three is not power of two what you can
+
+00:03:28.640 --> 00:03:35.800
+make you can make zero one thing which is does not explain I mean this circle
+
+00:03:35.800 --> 00:03:43.360
+would not be in there we can have one circle one one in a circle two ones in
+
+00:03:43.360 --> 00:03:52.910
+in a circle, 4 once in a circle and so and so forth as we grow our Kmap.
+
+00:03:52.910 --> 00:03:59.110
+Let us now pause here and move to the 3 variable Kmap in the next video because I don't want
+
+00:03:59.110 --> 00:04:03.270
+the video to be way too long.
+
+00:04:03.270 --> 00:04:03.990
+Thanks for watching.
+

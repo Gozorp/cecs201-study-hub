@@ -1,0 +1,167 @@
+WEBVTT
+
+00:00:01.040 --> 00:00:05.480
+Hi, this is Dr. Jelena Trajkovic, CECS Department at Cal State Long Beach.
+
+00:00:05.480 --> 00:00:15.560
+So, let us move now from binary representing only digits to binary having a little bit different
+
+00:00:15.560 --> 00:00:16.560
+meaning.
+
+00:00:16.560 --> 00:00:20.720
+First example is going to be error-detecting codes.
+
+00:00:20.720 --> 00:00:28.640
+In general, when we are transmitting information, let's say that here T is a transmitter and
+
+00:00:28.640 --> 00:00:39.600
+R is receiver. We can do that using Wi-Fi, Bluetooth, so basically using air or using
+
+00:00:41.760 --> 00:00:49.920
+wired means of communication. Anyways, this is called a communication channel and we transmit
+
+00:00:51.360 --> 00:00:58.400
+either one by one bit or multiple bits at a time from transmitter to receiver.
+
+00:00:58.640 --> 00:01:05.560
+The thing is, no transmission medium is perfect.
+
+00:01:05.560 --> 00:01:23.820
+So in general, here on those transmission mediums, we can have errors.
+
+00:01:23.820 --> 00:01:36.020
+In general, what we want to know in deception, we want to make sure that information that
+
+00:01:36.020 --> 00:01:46.540
+we received is correct, so we need to figure out if there is an error or if there is no error.
+
+00:01:48.220 --> 00:01:59.140
+And we need to, in case there is an error, we would like to correct it, or more,
+
+00:01:59.140 --> 00:02:09.300
+one error is more. The second portion is a little bit more complex, but the first portion of this
+
+00:02:09.300 --> 00:02:19.020
+basically figuring out if there is an error or not can be accomplished using parity bit.
+
+00:02:19.020 --> 00:02:31.740
+So parity bit is just one single tiny bit that we can add to our information. Suppose that we
+
+00:02:31.740 --> 00:02:40.660
+are transmitting these seven bits that represent ASCII code for A and ASCII codes are about to
+
+00:02:40.660 --> 00:02:47.620
+come in a second we can decide that we are going to make even parity that means
+
+00:02:47.620 --> 00:03:07.110
+that we want to make it such that total number of ones is even so if we look
+
+00:03:07.110 --> 00:03:15.610
+into the number here we have one one here and one one here that's number
+
+00:03:15.610 --> 00:03:24.970
+that's two ones that is even. So as leading parity bit we are going to prepend a zero.
+
+00:03:26.730 --> 00:03:39.610
+We have another option which is called odd parity. So basically here total number of ones
+
+00:03:39.610 --> 00:03:48.740
+that are being transmitted is odd. And on the same example we will be prepending one
+
+00:03:48.740 --> 00:03:58.180
+so that we have three rather than two ones in this string. So now we are going to transmit
+
+00:03:58.180 --> 00:04:17.810
+it entire string, original bits plus this parity bit. And on reception we need to know
+
+00:04:17.810 --> 00:04:23.690
+two things. One is what are the bits that have been received and other thing that we
+
+00:04:23.690 --> 00:04:32.390
+need to know is are we using even or odd parity. So what we want to do is we want to make
+
+00:04:32.390 --> 00:04:51.580
+sure that received information and if we take receive the information and compute parity
+
+00:04:51.580 --> 00:04:58.420
+bit again for all parity bits is going to be one that these two are the same in case
+
+00:04:58.420 --> 00:05:07.110
+they are not the same we know that they have been error. So as I said this is the method
+
+00:05:07.110 --> 00:05:29.450
+that can verify if we have received the correct information data and it can detect if in a string
+
+00:05:29.450 --> 00:05:37.290
+we have odd numbers of errors. If we have even numbers of error then we are having a little bit
+
+00:05:37.290 --> 00:05:44.730
+a problem, but we can make an example of that later on. A little bit more complicated codes
+
+00:05:46.570 --> 00:05:56.650
+are made so that not only we can detect the error, but we can correct it. Second example of
+
+00:05:57.930 --> 00:06:05.450
+using sets of zeros and ones is something else that is not necessarily just only
+
+00:06:07.290 --> 00:06:13.910
+Number is ASCII code and we do use ASCII code basically on everyday basis
+
+00:06:14.470 --> 00:06:17.530
+Because once we press key on our keyboard
+
+00:06:18.750 --> 00:06:20.970
+hardware keyboard or soft keyboard on your
+
+00:06:23.370 --> 00:06:29.130
+Laptop iPad or your phone each of those presses is going to
+
+00:06:30.090 --> 00:06:31.410
+generate
+
+00:06:31.410 --> 00:06:33.410
+one
+
+00:06:33.810 --> 00:06:35.810
+Combination of bits
+
+00:06:35.810 --> 00:06:49.950
+So, we do have a total of 7 bits that is allocated, and we have 128 different combinations, basically, characters that are there.
+
+00:06:49.950 --> 00:06:56.950
+Out of these, 94 are designated graphical characters.
+
+00:06:56.950 --> 00:07:00.950
+Then we have uppercase letters, lowercase letters.
+
+00:07:00.950 --> 00:07:22.520
+So, if you look at one example, let's say G1000111 is ASCII code for G and not any G it is going
+
+00:07:22.520 --> 00:07:25.640
+to be uppercase G.
+
+00:07:25.640 --> 00:07:33.600
+We have special printable characters but we have also control characters like end of line
+
+00:07:33.600 --> 00:07:35.760
+or new line is a control character.
+
+00:07:36.840 --> 00:07:40.280
+Because there are seven of them,
+
+00:07:40.280 --> 00:07:42.280
+they're going to be stored in one byte.
+
+00:07:43.920 --> 00:07:48.520
+We're going to look into examples of parity
+
+00:07:48.520 --> 00:07:50.800
+and maybe an example of husky
+
+00:07:50.800 --> 00:07:56.260
+in our practice session during the class.
+
+00:07:56.260 --> 00:07:57.260
+Thanks for watching.
+

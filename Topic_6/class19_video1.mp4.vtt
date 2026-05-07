@@ -1,0 +1,299 @@
+WEBVTT
+
+00:00:00.720 --> 00:00:07.640
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach. We are starting a new topic today,
+
+00:00:07.640 --> 00:00:13.080
+and it's not just a new topic, we are starting to talk about synchronous sequential logic.
+
+00:00:13.760 --> 00:00:19.840
+And this is something that is different than combinational logic that we have done so far.
+
+00:00:20.320 --> 00:00:22.320
+So let's look at the
+
+00:00:24.240 --> 00:00:26.760
+ordinary user product that we have.
+
+00:00:26.760 --> 00:00:33.560
+let's call it gadget. Let's look at cell phone, navigation system in your car,
+
+00:00:33.560 --> 00:00:41.360
+camera, smartwatch. I mean all of these are items that we use in everyday life.
+
+00:00:41.360 --> 00:00:49.840
+We also use in everyday life tablets, laptops, desktop computers. Some of us
+
+00:00:49.840 --> 00:00:55.760
+use you know cloud and servers and so and so forth. So what do we need to do
+
+00:00:55.760 --> 00:01:06.400
+with these things. Pause here and think about what do you use your cell phone for? Of course,
+
+00:01:06.400 --> 00:01:19.120
+to make phone calls, but what else? You very often use them to send, receive, restore,
+
+00:01:20.000 --> 00:01:27.600
+store, retrieve, and process information. So I'm going to make just one example,
+
+00:01:27.600 --> 00:01:35.950
+which is going to be cell phone but that applies to everything else that I mentioned including the
+
+00:01:35.950 --> 00:01:52.660
+laptop and desktop computers and we need that to be able to ability to send, receive, store,
+
+00:01:52.660 --> 00:02:19.000
+addictive and false process information. Now what did we talk about information so
+
+00:02:19.000 --> 00:02:28.360
+far? The information that we mentioned so far is represented into in binary form.
+
+00:02:28.360 --> 00:02:41.300
+You remember from the beginning we were representing in ASCII the characters
+
+00:02:41.300 --> 00:02:51.180
+we were using codes like BCD and grade and we were using different
+
+00:02:51.180 --> 00:03:06.030
+number system number systems and representations unsigned signed signed
+
+00:03:06.030 --> 00:03:16.750
+to complement sine sine magnitude. So we need to have this way of representing information in
+
+00:03:17.550 --> 00:03:25.920
+in order to be able to store. So we have to represent information using some sort of zeros and ones
+
+00:03:26.960 --> 00:03:34.560
+but once we represent that we need to store. And where do we store
+
+00:03:34.560 --> 00:03:52.570
+memory, in terms of memory unit. Now let's go back and this is something that we have
+
+00:03:52.570 --> 00:04:09.900
+already mentioned several times so far. So far we covered combinational circuits and combinational
+
+00:04:09.900 --> 00:04:20.720
+circuits are such circuits that its output, let's call it like this, output is a function
+
+00:04:20.720 --> 00:04:30.700
+of input. Think about it this way, that you have water that is going through water pipes
+
+00:04:30.700 --> 00:04:35.900
+and water pipes just go from top to bottom. So when you put water, water needs to go to
+
+00:04:35.900 --> 00:04:47.140
+that pipe, it can't be stored and accumulated anywhere. So similar to that, combinational
+
+00:04:47.140 --> 00:04:53.940
+circuits have output function of input and it's all the time that we have input output is going
+
+00:04:53.940 --> 00:05:01.300
+to be present. Now different thing that we are going to talk about today are sequential circuits
+
+00:05:01.300 --> 00:05:18.200
+and for those circuits output is going to be again function. It's going to be function of inputs.
+
+00:05:21.620 --> 00:05:27.860
+Well let me go and be precise and make make these inputs here because we might have more
+
+00:05:27.860 --> 00:05:37.860
+than one input. But also it is going to have another
+
+00:05:41.620 --> 00:05:47.220
+artifact that is going to affect the output and that is something that is called current state.
+
+00:05:53.360 --> 00:06:03.440
+So the sequential circuit itself is going to have the state that it is right now in.
+
+00:06:03.440 --> 00:06:20.390
+And this current state is made, and you get to the current state by the past
+
+00:06:20.390 --> 00:06:50.050
+sequence of input values. So this current state is dependent. So far,
+
+00:06:50.050 --> 00:06:57.250
+this is quite abstract. Let's look at this in a little bit a different format.
+
+00:06:57.250 --> 00:07:05.890
+So I'm going to describe this in a format of a block diagram, so this is a sequential
+
+00:07:05.890 --> 00:07:32.180
+circuit and in block diagram we are going to have two boxes and I'm going to make it
+
+00:07:32.180 --> 00:07:40.810
+on purpose this way.
+
+00:07:40.810 --> 00:07:55.790
+So this is going to be a memory element and this memory element is going to be storing
+
+00:07:55.790 --> 00:08:14.350
+so-called current state. Now we will have inputs and those inputs are going to be fed to combinational
+
+00:08:14.350 --> 00:08:32.360
+circuit, combinational logic, circuit logic it's the same, but also this current state
+
+00:08:33.720 --> 00:08:42.440
+is going to be fed into this combinational logic and this combinational logic is going to this
+
+00:08:42.440 --> 00:08:56.870
+performs... you will see it is going to perform... it might perform more than one
+
+00:08:56.870 --> 00:09:07.920
+function, but that one is going to generate output or more than the one of
+
+00:09:07.920 --> 00:09:19.300
+them, outputs. So if you look at this side where we have inputs for the
+
+00:09:19.300 --> 00:09:29.480
+combinational logic, combinational logic inputs are the outside inputs and the
+
+00:09:29.480 --> 00:09:33.120
+the state that memory element is keeping,
+
+00:09:33.120 --> 00:09:35.700
+which is current state of this system.
+
+00:09:37.360 --> 00:09:40.960
+Now, if you look a little bit more in this,
+
+00:09:40.960 --> 00:09:49.360
+so combinational logic is going to produce,
+
+00:09:49.360 --> 00:09:54.360
+but combinational logic is also going to
+
+00:09:56.200 --> 00:10:01.920
+update the state in which we are.
+
+00:10:01.920 --> 00:10:06.920
+So things are a little bit more intricate here
+
+00:10:07.840 --> 00:10:11.620
+because we do have memory here
+
+00:10:11.620 --> 00:10:14.860
+and we have at some points of time,
+
+00:10:16.160 --> 00:10:17.280
+well, this is not in my notes,
+
+00:10:17.280 --> 00:10:19.660
+but I figured out that it's probably something
+
+00:10:19.660 --> 00:10:22.000
+that you would like to know something,
+
+00:10:22.000 --> 00:10:25.160
+then we will use memory just to store things.
+
+00:10:26.220 --> 00:10:29.060
+So this is memory.
+
+00:10:29.060 --> 00:10:30.900
+You will have input.
+
+00:10:30.900 --> 00:10:34.800
+that input is going to be stored somewhere.
+
+00:10:34.800 --> 00:10:38.460
+Mind you, we will have to have input in terms of data
+
+00:10:38.460 --> 00:10:39.980
+and input in terms of address
+
+00:10:39.980 --> 00:10:43.100
+where we need to store this data.
+
+00:10:43.100 --> 00:10:44.600
+And then we will read it out.
+
+00:10:45.840 --> 00:10:47.860
+And that's also sequential circuit.
+
+00:10:47.860 --> 00:10:49.860
+It's just much more simpler
+
+00:10:49.860 --> 00:10:56.000
+than the one shown on the left here.
+
+00:10:56.000 --> 00:11:02.220
+So this is showing, at least I hope it's a little bit
+
+00:11:02.220 --> 00:11:12.500
+better illustrating that the way that you produce your output is going to
+
+00:11:12.500 --> 00:11:22.780
+depend on the input from outside and the value of the memory element that
+
+00:11:22.780 --> 00:11:36.770
+represents current state. And this, let me just go once again, the current state is
+
+00:11:36.770 --> 00:11:47.990
+going to depend on the path sequence on inputs because of this part here so we
+
+00:11:47.990 --> 00:11:55.910
+now demystified one portion of our title because in this title we said it said
+
+00:11:55.910 --> 00:12:05.870
+synchronous sequential logic so we talked about sequential logic let's see
+
+00:12:05.870 --> 00:12:19.140
+about synchronous part. So we want to talk about what does this mean. So there
+
+00:12:19.140 --> 00:12:25.060
+are two main types of sequential circuits with respect of two timing of
+
+00:12:25.060 --> 00:12:43.450
+signals and I'm very often going to put SEQ for sequential with respect to time
+
+00:12:43.450 --> 00:12:58.760
+of the signals. So we have two things. They're synchronous and they're
+
+00:12:58.760 --> 00:13:16.880
+asynchronous. What is the first thing that you think of when you're thinking
+
+00:13:16.880 --> 00:13:28.720
+of, when I tell you, synchronous? Pause and think a little bit. There is something
+
+00:13:28.720 --> 00:13:36.800
+that is synchronizing this, that is keeping to the same like conductor in
+
+00:13:36.800 --> 00:13:44.720
+orchestra to the same rhythm. So for synchronous circuits, their both output
+
+00:13:44.720 --> 00:14:03.370
+and behavior is going to be affected by values of input signals at discrete time
+
+00:14:03.370 --> 00:14:15.360
+instances, in discrete instances of time. So behavior or output is affected by
+
+00:14:15.360 --> 00:14:46.320
+input values and so think about the conductor in the in the orchestra we
+
+00:14:46.320 --> 00:14:52.640
+still we all need to be in the same rhythm and that's what synchronous
+
+00:14:52.640 --> 00:15:00.400
+circuits do. Asynchronous on the other side the behavior or output are going to
+
+00:15:00.400 --> 00:15:07.960
+depend on inputs at any time so that we don't have a magical director who is
+
+00:15:07.960 --> 00:15:34.750
+guiding us. Watch out, both synchronous and asynchronous sequential circuits are
+
+00:15:34.750 --> 00:15:44.830
+going to have the same rule. Their outputs, with respect to functionality, is
+
+00:15:44.830 --> 00:15:53.270
+going to be a function of series of inputs and current state of the
+
+00:15:53.270 --> 00:16:02.950
+system. With respect to time of signals, they might be synchronous, that means
+
+00:16:02.950 --> 00:16:11.870
+in discrete time instances, and asynchronous, which is at any times. So
+
+00:16:11.870 --> 00:16:17.230
+let's wrap up for this video and continue in the next one. Thank you.
+

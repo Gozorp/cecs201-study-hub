@@ -1,0 +1,182 @@
+WEBVTT
+
+00:00:00.690 --> 00:00:07.170
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach. Last but not least for
+
+00:00:07.170 --> 00:00:31.250
+this series of mini-lectures is NAND and NOR gate. So NAND is opposite of AND. And NAND is if we have
+
+00:00:31.250 --> 00:00:47.070
+A and B and NAND functioned here 0 0 0 1 1 0 1 1. So N is 1 only for 1 1 and
+
+00:00:47.070 --> 00:00:53.830
+opposite of that is going to be 0 and N is 0 for everything else and opposite of
+
+00:00:53.830 --> 00:01:10.570
+that is going to be 1. The gate is end, a little bubble at the end that is not. Now
+
+00:01:10.570 --> 00:01:22.690
+NOR has a similar concept. It is opposite of OR gate. So if you have A and B and
+
+00:01:22.690 --> 00:01:33.690
+nor as a result 0 0 0 1 1 0 1 1 or is one for all of them so opposite of that
+
+00:01:33.690 --> 00:01:44.730
+so or nor is going to be nor is going to be opposite of this is 0 and an or is
+
+00:01:44.730 --> 00:01:53.450
+sorry or is only equal to 0 for this one opposite of that is the gate that we are
+
+00:01:53.450 --> 00:02:05.610
+going to use for NOR is OR with a little bubble at the end which is NOT. NIN or NOR gates are
+
+00:02:05.610 --> 00:02:12.570
+very important. They are super important because they are so-called universal gates.
+
+00:02:12.570 --> 00:02:28.450
+What that means is, you can represent any combinational circuit using only NAND or using
+
+00:02:28.450 --> 00:02:31.530
+only NOR.
+
+00:02:31.530 --> 00:02:36.570
+This is extremely important when we are talking about FPGAs that you are going to be using
+
+00:02:36.570 --> 00:02:43.450
+in the labs because in FPGAs, I mean, you can implement any
+
+00:02:43.450 --> 00:02:50.250
+combinational circuit using a NOT AND OR, so three of those gates together.
+
+00:02:50.250 --> 00:02:54.970
+However, you don't know how many NOT gates or how many AND gates and how
+
+00:02:54.970 --> 00:03:00.970
+many OR gates would you need. But if you put only NAND gates in
+
+00:03:00.970 --> 00:03:13.210
+in your FPGAs or NOR gates and you can convert NAND and make it do the function of NOT and or you
+
+00:03:13.210 --> 00:03:21.690
+can basically implement any function using NAND and you can create an FPGA code that is going to
+
+00:03:21.690 --> 00:03:40.250
+be much more efficient. So let's see how do we convert. Let's see for NOT. So we want to have
+
+00:03:40.250 --> 00:04:04.650
+an equivalent of NOT gate using NAND. What we know is that a and a is a. So also a and a prime
+
+00:04:05.930 --> 00:04:17.850
+is a prime or a prime is equal to a prime. Or we can say okay a and a is a and this is a prime.
+
+00:04:17.850 --> 00:04:28.970
+So, what does that mean? We take A, and because NAND gate is gated two inputs, we put both
+
+00:04:28.970 --> 00:04:45.100
+inputs of A to each inputs of NAND, and you are going to get A'. Now, let's make N. So,
+
+00:04:45.100 --> 00:04:53.740
+We want equivalent of and.
+
+00:04:53.740 --> 00:05:03.640
+That equivalent of and is going to be a, b.
+
+00:05:03.640 --> 00:05:05.680
+So you can use nand.
+
+00:05:07.360 --> 00:05:10.040
+And you need to make another knot of that.
+
+00:05:10.040 --> 00:05:11.840
+So in order to make knot,
+
+00:05:11.840 --> 00:05:13.680
+you're going to use the knot gate
+
+00:05:13.680 --> 00:05:16.440
+that we just described before.
+
+00:05:17.600 --> 00:05:25.340
+And I'm going to draw this a little bit nicer.
+
+00:05:25.340 --> 00:05:30.340
+So this, in terms of equation, looks like this.
+
+00:05:30.560 --> 00:05:35.560
+a, b, not, and then not.
+
+00:05:37.360 --> 00:05:40.840
+So this is a, b with double not,
+
+00:05:41.760 --> 00:05:45.210
+which is the same as a, b.
+
+00:05:45.210 --> 00:05:51.620
+Finally, four, and that one is the most complicated.
+
+00:05:52.140 --> 00:05:57.140
+We have a and b in regular gates or gate is here.
+
+00:05:59.100 --> 00:06:08.120
+So the equivalent of that is a,
+
+00:06:08.120 --> 00:06:15.470
+we have to have A naught and B naught
+
+00:06:15.470 --> 00:06:26.150
+and we have to get that on the N input of another gate.
+
+00:06:26.150 --> 00:06:31.150
+A prime and B prime, both of them end prime.
+
+00:06:34.430 --> 00:06:36.750
+We're going to use D Morgan's
+
+00:06:37.870 --> 00:06:41.990
+to break this into simple ones.
+
+00:06:42.970 --> 00:06:47.810
+A prime prime, B prime prime.
+
+00:06:47.810 --> 00:07:02.700
+Remember n becomes or, so it's a prime prime or b prime prime, which is going to be a or b.
+
+00:07:02.700 --> 00:07:10.940
+Now this video is going to be a little bit lengthy, but we are going to go and do the
+
+00:07:10.940 --> 00:07:17.240
+same things for nor gates.
+
+00:07:17.240 --> 00:07:31.410
+So for NOR, using NOR is going to be done in the same way.
+
+00:07:31.410 --> 00:07:43.080
+So you're going to put input variable on the input of NOR gate.
+
+00:07:43.080 --> 00:07:52.730
+Now I'm going to fast forward to OR just because that one is simpler.
+
+00:07:52.730 --> 00:08:03.490
+So it's A and B. They do NOT.
+
+00:08:03.490 --> 00:08:07.130
+And that also is input to another NOT.
+
+00:08:07.130 --> 00:08:18.580
+or nor is or. A or B not and then all of that not. Those two nots are going to
+
+00:08:18.580 --> 00:08:27.260
+kind of cross over and that ends up being A or B. And then the one that is more
+
+00:08:27.260 --> 00:08:51.780
+complicated is AND gate. You have A not and B not. That all goes into another
+
+00:08:51.780 --> 00:09:05.280
+NOR gate. Let's see. A0, B0 and that all goes into a NOR gate. Again we use the
+
+00:09:05.280 --> 00:09:17.880
+Morgan's law. A0 not, OR becomes AND, B0 not, this is A and P. I hope this was helpful.
+
+00:09:17.880 --> 00:09:20.920
+Thank you.
+

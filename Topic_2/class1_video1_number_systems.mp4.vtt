@@ -1,0 +1,143 @@
+WEBVTT
+
+00:00:00.880 --> 00:00:05.880
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach.
+
+00:00:05.880 --> 00:00:16.860
+This mini-lecture is going to be a topical number systems.
+
+00:00:16.860 --> 00:00:31.500
+In this course, we are going to be focusing on binary number systems.
+
+00:00:31.500 --> 00:00:39.500
+And we are going to compare it and use it in context of computers,
+
+00:00:39.500 --> 00:00:44.780
+computers but also compare it to music because of its equivalency to decimal system.
+
+00:00:46.220 --> 00:01:04.440
+Both binary and decimal systems are positional number systems. So if you look at the decimal,
+
+00:01:04.440 --> 00:01:19.980
+because it is the one that we are most used to, let's look at the example. So we are looking for
+
+00:01:19.980 --> 00:01:31.260
+let's say 372 and we already individually know 372 but if we decompose it in terms of number
+
+00:01:31.260 --> 00:01:49.460
+systems we will know that there is 3 times 10 to the power of 2 plus 7 times 2 to the power of 1
+
+00:01:49.460 --> 00:02:01.790
+1 plus 2 times, I already switched to binary system, 10 to the power of 1 and 2 times 10
+
+00:02:01.790 --> 00:02:23.050
+to the power of 0. So 2 is in position of 1, 7 is in position of 10, 3 is in position
+
+00:02:23.050 --> 00:02:38.690
+of 100. When we intuitively probably understand this example, let us move into
+
+00:02:38.690 --> 00:02:44.690
+a little bit more theoretical and a little bit more general description of number systems.
+
+00:02:45.490 --> 00:03:01.620
+So in a number system we will have number n in general and this number n will have
+
+00:03:02.740 --> 00:03:11.780
+some coefficients. Let's say that it has a5, a4, a3,
+
+00:03:11.780 --> 00:03:24.700
+a2, a1, a0 and we are going to have a radix point. We will be tempted to use it to use
+
+00:03:24.700 --> 00:03:33.780
+the term decimal point guilty as charged and then we will have a with index minus 1, a
+
+00:03:33.780 --> 00:03:39.970
+with index minus two and a with index minus three.
+
+00:03:39.970 --> 00:03:41.530
+What are a's?
+
+00:03:41.530 --> 00:03:46.530
+Well, each ai is an element of a set
+
+00:03:49.370 --> 00:03:53.290
+that consists of zero, one, two,
+
+00:03:54.790 --> 00:03:59.330
+and all the way till the maximum number.
+
+00:03:59.330 --> 00:04:01.310
+So what is this maximum number?
+
+00:04:01.310 --> 00:04:16.000
+Well, that maximum number is going to depend on base or radix of the system, and base or
+
+00:04:16.000 --> 00:04:24.080
+radix of the system is going to be annotated as R. So if we know that base or radix of
+
+00:04:24.080 --> 00:04:33.400
+the system is R, then the maximum number that A can take value off is going to be
+
+00:04:33.400 --> 00:04:49.000
+r minus 1. So what do we know? We know for decimal systems. In decimal system, r is equal
+
+00:04:49.000 --> 00:05:01.720
+to 10. So, coefficients ai can get any possible value between 0 and 9, including both 0 and
+
+00:05:01.720 --> 00:05:13.880
+9. And, something that we already probably know a little bit of, we have binary system.
+
+00:05:13.880 --> 00:05:18.440
+in binary system, radix is two.
+
+00:05:19.480 --> 00:05:24.480
+So coefficients ai will be in a set zero and one.
+
+00:05:31.010 --> 00:05:36.010
+So let's make this expression even more general.
+
+00:05:38.910 --> 00:05:40.910
+And to make distinguishment of this
+
+00:05:40.910 --> 00:05:41.970
+is a little bit more general,
+
+00:05:41.970 --> 00:05:46.940
+we are going to change the color.
+
+00:05:46.940 --> 00:05:54.940
+So, general, so for radix R or base R,
+
+00:06:01.260 --> 00:06:03.840
+these are completely interchangeable.
+
+00:06:04.880 --> 00:06:09.880
+Value of a number n is going to be as follows.
+
+00:06:15.180 --> 00:06:19.680
+A n times R to the power of n
+
+00:06:19.680 --> 00:06:30.660
+plus an minus one times r to the power of n minus one and we are going to go like that
+
+00:06:30.660 --> 00:06:47.800
+till a one r to the power of one plus a zero r to the power of zero but we don't stop there
+
+00:06:47.800 --> 00:06:56.720
+because we have numbers that are on the right side of the radix point and that is a to the
+
+00:06:56.720 --> 00:07:17.640
+minus, a with an index minus one times r to the power of minus one plus a minus two to
+
+00:07:17.640 --> 00:07:25.640
+r to the power of minus 2 plus, and we go that to the smallest negative coefficient,
+
+00:07:25.640 --> 00:07:40.420
+which in our example is going to be a of minus m, r of minus m.
+
+00:07:40.420 --> 00:07:45.740
+That is all for now. We are going to keep going with other examples in a little while
+
+00:07:45.740 --> 00:07:47.740
+in the normal electric.
+

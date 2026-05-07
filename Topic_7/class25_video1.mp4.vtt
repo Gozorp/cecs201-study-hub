@@ -1,0 +1,158 @@
+WEBVTT
+
+00:00:01.170 --> 00:00:06.410
+Hi, this is Dr. Jelena Trajkovic from CECS Department at Cal State Long Beach. Today we are starting
+
+00:00:06.410 --> 00:00:15.210
+the new topic, it's called finite state machines. Finite state machines are extremely important
+
+00:00:15.210 --> 00:00:23.770
+because they are really appropriate for this part after we have learned registers because
+
+00:00:23.770 --> 00:00:32.890
+they need a memory to be able to operate. Formally defined, a finalist machine is a
+
+00:00:32.890 --> 00:00:39.690
+model of computation. Now, we are going to define also mathematically informally the
+
+00:00:40.570 --> 00:00:48.810
+how do you describe FSM. And FSM is abbreviation for finalist machine. But why do we need them?
+
+00:00:48.810 --> 00:00:57.730
+So, let's look at the things that we are interested really firsthand here, designing
+
+00:00:57.730 --> 00:01:04.670
+digital hardware. That's one of the things that we can use and we will use finance
+
+00:01:04.670 --> 00:01:12.990
+state machines for. Any time that you have a controlled, intense application, so think
+
+00:01:12.990 --> 00:01:19.550
+about an application that has lots of data and processes lots of data and think about other
+
+00:01:21.950 --> 00:01:30.270
+orthogonal type of application that has lots of control. So, meaning that it needs to figure out
+
+00:01:30.270 --> 00:01:37.710
+some status and then based on that status this side of what is the next step, FSM's are fabulous
+
+00:01:37.710 --> 00:01:47.790
+for that implementation. Network protocols can be described using FSMs and that is because
+
+00:01:47.790 --> 00:01:53.710
+in network protocols you have lots of control implemented even though you will be transferring
+
+00:01:53.710 --> 00:01:59.390
+lots of data but you have to decide on when to transfer, how to transfer, how to check for errors
+
+00:01:59.390 --> 00:02:07.870
+and so on and so forth. Computation, a languages study is another domain and that you might be
+
+00:02:08.910 --> 00:02:16.350
+seeing if you take any of those courses or courses about compilers and property verification
+
+00:02:16.350 --> 00:02:25.630
+and testing and property verification and testing in any domain. However, for us in digital design
+
+00:02:25.630 --> 00:02:32.990
+that is a very very popular and very important application. So we are going to
+
+00:02:32.990 --> 00:02:43.990
+focus on designing hardware using FSM. So let's go back to to formal definition
+
+00:02:43.990 --> 00:03:10.080
+of FSM, and how is it described? An FSM is described using an six tuple. So we have six parameters that
+
+00:03:10.080 --> 00:03:26.630
+are describing FSM and they that's what we write this way so FSMF is set of
+
+00:03:26.630 --> 00:03:42.070
+several sets I and O and S F H and S 0. Now let's go one by one. I represent a
+
+00:03:42.070 --> 00:03:56.700
+a set of inputs. And we are going to have I0, I1, all the way to IN. We can have only one
+
+00:03:56.700 --> 00:04:04.980
+input. We can also have examples where a set of inputs is an empty set. So we have a total
+
+00:04:04.980 --> 00:04:14.220
+of zero inputs. And that is an extreme case of FSM, I mean borderline case. O is a set
+
+00:04:14.220 --> 00:04:41.060
+of states. Opla, no, a set of outputs. We are going to have O0, O1, Om. We will be having
+
+00:04:41.060 --> 00:04:56.470
+S. This is where I started saying a set of states. State 0, state 1, all the way till
+
+00:04:56.470 --> 00:05:15.640
+state l. And now f and h are going to be functions. f and probably to be really clear, let's say
+
+00:05:15.640 --> 00:05:21.560
+that fsm is defined using this so that we don't have f on left side and the right side of this
+
+00:05:21.560 --> 00:05:33.340
+parenthesis. So let's go back. f is a function that describes the next step, the next state
+
+00:05:33.340 --> 00:05:48.220
+function. So we have set of states and Cartesian product of set of inputs. It's going to give you
+
+00:05:48.220 --> 00:05:58.700
+as a state. So think about it, for every state in set of states and every input we are going to
+
+00:05:58.700 --> 00:06:18.680
+figure out what the next state is going to be. h is an output function. So we are going to have
+
+00:06:18.680 --> 00:06:29.060
+each state is going to describe one output and this is for so-called more
+
+00:06:29.060 --> 00:06:39.940
+FSM. So there are two types of FSM or we can have that each combination of state
+
+00:06:39.940 --> 00:06:48.220
+and input is going to give us a defined output and these types of FSM are called
+
+00:06:48.220 --> 00:06:55.110
+Mealy, mind you, we are going to focus more on more FSM.
+
+00:06:57.670 --> 00:06:59.550
+However, I will introduce a little bit,
+
+00:06:59.550 --> 00:07:04.310
+Mealy, in case you get to see it somewhere else.
+
+00:07:04.310 --> 00:07:09.310
+And last but not least, we have S0, an initial state.
+
+00:07:15.640 --> 00:07:18.460
+So we're going to designate one of the states
+
+00:07:18.460 --> 00:07:21.440
+in set of states to be initial state.
+
+00:07:21.440 --> 00:07:25.280
+That means when you start your FSN,
+
+00:07:25.280 --> 00:07:27.160
+you know that you're always going to start
+
+00:07:27.160 --> 00:07:31.160
+from that state that is state zero,
+
+00:07:32.960 --> 00:07:35.280
+or it doesn't matter what is it called,
+
+00:07:35.280 --> 00:07:38.240
+we need to know that it is initial state.
+
+00:07:38.240 --> 00:07:40.960
+So right now, this is all math.
+
+00:07:41.960 --> 00:07:44.580
+In the next video, we are going to get
+
+00:07:44.580 --> 00:07:47.560
+a little bit more help how to visualize this.
+
+00:07:47.560 --> 00:07:48.560
+Thanks for watching.
+

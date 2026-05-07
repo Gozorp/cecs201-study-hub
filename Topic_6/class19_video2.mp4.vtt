@@ -1,0 +1,146 @@
+WEBVTT
+
+00:00:00.660 --> 00:00:04.860
+Hi, this is Dr. Jelena Trajkovic from the CECS Department at Cal State Long Beach.
+
+00:00:04.860 --> 00:00:12.600
+So now that we know that we have synchronous sequential circuits and that we have sequential
+
+00:00:12.600 --> 00:00:16.600
+circuits, we are making a decision and we are going to stick to that in this course
+
+00:00:16.600 --> 00:00:23.680
+that we are going to work with the synchronous version of the circuits.
+
+00:00:23.680 --> 00:00:37.210
+So as I said, they have to synchronize with respect this discrete time instances.
+
+00:00:37.210 --> 00:01:01.400
+And the synchronization is achieved by clock generator.
+
+00:01:01.400 --> 00:01:04.140
+So what does clock generator do?
+
+00:01:04.140 --> 00:01:11.980
+Well, it provides or generates clock cycles, well, sorry, clock pulses.
+
+00:01:11.980 --> 00:01:25.330
+clock pulses are going to make clock cycles.
+
+00:01:25.330 --> 00:01:30.330
+Clock pulses are very often going to be on schematics,
+
+00:01:31.150 --> 00:01:37.820
+going to be shown either as clock or simply as CLK.
+
+00:01:46.380 --> 00:01:54.200
+So this clock pulse is going to determine
+
+00:01:54.200 --> 00:01:59.200
+when the data will be stored
+
+00:02:00.220 --> 00:02:04.040
+in synchronous sequential circuit.
+
+00:02:04.040 --> 00:02:09.040
+So clock period, well clock period is duration
+
+00:02:10.280 --> 00:02:14.320
+of clock pulse.
+
+00:02:14.320 --> 00:02:46.360
+So clock pulse determines when data will be stored
+
+00:02:47.000 --> 00:02:49.040
+in synchronous sequential circuit.
+
+00:02:49.040 --> 00:02:56.040
+And I stumbled already a couple of times because I'm thinking all of the time about this.
+
+00:02:56.040 --> 00:03:05.730
+So clock signal, this clock pulse, is going to be a periodical signal.
+
+00:03:05.730 --> 00:03:18.260
+And the clock period of this signal is TCLK, time T and CLK is for clock.
+
+00:03:18.260 --> 00:03:28.180
+fyi, that is equal to 1 over fclk, but f stands for frequency, clock frequency.
+
+00:03:29.540 --> 00:03:37.620
+So let's look at the clock cycle. We said it's periodical. My drawing skills are not fabulous,
+
+00:03:37.620 --> 00:03:49.360
+but I'm going to try to be as nice as possible. And we go like this forever and ever and ever,
+
+00:03:49.360 --> 00:04:01.410
+or close to that as possible. If you see from this moment to this moment, we have one instance
+
+00:04:02.610 --> 00:04:16.450
+of clock period. And after that, within each new period of TCLK, the same signal repeats.
+
+00:04:16.450 --> 00:04:24.070
+So periodical signals are the one that repeats always at the same time. Something that I really
+
+00:04:24.070 --> 00:04:31.270
+didn't fabulously represent here, but, you know, kind of try to abstract it away.
+
+00:04:32.950 --> 00:04:40.470
+I'm going to try to make it a little bit more even. If you see here,
+
+00:04:40.470 --> 00:04:51.870
+here. Approximately half of the time of this entire clock period, clock is equal to 1 and
+
+00:04:51.870 --> 00:05:05.860
+other time, other half, clock is equal to 0. So this is called clock that has 50% duty
+
+00:05:05.860 --> 00:05:20.330
+cycle and the duty cycle is a fraction of a period in which signal is active.
+
+00:05:20.330 --> 00:05:46.750
+When we say active right now we can think about active means equal to 1.
+
+00:05:46.750 --> 00:06:09.510
+So here we have 50% duty cycle. Can we have a clock that looks like this where
+
+00:06:09.510 --> 00:06:12.010
+we have 10% duty cycle?
+
+00:06:13.330 --> 00:06:16.330
+Yep, absolutely, we can have that.
+
+00:06:16.330 --> 00:06:23.370
+We can also have clock that looks like this,
+
+00:06:23.370 --> 00:06:26.790
+where our duty cycle is 90%.
+
+00:06:26.790 --> 00:06:29.790
+So we can have all varieties because,
+
+00:06:29.790 --> 00:06:34.390
+so this is 10% and this here from here to here
+
+00:06:34.390 --> 00:06:46.660
+is 90% of entire, so this is entire clock period.
+
+00:06:46.660 --> 00:06:51.100
+and it doesn't need to be 10, 90, 50%.
+
+00:06:51.100 --> 00:06:56.510
+It can be any amount in between.
+
+00:06:56.510 --> 00:06:57.990
+Let's wrap up for now.
+
+00:06:57.990 --> 00:06:59.950
+In the next video, we are going to look
+
+00:06:59.950 --> 00:07:03.230
+into first element that can store.
+
+00:07:03.230 --> 00:07:04.950
+We are going to look into SR batch.
+
+00:07:04.950 --> 00:07:05.790
+Thank you.
+

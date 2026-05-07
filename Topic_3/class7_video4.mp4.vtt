@@ -1,0 +1,236 @@
+WEBVTT
+
+00:00:01.520 --> 00:00:08.240
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach. Now let us look into
+
+00:00:08.240 --> 00:00:14.960
+how do minterms and sum of minterms relate to truth tables. We are going to start with
+
+00:00:14.960 --> 00:00:21.960
+a function. Again, we are going to have some function of a, b, and c. And let's practice
+
+00:00:21.960 --> 00:00:36.600
+compact notation, m0, m2, or m5. So to help us out, write them in terms of using a's and
+
+00:00:36.600 --> 00:00:41.920
+b's and c's. I'm going to take the index here and I'm going to write it as binary
+
+00:00:41.920 --> 00:00:49.680
+number. So take index here and write it as not binary number. And index here and write
+
+00:00:49.680 --> 00:01:01.210
+that one is binary number. Now I'm going to make product or min terms using a, b and c
+
+00:01:01.210 --> 00:01:11.090
+for 000. If a is 0 and we want to make n0, so we have to make expression such that n0
+
+00:01:11.090 --> 00:01:21.700
+evaluates to 1. When a is 0, b is 0 and c is 0. So a needs to be complemented, b needs
+
+00:01:21.700 --> 00:01:27.380
+to be complemented, and C needs to be complemented, because only when they are complemented, they
+
+00:01:27.380 --> 00:01:34.020
+are going to give 1, 1, 1, and only 1, 1, 1 is going to evaluate to 1 and 1 and 1 is
+
+00:01:34.020 --> 00:01:41.820
+going to be equal to 1. Similar here. A is 0, so that means A comes with complement.
+
+00:01:41.820 --> 00:01:57.360
+is 1, comes without complement, C is 0, or A, B comes with complement, C comes as it
+
+00:01:57.360 --> 00:02:09.810
+is. So now we can, you know, write the function and evaluate the function one by
+
+00:02:09.810 --> 00:02:15.410
+one when we make rows in the to-through table. But there is a little bit faster
+
+00:02:15.410 --> 00:02:29.650
+way to do this. Let's look at the truth table for the same function. So we need a, b, c.
+
+00:02:29.650 --> 00:02:38.130
+That is going to have three variables, two, two, three different possibilities. So we
+
+00:02:38.130 --> 00:02:50.300
+are going to populate c and it's going to change its value with every instance, b with
+
+00:02:50.300 --> 00:03:05.940
+every 2 rows is going to change with every 4 rows. If it changes, then it should be 1.
+
+00:03:05.940 --> 00:03:19.700
+Making this just to make the table a little bit more readable.
+
+00:03:21.700 --> 00:03:30.100
+Now, I want to show you, instead of writing down entire formula here, expression that we have,
+
+00:03:30.100 --> 00:03:40.980
+and evaluating each product term and then make or with all of them I want to
+
+00:03:40.980 --> 00:03:54.260
+show you what is minterm that corresponds to each row here 0 0 0 that is minterm 0
+
+00:03:54.260 --> 00:04:25.060
+0, 0, 1, that is minterm 1. Next one is minterm 2, minterm 3, minterm 4, minterm 5, minterm 6, and minterm 7.
+
+00:04:25.060 --> 00:04:37.560
+Remember, our function is defined here and it is equal to m0 plus m2 plus m5.
+
+00:04:37.560 --> 00:04:48.720
+So, any time that we have minterm M0, so for minterm M2 or M5, the function is going to
+
+00:04:48.720 --> 00:04:51.200
+have a value 1, y.
+
+00:04:51.200 --> 00:04:52.200
+Look at this.
+
+00:04:52.200 --> 00:04:59.720
+And we are going to look just into this example.
+
+00:04:59.720 --> 00:05:10.260
+When we have a equals to 0, this is going to be evaluated as 1, 1, 1, plus, and then
+
+00:05:10.260 --> 00:05:23.540
+A' is 1, B is 0, C is 1, 4, 0, 1, 0.
+
+00:05:23.540 --> 00:05:28.960
+This is min-term 0 and this min-term 0 is going to be 1.
+
+00:05:28.960 --> 00:05:38.120
+When you have 1 or anything you are always going to have 1.
+
+00:05:38.120 --> 00:05:51.440
+So when we encounter minterm 0, minterm 2 and minterm 5 column, that is the time that function
+
+00:05:51.440 --> 00:05:55.260
+is going to be equal to 1.
+
+00:05:55.260 --> 00:06:03.780
+In all other cases, function is going to be equal to 0.
+
+00:06:03.780 --> 00:06:15.220
+And that is our kind of shortcut for making the mentors.
+
+00:06:15.220 --> 00:06:35.020
+Now it is for you, as a self-study, to use the same function that we defined here.
+
+00:06:35.020 --> 00:06:51.460
+And I'm asking you to draw a two-level gate circuit.
+
+00:06:51.460 --> 00:06:59.860
+you're going to have A, B and C and you will have some NOT gates and then you're
+
+00:06:59.860 --> 00:07:07.800
+going to have some AND gates and at the end you're going to have you can use up
+
+00:07:07.800 --> 00:07:18.460
+to three inputs you can have OR gate so try this at home. Let's do a reverse
+
+00:07:18.460 --> 00:07:39.750
+process in this video and then we are done with some of min terms. Let's say
+
+00:07:39.750 --> 00:08:01.090
+that a function is given so given description you will find me using and
+
+00:08:01.090 --> 00:08:16.350
+other people using specification word specification draw sorry divide an
+
+00:08:16.350 --> 00:08:24.470
+expression for f, let's call it f2, and in our specification I'm going to say
+
+00:08:24.470 --> 00:08:33.830
+okay f2 is a function of two variables and each variable corresponds to a
+
+00:08:33.830 --> 00:08:52.200
+parking spot and we have a two car crash. If a equals to 1 or b equals to 1 means
+
+00:08:52.200 --> 00:09:03.660
+means that car is parked in a spot A or spot B,
+
+00:09:09.720 --> 00:09:14.400
+I would like you to define a function
+
+00:09:14.400 --> 00:09:19.400
+that is going to tell me F2 is going to be one
+
+00:09:21.120 --> 00:09:30.280
+when there is at least one space available,
+
+00:09:33.120 --> 00:09:36.780
+basically when I can park.
+
+00:09:36.780 --> 00:09:45.700
+So you start with truth table
+
+00:09:45.700 --> 00:09:49.820
+And then you need to derive function using through table
+
+00:09:49.820 --> 00:09:51.420
+using the specification.
+
+00:09:52.300 --> 00:09:55.740
+So here it says both spots are available.
+
+00:09:55.740 --> 00:09:58.580
+So definitely there is at least one space.
+
+00:09:58.580 --> 00:10:02.380
+Here one is available, then there is space.
+
+00:10:02.380 --> 00:10:05.100
+Here B is available, there is space.
+
+00:10:05.100 --> 00:10:07.360
+And here, no luck marking.
+
+00:10:07.360 --> 00:10:10.020
+You have to go find your parking spots somewhere else.
+
+00:10:10.940 --> 00:10:15.020
+How do you, how do you represent this function?
+
+00:10:16.420 --> 00:10:25.780
+in terms of forms that we use this class. So you can do a compact form when you say
+
+00:10:25.780 --> 00:10:36.660
+this is minterm 0, this is minterm 1, this is minterm 2, or a little bit more verbose but still
+
+00:10:36.660 --> 00:11:05.880
+compact or my bad so it was a prime b prime or a prime b or a b prime so this
+
+00:11:05.880 --> 00:11:14.920
+is given a description true to root table by a true table make an equation
+
+00:11:14.920 --> 00:11:31.340
+how about opposite one so from equation to true table and the process is such
+
+00:11:31.340 --> 00:11:40.720
+that we start with the key equation in any form that we have it. We first make
+
+00:11:40.720 --> 00:11:51.200
+sum of products out of it, then sum of min terms, then we make through table. So
+
+00:11:51.200 --> 00:12:06.890
+if a function, a function 3, is a or a prime, b prime, well we are lucky. This is
+
+00:12:06.890 --> 00:12:14.630
+already some of products. Now we have to make it into some of minterms. A is
+
+00:12:14.630 --> 00:12:31.570
+missing B. A is only one literal and this is AB or IB' or A'. If we look at
+
+00:12:31.570 --> 00:12:41.950
+that in terms of minterms, that is going to be, this one has to be 1 1 in
+
+00:12:41.950 --> 00:12:51.070
+order to be 1. So this is going to be min term 3. This one has to be 1, 0. This is min term 2.
+
+00:12:51.070 --> 00:13:08.670
+And this one has to be 0, 0. This is min term 0. So to make the root table 0, 0, 0, 0, 1, 1, 0, 1, 1,
+
+00:13:08.670 --> 00:13:18.270
+we will have minterm 0, minterm 2, and minterm 3 equal to 1, and minterm 0 is equal to 0.
+
+00:13:18.270 --> 00:13:23.790
+Hope this was helpful. We keep on with the next topic in the next mini lecture.
+

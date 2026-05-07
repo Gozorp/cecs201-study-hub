@@ -1,0 +1,116 @@
+WEBVTT
+
+00:00:01.360 --> 00:00:06.160
+Hi, this is Dr. Jelena Trajkovic from the CECS Department at Cal State Long Beach.
+
+00:00:06.160 --> 00:00:12.800
+As you may have noticed, and we did mention that at the end of the videos for the previous
+
+00:00:12.800 --> 00:00:38.280
+class, so far we have been only talking about positive or unsigned number. However, in order
+
+00:00:38.280 --> 00:00:48.180
+to do any serious computation and many other representations of data, we definitely need
+
+00:00:48.180 --> 00:00:59.300
+to have different, not only positive, but negative numbers as well. So, we have been
+
+00:00:59.300 --> 00:01:40.920
+talking about positive. Let's now talk about negative numbers. So, these negative numbers,
+
+00:01:40.920 --> 00:01:47.880
+don't want to look at them separately. We need to look at them as a set that has
+
+00:01:47.880 --> 00:02:13.680
+both negative and positive numbers. So we will refer to them as signed as signed
+
+00:02:13.680 --> 00:02:24.340
+numbers. So how do we represent signed numbers in binary? We have two options.
+
+00:02:24.340 --> 00:02:44.230
+one is called sine and magnitude and the other one is radix complement or
+
+00:02:44.230 --> 00:02:57.020
+twos complement for us. Mind you twos complement we are going to cover in a
+
+00:02:57.020 --> 00:03:03.920
+separate lecture but we still want to have it here as a placeholder. So for
+
+00:03:03.920 --> 00:03:14.200
+and magnitude what we need to understand is that within an allocation of bits
+
+00:03:14.200 --> 00:03:25.440
+let's say that if we have given space for a 3-bit number we are going to have
+
+00:03:25.440 --> 00:03:42.710
+two bits that are going to represent the value of the number and one bit that is
+
+00:03:42.710 --> 00:03:54.220
+going to represent sign and we will have agreement that zero is going to
+
+00:03:54.220 --> 00:04:00.380
+represent positive number and one is going to represent negative. Also right
+
+00:04:00.380 --> 00:04:10.390
+now it's good time to learn about some very often used abbreviations and
+
+00:04:10.390 --> 00:04:23.990
+names, the bit on the leftmost is going to be called most significant bit, MSB.
+
+00:04:23.990 --> 00:04:31.230
+The bit on the right is going to be called least significant bit or LSB.
+
+00:04:31.230 --> 00:04:40.350
+So with respect to sine and magnitude, MSB itself is going to represent the sine.
+
+00:04:40.350 --> 00:04:42.830
+So this is example of 3-bit number.
+
+00:04:42.830 --> 00:04:47.830
+How about example number 1 here?
+
+00:04:47.830 --> 00:05:03.220
+If we say that the number is sine, sine and magnitude constant, representation, and the
+
+00:05:03.220 --> 00:05:14.220
+given number is 0 0 1 1, and the counterpart of this number is going to be 1 0 1 1.
+
+00:05:14.220 --> 00:05:22.120
+What do we need to do in order to figure out what is the value of this number?
+
+00:05:22.120 --> 00:05:26.680
+Because we know that number is signed and it's in signed magnitude
+
+00:05:26.680 --> 00:05:33.080
+representation. We know that we need to single out the most significant bit.
+
+00:05:33.080 --> 00:05:40.000
+This most significant bit is going to tell us that the number is positive.
+
+00:05:40.000 --> 00:05:46.560
+Then the rightmost bits are going to give us the binary value and this binary value
+
+00:05:46.560 --> 00:05:53.240
+is 2 to the power of 0 and 2 to the power of 1, so basically it's 3.
+
+00:05:53.240 --> 00:06:07.300
+This is plus 3 in decimal. How about the bottom example? Again, because we know
+
+00:06:07.300 --> 00:06:12.620
+that this is a signed number in sign-in-minded representation, we need to
+
+00:06:12.620 --> 00:06:17.700
+single out the most significant bit. This time the most significant bit is equal to
+
+00:06:17.700 --> 00:06:26.020
+one and we know that that designates that the number is negative. The lowest
+
+00:06:26.020 --> 00:06:31.220
+three bits are going to give us the value and that is going to be also three
+
+00:06:31.220 --> 00:06:39.510
+but this is minus three in the decimal representation. This is all for this mini
+
+00:06:39.510 --> 00:06:46.190
+lecture we are going to look into two's complement in the next mini lecture.
+

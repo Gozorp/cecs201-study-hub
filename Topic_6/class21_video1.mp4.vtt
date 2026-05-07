@@ -1,0 +1,266 @@
+WEBVTT
+
+00:00:01.300 --> 00:00:08.860
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach. So we have already introduced
+
+00:00:08.860 --> 00:00:15.620
+basic register and the characteristic of basic register that on every clock cycle it is going
+
+00:00:15.620 --> 00:00:22.020
+to load the value that is on its input. And then we decided that we need to have a little
+
+00:00:22.020 --> 00:00:28.060
+bit more control over what we are going to load. So we created load register. We also
+
+00:00:28.060 --> 00:00:31.360
+to introduce shifting in the last class.
+
+00:00:31.360 --> 00:00:34.420
+So let us first start with multifunctional registers
+
+00:00:34.420 --> 00:00:36.420
+and then we are going to go into shifters
+
+00:00:36.420 --> 00:00:54.720
+or shift registers.
+
+00:00:54.720 --> 00:00:58.120
+So one thing is that if we do not want
+
+00:00:58.120 --> 00:01:00.620
+to do an asynchronous reset,
+
+00:01:02.440 --> 00:01:05.440
+sometimes we actually want to do clear
+
+00:01:07.920 --> 00:01:09.920
+of the content of the register
+
+00:01:09.920 --> 00:01:13.640
+by putting all the zeros inside,
+
+00:01:13.640 --> 00:01:24.360
+using a clock cycle. So basically on clock we put all the zeros in. So a useful function is clear
+
+00:01:32.300 --> 00:01:51.210
+and that means synchronously put all zeros in entire registers, sorry, in all flip-flops.
+
+00:01:51.210 --> 00:02:11.820
+so that is... so we are going to create a register and we are going to have it be
+
+00:02:11.820 --> 00:02:27.180
+a 2-bit multi-functional register that is going to have load and clear signals.
+
+00:02:27.180 --> 00:02:44.110
+Load is going to be designated as signal with LD, clear is going to be FCL and we
+
+00:02:44.110 --> 00:02:53.070
+are also going to have a third function that is going to be called keep the current value.
+
+00:02:54.110 --> 00:03:00.750
+So let us make something that is called function table and keep is keeping the previous or current
+
+00:03:00.750 --> 00:03:18.290
+value. So here is the functional table we are going to have two signals one is clear
+
+00:03:18.290 --> 00:03:29.330
+CLR and LD and on 0,0 of all of them, both of them, we are going to have a function keep
+
+00:03:29.330 --> 00:03:41.080
+the previous value. On 1,1 we are again going to keep the previous value. However, on 0,1
+
+00:03:41.080 --> 00:03:45.800
+we will be providing new input.
+
+00:03:45.800 --> 00:03:55.290
+And I'm going to write it as load.
+
+00:03:55.290 --> 00:04:04.050
+And on one zero, we are going to do clear.
+
+00:04:04.050 --> 00:04:05.490
+Yes, this is two-bit register,
+
+00:04:05.490 --> 00:04:08.050
+but I'm kind of making it general
+
+00:04:08.050 --> 00:04:12.050
+that you can have as many zeros as required there.
+
+00:04:13.890 --> 00:04:18.890
+So I'm going to go and draw two-bit register.
+
+00:04:18.890 --> 00:04:22.690
+And I am going to suggest that you pause video and do that
+
+00:04:22.690 --> 00:04:25.410
+and we meet each other when we are done
+
+00:04:25.410 --> 00:04:27.530
+drawing the basic register.
+
+00:04:27.530 --> 00:04:30.250
+Make some space above
+
+00:04:30.250 --> 00:04:33.230
+because we will be attaching some multiplexers to it.
+
+00:04:34.990 --> 00:04:38.770
+So I drew a two-bit register.
+
+00:04:38.770 --> 00:04:40.650
+And I drew two-bit register.
+
+00:04:40.650 --> 00:04:45.650
+I annotated the rightmost one with a D flip flop zero.
+
+00:04:45.650 --> 00:04:51.990
+flip-flop zero, so that's going to be the flip-flop to hold bit zero, and then we
+
+00:04:51.990 --> 00:04:57.950
+have most significant bit is the flip-flop one. This is pretty much the
+
+00:04:57.950 --> 00:05:04.470
+standard. We connected a clock signal to the clock input and reset to
+
+00:05:04.470 --> 00:05:09.950
+asynchronous reset input, and we want to have synchronous clear function in this
+
+00:05:09.950 --> 00:05:16.710
+this implementation, so make a distinction between that. So now let's
+
+00:05:16.710 --> 00:05:25.910
+look at the table. In this table we do have four different options. So for these
+
+00:05:25.910 --> 00:05:31.670
+four different options we have to have a max that is going to accommodate four
+
+00:05:31.670 --> 00:05:39.550
+inputs. So this is going to be a four to one max. Both of them are going to be
+
+00:05:39.550 --> 00:05:48.030
+to 1 max, so I'm not going to write in both maxes the same thing.
+
+00:05:48.030 --> 00:06:00.910
+So that means that we are going to have I0, I1, I2, and I3, I0, I1, I2, and I3.
+
+00:06:00.910 --> 00:06:04.990
+we are going to have select signal one
+
+00:06:04.990 --> 00:06:08.350
+and select signal two, select signal one,
+
+00:06:08.350 --> 00:06:13.350
+sorry, and select signal zero, not two, in both of them.
+
+00:06:14.230 --> 00:06:17.410
+So let's look into the table.
+
+00:06:18.430 --> 00:06:25.060
+Now we said, okay, for zero, zero,
+
+00:06:26.620 --> 00:06:30.900
+and for one, one, we need to do keep.
+
+00:06:30.900 --> 00:06:40.500
+But what are the 0, 0 and 1, 1? So we have clear and we have load. How are we
+
+00:06:40.500 --> 00:06:49.420
+going to connect clear and load to our control inputs S? So if you look at the
+
+00:06:49.420 --> 00:06:57.180
+table, it would be very convenient that this becomes S0 and this becomes S1
+
+00:06:57.180 --> 00:07:07.180
+because when you read those numbers as binary numbers, they are going to be 0, 1, 2, 3.
+
+00:07:07.180 --> 00:07:21.180
+So, to follow through with this, S1 is connected to clear and S0 is going to be connected to LD.
+
+00:07:21.180 --> 00:07:47.090
+Okay, so last class we also learned when we have a function keep that we actually have
+
+00:07:47.090 --> 00:07:56.090
+to copy the value that is currently inside the flip-flops or inside the entire register.
+
+00:07:56.090 --> 00:07:57.610
+Bit by bit we copy that.
+
+00:07:57.610 --> 00:08:03.330
+So I'm going to do a little bit of change of color so that we can be a little bit more
+
+00:08:03.330 --> 00:08:09.010
+kind of obvious and clean.
+
+00:08:09.010 --> 00:08:20.060
+So for 0, 0, and for 1, 1, we will have,
+
+00:08:20.340 --> 00:08:25.340
+we will have copying the current value.
+
+00:08:35.230 --> 00:08:40.230
+Then for value, okay, let's be color consistent.
+
+00:08:42.350 --> 00:08:47.350
+And for value 0, 1, which is 1, we will load.
+
+00:08:48.350 --> 00:08:52.470
+When we load, we need to have an external input
+
+00:08:52.470 --> 00:08:57.470
+that we want to load to, and let's call that D of zero
+
+00:08:59.650 --> 00:09:05.540
+and D of one.
+
+00:09:05.540 --> 00:09:09.940
+Finally, we have clear input
+
+00:09:09.940 --> 00:09:14.940
+that we are going to put in light blue, so clear.
+
+00:09:18.060 --> 00:09:23.060
+And that is hard-coded value of zero
+
+00:09:23.060 --> 00:09:39.440
+of zero that we are supplying on input I0, this is connected. If we look at the
+
+00:09:39.440 --> 00:09:45.800
+multifunctional register we are actually done creating it. As always we are going
+
+00:09:45.800 --> 00:09:58.890
+to make an outline to indicate for our block diagram what did we
+
+00:09:59.530 --> 00:10:11.210
+include inside of the design. Bear in mind that for the block diagrams, so I'm going to minimize
+
+00:10:11.210 --> 00:10:19.440
+this and we're going to make another bedroom here, we have to have a little bit more explanations
+
+00:10:20.160 --> 00:10:29.200
+that are done. So here we will have clear input, we will have load input, we are going to have
+
+00:10:29.200 --> 00:10:40.080
+clock which is edge triggered. We're going to have asynchronous reset. We are
+
+00:10:40.080 --> 00:10:52.940
+going to write here that this is 2-bit register. We will have 2-bit
+
+00:10:52.940 --> 00:11:00.460
+multifunctional register. We will have input so D1 to 0 and we are going to
+
+00:11:00.460 --> 00:11:14.420
+have outputs Q1 to 0, but the side of this we have to actually provide this
+
+00:11:14.420 --> 00:11:24.380
+table as an explanation to what we are going to do for which value of clear and
+
+00:11:24.380 --> 00:11:31.940
+low. So it's not only it's not sufficient to have only block diagram we have to
+
+00:11:31.940 --> 00:11:41.300
+have a little bit more information to actually explain the functions that are going to be
+
+00:11:41.300 --> 00:11:47.540
+done for different values of clear envelope. Thanks for watching.
+

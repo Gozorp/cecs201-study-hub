@@ -1,0 +1,230 @@
+WEBVTT
+
+00:00:00.400 --> 00:00:07.520
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach. Now that we know about
+
+00:00:07.520 --> 00:00:12.780
+two variable and three variable K-maps, we are ready to start four variable K-maps. And
+
+00:00:12.780 --> 00:00:18.060
+after that, we are going to talk about something that is called the don't care condition. It's
+
+00:00:18.060 --> 00:00:24.820
+not that we don't care. It is something that is going to help us very much improve and
+
+00:00:24.820 --> 00:00:34.700
+minimize our design. So for variables, let's look at the function that has a, b, c and
+
+00:00:34.700 --> 00:00:44.820
+d variables. Now we have to have two by two, two variables on one side and two variables
+
+00:00:44.820 --> 00:00:54.350
+on the other side and total of four by four fields. So watch out, two by two was referred
+
+00:00:54.350 --> 00:01:05.290
+two number of variables that is on each side. Well, this is not the most elegant
+
+00:01:05.290 --> 00:01:15.100
+way to draw. I'm going to fix this a little bit. There is something funny going
+
+00:01:15.100 --> 00:01:22.180
+on over here. So I'm going to start first populating the top values for C and D
+
+00:01:22.180 --> 00:01:26.040
+because they are going to look very much like the ones that we did last time.
+
+00:01:26.040 --> 00:01:37.380
+so we had 0 0 0 1 then we skip 1 1 0 1 1. Okay A and B is going to look exactly
+
+00:01:37.380 --> 00:01:46.800
+the same we start with 0 0 0 1 skip 1 1 0 go back 1 1. Now that is going to
+
+00:01:46.800 --> 00:01:54.480
+create some interesting things so let's go and look this is minterm m 0 then
+
+00:01:54.480 --> 00:02:11.610
+minter M1 then we have to fly over for M2 and to go back to M3 then M4, M5 again fly
+
+00:02:11.610 --> 00:02:23.810
+over M6 go back M7. Now I'm going to change and point out that we are
+
+00:02:23.810 --> 00:02:34.490
+having another interesting hop here because our M8 is going to be here, M9
+
+00:02:34.490 --> 00:02:51.690
+is going to be here, M10 here, M11 here. Another hop from 11 we're going to come
+
+00:02:51.690 --> 00:03:15.610
+here to m12, 13, m14, and 15. Well, actually 15 is 1 and 5. If you don't believe me, take
+
+00:03:15.610 --> 00:03:31.200
+any of these cells. Let's take this cell here and read. In order A, B, and C, and D, that
+
+00:03:31.200 --> 00:03:38.760
+is one zero zero zero that is two to the power of zero one two three two to the
+
+00:03:38.760 --> 00:03:49.860
+power of three that is equal to eight that is the cell shown here okay I am
+
+00:03:49.860 --> 00:04:00.590
+going to go and try to move that somewhere else because I do need to show
+
+00:04:00.590 --> 00:04:12.390
+you something different about this map. Well, no different. We're going to talk
+
+00:04:12.390 --> 00:04:21.030
+about this map in a way to present which rows and which columns share
+
+00:04:21.030 --> 00:04:31.920
+something important. If you look at those two, what do you see? I'm going to do it
+
+00:04:31.920 --> 00:04:41.020
+on the other side. Those two. What is the common thing for those two? Definitely C and D are not
+
+00:04:41.020 --> 00:04:47.900
+common because they are going to change from left to right. A is equal to zero. That is what is
+
+00:04:47.900 --> 00:04:59.820
+common here. What is common for those two? A is equal to one. That is what's common. Let's look
+
+00:04:59.820 --> 00:05:18.060
+at the Bs. So, okay, what is common for those two? B is equal to 1. Now, this one and this
+
+00:05:18.060 --> 00:05:38.120
+one, for those two together, B is equal to 0. Next color, let's look at this one. A
+
+00:05:38.120 --> 00:05:46.740
+and Bs change, D changes, but C is equal to 0. And for these ones, again, everything
+
+00:05:46.740 --> 00:05:55.300
+else changes except that C stays one. And the final one, I'm going to look at it at the bottom.
+
+00:05:56.660 --> 00:06:06.320
+We'll look at these two. For them the common thing is that D is equal to one and here
+
+00:06:08.160 --> 00:06:22.940
+and here we see again D is common but D is equal to zero. Another thing to
+
+00:06:22.940 --> 00:06:39.140
+point out and this is going to be helpful to our m8 if we have one square
+
+00:06:39.140 --> 00:06:49.030
+and this one square is the only thing that is being circled so now we are
+
+00:06:49.030 --> 00:06:54.610
+talking about minimizing that we are going to do in a in a little while if
+
+00:06:54.610 --> 00:06:56.730
+if only one square is circled,
+
+00:06:57.930 --> 00:07:05.840
+we will have four literals describing it.
+
+00:07:06.880 --> 00:07:11.880
+So let's take this as an example
+
+00:07:14.420 --> 00:07:19.420
+and this example is going to give us A, B, C prime.
+
+00:07:27.690 --> 00:07:32.690
+Now, what happens if we have two squares,
+
+00:07:32.690 --> 00:07:40.260
+Let's take another color.
+
+00:07:40.260 --> 00:07:45.260
+Basically two main terms that are being circled inside.
+
+00:07:46.260 --> 00:07:52.580
+We will have three literals.
+
+00:07:52.580 --> 00:07:55.480
+So I do not have example for that.
+
+00:07:55.480 --> 00:08:00.040
+So I'm going to go with my thinking and my head.
+
+00:08:00.040 --> 00:08:11.410
+So let's say we take, what is common for these two?
+
+00:08:13.130 --> 00:08:15.970
+B is equal to one is common,
+
+00:08:15.970 --> 00:08:20.730
+but also C is equal to one and D is equal to zero.
+
+00:08:22.150 --> 00:08:27.150
+So, a product term that describes these two squares
+
+00:08:29.750 --> 00:08:31.570
+is going to contain three literals.
+
+00:08:31.570 --> 00:08:38.450
+It's going to be B, C, D prime.
+
+00:08:38.450 --> 00:08:42.240
+Yet another color.
+
+00:08:42.240 --> 00:08:46.580
+What do we have if we have, oh, no,
+
+00:08:46.580 --> 00:08:48.320
+we can't have three squared circle.
+
+00:08:48.320 --> 00:08:58.840
+is not power of two we can have four squares and now we are seeing the
+
+00:08:58.840 --> 00:09:06.940
+pattern this is going this side is going to become more and more larger and
+
+00:09:06.940 --> 00:09:12.580
+larger number and this one is becoming less and less so we are going to have
+
+00:09:12.580 --> 00:09:29.210
+two literals. Okay, four circles. I'm going to make less mess on the map and I'm going to
+
+00:09:31.210 --> 00:09:51.960
+circle here. What is common for those four? So is b the same? No. a is equal to zero.
+
+00:09:53.240 --> 00:10:00.520
+and c is equal to zero. So that is common. The literals that are going to appear are a and c,
+
+00:10:00.520 --> 00:10:09.080
+so a prime, c prime, every time that something is equal to zero, that comes with a complement.
+
+00:10:11.880 --> 00:10:28.090
+Now we have eight. I'm running out of colors. So let's take a pink, eight squares.
+
+00:10:28.090 --> 00:10:48.300
+that is going to be 1 literal, 8 squares. Let's do it this way.
+
+00:10:48.300 --> 00:11:06.460
+For these 8, the common thing is that a is equal to 0. So product is going to be
+
+00:11:06.460 --> 00:11:16.610
+only a prime, the tricky one. And the tricky one is going to be in galaxy color.
+
+00:11:16.610 --> 00:11:32.940
+what if we have 16 squares? Now question is, when can we place these
+
+00:11:32.940 --> 00:11:39.300
+squares in the same combination? When can we make a circle around these
+
+00:11:39.300 --> 00:11:49.900
+squares? Only if there are ones in those squares. If there are 16 squares, now I'm
+
+00:11:49.900 --> 00:12:01.060
+going to make a new map, this is all 16 squares. So if we were to take all 16
+
+00:12:01.060 --> 00:12:08.890
+squares, what would that mean? That would mean that absolutely each square in this
+
+00:12:08.890 --> 00:12:23.030
+k map has one. So this is function that is constant and is equal to 1 regardless
+
+00:12:23.030 --> 00:12:33.200
+of value of a, b, c and d. So that's it for this video. Let's go and practice
+
+00:12:33.200 --> 00:12:37.800
+some four variable K-maps in the next one.
+

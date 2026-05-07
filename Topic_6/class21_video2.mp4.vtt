@@ -1,0 +1,275 @@
+WEBVTT
+
+00:00:02.670 --> 00:00:06.670
+Hi, this is Dr. Jelena Trajkovic from the CECS Department at Cal State Long Beach.
+
+00:00:06.670 --> 00:00:19.860
+Let us now look into shift register.
+
+00:00:19.860 --> 00:00:28.860
+And we are going to make a shift register that is going to be a generic shift by one bit to write.
+
+00:00:28.860 --> 00:00:52.460
+We're going to create a 3-bit register and we are going to implement this using a table that,
+
+00:00:52.460 --> 00:00:55.500
+that, well, in order to implement it,
+
+00:00:55.500 --> 00:01:00.500
+we are going to have table, shift right and load.
+
+00:01:06.200 --> 00:01:22.540
+And this is a register function.
+
+00:01:22.540 --> 00:01:27.540
+So we are going to do keep for both of those signals
+
+00:01:30.220 --> 00:01:33.780
+equal to each other.
+
+00:01:33.780 --> 00:01:38.780
+Then for LD is equal to one, we are going to load new value.
+
+00:01:38.780 --> 00:01:49.000
+and for shifts equal to one we are going to do shift right so please do pause
+
+00:01:49.000 --> 00:01:55.760
+video now make a generic 3-bit register leave plenty of space above your
+
+00:01:55.760 --> 00:02:00.440
+registers because we will be needing to make some multiplexers and meet me in
+
+00:02:00.440 --> 00:02:07.450
+couple of seconds well maybe half a minute thank you so here we are with
+
+00:02:07.450 --> 00:02:15.410
+our 3-bit register and also knowing that we have four different options I also
+
+00:02:15.410 --> 00:02:21.370
+drew four to one, three, four to one multiplexers. Please note that I used
+
+00:02:21.370 --> 00:02:30.010
+just abbreviations as 0, 1, 2 and 3 instead of I0, I1, I2 and I3 on the
+
+00:02:30.010 --> 00:02:34.250
+inputs of the multiplexers just because my multiplexers are a little bit tiny
+
+00:02:34.250 --> 00:02:41.930
+and it is going to be so confusing if I put more symbols inside of that. So the
+
+00:02:41.930 --> 00:02:49.650
+all of them are four to one maxis and let's go and start looking at the table.
+
+00:02:49.650 --> 00:03:02.140
+Similarly to a previous example, shift right can take a function of control
+
+00:03:02.140 --> 00:03:21.460
+signal S1 and load can take a function of control signal S0. So we are going to connect.
+
+00:03:21.460 --> 00:03:40.660
+My apology for this. We can actually do this in two colors. So just to be a little bit
+
+00:03:40.660 --> 00:04:03.350
+more clear for educational purposes and then load is going to be in future. Now what did
+
+00:04:03.350 --> 00:04:18.350
+say you have for 0 0 and 0 and 1 1 we have we have keep function for function
+
+00:04:18.350 --> 00:04:37.200
+keep we will be connecting the output of the bit that we are updating so for
+
+00:04:37.200 --> 00:04:51.960
+For flip-flop 1, we are going to connect Q of 1, for bit 2, we are going to connect Q
+
+00:04:51.960 --> 00:04:55.840
+of flip-flop 2, and so on and so forth.
+
+00:04:55.840 --> 00:05:07.140
+Then for load, we will have external input, and load is on input 1, so this is going to
+
+00:05:07.140 --> 00:05:24.910
+be B of zero, B of two. Finally we are going to do shift right. So when we are
+
+00:05:24.910 --> 00:05:33.550
+shifting right and I'm going to get brightest red and even do a little bit
+
+00:05:33.550 --> 00:05:40.030
+thicker line so that we are completely obvious. So when we are shifting right as
+
+00:05:40.030 --> 00:05:45.030
+as I said in the previous set of videos,
+
+00:05:45.050 --> 00:05:46.930
+what are we doing?
+
+00:05:46.930 --> 00:05:51.850
+We have to move the value that is in D flip flop one
+
+00:05:51.850 --> 00:05:55.650
+to move it to D flip flop zero.
+
+00:05:55.650 --> 00:05:57.610
+So how are we going to do that?
+
+00:05:59.490 --> 00:06:02.430
+Input two is designated for shifting.
+
+00:06:03.810 --> 00:06:07.890
+And for that, we are going to update D flip flop zero
+
+00:06:07.890 --> 00:06:12.890
+with the value that is currently in the flip-flop one.
+
+00:06:16.000 --> 00:06:21.000
+Then we are going to store the value of the flip-flop two
+
+00:06:25.320 --> 00:06:30.320
+into the flip-flop one to make a little bit nicer drawing.
+
+00:06:36.550 --> 00:06:41.550
+And finally, we are going to be a little bit more generic,
+
+00:06:41.550 --> 00:06:45.710
+more generic and we are going to say A,
+
+00:06:45.710 --> 00:06:50.630
+we are going to have a bit shift right in
+
+00:06:52.070 --> 00:06:57.070
+that we can connect to the input.
+
+00:07:02.540 --> 00:07:12.820
+So theoretically, we could also have shift right out
+
+00:07:14.840 --> 00:07:20.160
+if we would want it.
+
+00:07:20.160 --> 00:07:25.420
+So let us look into entire design
+
+00:07:25.420 --> 00:07:32.830
+and we will have a little bit of discussion
+
+00:07:32.830 --> 00:07:48.650
+about our value of shift right in.
+
+00:07:48.650 --> 00:07:50.570
+So shift register, again,
+
+00:07:50.570 --> 00:07:52.810
+it's a similar thing like previously.
+
+00:07:52.810 --> 00:07:57.810
+We have to explain what our inputs and outputs are.
+
+00:08:01.110 --> 00:08:05.910
+We will have shift right in.
+
+00:08:07.390 --> 00:08:11.070
+We'll have shift, so this is a data input.
+
+00:08:11.070 --> 00:08:15.630
+We are going to put a bit that we want to shift in here.
+
+00:08:15.630 --> 00:08:20.630
+So this is data where these two are control inputs.
+
+00:08:25.560 --> 00:08:33.000
+So this is shift right, then we have load.
+
+00:08:33.000 --> 00:08:38.000
+It is my data that we properly shift right.
+
+00:08:41.760 --> 00:08:43.920
+Properly annotating is putting the names
+
+00:08:43.920 --> 00:08:47.160
+inside of the block because block is something
+
+00:08:47.160 --> 00:08:49.040
+that you will be reusing.
+
+00:08:49.040 --> 00:08:58.560
+So we have clock, we have asynchronous reset,
+
+00:08:58.560 --> 00:09:05.440
+then we have output Q, then we have input D
+
+00:09:09.390 --> 00:09:14.390
+and then optional signal is shift right.
+
+00:09:19.000 --> 00:09:31.340
+Let me try to make this.
+
+00:09:31.340 --> 00:09:35.360
+So this is three bits, this is three bits
+
+00:09:35.360 --> 00:09:43.370
+And this is our three-bit shift register.
+
+00:09:44.010 --> 00:09:49.010
+Again, the block diagram itself is not enough.
+
+00:09:50.010 --> 00:09:55.010
+What we need to have on top of this block diagram
+
+00:09:55.930 --> 00:10:00.530
+is a function table that explains exactly
+
+00:10:00.530 --> 00:10:03.790
+how the control signals are used
+
+00:10:03.790 --> 00:10:07.410
+and what are inputs and outputs for that value.
+
+00:10:07.410 --> 00:10:11.230
+Now question for you.
+
+00:10:11.230 --> 00:10:16.800
+We have this generic shift in.
+
+00:10:16.800 --> 00:10:21.800
+What are my possible values for shift right in data?
+
+00:10:28.880 --> 00:10:31.320
+Please do pause and think about this for a little while
+
+00:10:31.320 --> 00:10:39.910
+and then meet me back at the video at this moment.
+
+00:10:40.070 --> 00:10:42.490
+So let's remember what we did last time.
+
+00:10:44.110 --> 00:10:46.810
+Depend what kind of shifting you want to implement.
+
+00:10:46.810 --> 00:11:00.510
+If you want to have logical shifting, shift right in is going to be equal to zero.
+
+00:11:00.510 --> 00:11:18.660
+However, if you're shifting arithmetic, shift right in is going to be a copy of most significant bit.
+
+00:11:18.660 --> 00:11:22.660
+What is our most significant bit here?
+
+00:11:22.660 --> 00:11:29.660
+Our most significant bit is the value that is stored in DFlipFlop2, which is Q of 2.
+
+00:11:29.660 --> 00:11:38.130
+So we are going to take Q of 2 and connect that onto ShiftingRegistry.
+
+00:11:38.130 --> 00:11:53.790
+Now, my question for you to brainstorm, and we can try to do something similar in the class.
+
+00:11:53.790 --> 00:12:02.580
+How about shifting left?
+
+00:12:02.580 --> 00:12:11.570
+shift. How do we implement shifting left? What are we going to have as a shift in value
+
+00:12:11.570 --> 00:12:19.530
+if we are doing shift left? Do we have different values for arithmetic and logic shifting
+
+00:12:19.530 --> 00:12:25.070
+if we have shifting left? Hope this was helpful. Thank you.
+

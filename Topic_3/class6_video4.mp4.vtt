@@ -1,0 +1,113 @@
+WEBVTT
+
+00:00:01.740 --> 00:00:08.100
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach. Last but not least, it's
+
+00:00:08.100 --> 00:00:15.180
+De Morgan's property or De Morgan's law. So, De Morgan's law states that if we have
+
+00:00:15.180 --> 00:00:26.590
+A and B and complement of their result, that is equal to, so now my hint how to look at
+
+00:00:26.590 --> 00:00:34.190
+this. This complement is going to affect A, it's going to affect B, but it's going to affect
+
+00:00:34.190 --> 00:00:43.870
+AND sign. So here is what we get. We get A complement, we get B complement, and AND turns
+
+00:00:43.870 --> 00:01:03.300
+to OR. Similarly, if we have A or B complement, so A gets complemented, B gets complemented,
+
+00:01:03.300 --> 00:01:20.430
+or gets complemented, it becomes AND. I'm going to request that you do through table a self-study.
+
+00:01:20.430 --> 00:01:26.610
+One thing that I want to show you is how you can draw gates for the Morgan's Law. And let's
+
+00:01:26.610 --> 00:01:35.770
+first do it for this instance of the Morgan's law. So on the left hand
+
+00:01:35.770 --> 00:01:48.010
+side we will have A and B, we are going to have AND gate and right after AND gate
+
+00:01:48.010 --> 00:01:58.330
+we will be having, we will be having a, sorry, node gate. I'm deleting so that you
+
+00:01:58.330 --> 00:02:03.610
+can have clear picture. So this is on the left hand side. That is absolutely the
+
+00:02:03.610 --> 00:02:16.450
+same as if we were to take A, B, each of them has basically goes from node gate.
+
+00:02:16.450 --> 00:02:26.500
+Once it is done going through NOT gate, it will go through OR gate.
+
+00:02:26.500 --> 00:02:29.940
+So some FVI's.
+
+00:02:29.940 --> 00:02:37.980
+Very often, if A and B are available as input, A complement and B complement are also available
+
+00:02:37.980 --> 00:02:39.740
+as inputs.
+
+00:02:39.740 --> 00:02:46.460
+So you don't need explicitly to draw this NOT gate, but you have to use A complement.
+
+00:02:46.460 --> 00:02:55.340
+can use A complement as input. So to do that you can do A complement and B complement going
+
+00:02:55.340 --> 00:03:08.060
+through OR gate and that's another equivalent representation. Final version of this and mind
+
+00:03:08.060 --> 00:03:16.540
+value, all those three are the representation of the right hand side of the law. It is such
+
+00:03:16.540 --> 00:03:28.070
+that you use A and B and you use OR gate. But inputs to the OR gate have a little bubble.
+
+00:03:28.070 --> 00:03:35.670
+Basically inputs are complemented. So that is A growing through NOT and going through
+
+00:03:35.670 --> 00:03:47.670
+Let's change color and do the same thing for a different instance of the Morgan's Law.
+
+00:03:47.670 --> 00:03:57.590
+Left hand side AB, they go through OR gate and then after that they go through NOT gate,
+
+00:03:57.590 --> 00:04:13.360
+so this is left-hand side, equivalent to A, not gate, B, not gate, and they are connected
+
+00:04:13.360 --> 00:04:23.680
+with AND gate, alternative two versions of representing the same thing, so this is left-hand
+
+00:04:23.680 --> 00:04:37.110
+side these will be right-hand side we can do use a complement and be
+
+00:04:37.110 --> 00:04:48.010
+complement and put those to the input of AND gate or you can use a and b and have
+
+00:04:48.010 --> 00:04:57.140
+inputs of AND gate themselves being complemented. Let us go through a brief
+
+00:04:57.140 --> 00:05:10.460
+example of use of the Markov law. I believe it's number three for this short video and for this
+
+00:05:10.460 --> 00:05:19.740
+class. So we have example where you have A complement and B and both of them are being
+
+00:05:19.740 --> 00:05:33.710
+complemented. Remember complement affects the entire this portion here. Compliment is going to affect
+
+00:05:33.710 --> 00:05:46.270
+this and it's going to affect the operator that we have. So A complement, complement,
+
+00:05:46.270 --> 00:05:56.580
+B complement and changing the sign, sorry not the sign, the operator, we have OR. Complement
+
+00:05:56.580 --> 00:06:06.460
+of a complement is nothing but regular A, A or B. More to come in class. Thank you for
+
+00:06:06.460 --> 00:06:07.300
+watching.
+

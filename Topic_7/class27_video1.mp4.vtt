@@ -1,0 +1,233 @@
+WEBVTT
+
+00:00:00.940 --> 00:00:07.060
+Hi, this is Dr. Jelena Trajkovic, CECS department, Cal State Long Beach. We are going to try to
+
+00:00:07.060 --> 00:00:22.100
+be a little bit more concrete about finite state machines and talk about state encoding.
+
+00:00:22.100 --> 00:00:36.830
+It may sometimes be referred to as a state assignment. So, so far we have been talking
+
+00:00:36.830 --> 00:00:46.590
+about states in terms of S0, S1, S2, S3, or we had state low or state high in the first
+
+00:00:46.590 --> 00:00:59.470
+example. So if we have, let's say, states S0, S1, S2, S3, and S4, so a total of five states,
+
+00:00:59.470 --> 00:01:09.630
+We have to figure out the way that we are going to represent those states, and our
+
+00:01:09.630 --> 00:01:17.070
+means are actually binary numbers or binary codes even better.
+
+00:01:17.070 --> 00:01:31.870
+So let's do the simplest, most kind of straightforward state encoding, which is binary encoding.
+
+00:01:31.870 --> 00:01:38.190
+So for binary encoding, we are going to have a sequence of binary numbers and those binary
+
+00:01:38.190 --> 00:01:45.690
+numbers are going to represent a state. So whenever we are in a state S0, we are going
+
+00:01:45.690 --> 00:01:52.550
+to have value 0 that is going to represent this state. Now, when we look at this, we
+
+00:01:52.550 --> 00:02:00.810
+have five different possible states. My question is, if we have five different
+
+00:02:00.810 --> 00:02:06.890
+states, what is the minimum number of bits that we need in order to represent
+
+00:02:06.890 --> 00:02:15.290
+five different states? Are two bits enough? Would three be enough? Well, for five
+
+00:02:15.290 --> 00:02:21.570
+states we need at least three bits because two is not going to to work so
+
+00:02:21.570 --> 00:02:34.110
+we are going to represent as 0 as 0 0 0 using 3-bit representation 0 0 1 0 1 0 0
+
+00:02:34.110 --> 00:02:46.120
+1 1 and 1 0 0. Honestly we could have taken any subset of five different
+
+00:02:46.120 --> 00:02:54.560
+binary numbers between 000 and 111 to represent our states, but it's custom
+
+00:02:54.560 --> 00:03:00.840
+and very useful for the starting state, state 0, to be encoded as all zeros.
+
+00:03:00.840 --> 00:03:08.400
+Why? Because we can do reset. If we reset we will be basically the clear value for
+
+00:03:08.400 --> 00:03:18.420
+all the bits inside of state register and therefore we start the basically we
+
+00:03:18.420 --> 00:03:24.700
+put the FSM into starting state. I mentioned something interesting that we
+
+00:03:24.700 --> 00:03:32.900
+have to take into account. Every time that we were transitioning from
+
+00:03:32.900 --> 00:03:41.380
+state to state. For us, so far, that looked this way. However, in real implementation,
+
+00:03:42.180 --> 00:03:49.300
+the state, current state itself, is going to be stored in register. That register is going to have
+
+00:03:49.300 --> 00:03:58.260
+n bits. And every time that we go, for example, if we move from state 0 to state 1,
+
+00:03:58.260 --> 00:04:07.850
+so if we move to state 1 the value inside register is going to be
+
+00:04:07.850 --> 00:04:13.010
+implemented to be the value or that corresponds to state 1 and this
+
+00:04:13.010 --> 00:04:22.750
+register is going to be state register. More about that in the next set of
+
+00:04:22.750 --> 00:04:34.150
+mini lectures. Now let me go back to the state encoding. This is probably most
+
+00:04:34.150 --> 00:04:36.430
+How do you say?
+
+00:04:36.430 --> 00:04:39.610
+One of the most straightforward encodings
+
+00:04:39.610 --> 00:04:42.150
+because it is very familiar to us.
+
+00:04:43.070 --> 00:04:45.230
+We're going to introduce another encoding,
+
+00:04:45.230 --> 00:04:50.710
+which is gray code encoding.
+
+00:04:50.710 --> 00:04:54.390
+We mentioned gray codes in the beginning of this class,
+
+00:04:54.390 --> 00:04:57.030
+maybe during first couple of lectures.
+
+00:04:57.030 --> 00:05:00.110
+And the property of gray code is
+
+00:05:00.110 --> 00:05:06.420
+that two consecutive numbers are represented
+
+00:05:06.420 --> 00:05:12.340
+in such a way that only one bit is going to change its value between those two
+
+00:05:12.340 --> 00:05:19.140
+numbers. So let's look at it. 0 is again going to be represented as 0 0 0.
+
+00:05:19.140 --> 00:05:26.820
+1, okay, this is vanilla. 1 looks the same. However, now 2, if you were to look
+
+00:05:26.820 --> 00:05:33.740
+at these two numbers here, they are both so you will have two bits that are
+
+00:05:33.740 --> 00:05:40.860
+flipping the value. In gray code we want to allow just one bit to flip the value and this is in gray
+
+00:05:40.860 --> 00:05:52.910
+code going to be a code for state 2. Then the next one is going to be state 3. Let me just make this
+
+00:05:52.910 --> 00:06:07.300
+a little bit lower and finally state 4 is going to be different from state 3 only by one bit.
+
+00:06:07.300 --> 00:06:16.320
+So again, if you are moving from, let's go and get some more subtle color,
+
+00:06:16.320 --> 00:06:21.640
+from this one stage to the another state, there is just one bit different,
+
+00:06:21.640 --> 00:06:26.040
+then between those two states there is just one bit there is different,
+
+00:06:26.040 --> 00:06:30.160
+then between those there is one bit there is different,
+
+00:06:30.160 --> 00:06:34.280
+and again this is one bit that is different.
+
+00:06:34.280 --> 00:06:48.360
+The big advantage of gray codes is that if we have a state machine that is going to go
+
+00:06:48.360 --> 00:06:56.720
+from state 0 to state 1, to state 2, to state 3, to state 4, and over and over repeatedly,
+
+00:06:56.720 --> 00:06:58.720
+either that way or backwards,
+
+00:06:59.840 --> 00:07:02.800
+if that is the way that machine is going to work,
+
+00:07:03.800 --> 00:07:08.720
+it is energy efficient to have only one bit
+
+00:07:08.720 --> 00:07:12.320
+that is being flipped between adjacent states,
+
+00:07:12.320 --> 00:07:16.420
+because every time that we flip bit, we consume power.
+
+00:07:17.280 --> 00:07:21.280
+So changing one bit is beneficial
+
+00:07:21.280 --> 00:07:31.760
+is beneficial for total power consumption of the system. Now finally we are going to talk about
+
+00:07:32.800 --> 00:07:48.050
+another encoding and that is called one-hot encoding. So for one-hot encoding there is
+
+00:07:48.050 --> 00:07:55.850
+interesting thing to be said because in one-hot encoding we are going to say
+
+00:07:55.850 --> 00:08:06.810
+that only one bit is going to be equal to 1 for one state everything else is
+
+00:08:06.810 --> 00:08:12.790
+going to be equal to 0 because we have five states here we will have five bits
+
+00:08:12.790 --> 00:08:44.130
+So for state 0, bit 0 is going to be equal to 0, 1, 2, 3, well actually it's better to say 0, 1, 2, 3, 4, 0, 1, 2, 3, 4, 0, 1, 2, 3, 4
+
+00:08:44.130 --> 00:08:49.450
+and 0, 1, 2, 3, 4.
+
+00:08:49.450 --> 00:09:05.490
+So, bit 0, position 0 has 1, bit 1, position 1 has 1, and so on and so forth.
+
+00:09:05.490 --> 00:09:16.610
+advantage of this approach is actually that we have very clearly defined states in a way that
+
+00:09:17.330 --> 00:09:30.860
+if we were to go into a state that has for example 0 0 0 1 1 for sure we are going to know that
+
+00:09:30.860 --> 00:09:33.000
+that this is erroneous state.
+
+00:09:34.780 --> 00:09:37.180
+So in our lab assignment,
+
+00:09:37.180 --> 00:09:40.140
+we will be using gray encoding
+
+00:09:40.140 --> 00:09:42.940
+and we are going to use these state decodings
+
+00:09:42.940 --> 00:09:47.180
+in order to make block diagram
+
+00:09:47.180 --> 00:09:50.780
+and gate level diagram of state machines.
+
+00:09:50.780 --> 00:09:52.180
+Hope this is helpful.
+
+00:09:52.180 --> 00:09:53.020
+Thank you.
+

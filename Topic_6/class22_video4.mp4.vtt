@@ -1,0 +1,248 @@
+WEBVTT
+
+00:00:01.300 --> 00:00:07.300
+Hi, this is Dr. Jelena Trajkovic with CECS Department, Cal State Long Beach. So, let us go through
+
+00:00:07.300 --> 00:00:16.460
+the example and try to explain how this timer works. I wanted to say counter. It is counter
+
+00:00:16.460 --> 00:00:23.620
+inside, but it works as a counter. It works in order to help timer generate a pulse. Okay,
+
+00:00:23.620 --> 00:00:36.300
+example. So, we'll do the same as we did in a previous video, where upper bound will
+
+00:00:36.300 --> 00:00:47.300
+be five decimal which is one zero one in binary. So we want to count for five
+
+00:00:47.300 --> 00:00:59.440
+because we have to count for five we are going to do four three two one and zero.
+
+00:00:59.440 --> 00:01:10.610
+So okay if we want to count for five we are loading one zero one here and at
+
+00:01:10.610 --> 00:01:15.610
+At the output of this decrementor, we will have one zero zero.
+
+00:01:20.500 --> 00:01:22.980
+So first thing that we need to do
+
+00:01:22.980 --> 00:01:29.410
+is we need on this load to put one.
+
+00:01:30.350 --> 00:01:32.730
+When we put one on this load,
+
+00:01:32.730 --> 00:01:35.010
+this value is going to hop in
+
+00:01:36.250 --> 00:01:41.620
+and it's going to hop in on positive edge clock.
+
+00:01:41.620 --> 00:01:46.460
+Mind you, one zero zero is here
+
+00:01:46.460 --> 00:01:51.460
+And only after this positive edge of clock,
+
+00:01:52.940 --> 00:01:54.180
+only after that.
+
+00:01:54.180 --> 00:01:58.740
+So here at the beginning before the positive edge of clock,
+
+00:01:58.740 --> 00:02:00.940
+all the way till this time,
+
+00:02:00.940 --> 00:02:02.820
+we're going to have something
+
+00:02:02.820 --> 00:02:04.620
+that was in this load register.
+
+00:02:05.640 --> 00:02:15.310
+However, at this moment of time, after we load,
+
+00:02:15.310 --> 00:02:20.310
+this line, after we load, this line will have one zero zero.
+
+00:02:21.390 --> 00:02:34.980
+So the 3-bit register becomes, the content becomes 1 0 0.
+
+00:02:34.980 --> 00:02:55.980
+Once we loaded this, this is initial value, we are going to put ld to be equal to 0.
+
+00:02:55.980 --> 00:03:11.410
+Let's look at the situation that is happening in time before this positive clock edge.
+
+00:03:11.490 --> 00:03:21.530
+So we are putting 1 0 1 on this input. In a little while of the propagation delay we
+
+00:03:21.530 --> 00:03:31.900
+have 1 0 0 on this input, we have 1 0 0 here, and we have some unknown value here. When
+
+00:03:31.900 --> 00:03:42.260
+load comes and becomes 1, let's write it down as 1, we will have 1 here, but we are also
+
+00:03:42.260 --> 00:03:54.700
+going to have one here, one here, and one here. That means that in this moment before
+
+00:03:54.700 --> 00:04:08.310
+this positive edge clock, we will take the value from here, so this is one, this is one
+
+00:04:08.310 --> 00:04:24.390
+to do here and we are going to load it here. Now if at this moment if count is equal to
+
+00:04:24.390 --> 00:04:57.160
+one the counter will start counting using a 3-bit count down counter with load. And then
+
+00:04:57.160 --> 00:05:04.240
+load this value into this load register and load becomes zero so let's change
+
+00:05:04.240 --> 00:05:14.520
+color for that so we are going to load once we load it in we are going to put
+
+00:05:14.520 --> 00:05:26.710
+load equal to zero now let's now now with the load is equal to zero when load
+
+00:05:26.710 --> 00:05:43.300
+becomes 0. The value that is stuck inside is 100. The value that is here is 0, so that means
+
+00:05:44.660 --> 00:05:58.050
+we will be passing 100 through this input. And at least this part is equal to 0.
+
+00:05:58.050 --> 00:06:07.270
+So, if we did not reach terminal count, if we did not reach terminal count, if terminal
+
+00:06:07.270 --> 00:06:12.570
+count is zero, then two zeros are going to give us zero.
+
+00:06:12.570 --> 00:06:15.470
+So we don't have load anymore here.
+
+00:06:15.470 --> 00:06:30.630
+Now counter, providing that C and T is equal to one, counter is going to start counting.
+
+00:06:30.630 --> 00:06:32.990
+And counter is going to count.
+
+00:06:32.990 --> 00:06:45.670
+So on it's going to be a 3-bit counter that starts with, it's going to start with 1 0 0.
+
+00:06:45.670 --> 00:07:00.660
+After 1 microsecond the counter will have 0 1 1, Tc is going to be 0.
+
+00:07:00.660 --> 00:07:11.440
+After another one microseconds it's going to be 0 1 0, Tc is going to be 0.
+
+00:07:11.440 --> 00:07:22.260
+After another one microsecond 0 0 1, Tc is going to still be 0, after another one microsecond
+
+00:07:22.260 --> 00:07:37.790
+0, 0, 0. This is our terminal count. Tc becomes 1. Now, I'm going to change the color again
+
+00:07:37.790 --> 00:08:00.660
+and we are going to make it into... so Tc becomes 1 here. And when Tc becomes 1, this
+
+00:08:00.660 --> 00:08:11.700
+input becomes one, load is going to become one, when load becomes one and this
+
+00:08:11.700 --> 00:08:18.980
+is going to be for the next microsecond so we are going to have a pulse that is
+
+00:08:18.980 --> 00:08:29.580
+going to be one microsecond wide. So we are going to have this load being one
+
+00:08:29.580 --> 00:08:39.240
+because this load is 1 and the top one here is 0 from previous iterations, sorry
+
+00:08:39.240 --> 00:08:51.620
+I didn't mark that, so this one is still 0. So what is going to happen is this
+
+00:08:51.620 --> 00:09:01.860
+value here will be stored inside of our 3-bit count down register, so we are
+
+00:09:01.860 --> 00:09:22.990
+going to have again starting bits. So we are going to load 3-bit counter, TC is going to
+
+00:09:22.990 --> 00:09:37.600
+become zero and we get going again. To recap once again is, so there are a couple of things
+
+00:09:37.600 --> 00:09:46.980
+that are quote unquote a little bit peculiar in this schematic. And I'm going to go into
+
+00:09:46.980 --> 00:09:51.980
+The first thing is why do we need decrementor?
+
+00:09:53.920 --> 00:09:58.920
+Because we want to count five counts.
+
+00:10:01.600 --> 00:10:03.680
+We have to want to have n counts.
+
+00:10:03.680 --> 00:10:06.540
+And because we count zero in,
+
+00:10:06.540 --> 00:10:10.640
+we have to start with n minus one to zero
+
+00:10:10.640 --> 00:10:14.580
+in order to have n counts.
+
+00:10:14.580 --> 00:10:18.760
+The starting value is always going to be saved
+
+00:10:18.760 --> 00:10:32.930
+our load register. And we have this funny multiplexer here because we do not want
+
+00:10:32.930 --> 00:10:42.410
+to wait until the positive edge of clock. We want to start at the first edge of
+
+00:10:42.410 --> 00:10:49.370
+clock. So in order to load this register we need to wait for positive clock edge
+
+00:10:49.370 --> 00:10:56.810
+but we actually want to be able to start counting with this 3-bit counter the
+
+00:10:56.810 --> 00:11:04.430
+moment we put this upper bound in so that's why very first time at the same
+
+00:11:04.430 --> 00:11:10.570
+time when we are loading the 3-bit register we are loading also a 3-bit
+
+00:11:10.570 --> 00:11:19.090
+countdown counter with load and that's how we are starting to count that very
+
+00:11:19.090 --> 00:11:25.730
+moment. After a while we are going to, after we loaded the initial value, we are going to drop
+
+00:11:26.610 --> 00:11:34.210
+external load value to zero. When we drop that external load value to zero, whatever we
+
+00:11:34.770 --> 00:11:42.130
+stored here, it's going to stay there and that is going to be reused all over and over again.
+
+00:11:42.130 --> 00:12:05.740
+so mind you if we were to count from 7 to 0 or opposite from from 0 to 7 we
+
+00:12:05.740 --> 00:12:10.740
+could have simplified things a little bit because we didn't want didn't need
+
+00:12:10.740 --> 00:12:17.640
+we wouldn't need, sorry, we wouldn't need to load the value. We could just use all
+
+00:12:17.640 --> 00:12:25.560
+the three bits and however this design is more general and we can practically
+
+00:12:25.560 --> 00:12:35.480
+load any upper bound that is up to the maximum number of bits, maximum number
+
+00:12:35.480 --> 00:12:40.240
+that can be represented with a given given amount of bits in this latches.
+
+00:12:40.240 --> 00:12:45.740
+This is a little bit complicated and I hope you understood at least how this
+
+00:12:45.740 --> 00:12:49.880
+works. Thanks for watching!
+

@@ -1,0 +1,206 @@
+WEBVTT
+
+00:00:00.430 --> 00:00:19.060
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach. We are going to move to a variety of encoders, which is called priority encoder.
+
+00:00:19.060 --> 00:00:28.060
+We had one really very important and big assumption for encoder, and that is that all one input is going to be active at the time.
+
+00:00:28.060 --> 00:00:34.060
+Now we are going to release this assumption and constraint.
+
+00:00:34.060 --> 00:00:53.980
+So, for priority encoder, it is possible to have any input combination.
+
+00:00:53.980 --> 00:01:17.260
+And basically, we can have multiple ones in the inputs at any time.
+
+00:01:17.260 --> 00:01:26.720
+If we do have multiple ones, how do we decide which one is going to take precedence?
+
+00:01:26.720 --> 00:01:38.640
+they will decide which one is going to have its code generated on O1 and O2 so
+
+00:01:38.640 --> 00:01:54.660
+we are going to do again 4 to 2 priority encoder so for this case we have to
+
+00:01:54.660 --> 00:02:02.620
+define something that is called priority and you're going to say that the
+
+00:02:02.620 --> 00:02:08.220
+priority is going to be the one that is going to select between those input ones.
+
+00:02:09.980 --> 00:02:13.820
+This is all very kind of theoretical. Let's look at the
+
+00:02:15.820 --> 00:02:32.080
+truth table. Now O1, O0, we are going to have another input here. We are going to
+
+00:02:32.080 --> 00:02:38.640
+talk about that in a little while. Let's look at the first case that we had previously. So
+
+00:02:38.640 --> 00:02:53.380
+in your notes leave one row of empty space here so it's 0 0 0 1. In this case we
+
+00:02:53.380 --> 00:03:02.340
+are going to generate the output 0 0. We'll talk about it again or in a little while.
+
+00:03:02.340 --> 00:03:25.570
+going to save this. D0 is low priority and D3 is high priority. So if we have 0,0, 1, 0, and if we
+
+00:03:25.570 --> 00:03:39.250
+have 0,0, 1, 1, those two cases are going to be making the same output because D1 has higher
+
+00:03:39.250 --> 00:03:46.410
+priority going to be zero and the code that is going to be for both cases is
+
+00:03:46.410 --> 00:03:58.140
+going to be zero one. Now instead of making two rows for this case so I'm
+
+00:03:58.140 --> 00:04:09.530
+going to leave it here but you know in general I would delete this. This row we
+
+00:04:09.530 --> 00:04:12.970
+are going to replace with something else we're going to replace with zero
+
+00:04:12.970 --> 00:04:22.770
+0, 0, 1, and x. Because it doesn't matter what is the value of d0, the output is always
+
+00:04:22.770 --> 00:04:35.800
+going to be this one. So this is compact representation. This is not anything. I'm just making it
+
+00:04:35.800 --> 00:04:44.870
+more compact, more smaller to make this truth table a little bit smaller.
+
+00:04:44.870 --> 00:04:53.420
+Let's do the case where we have d2. So I'm not going to list all the possible cases because
+
+00:04:53.420 --> 00:05:04.580
+we would have four different options for d1 and d0. So we will have here x, x. Because
+
+00:05:04.580 --> 00:05:15.380
+Because the moment 1 becomes a value of d2, the output is going to become 0, 1, which
+
+00:05:15.380 --> 00:05:28.160
+is the binary form of 2, because d2 takes precedence or priority over d1 and d0.
+
+00:05:28.160 --> 00:05:33.160
+And finally, if we have one here and don't cares
+
+00:05:34.720 --> 00:05:37.560
+for everything else on the right-hand side,
+
+00:05:37.560 --> 00:05:41.600
+we are going to have one one here.
+
+00:05:41.600 --> 00:05:45.200
+So the table kind of sort of looks similar
+
+00:05:45.200 --> 00:05:47.040
+to the one that we had before.
+
+00:05:48.740 --> 00:05:51.340
+I want to talk about the very first row.
+
+00:05:52.440 --> 00:05:54.920
+So we had constraint here.
+
+00:05:56.060 --> 00:06:01.480
+Only one input is active at the time.
+
+00:06:01.480 --> 00:06:05.100
+And we say here in the second one, in priority or in codel,
+
+00:06:05.100 --> 00:06:08.440
+it is possible to have any input combinations,
+
+00:06:12.990 --> 00:06:16.210
+all values for V3 to V0 are okay.
+
+00:06:17.550 --> 00:06:20.590
+Having said that, what is happening
+
+00:06:20.590 --> 00:06:26.500
+if we have all zeros in the input?
+
+00:06:26.500 --> 00:06:28.700
+So it's good to pause the video right now
+
+00:06:28.700 --> 00:06:34.260
+and think a little bit about it.
+
+00:06:34.260 --> 00:06:35.640
+So I see a problem here
+
+00:06:35.640 --> 00:06:44.040
+because we do not have a code. We already used up the code 00 and we
+
+00:06:44.040 --> 00:06:49.280
+don't have a code, an extra code, to distinguish between the case where you
+
+00:06:49.280 --> 00:06:57.680
+have all the zeros, we have all the zeros here, and the case where we have d0 equals
+
+00:06:57.680 --> 00:07:06.080
+So that's why we have another output V. V is going to be called
+
+00:07:06.080 --> 00:07:24.060
+valid and it's an output and no matter how big is the encoder if it's 8 to 3
+
+00:07:24.060 --> 00:07:43.910
+encoder priority if it's what is the next one 16 to 3 priority sorry 16 to 4
+
+00:07:43.910 --> 00:07:57.350
+priority encoder if it's 2 to 1 priority encoder we will always have only one
+
+00:07:57.350 --> 00:08:06.770
+output valid valid bit on one bit of output valid because that valid is going
+
+00:08:06.770 --> 00:08:14.870
+to tell us hey we actually do not have anything on inputs so please disregard
+
+00:08:14.870 --> 00:08:24.770
+our O1 and O0 outputs or it's going to tell us we do have something so you're
+
+00:08:24.770 --> 00:08:28.970
+We're going to skip this one, this was just the explanation.
+
+00:08:28.970 --> 00:08:40.370
+We do have something on inputs, and therefore we take into account values of O1 and O0.
+
+00:08:40.370 --> 00:08:45.450
+So let's go back to the first row, we have all zeros in the output, sorry, all zeros
+
+00:08:45.450 --> 00:08:55.230
+for values of these, value of output V is 0 and we really do not care what is the
+
+00:08:55.230 --> 00:09:01.050
+value of O1 and O0 because it is going to be kind of sort of disregarded
+
+00:09:01.050 --> 00:09:14.570
+because of this V. When we don't care we have X. Now important thing is that we're
+
+00:09:14.570 --> 00:09:25.090
+We're going to devise the equations for this priority encoder using K-maps, but even without
+
+00:09:25.090 --> 00:09:38.250
+K-maps, we can devise V-bit expression, and V-bit is going to have expression of D3 or
+
+00:09:38.250 --> 00:09:49.050
+d2 or d1 or d0. Please please please note when you go to the to your lab
+
+00:09:49.050 --> 00:10:03.090
+assignment this is in Verilog Verilog this is addition so do not use plus
+
+00:10:03.090 --> 00:10:15.390
+what you need to do, you need to take an operator for bitwiseOR and use
+
+00:10:15.390 --> 00:10:23.730
+appropriate of operator to make the expression in very log because on paper
+
+00:10:23.730 --> 00:10:40.060
+we use plus to show OR operator. Okay we are going to do the K maps in the
+
+00:10:40.060 --> 00:10:45.660
+next video so that we don't make this one too long. Thanks for watching!
+

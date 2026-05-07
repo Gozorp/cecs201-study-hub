@@ -1,0 +1,296 @@
+WEBVTT
+
+00:00:00.850 --> 00:00:06.510
+Hi, this is Dr. Jelena Trajkovic from the CECS Department at Cal State Long Beach.
+
+00:00:06.510 --> 00:00:13.650
+We want to start building actual hardware and to start building hardware that can store,
+
+00:00:13.650 --> 00:00:22.450
+we are going to start with SR latch. That is a structure that can store one bit of information.
+
+00:00:22.450 --> 00:00:33.480
+So this one is going to have, this structure is going to have two inputs and they are going
+
+00:00:33.480 --> 00:00:51.960
+to be called S, that stands for set the latch, and R, that stands for reset the latch. And
+
+00:00:51.960 --> 00:01:00.100
+then we are going to have one output, then I'm going to say, okay, plus one, because
+
+00:01:00.100 --> 00:01:10.840
+on an actual hardware, you're going to see one output with two values for that. It seems
+
+00:01:10.840 --> 00:01:12.480
+It's a little bit complicated when I say it,
+
+00:01:12.480 --> 00:01:13.320
+but you will see.
+
+00:01:15.000 --> 00:01:17.180
+This is going to be called Q
+
+00:01:17.180 --> 00:01:23.720
+and that is the value of the stored bit.
+
+00:01:26.840 --> 00:01:29.000
+Why am I saying plus one?
+
+00:01:29.000 --> 00:01:31.340
+Because actual physical structure
+
+00:01:31.340 --> 00:01:36.340
+is going to have outputs that are Q and Q prime.
+
+00:01:36.780 --> 00:01:38.520
+So it's the same output.
+
+00:01:38.520 --> 00:01:42.340
+It's just that it's available
+
+00:01:42.340 --> 00:01:44.820
+in regular and complemented version.
+
+00:01:45.820 --> 00:01:52.540
+Before we go, I'm not going to go into much of the operation of what is going on
+
+00:01:52.540 --> 00:02:05.930
+inside of SR Ledge. So I'm not going to give too much of a details of how things happen
+
+00:02:05.930 --> 00:02:14.250
+inside of our SR Ledge. I'm going to point out that we have very detailed
+
+00:02:14.250 --> 00:02:21.690
+animation inside book in this participation activity for SR latch and I'm requesting you to
+
+00:02:22.730 --> 00:02:30.650
+cover that before coming to the class. It's much nicer that you see it in a way that it's
+
+00:02:32.170 --> 00:02:37.130
+literally simulated for you in step by step than for me just to talk about it.
+
+00:02:37.130 --> 00:02:47.130
+So, in order to understand what is in that animation and a little bit understand of what is going on in our SR-LAT,
+
+00:02:47.130 --> 00:03:01.130
+we'll have to remind ourselves of NOR gate, which is going to be basic building block for our A NOR B.
+
+00:03:01.130 --> 00:03:05.130
+We have 0 0 0 1 1 0 and 1 1.
+
+00:03:05.130 --> 00:03:07.590
+And how does NOR work?
+
+00:03:07.590 --> 00:03:11.570
+Only if both inputs are one, NOR is going to be one.
+
+00:03:11.570 --> 00:03:15.350
+Sorry, only if both inputs are zero, NOR is going to be one.
+
+00:03:15.350 --> 00:03:19.590
+And in all other cases, it's going to be zero,
+
+00:03:19.590 --> 00:03:25.080
+because it is not of OR.
+
+00:03:25.080 --> 00:03:30.080
+So this is the gate level diagram of SR latch.
+
+00:03:30.480 --> 00:03:35.480
+So we have S input, and this S input is connected.
+
+00:03:36.980 --> 00:03:42.760
+to a NOR gate, and then we're going to have on the bottom our input,
+
+00:03:44.460 --> 00:03:47.120
+and this is again connected to a NOR gate.
+
+00:03:47.660 --> 00:03:54.580
+And now we're going to have something that is that we are first time seeing here.
+
+00:03:55.420 --> 00:03:58.620
+We are going to have an output
+
+00:03:59.720 --> 00:04:01.720
+of one of those NOR gates
+
+00:04:02.600 --> 00:04:04.600
+connected to input of
+
+00:04:05.480 --> 00:04:07.400
+the other one.
+
+00:04:07.400 --> 00:04:15.320
+And then we'll have criss-cross.
+
+00:04:15.320 --> 00:04:20.780
+The one on the bottom is the one that is going to produce q.
+
+00:04:20.780 --> 00:04:31.560
+Well, actually, usually I do use capital Q, so why don't we start that, q prime.
+
+00:04:31.560 --> 00:04:38.090
+So this is q, and this is going to be q prime.
+
+00:04:38.090 --> 00:04:41.090
+The most important thing that you need to know
+
+00:04:41.090 --> 00:04:46.090
+about SR latches is how they function.
+
+00:04:46.930 --> 00:04:50.790
+And I'm not going to rely that you will be able
+
+00:04:50.790 --> 00:04:54.570
+to reproduce this simulation by yourself.
+
+00:04:54.570 --> 00:04:58.470
+However, what is required for this course
+
+00:04:58.470 --> 00:05:02.570
+is to be able to reproduce and understand
+
+00:05:02.570 --> 00:05:05.050
+the following table because this following table
+
+00:05:05.050 --> 00:05:10.050
+is going to explain to you, or you will use the table
+
+00:05:10.890 --> 00:05:14.210
+to explain to me how the SR latch works.
+
+00:05:14.210 --> 00:05:18.770
+So we are going to have S, and we are going to have R,
+
+00:05:18.770 --> 00:05:22.390
+and then I'm going to make Q and Q prime.
+
+00:05:23.730 --> 00:05:26.570
+And we are going to have a little bit funny order
+
+00:05:26.570 --> 00:05:31.570
+of our, of listing of all the possible inputs here.
+
+00:05:31.570 --> 00:05:41.310
+possible inputs here. So let's say if s is equal to 1 and r is equal to 0, what we
+
+00:05:41.310 --> 00:05:46.870
+want to do, we want to set the latch. When we say set the latch, that means its
+
+00:05:46.870 --> 00:05:56.290
+output is going to be 1 for q and consequently q' is going to be 0. Now
+
+00:05:56.290 --> 00:06:02.850
+I'm going to make one row that is empty and skip a row and then I'm going to say
+
+00:06:02.850 --> 00:06:18.130
+okay we have also zero one combination for S and R. We're going to reset the
+
+00:06:18.130 --> 00:06:29.140
+latch. Resetting Q is going to be zero and Q prime is going to be one. So far so
+
+00:06:29.140 --> 00:06:53.220
+good. Let's look at our possibility of having input 00. 00 is a funny input. Because 00,
+
+00:06:53.220 --> 00:07:13.700
+So SR is equal to 00, or SR is equal to 00, is going to keep the previous value.
+
+00:07:13.700 --> 00:07:30.740
+So if 00 happens after S equals 1, R equals 0, it's going to store the value of 10.
+
+00:07:30.740 --> 00:07:54.010
+it keeps previous. Now, if 00 happens right after having S equal to 0 and R equal to 1,
+
+00:07:54.010 --> 00:08:09.520
+the output is going to be 01 again. That is something new. The participation activity
+
+00:08:09.520 --> 00:08:17.660
+in the book is definitely going to help you understand this. Now we have something that
+
+00:08:17.660 --> 00:08:28.060
+is orthogonal to what we have seen so far in our class. And that is what if we have
+
+00:08:28.060 --> 00:08:40.730
+one here and one here. The simulation of that is in your chapter called meta-stability
+
+00:08:40.730 --> 00:08:45.210
+in your light book, again you have a simulation of that.
+
+00:08:45.210 --> 00:08:49.070
+And for this input,
+
+00:08:49.070 --> 00:08:54.290
+you will be getting output which is 0,0.
+
+00:08:54.290 --> 00:08:56.530
+So something is fishy here
+
+00:08:56.530 --> 00:08:59.610
+because you can't have q equal to 0
+
+00:08:59.610 --> 00:09:03.310
+and q prime equal to 0.
+
+00:09:03.310 --> 00:09:11.830
+Therefore, this state is forbidden.
+
+00:09:11.830 --> 00:09:14.510
+So we are going to go back into our table
+
+00:09:14.510 --> 00:09:16.910
+and we are going to add something.
+
+00:09:16.910 --> 00:09:21.910
+So we are going to set the latch
+
+00:09:25.140 --> 00:09:26.580
+and then we are going to go here
+
+00:09:26.580 --> 00:09:31.580
+and just annotate reset the latch
+
+00:09:35.190 --> 00:09:39.950
+and zero zero is going to keep previous.
+
+00:09:39.950 --> 00:09:43.210
+What is going to happen with this forbidden state?
+
+00:09:44.230 --> 00:09:49.870
+Imagine that you have one,
+
+00:09:49.870 --> 00:09:58.350
+one and one on these inputs and then you would have zero and zero on these inputs.
+
+00:10:00.190 --> 00:10:10.350
+The moment you have zero on any of the inputs you will be having zero on the output. It is going to
+
+00:10:10.350 --> 00:10:28.900
+create such dynamics that the latch is not going to be able to settle in one
+
+00:10:28.900 --> 00:10:37.900
+particular stage. So it is going to create so-called meta-stability. So
+
+00:10:37.900 --> 00:10:49.580
+Therefore, we have a rule that we are never going to put this input 1-1 on the input SNR or SRLATCH.
+
+00:10:56.390 --> 00:11:06.470
+LATCHs used to be used previously because they were less complicated than anything else.
+
+00:11:06.470 --> 00:11:15.890
+and the SR latch in particular used to be used. But this thing that we have a state
+
+00:11:15.890 --> 00:11:22.670
+that is forbidden and we have from the outside to control and make sure that we
+
+00:11:22.670 --> 00:11:32.570
+never get this state SR on inputs equal to 1,1 is problem. So because of
+
+00:11:32.570 --> 00:11:36.090
+that another latch is being introduced.
+
+00:11:36.090 --> 00:11:38.310
+Let's introduce that latch in the next video.
+
+00:11:38.310 --> 00:11:39.150
+Thank you.
+

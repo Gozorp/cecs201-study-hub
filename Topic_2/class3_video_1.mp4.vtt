@@ -1,0 +1,167 @@
+WEBVTT
+
+00:00:00.110 --> 00:00:06.790
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach. Today we are going to
+
+00:00:06.790 --> 00:00:11.510
+talk about addition and subtraction. So to start with, we are going to do a little bit
+
+00:00:11.510 --> 00:00:23.270
+of recap as we briefly introduced this topic. And we are going to do, I'm sorry, arithmetic
+
+00:00:23.270 --> 00:00:35.310
+addition. Addition is one of arithmetic operations. And think about that when we start talking
+
+00:00:35.310 --> 00:00:46.230
+about arithmetic operators in Verilog in the lab. So rules, as we said previously, if this
+
+00:00:46.230 --> 00:01:00.950
+is a and this is b and a plus b, we are going to put sum here and carry over here. If a and
+
+00:01:00.950 --> 00:01:15.240
+b are both zero, sum is zero, carry is zero. If a or b, only one of them is one, sum is
+
+00:01:15.240 --> 00:01:26.360
+one, carry is zero. Most interesting case is where both of them are one. Then sum is
+
+00:01:26.360 --> 00:01:35.400
+zero and carry is one. This is very very similar to regular decimal addition so
+
+00:01:35.400 --> 00:01:42.960
+remember this is we are talking about addition in number two I mean base two
+
+00:01:42.960 --> 00:01:56.120
+systems. Let's do another recap of example so let's work on zero zero one
+
+00:01:56.120 --> 00:02:10.920
+0 and 0, 0, 1, 0. 0 and 0 is 0, carry is 0. 0 and 1 and 1 is result 0, carry 1. 1 and
+
+00:02:10.920 --> 00:02:22.440
+2 zeros is 1, carry 0, 3 zeros, sorry, I forgot. 3 zeros are 0 and this is the result. Example
+
+00:02:22.440 --> 00:02:42.580
+number 2 would be, let's look at these numbers, 0, 1, 1, 1 and 0, 1, 0, 0 from right to left.
+
+00:02:42.580 --> 00:03:06.370
+1 and 0 is 1. Carry 0. 0 and 1 and 1 is 0. Carry 1. Two 1's is 0. Carry 1. And then 1, 1 and two 0's is 1. This is the result.
+
+00:03:06.370 --> 00:03:12.370
+However, we have also some interesting things over here.
+
+00:03:12.370 --> 00:03:20.480
+and the interesting thing is called overflow.
+
+00:03:20.480 --> 00:03:23.900
+Something cannot fit that what overflow is.
+
+00:03:25.260 --> 00:03:28.500
+Let us think about bits in hardware.
+
+00:03:29.460 --> 00:03:35.320
+So if we have four bit number,
+
+00:03:35.320 --> 00:03:39.660
+that means that we have four little locations in memory,
+
+00:03:39.660 --> 00:03:42.840
+each a bit wide, that we are storing the number.
+
+00:03:44.000 --> 00:03:46.520
+Okay, so we will give an example
+
+00:03:46.520 --> 00:03:48.920
+of adding two four bit numbers.
+
+00:03:48.920 --> 00:03:51.120
+and the example is
+
+00:03:51.120 --> 00:03:53.000
+one zero zero zero
+
+00:03:53.000 --> 00:03:57.660
+and one zero zero zero
+
+00:03:57.660 --> 00:04:02.220
+so I'm expecting one two three four bits of my result
+
+00:04:02.220 --> 00:04:04.940
+zero and zero is zero carry zero
+
+00:04:04.940 --> 00:04:06.760
+zero and zero is zero
+
+00:04:06.760 --> 00:04:08.260
+carry another zero
+
+00:04:08.260 --> 00:04:10.060
+three zeros is zero
+
+00:04:10.060 --> 00:04:12.160
+carry zero
+
+00:04:12.160 --> 00:04:18.220
+one and one is zero
+
+00:04:18.220 --> 00:04:20.880
+carry one
+
+00:04:20.880 --> 00:04:22.880
+uh oh
+
+00:04:22.880 --> 00:04:24.320
+now we have
+
+00:04:24.320 --> 00:04:25.600
+a problem
+
+00:04:25.600 --> 00:04:29.720
+because we have physical location for four bits
+
+00:04:29.720 --> 00:04:33.440
+and suddenly our result actually is five bits.
+
+00:04:34.320 --> 00:04:39.320
+So these four bits are going to be stored as a result.
+
+00:04:46.750 --> 00:04:54.980
+But this one bit here, that one is going to indicate
+
+00:04:56.740 --> 00:05:04.410
+that there is an overflow.
+
+00:05:04.410 --> 00:05:07.350
+So basically the result that we have stored
+
+00:05:07.350 --> 00:05:10.660
+is not a correct result.
+
+00:05:10.660 --> 00:05:12.240
+Important thing to notice,
+
+00:05:12.240 --> 00:05:14.880
+because we will be talking about
+
+00:05:14.880 --> 00:05:17.760
+all sorts of kinds of overflows is,
+
+00:05:17.760 --> 00:05:29.230
+right now, this seems unsigned addition,
+
+00:05:29.310 --> 00:05:35.220
+and for unsigned addition,
+
+00:05:35.220 --> 00:05:39.980
+overflow is also carry from the most significant bit.
+
+00:05:40.840 --> 00:05:49.080
+There is an overflow,
+
+00:05:49.080 --> 00:05:52.240
+if carry out from most significant bit,
+
+00:05:52.240 --> 00:06:05.240
+that that one here is equal to 1 and a no overflow if that carry is equal to 0.
+
+00:06:05.240 --> 00:06:07.240
+Hope this was helpful.
+

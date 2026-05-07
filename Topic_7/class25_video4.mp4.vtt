@@ -1,0 +1,152 @@
+WEBVTT
+
+00:00:00.720 --> 00:00:06.400
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach. So we want to illustrate
+
+00:00:06.400 --> 00:00:13.220
+the other type of FSM, which is Mealy type of FSM. And here the function h is defined
+
+00:00:13.220 --> 00:00:19.500
+such that combination of state and input are going to produce the output. So output will
+
+00:00:19.500 --> 00:00:29.580
+depend on both the state and the input value. So let us do a couple of very quick examples.
+
+00:00:29.580 --> 00:00:39.260
+So first, let's say we have initial state as a 0, and in that initial state as a 0, we're
+
+00:00:39.260 --> 00:00:49.580
+going to say on state 0, on input equal to 0, we produce output equals to 0.
+
+00:00:49.580 --> 00:01:00.980
+So this is output and this is input.
+
+00:01:00.980 --> 00:01:13.920
+On input 1, we are going to produce 0 still, but we are going to transition to state S1.
+
+00:01:13.920 --> 00:01:21.280
+On state S1, on output 0, we are producing 1, sorry, on input 0, we are producing 1,
+
+00:01:21.280 --> 00:01:28.060
+and on input 1, we are also producing 1, but going back to state S0.
+
+00:01:28.060 --> 00:01:30.660
+That is as close as possible.
+
+00:01:30.660 --> 00:01:33.700
+It can be to functionality that we have previous.
+
+00:01:34.740 --> 00:01:39.180
+Please bear in mind that the way that Miele FSM works
+
+00:01:39.180 --> 00:01:42.020
+is slightly different with respect to time.
+
+00:01:42.860 --> 00:01:47.860
+And I'm referring you to a simulation in the book.
+
+00:01:50.340 --> 00:01:53.300
+I also want to point out a different example.
+
+00:01:53.300 --> 00:01:58.930
+So this is example Miele.
+
+00:01:58.930 --> 00:02:28.260
+example number two, which kind of has very similar look to it. So here when we are in state as zero,
+
+00:02:29.220 --> 00:02:38.180
+if input is zero, we are producing zero and we are staying in state zero. When we are in state zero
+
+00:02:38.180 --> 00:02:49.380
+and input is 1. We will be producing 1, but then transitioning to state S1. When
+
+00:02:49.380 --> 00:02:57.860
+transitioning from state 1, this is why we have two different edges. The reason
+
+00:02:57.860 --> 00:03:06.220
+for that is that on input 0, the output is going to be 1. On input 1, the
+
+00:03:06.220 --> 00:03:08.420
+the output is going to be zero.
+
+00:03:08.420 --> 00:03:13.420
+This is different and new from the previous example.
+
+00:03:15.620 --> 00:03:18.060
+Another thing that we need to take care of,
+
+00:03:18.060 --> 00:03:22.540
+and I will be repeating that all over and over again,
+
+00:03:22.540 --> 00:03:24.740
+if you have a state,
+
+00:03:25.860 --> 00:03:29.860
+and states do not need to be called S0, S1, S2, S3.
+
+00:03:29.860 --> 00:03:33.860
+We can have a state that is called call.
+
+00:03:36.220 --> 00:03:45.140
+or something like that. If you have a state, and from that state, well, sorry, if you
+
+00:03:45.140 --> 00:04:00.700
+have state and we have total of one input variable, because our input
+
+00:04:00.700 --> 00:04:07.740
+variables are binary, we are going to have total 2 to the number of 1, which
+
+00:04:07.740 --> 00:04:11.220
+which is total two different possibilities.
+
+00:04:11.220 --> 00:04:16.220
+Make sure that you have two outgoing edges.
+
+00:04:18.700 --> 00:04:20.380
+It doesn't matter kind of when they,
+
+00:04:20.380 --> 00:04:23.100
+I mean, it matters for the purpose of functionality,
+
+00:04:23.100 --> 00:04:26.060
+but for the purpose of your self-checking,
+
+00:04:26.060 --> 00:04:29.300
+one of those can go back to the same state.
+
+00:04:29.300 --> 00:04:30.660
+But you have to make sure
+
+00:04:30.660 --> 00:04:35.240
+that you have two outgoing edges.
+
+00:04:35.240 --> 00:04:39.960
+If number of input variables is three,
+
+00:04:39.960 --> 00:04:43.480
+you are going to have two to the three,
+
+00:04:43.480 --> 00:04:45.960
+which is eight outgoing edges.
+
+00:04:45.960 --> 00:04:47.240
+Please count those edges,
+
+00:04:47.240 --> 00:04:52.240
+that is first way for you to figure out
+
+00:04:52.240 --> 00:04:57.240
+and check your work when you're designing an FSM.
+
+00:04:59.280 --> 00:05:01.680
+That's an easy way to check,
+
+00:05:01.680 --> 00:05:04.900
+but the meaning behind this is such
+
+00:05:04.900 --> 00:05:14.820
+that in each state you need to define, for all inputs, how do we transition?
+
+00:05:14.820 --> 00:05:15.620
+Thanks for watching.
+

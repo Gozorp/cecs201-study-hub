@@ -1,0 +1,80 @@
+WEBVTT
+
+00:00:01.740 --> 00:00:08.260
+Hi, this is Dr. Jelena Trajkovic from Cal State Long Beach, CECS Department. In this video,
+
+00:00:08.260 --> 00:00:15.100
+we are going to learn how to create a project in Vivado, more about software versions of
+
+00:00:15.100 --> 00:00:21.460
+Vivado and how to access it, you can find on the beach board. The video is originally
+
+00:00:21.460 --> 00:00:28.660
+created for our course, CECS 201, but it can be used as a refresher anytime during
+
+00:00:28.660 --> 00:00:34.660
+the course and in any other courses. So to create a new project, we are going to select
+
+00:00:34.660 --> 00:00:42.980
+on Quick Start menu, create new project and press. We are going to move on to next and
+
+00:00:42.980 --> 00:00:49.620
+we are going to enter project name. It is going to be lab 1, v2, this is my second
+
+00:00:49.620 --> 00:00:57.140
+version of the same lab. And we are going to specify create project directory here,
+
+00:00:57.140 --> 00:01:00.980
+which is going to make a subdirectory with project name,
+
+00:01:00.980 --> 00:01:04.660
+the same name as the project name under the lab1 folder.
+
+00:01:05.600 --> 00:01:09.260
+We are going to use RTL project,
+
+00:01:09.260 --> 00:01:13.260
+so that's why we check the top button.
+
+00:01:13.260 --> 00:01:15.900
+And we do not want to specify the sources.
+
+00:01:15.900 --> 00:01:19.940
+Again, we check do not specify option here.
+
+00:01:19.940 --> 00:01:24.100
+Once this is done, we need to select appropriate board.
+
+00:01:24.100 --> 00:01:27.580
+Even though first lab is not going to be using any boards,
+
+00:01:27.580 --> 00:01:30.340
+we are going to select the board
+
+00:01:30.340 --> 00:01:33.300
+that we are going to work with in this class,
+
+00:01:33.300 --> 00:01:37.900
+and that is going to be Nexus A7-100T.
+
+00:01:37.900 --> 00:01:40.940
+Once this is selected, we just go to Finish,
+
+00:01:40.940 --> 00:01:45.620
+check if everything is up to our selection,
+
+00:01:45.620 --> 00:01:47.380
+and press Finish.
+
+00:01:47.380 --> 00:01:50.820
+In this moment, the project is going to be generated.
+
+00:01:50.820 --> 00:01:55.540
+In order to keep these videos short, we will stop here.
+
+00:01:55.540 --> 00:01:58.980
+And in the next video, we will learn how to add sources.
+
+00:01:58.980 --> 00:02:00.780
+Thank you for watching.
+

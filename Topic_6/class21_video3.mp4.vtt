@@ -1,0 +1,170 @@
+WEBVTT
+
+00:00:02.030 --> 00:00:06.350
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach.
+
+00:00:06.350 --> 00:00:12.850
+As of now, we were assuming that we have ideal timing.
+
+00:00:12.850 --> 00:00:20.530
+So, we were assuming that we put a signal on the input of the flip-flop, and immediately
+
+00:00:20.530 --> 00:00:29.750
+after rising edge of the clock, we have that data stored inside of the flip-flop and also
+
+00:00:29.750 --> 00:00:40.200
+available on the output of the flip-flop. So for everything before this we assumed
+
+00:00:45.130 --> 00:01:01.480
+so there is no delay here. Let's call it better value on input. When we provide value on input
+
+00:01:05.800 --> 00:01:22.680
+of a flip-flop and flip-flops are what registers are made of immediately after
+
+00:01:22.680 --> 00:01:25.840
+the rising edge of the clock,
+
+00:01:27.400 --> 00:01:32.950
+the content and output.
+
+00:01:34.590 --> 00:01:42.660
+So that means Q of the flip-flop is available.
+
+00:01:42.760 --> 00:01:45.380
+Now think a little bit about all the examples
+
+00:01:45.380 --> 00:01:48.300
+that we did with adders and subtractors
+
+00:01:48.300 --> 00:01:53.300
+and think about our add sub lab assignment that we had.
+
+00:01:53.300 --> 00:02:02.700
+that we had. And you can understand now, if you remember that, that in real life we do
+
+00:02:02.700 --> 00:02:09.500
+not have this ideal timing conditions. So what we practice with adder and subtractor
+
+00:02:09.500 --> 00:02:19.380
+is from going to from ideal conditions to going to conditions when we had some model
+
+00:02:19.380 --> 00:02:29.100
+we modeled it some delay. For flip-flops, we have to also have to acknowledge that
+
+00:02:29.100 --> 00:02:39.920
+we do not live in ideal world. Although in our problems and in our labs we will
+
+00:02:39.920 --> 00:02:48.100
+be working with quote-unquote ideal conditions, we need to know at least in
+
+00:02:48.100 --> 00:02:51.320
+In theory, what are the time constraints?
+
+00:02:52.220 --> 00:02:57.180
+So for flip-flops,
+
+00:02:57.180 --> 00:03:13.270
+we do have three time constraints that are defined.
+
+00:03:13.270 --> 00:03:18.330
+All of them are going to be defined
+
+00:03:18.330 --> 00:03:22.250
+with respect to active clock edge.
+
+00:03:22.250 --> 00:03:25.110
+And in our case, that's going to be positive clock edge.
+
+00:03:26.130 --> 00:03:31.130
+So let's start from the one that is probably going
+
+00:03:31.130 --> 00:03:41.050
+going to be the most intuitive and that is time write up. I'm a little bit
+
+00:03:41.050 --> 00:03:48.970
+exaggerating with respect to how wide this time is compared to width of clock
+
+00:03:48.970 --> 00:03:58.700
+signal, clock pulse, but I'm doing that so that we can actually mark the
+
+00:03:58.700 --> 00:04:04.620
+timing here and so that you can actually see something. So first timing constraint
+
+00:04:04.620 --> 00:04:16.800
+parameter is called TCQ or clock to queue delay. If you look at, listen a
+
+00:04:16.800 --> 00:04:25.120
+little bit for this hint that is given in the in the name, from the moment the
+
+00:04:25.120 --> 00:04:36.200
+clock, positive edge of clock happens to the moment that Q is actually available, new value
+
+00:04:36.200 --> 00:04:58.020
+of the Q is available. So this is time needed after a positive or active clock age for
+
+00:04:58.020 --> 00:05:20.420
+the output to acquire or assume the new value. So that's the first one. Now we have a little
+
+00:05:20.420 --> 00:05:29.380
+bit of a different thing and that is a parameter. So this timing parameter
+
+00:05:29.380 --> 00:05:37.580
+refers to Q output. When does Q output become valid? When does Q output get
+
+00:05:37.580 --> 00:05:50.340
+updated with the new new content? Now we have something that is about the input
+
+00:05:50.340 --> 00:05:58.660
+signal. So the next two time constraints are defined for the input signal. And let me first
+
+00:05:58.660 --> 00:06:23.570
+do a visual representation. So this time here is going to be called setup, setup time. That
+
+00:06:23.570 --> 00:06:31.010
+is the minimum time that inputs need to be stable before the active positive edge of
+
+00:06:31.010 --> 00:07:03.660
+clock so that we have correct data that is stored inside. So this is minimum time that before the
+
+00:07:03.660 --> 00:07:32.000
+active, if we don't respect this minimum time, incorrect data will be maybe stored. So that is
+
+00:07:32.000 --> 00:07:39.440
+sub time before clock edge. And final third parameter is also refers to the input data
+
+00:07:39.440 --> 00:08:00.900
+and that is going to be called hold time. And that hold time is here, so T hold,
+
+00:08:00.900 --> 00:08:20.140
+hold time, it's minimum time, it's a minimum time that input needs to be stable after the
+
+00:08:20.140 --> 00:09:21.930
+active positive edge for the correct data to be stored. It is important that we know
+
+00:09:21.930 --> 00:09:30.450
+that these three times do exist as timing parameters and as constraints
+
+00:09:30.450 --> 00:09:37.410
+because in consecutive classes you will be using these times in order to figure
+
+00:09:37.410 --> 00:09:45.690
+out how short a clock cycle can be. Basically what is the maximum frequency
+
+00:09:45.690 --> 00:09:46.970
+that you can do.
+
+00:09:47.870 --> 00:09:52.870
+So please pay attention that T CQ, T clock to Q delay,
+
+00:09:54.610 --> 00:09:59.610
+refers to the output value and input signal
+
+00:10:00.210 --> 00:10:05.210
+where setup at hold are defined for the input signal.
+
+00:10:06.210 --> 00:10:07.170
+Hope this was helpful.
+
+00:10:07.170 --> 00:10:08.010
+Thank you.
+

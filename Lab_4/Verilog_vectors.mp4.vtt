@@ -1,0 +1,320 @@
+WEBVTT
+
+00:00:01.070 --> 00:00:07.990
+Hi, this is Dr. Jelena Trajkovic, CECS Department, Cal State Long Beach. Let's introduce vectors
+
+00:00:07.990 --> 00:00:16.990
+in Verilog. To recap, we have learned about ViR, and we use ViR in assignment statements
+
+00:00:16.990 --> 00:00:23.190
+and in module instantiations. Also, when we were declaring our modules, all the input
+
+00:00:23.190 --> 00:00:27.710
+and output ports by default were wires.
+
+00:00:27.710 --> 00:00:32.430
+We also used wired in a continuous assignment statement
+
+00:00:32.430 --> 00:00:35.470
+like three statements shown here.
+
+00:00:35.470 --> 00:00:40.470
+And only when any of the values on the right-hand side
+
+00:00:42.070 --> 00:00:44.270
+changes the expression on the right-hand side
+
+00:00:44.270 --> 00:00:49.110
+get re-evaluated and the variable of type of wire
+
+00:00:49.110 --> 00:00:52.910
+on the left-hand side gets new value.
+
+00:00:52.910 --> 00:00:58.910
+bearing in mind that these continuous assignment statements do not execute sequentially.
+
+00:00:58.910 --> 00:01:03.910
+Also, in our test benches we used registers.
+
+00:01:03.910 --> 00:01:12.910
+Register integers time and real time are new types of variables that are in the same group.
+
+00:01:12.910 --> 00:01:18.910
+However, only register and integers are synthesizable.
+
+00:01:18.910 --> 00:01:22.710
+Once it's assigned, register keeps its value.
+
+00:01:22.710 --> 00:01:25.630
+So far, we used it in the test bench.
+
+00:01:25.630 --> 00:01:27.870
+You remember that for all input ports,
+
+00:01:27.870 --> 00:01:31.190
+we created variable of type of register.
+
+00:01:31.190 --> 00:01:35.270
+And within initial statement, we assigned their value.
+
+00:01:35.270 --> 00:01:40.270
+So, in zero underscore tv held the value zero.
+
+00:01:42.390 --> 00:01:45.710
+We waited for 100 units of time.
+
+00:01:45.710 --> 00:01:49.390
+And after that, we assign new value this.
+
+00:01:49.390 --> 00:01:54.390
+So basically, a register retain the value assigned to it,
+
+00:01:55.910 --> 00:01:58.550
+variable of type of register retain that value.
+
+00:01:59.830 --> 00:02:02.550
+It may be synthesized.
+
+00:02:02.550 --> 00:02:05.310
+Basically, it might represent in your design
+
+00:02:05.310 --> 00:02:08.750
+a real physical storage such as register.
+
+00:02:08.750 --> 00:02:12.430
+However, for example, in this test bench here,
+
+00:02:12.430 --> 00:02:14.430
+it is going to be just a variable
+
+00:02:14.430 --> 00:02:17.230
+that keeps its value, it's not going to be synthesized.
+
+00:02:17.230 --> 00:02:20.830
+They mind you, test matches are not synthesized.
+
+00:02:22.470 --> 00:02:27.330
+Variables are used in procedural assignment statements.
+
+00:02:27.330 --> 00:02:29.090
+And procedural assignment statements,
+
+00:02:29.090 --> 00:02:32.830
+as you will see in the following topic,
+
+00:02:34.090 --> 00:02:38.850
+do execute in sequence.
+
+00:02:38.850 --> 00:02:41.810
+One thing, so we are going to learn,
+
+00:02:41.810 --> 00:02:44.810
+We already have learned about initial blocks
+
+00:02:44.810 --> 00:02:46.730
+and always blocks.
+
+00:02:46.730 --> 00:02:49.250
+As you remember in our test benches,
+
+00:02:50.730 --> 00:02:54.170
+initial blocks were specified and executed
+
+00:02:54.170 --> 00:02:56.490
+only once in simulations.
+
+00:02:56.490 --> 00:02:58.450
+They are not synthesized.
+
+00:02:58.450 --> 00:03:01.670
+Always blocks are a little bit different than that
+
+00:03:01.670 --> 00:03:03.970
+and we will talk about them in the next topic.
+
+00:03:05.410 --> 00:03:10.410
+Both vias and registers can be scalars
+
+00:03:10.410 --> 00:03:15.410
+scalars, which is basically having bit width of one,
+
+00:03:16.610 --> 00:03:21.610
+or they have two, three, or n width of bits.
+
+00:03:22.610 --> 00:03:27.610
+You see here on the left-hand side, several examples.
+
+00:03:28.810 --> 00:03:31.930
+They are basically very similar to each other.
+
+00:03:31.930 --> 00:03:35.730
+We've here declare a wire.
+
+00:03:35.730 --> 00:03:40.410
+It's called one underscore bit underscore W.
+
+00:03:40.410 --> 00:03:44.130
+And this is basically one bit or scalar.
+
+00:03:44.130 --> 00:03:49.130
+We can make two bit, three bit and bit.
+
+00:03:49.310 --> 00:03:52.690
+It's very important to know that you always have
+
+00:03:52.690 --> 00:03:57.690
+the dimensions that are specified between keyword wire
+
+00:03:59.010 --> 00:04:02.170
+and the name of the variable.
+
+00:04:02.170 --> 00:04:07.170
+and it is always n minus one to zero for n-bit a vector.
+
+00:04:08.270 --> 00:04:10.230
+You can have them in wires,
+
+00:04:10.230 --> 00:04:15.140
+you can have them in registers, and as seen here.
+
+00:04:15.140 --> 00:04:17.980
+When using vectors, we need to know
+
+00:04:17.980 --> 00:04:22.980
+that you can access each single bit of the vector.
+
+00:04:25.500 --> 00:04:27.940
+So for example, here, for a signed statement,
+
+00:04:27.940 --> 00:04:32.580
+we have two bits, sorry, one bit,
+
+00:04:32.580 --> 00:04:36.220
+And when we assign, we can assign directly that one bit
+
+00:04:36.220 --> 00:04:37.060
+to this.
+
+00:04:38.020 --> 00:04:40.380
+For two-bit, we are showing here
+
+00:04:40.380 --> 00:04:42.740
+that we are assigning both bits here.
+
+00:04:42.740 --> 00:04:46.060
+But for three-bit wire, as seen here,
+
+00:04:46.060 --> 00:04:48.600
+we are assigning basically one by one.
+
+00:04:48.600 --> 00:04:53.600
+We can access and use or assigned two,
+
+00:04:53.620 --> 00:04:56.260
+and this is an example of assigning two,
+
+00:04:56.260 --> 00:04:59.600
+on each bit separately.
+
+00:04:59.600 --> 00:05:01.620
+Basically, those three statements
+
+00:05:01.620 --> 00:05:04.920
+are exactly the same as the statement here on the bottom
+
+00:05:04.920 --> 00:05:09.360
+where variable three underscore bit underscore W
+
+00:05:09.360 --> 00:05:13.860
+is assigned all three bits at one same instance.
+
+00:05:13.860 --> 00:05:18.660
+And here the variables bit two, bit one and bit zero
+
+00:05:18.660 --> 00:05:22.540
+are assigned separately.
+
+00:05:22.540 --> 00:05:27.540
+Again, we can not just access single bit
+
+00:05:29.400 --> 00:05:33.020
+but we can also select part of vector.
+
+00:05:33.020 --> 00:05:36.680
+I read, let's look at the example on the left-hand side here
+
+00:05:36.680 --> 00:05:40.560
+when we have declared a variable of 16 bits,
+
+00:05:40.560 --> 00:05:44.000
+so 15 to zero, 16-bit bus.
+
+00:05:44.000 --> 00:05:48.400
+And then we can assign lower 8-bit
+
+00:05:48.400 --> 00:05:50.680
+and upper 8-bit separately.
+
+00:05:51.880 --> 00:05:53.480
+On the right-hand side,
+
+00:05:53.480 --> 00:05:57.200
+there is a assignment of 3-bit wire,
+
+00:05:57.200 --> 00:05:59.160
+similar like we did previously,
+
+00:05:59.160 --> 00:06:01.760
+but we use concatenate operation.
+
+00:06:01.760 --> 00:06:03.840
+So for this concatenate operation,
+
+00:06:03.840 --> 00:06:07.280
+we decided and the curly braces are the ones
+
+00:06:07.280 --> 00:06:10.760
+that are showing that we are doing concatenation.
+
+00:06:10.760 --> 00:06:14.960
+So most significant bit is always going to be zero.
+
+00:06:14.960 --> 00:06:17.400
+Next bit, we are going to grab
+
+00:06:17.400 --> 00:06:21.760
+entire value of one underscore bit underscore w,
+
+00:06:21.760 --> 00:06:26.760
+and the least significant bit is going to be basically
+
+00:06:26.760 --> 00:06:31.760
+basically two underscore bit underscore W,
+
+00:06:32.300 --> 00:06:36.060
+and you're just going to grab bit two out of that vector.
+
+00:06:36.060 --> 00:06:40.820
+So basically we can isolate one bit
+
+00:06:40.820 --> 00:06:44.140
+or part of the vector,
+
+00:06:44.140 --> 00:06:47.300
+and we can access that,
+
+00:06:47.300 --> 00:06:49.620
+that can be on the left-hand side of expression.
+
+00:06:49.620 --> 00:06:54.620
+So we can assign to a single bit or two part of vector,
+
+00:06:54.620 --> 00:06:58.540
+Or this can be on the right-hand side of an expression
+
+00:06:58.540 --> 00:07:01.940
+and grab that value to be assigned with something else.
+
+00:07:01.940 --> 00:07:03.840
+And I hope this was helpful.
+
