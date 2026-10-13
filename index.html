@@ -72,6 +72,8 @@
 
   * { box-sizing: border-box; }
   html, body { margin: 0; }
+  /* Focus and Play's scrollIntoView land below the header. (The header is position:fixed, not sticky:
+     with sticky, focusing a header control counted as "under the padding" and scrolled the page.) */
   html { scroll-padding-top: calc(var(--hdr-h) + 12px); }
   body {
     font: 15px/1.6 'Nunito', 'Quicksand', 'SF Pro Rounded', -apple-system, 'Segoe UI', system-ui, sans-serif;
@@ -81,6 +83,7 @@
     background: var(--bg);
     color: var(--text);
     min-height: 100vh; min-height: 100dvh;
+    padding-top: var(--hdr-h);  /* room for the fixed header */
     /* Glowing pastel auras in the corners */
     background-image:
       radial-gradient(at 0% 0%, rgba(255, 164, 120, 0.10) 0px, transparent 45%),
@@ -102,7 +105,7 @@
     gap: 22px;
     align-items: center;
     flex-wrap: nowrap;
-    position: sticky; top: 0; z-index: 50;
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
   }
   header h1 {
     font-size: 19px; margin: 0; font-weight: 800;
@@ -161,7 +164,7 @@
     position: sticky; top: var(--hdr-h);
     height: calc(100vh - var(--hdr-h)); height: calc(100dvh - var(--hdr-h));
     overscroll-behavior: contain;
-    scroll-padding-bottom: 104px;
+    scroll-padding: 8px 0 104px;  /* keep focused rows clear of the sticky Progress card */
   }
 
   /* Pretty search box */
@@ -281,6 +284,7 @@
     border: 1px solid var(--line);
     box-shadow: var(--shadow-sm), 0 26px 0 8px var(--bg);
   }
+  aside .progress::after { content: ''; position: absolute; left: -8px; right: -8px; top: 100%; height: 22px; }
   aside .progress .bar {
     height: 10px;
     background: var(--bg-soft);
@@ -583,9 +587,6 @@
     box-shadow: var(--shadow-lg);
   }
   .vplayer:not(.broken) { margin-inline: auto; max-width: calc((100vh - var(--hdr-h) - 24px) * 16 / 9); max-width: calc((100dvh - var(--hdr-h) - 24px) * 16 / 9); }
-  @media (min-width: 901px) and (min-height: 600px) {
-    .vplayer:not(.broken) { max-width: calc((100vh - var(--hdr-h) - 200px) * 16 / 9); max-width: calc((100dvh - var(--hdr-h) - 200px) * 16 / 9); }
-  }
   .vplayer-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
   .vplayer iframe { width: 100%; height: 100%; border: 0; display: block; }
 
@@ -663,6 +664,7 @@
     resize: vertical;
     transition: all var(--transition);
   }
+  .vexpand textarea::placeholder { color: var(--text-dim); }
   .vexpand textarea:focus {
     outline: none;
     border-color: var(--accent);
@@ -677,7 +679,7 @@
     font-weight: 700;
   }
   .vexpand .saved.show { opacity: 1; }
-  .vexpand .saved.show:empty::before { content: 'saved'; }
+  .vexpand .saved.show:empty::before { content: 'saved'; content: 'saved' / ''; }
   .vexpand .saved.error { color: var(--bad); }
 
   /* ---- Empty / footer ---- */
@@ -687,13 +689,15 @@
     padding: 56px 20px;
   }
   .empty-title { font-size: 20px; font-weight: 800; color: var(--text); }
+  .filter-note { display: none; }
   .filter-note {
-    display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px;
+    flex-wrap: wrap; align-items: center; gap: 8px 12px;
     margin: -12px 0 22px; padding: 10px 16px;
     background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius);
     color: var(--text-soft); font-size: 13.5px; font-weight: 600;
   }
   .filter-note b { color: var(--text); }
+  .filter-note span { min-width: 0; overflow-wrap: anywhere; }
   .filter-note button {
     margin-left: auto; padding: 5px 14px; border-radius: 999px; cursor: pointer;
     background: var(--bg-elev); border: 1px solid var(--line-strong); color: var(--text);
@@ -800,7 +804,9 @@
     background: var(--bg-elev); color: var(--text);
     font-weight: 700; transition: all var(--transition);
   }
-  #dl-modal button[aria-disabled="true"] { opacity: 0.7; cursor: default; transform: none; box-shadow: none; }
+  #dl-modal button[aria-disabled="true"],
+  #dl-modal button.primary[aria-disabled="true"]:hover { opacity: 0.7; cursor: default; transform: none; box-shadow: none; }
+  #dl-title:focus { outline: none; }
   #dl-modal button:hover { background: var(--bg-card-2); border-color: var(--line-strong); }
   #dl-modal button.primary {
     background: linear-gradient(180deg, var(--accent) 0%, var(--accent-2) 100%);
@@ -843,7 +849,7 @@
   /* ---- Live-following transcript panel — pastel notebook ---- */
   .vtranscript {
     margin-top: 14px; max-height: 380px; max-height: min(380px, 55vh); overflow-y: auto;
-    scroll-padding-top: 56px;
+    scroll-padding-top: 56px;  /* focused lines stay clear of the sticky "Live transcript" header */
     background: var(--bg-card);
     border: 1px solid var(--line);
     border-radius: var(--radius-lg);
@@ -886,7 +892,6 @@
   .vtranscript .vt-line.active {
     background: linear-gradient(135deg, var(--accent-soft) 0%, var(--peach-soft) 100%);
     color: var(--text);
-    font-weight: 700;
     box-shadow: 0 2px 12px var(--accent-glow), inset 0 0 0 1px var(--accent-glow);
     transform: translateX(2px);
   }
@@ -1176,13 +1181,17 @@
     .scrim { display: block; position: fixed; inset: 0; z-index: 65; background: rgba(0,0,0,.55); opacity: 0; pointer-events: none; transition: opacity 200ms; }
     body.nav-open .scrim { opacity: 1; pointer-events: auto; }
     body.nav-open { overflow: hidden; }
-    aside { scroll-padding-bottom: 0; }
+    aside { scroll-padding: 8px 0; }
     aside .progress { position: static; margin-bottom: 8px; box-shadow: var(--shadow-sm); }
+    aside .progress::after { content: none; }
     main { padding: 20px 16px 64px; }
     main h2 { font-size: clamp(22px, 6.5vw, 32px); }
+    .filter-note { display: flex; }
   }
   @media (max-width: 420px) {
     header h1::before { display: none; }
+    header .canvas-open { display: none; }
+    .vplayer .placeholder.err .play-icon { display: none; }  /* the error overlay must fit a ~140px-tall player */
   }
   @media (max-width: 640px) {
     .vplayer .placeholder { gap: 8px; padding: 8px; }
@@ -1198,11 +1207,14 @@
     main .fe-section { padding: 20px 16px; }
     main .fe-topic { padding: 16px; }
   }
+  @media (forced-colors: active) {
+    aside .progress { position: static; }
+    aside { scroll-padding: 8px 0; }
+  }
   @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-      animation-duration: .01ms !important; animation-iteration-count: 1 !important;
-      transition-duration: .01ms !important; scroll-behavior: auto !important;
-    }
+    /* Turn motion off rather than shortening it: a forced tiny duration would also start transitions
+       on properties like inherited visibility, leaving the drawer's ✕ unfocusable for a frame. */
+    *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   }
   @media print {
     :root {
@@ -1210,10 +1222,10 @@
       --line: #d9d4e0; --line-strong: #bfb8c9;
       --text: #1d1a24; --text-soft: #3a3446; --text-dim: #5a5366; --text-faint: #6e6779;
       --accent: #b8432c; --accent-2: #a33a25; --mint: #2d7a5f; --lavender: #5e4a8c;
-      --butter: #8a6100; --peach: #a65326; --sky: #2f6a90;
+      --butter: #8a6100; --peach: #a65326; --sky: #2f6a90; --bad: #b3261e;
     }
     html, body { background: #fff; }
-    body { background-image: none; }
+    body { background-image: none; padding-top: 0; }
     header { position: static; backdrop-filter: none; -webkit-backdrop-filter: none; background: none; border: 0; padding: 0 0 12px; }
     .skip-link, .nav-toggle, .scrim, header .stats, aside, #dl-modal, iframe, .vactions, .vcheck, .vexpand, .vlink,
     .footer-note, .fe-topic-jump, .empty, .filter-note { display: none !important; }
@@ -1226,6 +1238,7 @@
     .video, .fe-priority-row, .fe-drill, .fe-topic, .fe-weight { break-inside: avoid; }
     main h2, main h3, main h4 { break-after: avoid; }
     .fe-w-fill, .fe-drill-num { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    main .fe-drill .fe-drill-num { color: #fff; }
   }
 </style>
 </head>
@@ -1242,16 +1255,17 @@
     <span class="stat-total"><b id="stat-mb">0</b> MB</span>
     <span><b id="stat-watched">0</b> watched</span>
     <button type="button" class="dl-btn" id="dl-open"><span aria-hidden="true">⬇</span><span class="dl-label"> Download all videos</span></button>
-    <span><a href="https://csulb.instructure.com/courses/112467/modules" target="_blank" rel="noopener">Open Canvas ↗</a></span>
+    <span><a href="https://csulb.instructure.com/courses/112467/modules" target="_blank" rel="noopener"><span class="canvas-open">Open </span>Canvas ↗</a></span>
   </div>
 </header>
 
 <dialog id="dl-modal" aria-labelledby="dl-title">
   <div class="box">
-    <h3 id="dl-title">Download all videos</h3>
+    <h3 id="dl-title" tabindex="-1" autofocus>Download all videos</h3>
     <p>Downloads every video from the course's <a href="https://github.com/Gozorp/cecs201-study-hub/releases/tag/v1.0" target="_blank" rel="noopener">GitHub release</a> into your Downloads folder, one at a time — no login needed. You don't need this to watch: the videos stream right on this page.</p>
+    <p id="dl-note" hidden></p>
     <div class="dl-row">
-      <button type="button" class="primary" id="dl-start" autofocus>Start downloading</button>
+      <button type="button" class="primary" id="dl-start">Start downloading</button>
       <button type="button" id="dl-cancel">Cancel</button>
     </div>
     <ol>
@@ -1958,15 +1972,18 @@ function renderMain() {
   flushNotes();
   if (activeModule === "Final Exam") { renderFinalExam(); mainEl.dataset.module = activeModule; return; }
   const m = COURSE.modules.find(x => x.name === activeModule);
-  // A card whose player is loaded survives a re-render of the same module (search keystroke,
-  // filter toggle): its .vexpand — video, live transcript and notes — is moved into the new markup.
-  // An open card stays listed even if it no longer matches; a collapsed one follows the filters.
+  // Re-rendering the same module (search keystroke, filter toggle) keeps open cards open, and a
+  // card whose player is loaded keeps its .vexpand — video, live transcript and notes — which is
+  // moved into the new markup. An open player stays listed even if it no longer matches.
   const live = new Map();
   if (mainEl.dataset.module === activeModule) {
     mainEl.querySelectorAll('.video').forEach(c => {
-      if (!c.querySelector('.vplayer video')) return;
+      const open = c.classList.contains('open');
+      const hasPlayer = !!c.querySelector('.vplayer video');
+      if (!open && !hasPlayer) return;
       const t = c.querySelector('.vtranscript');
-      live.set(c.dataset.key, { vx: c.querySelector('.vexpand'), open: c.classList.contains('open'), tScroll: t ? t.scrollTop : 0 });
+      if (t && open) t.dataset.scroll = t.scrollTop;  // collapsed cards saved theirs in setOpen
+      live.set(c.dataset.key, { vx: hasPlayer ? c.querySelector('.vexpand') : null, open });
     });
   }
   let html = `<h2 id="main-title">${escapeHtml(m.name)}</h2>`;
@@ -1977,7 +1994,10 @@ function renderMain() {
   for (const p of m.pages) {
     const matching = p.videos.filter(v => videoMatchesFilters(v, p, m));
     if (matching.length) anyShown = true;
-    const shown = p.videos.filter(v => matching.includes(v) || (live.get(videoKey(v)) || {}).open);
+    const shown = p.videos.filter(v => {
+      const kept = live.get(videoKey(v));
+      return matching.includes(v) || !!(kept && kept.open && kept.vx);
+    });
     if (shown.length === 0) continue;
     html += `<div class="page">`;
     html += `<h3>${escapeHtml(p.title)}</h3>`;
@@ -2004,11 +2024,11 @@ function renderMain() {
   for (const [k, kept] of live) {
     const card = [...mainEl.querySelectorAll('.video')].find(c => c.dataset.key === k);
     if (!card) continue;
-    kept.vx.classList.add('kept');  // don't replay the slide-in animation when it's moved back in
-    card.querySelector('.vexpand').replaceWith(kept.vx);
-    setOpen(card, kept.open);
-    const t = kept.vx.querySelector('.vtranscript');
-    if (t) t.scrollTop = kept.tScroll;
+    if (kept.vx) {
+      kept.vx.classList.add('kept');  // moved back in: don't replay the slide-in animation
+      card.querySelector('.vexpand').replaceWith(kept.vx);
+    }
+    setOpen(card, kept.open, { restoring: true });
   }
 }
 
@@ -2022,10 +2042,16 @@ function filterNoteHtml() {
   return `<div class="filter-note"><span>Filtered: ${parts.join(' · ')}</span><button type="button" data-clear-filters>Clear</button></div>`;
 }
 
-function setOpen(card, open) {
+function setOpen(card, open, { restoring = false } = {}) {
+  const vx = card.querySelector('.vexpand');
+  const t = card.querySelector('.vtranscript');
+  // A hidden transcript reads scrollTop 0, so remember its position while it's still visible.
+  if (!open && t && card.classList.contains('open')) t.dataset.scroll = t.scrollTop;
+  if (open && !restoring) vx.classList.remove('kept');  // a panel the user opens slides in again
   card.classList.toggle('open', open);
   card.querySelectorAll('button[data-action="toggle-expand"]').forEach(b => b.setAttribute('aria-expanded', String(open)));
   if (!open) card.querySelectorAll('video').forEach(v => v.pause());
+  if (open && t && t.dataset.scroll) t.scrollTop = Number(t.dataset.scroll);
 }
 
 function playCard(card) {
@@ -2053,7 +2079,8 @@ function saveNote(key, textarea, card) {
   // Success shows a brief visual "saved" (CSS); only a failure goes into the role=status text.
   clearTimeout(savedEl._t);
   savedEl.classList.toggle('error', !ok);
-  savedEl.textContent = ok ? '' : "Couldn't save — browser storage is full or blocked";
+  const msg = ok ? '' : "Couldn't save — browser storage is full or blocked";
+  if (savedEl.textContent !== msg) savedEl.textContent = msg;  // don't re-announce the same failure
   savedEl.classList.add('show');
   if (ok) savedEl._t = setTimeout(() => savedEl.classList.remove('show'), 1200);
 }
@@ -2143,6 +2170,7 @@ function loadPlayer(placeholder) {
     if (!err) return;  // no actual video error
     errored = true;
     placeholder.style.display = 'flex';
+    placeholder.classList.add('err');
     placeholder.innerHTML =
       '<div class="play-icon" aria-hidden="true" style="background:#ff6b6b;color:#fff;font-size:18px">!</div>' +
       `<div role="alert" style="color:var(--text);font-weight:600">This video couldn't be loaded</div>` +
@@ -2292,6 +2320,12 @@ function updateDlTitle() {
   const list = downloadList();
   const gb = list.reduce((s, v) => s + (v.sizeMB || 0), 0) / 1024;
   dlTitle.textContent = `Download all ${list.length} videos (~${gb.toFixed(1)} GB)`;
+  const missing = UNIQUE_VIDEOS.filter(v => v.noRelease);
+  const note = document.getElementById('dl-note');
+  note.hidden = !missing.length;
+  note.textContent = missing.length
+    ? `Not included: ${missing.map(v => v.title).join(', ')} — not on the release yet, so get ${missing.length === 1 ? 'it' : 'them'} from Canvas.`
+    : '';
 }
 // Downloads navigate a few hidden iframes in rotation, so a slow or failed response
 // (e.g. an HTML error page) never replaces the hub, and back-to-back requests don't
@@ -2367,11 +2401,14 @@ document.getElementById('dl-open').addEventListener('click', () => {
   dlModal.showModal();
 });
 dlCancel.addEventListener('click', () => dlModal.close());
-// A click on the backdrop lands on the <dialog> itself; clicks inside land on .box. Require the
-// press to start there too, so drag-selecting text and releasing outside doesn't close it.
-let dlPressOnBackdrop = false;
+// A click on the backdrop lands on the <dialog> itself; clicks inside land on .box. Require both
+// the press and the release there, so a drag between the box and the backdrop doesn't close it.
+let dlPressOnBackdrop = false, dlReleaseOnBackdrop = false;
 dlModal.addEventListener('pointerdown', e => { dlPressOnBackdrop = e.target === dlModal; });
-dlModal.addEventListener('click', e => { if (e.target === dlModal && dlPressOnBackdrop) dlModal.close(); });
+dlModal.addEventListener('pointerup', e => { dlReleaseOnBackdrop = e.target === dlModal; });
+dlModal.addEventListener('click', e => {
+  if (e.target === dlModal && dlPressOnBackdrop && dlReleaseOnBackdrop) dlModal.close();
+});
 // Closing the dialog by any route (Escape, backdrop, Stop & close) stops the queue.
 dlModal.addEventListener('close', () => { dlCancelled = true; if (dlWake) dlWake(); });
 dlStart.addEventListener('click', () => {
@@ -2603,7 +2640,8 @@ function moduleFromHash() {
 function focusMain() { mainEl.focus({ preventScroll: true }); }
 function goToModule(name, { fromHash = false } = {}) {
   setNav(false, { returnFocus: false });
-  if (name !== activeModule) {
+  const changed = name !== activeModule;
+  if (changed) {
     // Remember the scroll position on the entry we're leaving, so Back returns to the same spot.
     if (!fromHash) history.replaceState({ ...(history.state || {}), y: window.scrollY }, '');
     activeModule = name;
@@ -2613,7 +2651,11 @@ function goToModule(name, { fromHash = false } = {}) {
   }
   if (!fromHash) {
     const slug = slugOf(activeModule);
-    if (location.hash.slice(1) !== slug) location.hash = slug;
+    if (location.hash.slice(1) !== slug) {
+      // Only a real module change gets a history entry; re-picking the current one just labels the URL.
+      if (changed) location.hash = slug;
+      else history.replaceState(history.state, '', '#' + slug);
+    }
   }
   focusMain();
 }
@@ -2642,7 +2684,9 @@ moduleListEl.addEventListener('click', e => {
 });
 window.addEventListener('hashchange', () => {
   const target = moduleFromHash();
-  if (target && target !== activeModule) goToModule(target, { fromHash: true });
+  // An unknown hash (e.g. a typo in the address bar) is relabelled with the module being shown.
+  if (!target) { history.replaceState(history.state, '', '#' + slugOf(activeModule)); return; }
+  if (target !== activeModule) goToModule(target, { fromHash: true });
 });
 document.querySelector('.skip-link').addEventListener('click', e => {
   e.preventDefault();  // keep the module slug in the URL
@@ -2728,12 +2772,17 @@ navToggle.addEventListener('click', () => setNav(true));
 navClose.addEventListener('click', () => setNav(false));
 document.getElementById('scrim').addEventListener('click', () => setNav(false));
 document.addEventListener('keydown', e => { if (e.key === 'Escape' && isNavOpen()) { e.preventDefault(); setNav(false); } });
+// Keep keyboard focus when the layout switches between drawer and sidebar. The browser may already
+// have blurred a control the switch hid, so decide from the last focused element.
+let lastFocus = null;
+document.addEventListener('focusin', e => { lastFocus = e.target; });
 narrowMQ.addEventListener('change', e => {
-  const focusInAside = asideEl.contains(document.activeElement);
+  const f = lastFocus;
+  const dropped = document.activeElement === document.body || document.activeElement === f;
   if (!e.matches) {
     setNav(false, { returnFocus: false });
-    if (document.activeElement === navClose) searchEl.focus();  // ✕ is hidden on desktop
-  } else if (focusInAside && !isNavOpen()) {
+    if (dropped && (f === navClose || f === navToggle)) searchEl.focus();  // ☰ and ✕ are hidden on desktop
+  } else if (dropped && f && asideEl.contains(f) && !isNavOpen()) {
     navToggle.focus();  // the closed drawer is hidden
   }
 });
