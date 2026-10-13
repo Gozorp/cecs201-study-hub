@@ -1237,8 +1237,9 @@
     main .fe-hero::before { display: none; }
     .video, .fe-priority-row, .fe-drill, .fe-topic, .fe-weight { break-inside: avoid; }
     main h2, main h3, main h4 { break-after: avoid; }
-    .fe-w-fill, .fe-drill-num { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-    main .fe-drill .fe-drill-num { color: #fff; }
+    .fe-w-fill { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    /* Outlined numerals read the same whether or not background graphics are printed. */
+    main .fe-drill .fe-drill-num { background: none; color: var(--accent); border: 2px solid var(--accent); }
   }
 </style>
 </head>
