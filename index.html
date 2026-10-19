@@ -767,6 +767,14 @@
     transform: translateY(-2px);
   }
   header .dl-btn:disabled { opacity: 0.6; cursor: default; transform: none; box-shadow: none; }
+  header a.study-btn {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: var(--accent); color: var(--ink-on-accent);
+    border: 1.5px solid var(--accent); border-radius: 999px;
+    padding: 10px 18px; font-weight: 800; font-size: 13px; white-space: nowrap;
+    transition: all var(--transition);
+  }
+  header a.study-btn:hover { color: var(--ink-on-accent); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
 
   #dl-modal {
     padding: 0; border: 0; background: none; color: var(--text);
@@ -984,6 +992,8 @@
     color: var(--text-soft);
   }
   main .fe-hero .fe-tag b { color: var(--accent); }
+  main .fe-hero a.fe-study { background: var(--accent); border-color: var(--accent); color: var(--ink-on-accent); text-decoration: none; }
+  main .fe-hero a.fe-study:hover { transform: translateY(-1px); }
 
   main .fe-section {
     background: var(--bg-card);
@@ -1172,6 +1182,8 @@
     header .stats { gap: 6px; }
     header .stats > span:not(:last-child) { display: none; }
     header .dl-btn { padding: 9px 13px; }
+    header a.study-btn { padding: 9px 13px; }
+    header .study-label { display: none; }
     header .dl-btn .dl-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; }
     .nav-toggle { display: inline-flex; align-items: center; justify-content: center; flex: none; width: 40px; height: 40px; border-radius: 12px; cursor: pointer; border: 1px solid var(--line-strong); background: var(--bg-card); color: var(--text); font: inherit; font-size: 18px; }
     .nav-close { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; margin: -8px 0 12px auto; border-radius: 12px; cursor: pointer; border: 1px solid var(--line-strong); background: var(--bg-card); color: var(--text); font: inherit; font-size: 16px; }
@@ -1191,6 +1203,8 @@
   @media (max-width: 420px) {
     header h1::before { display: none; }
     header .canvas-open { display: none; }
+    header .study-icon { display: none; }
+    header a.study-btn { padding: 9px 12px; }
     .vplayer .placeholder.err .play-icon { display: none; }  /* the error overlay must fit a ~140px-tall player */
   }
   @media (max-width: 640px) {
@@ -1255,6 +1269,7 @@
     <span class="stat-total"><b id="stat-videos">0</b> videos</span>
     <span class="stat-total"><b id="stat-mb">0</b> MB</span>
     <span><b id="stat-watched">0</b> watched</span>
+    <a class="study-btn" href="study/"><span class="study-icon" aria-hidden="true">✎</span><span>Study<span class="study-label"> mode</span></span></a>
     <button type="button" class="dl-btn" id="dl-open"><span aria-hidden="true">⬇</span><span class="dl-label"> Download all videos</span></button>
     <span><a href="https://csulb.instructure.com/courses/112467/modules" target="_blank" rel="noopener"><span class="canvas-open">Open </span>Canvas ↗</a></span>
   </div>
@@ -1988,7 +2003,8 @@ function renderMain() {
     });
   }
   let html = `<h2 id="main-title">${escapeHtml(m.name)}</h2>`;
-  html += `<div class="module-meta">${m.pages.length} page${m.pages.length===1?'':'s'} · ${moduleVideoCount(m)} video${moduleVideoCount(m)===1?'':'s'} · <a href="${COURSE.modulesUrl}" target="_blank" rel="noopener">Open Canvas modules ↗</a></div>`;
+  const study = studyHref(m.name);
+  html += `<div class="module-meta">${m.pages.length} page${m.pages.length===1?'':'s'} · ${moduleVideoCount(m)} video${moduleVideoCount(m)===1?'':'s'} · <a href="${COURSE.modulesUrl}" target="_blank" rel="noopener">Open Canvas modules ↗</a>${study ? ` <a href="${study}">Study this ${/^lab/i.test(m.name) ? 'lab' : 'topic'} →</a>` : ''}</div>`;
   html += filterNoteHtml();
 
   let anyShown = false;
@@ -2519,6 +2535,7 @@ function renderFinalExam() {
       <span class="fe-tag">📄 <b>4</b> source PDFs on Canvas</span>
       <span class="fe-tag">🧮 <b>2</b> past finals analyzed</span>
       <span class="fe-tag">🎓 Made by a student, for students</span>
+      <a class="fe-tag fe-study" href="${studyHref('Final Exam')}">✎ Take a practice final in Study mode →</a>
     </div>
   </div>`;
 
@@ -2625,6 +2642,13 @@ function escapeHtml(s) {
 }
 
 /* ---------- Navigation (URL hash = current module, so refresh/Back/links work) ---------- */
+// The matching page of the study app (study/), or null.
+function studyHref(name) {
+  if (name === 'Final Exam') return 'study/#/final';
+  const m = name.match(/^(Topic|Lab)\s+(\d+)/i);
+  if (!m) return null;
+  return /^lab$/i.test(m[1]) ? 'study/#/s/labs' : `study/#/s/t${m[2]}`;
+}
 function slugOf(name) {
   if (name === 'Final Exam') return 'final-exam';
   const m = name.match(/^(Topic|Lab)\s+(\d+)/i);
